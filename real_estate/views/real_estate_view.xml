@@ -12,11 +12,11 @@
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
-                        <div class="oe_button_box">
-                            <button class="oe_stat_button" name="attachment_list_view" type="object" icon="fa-files-o">
-                                <field string="Documents" name="attachment_number" widget="statinfo"/>
-                            </button>
-                        </div>
+<!--                        <div class="oe_button_box">-->
+<!--                            <button class="oe_stat_button" name="attachment_list_view" type="object" icon="fa-files-o">-->
+<!--                                <field string="Documents" name="attachment_number" widget="statinfo"/>-->
+<!--                            </button>-->
+<!--                        </div>-->
                         <group>
                             <field name="property_charact" widget="radio" options="{'horizontal': true}"/>
                         </group>
