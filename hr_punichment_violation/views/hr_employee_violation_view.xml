@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_hr_employee_violation_form" model="ir.ui.view">
+            <field name="name">hr.employee.violation.form</field>
+            <field name="model">hr.employee.violation</field>
+            <field name="arch" type="xml">
+                <form string="Employee Violation">
+                    <header>
+                        <button name="confirm" type="object" states="draft" string="Approve" class="oe_highlight"/>
+						<button name="calculate" type="object" states="in_progress" string="Calculate"/>
+						<field name="state" widget="statusbar" statusbar_visible="draft,in_progress,done"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="violation_id" required="1"/>
+                                <field name="violation_date" required="1"/>
+                            </group>
+                            <group>
+                                <field name="employee_id" required="1"/>
+                        </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="penalty_id" required="1"/>
+                            </group>
+                            <group>
+                                <field name="penalty_start_date" required="1"/>
+                            </group>
+                            <group>
+                                <field name="amount_type" required="1"/>
+                            </group>
+                            <group>
+                                <field name="percentage" attrs="{'invisible' : [('amount_type', '!=', 'percent')]}"/>
+                                <field name="amount"  attrs="{'invisible' : [('amount_type', '!=', 'amount')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="penalty_committee" string="Penalty Committee">
+                                <field name="penalty_committee"/>
+                            </page>
+                            <page name="note" string="Description">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>               
+               
+
+        <record id="view_hr_employee_violation_tree" model="ir.ui.view">
+            <field name="name">hr.employee.violation.tree</field>
+            <field name="model">hr.employee.violation</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Violation">
+                    <field name="name"/>
+                    <field name="violation_id"/>
+                    <field name="employee_id"/>
+                    <field name="violation_date"/>
+                    <field name="penalty_id"/>
+                    <field name="penalty_start_date"/>
+                    <field name="amount"/>
+                </tree>   
+            </field>
+        </record>
+
+        <record id="hr_employee_violation_action" model="ir.actions.act_window">
+            <field name="name">Employee Violation</field>
+            <field name="res_model">hr.employee.violation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="hr_employee_violation_menu" parent ="hr_violation_punichment_menu" name="Employee Violation" sequence="1" action="hr_employee_violation_action"/>
+    </data>
+</odoo>

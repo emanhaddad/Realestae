@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="payemnt_confirmation_wiz_form">
+            <field name="name">payemnt.confirmation.wiz.form</field>
+            <field name="model">payemnt.confirmation.wiz</field>
+            <field name="arch" type="xml">
+                <form string="description">
+                    <sheet>
+                        <group>
+                            <field name="amount"/>
+                           
+                            <field name="payemnt_date"/>
+                            <field name="journal_id" required="1"/>
+
+                        </group>
+                        <group>
+                            <field name="payment_state"/>
+                            <field name="payment_type"/>
+                            <field name="check_number" attrs="{'invisible':[('payment_type','!=','check')],'required':[('payment_type','=','check')]}"/>
+                            <field name="note"/>
+                        </group>
+                        <footer>
+                            <!-- <button name="confirm_payment" string="Confirm Payment" type="object" default_focus="1" class="oe_highlight"/> -->
+                  or
+                            <button string="Close" class="oe_link" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="payemnt_confirmation_wiz_action" model="ir.actions.act_window">
+            <field name="name">payemnt.confirmation.wiz.action</field>
+            <field name="res_model">payemnt.confirmation.wiz</field>
+             <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    
+
+        <record model="ir.ui.view" id="account_analytic_account_payment_view_form">
+            <field name="name">Rent Contract Payment Form View</field>
+            <field name="model">rent.contract.payment</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!--button name="%(rent_contract.payemnt_confirmation_wiz_action)d" string="Confirm Payment" type="action" class="oe_highlight" states="draft" /-->
+                        
+                        <button name="return_to_paid" string="Reset To Paid" type="object" class="oe_highlight" states='refused'/>
+                        <button name="set_to_draft" string="Reset To Draft" type="object" class="oe_highlight" states='confirmed'/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box">
+                            <button class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
+                                    <field string="Documents" name="attachment_number" widget="statinfo"/>
+                            </button>
+                        </div>
+                         <group col="1">
+                            <h1 class="label label-danger" attrs="{'invisible':[('state', '!=', 'refused')]}" >
+                                <field name="refues_reason" style="width:100%;"/>
+                            </h1>
+                        </group>
+                        <group>
+                            <field name="refues_date" attrs="{'invisible':[('state', '!=', 'refused')]}"/>
+                        </group>
+                        <group col="4" colspan="2" string="Payment Info">
+                            <field name='name' readonly="1"/>
+                            <field name='analytic_id' attrs="{'readonly':[('state','!=','draft')],'required':[('state','=','draft')]}"/>
+                            <field name='property_id' readonly="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name='unit_id' readonly="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name='renter_id' readonly="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="user_ids" invisible="1"/>
+                            <field name='supervisor_id' readonly="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name='due_date' attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        <group col="4" colspan="2" string="Payment Amounts">
+                            <field name='pay_date' required="1" attrs="{'readonly':[('state','!=','draft')]}" placeholder="التاريخ الميلاي"/>
+                            <field name='pay_amount' readonly="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                         
+                            <field name='paid_amount'/>
+                            <field name="payment_state" readonly="1"/>
+                            <field name="journal_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="account_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="account_analytic_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="payment_id" readonly="1" invisible="1"/>
+                            <field name="move_id" readonly="1"/>
+                            <field name="payment_type" readonly="1" invisible="1"/>
+                            <field name="check_number" readonly="1" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name='saltat_bool' invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="note" />
+                        </group>
+                        <notebook>
+                            <page string="Next Payment">
+                                <field name='related_payment_ids'>
+                                    <tree editable="bottom" create="false">
+                                        <field name='property_id' />
+                                        <field name='name' />
+                                        <field name='renter_id'/>
+                                        <field name='pay_amount'/>
+                                        <field name='state' readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="account_analytic_account_payment_view_tree">
+            <field name="name">Rent Contract Payment Tree View</field>
+            <field name="model">rent.contract.payment</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='property_id'/>
+                    <field name='unit_id'/>
+                    <field name='renter_id'/>
+                    <field name="due_date"/>
+                    <field name='pay_amount'/>
+                    <field name="paid_amount"/>
+                    <field name="pay_date"/>
+                    <field name='state'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_rent_contract_payment_filter" model="ir.ui.view">
+            <field name="name">rent.contract.payment</field>
+            <field name="model">rent.contract.payment</field>
+            <field name="arch" type="xml">
+                <search string="Rent Contract Payment">
+                    <field name="name" string="Name / Unit / property / Renter" filter_domain="['|','|','|',('name','ilike',self),('property_id','ilike',self),('renter_id','ilike',self),('unit_id','ilike',self)]"/>
+                    <field name="renter_id"/>
+                    <field name="supervisor_id"/>
+                    <field name="due_date"/>
+                    <field name="pay_date"/>
+                    <separator />
+                    <filter string="My Contract" name="assigned_to_me" domain="[('supervisor_id','=',uid)]" help="Contracts that are assigned to me"/>
+                    <filter string="Unassigned" name="unassigned" domain="[('supervisor_id','=', False)]" help="No Supervisor Set"/>
+                    <separator />
+
+                    <filter string="Late Payments" name="activities_overdue" domain="[('due_date', '&lt;', context_today().strftime('%Y-%m-%d'))]" help="Show all records which has due payment before today"/>
+                    <filter string="Today Payments" name="activities_today" domain="[('due_date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Future Paymants (7 days)" name="activities_week" domain="['&amp;', ('due_date', '&gt;=', context_today().strftime('%Y-%m-%d')),
+                                    ('due_date', '&lt;=', (context_today()+datetime.timedelta(days=7)).strftime('%Y-%m-%d'))
+                        ]"/>
+                    <filter string="Future Payments (All)" name="activities_upcoming_all" domain="[('due_date', '&gt;', context_today().strftime('%Y-%m-%d'))
+                    ]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="State" name="groupby_state" domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Due Date" name="groupby_due_date" domain="[]" context="{'group_by':'due_date'}"/>
+                        <filter string="Payment Type" name="groupby_payment_type" domain="[]" context="{'group_by':'payment_type'}"/>
+                        <filter string="Payment State" name="groupby_payment_state" domain="[]" context="{'group_by':'payment_state'}"/>
+                        <filter string="Super Visor" name="groupby_salesperson" domain="[]" context="{'group_by':'supervisor_id'}"/>
+                        <filter name="renter" string="Renter" help="Partner" domain="[]" context="{'group_by':'renter_id'}"/>
+                        <filter string="Property" name="groupby_property" domain="[]" context="{'group_by':'property_id'}"/>
+                        <filter string="Unit" name="groupby_unit" domain="[]" context="{'group_by':'unit_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="account_analytic_account_payment_action" model="ir.actions.act_window">
+            <field name="name">Rent Contract Payment</field>
+            <field name="res_model">rent.contract.payment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to create a new contract payment.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_due_payment_tree" model="ir.actions.act_window">
+            <field name="name">Due Payments</field>
+            <field name="res_model">rent.contract.payment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('due_date', '&lt;', time.strftime('%Y-%m-%d'))]</field>
+            <field name="context">{
+                    'group_by': ['analytic_id'],
+            }
+            </field>
+        </record>
+
+        <record id="action_valid_contracts_tree" model="ir.actions.act_window">
+            <field name="name">Valid Contracts</field>
+            <field name="res_model">realestate.contract.model</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('date_end', '&gt;=', time.strftime('%Y-%m-%d'))]</field>
+            <field name="context">{
+                    'group_by': ['partner_id'],
+                    'default_recurring_invoices': 1,
+            }
+            </field>
+        </record>
+
+        <record id="action_expired_contracts_tree" model="ir.actions.act_window">
+            <field name="name">Expired Contracts</field>
+            <field name="res_model">realestate.contract.model</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('date_end', '&lt;', time.strftime('%Y-%m-%d'))]</field>
+            <field name="context">{
+                    'group_by': ['partner_id'],
+                    'default_recurring_invoices': 1,
+                    'search_default_not_finished':1, 
+                    'search_default_recurring_invoices':1, 
+                    'default_recurring_invoices': 1
+            }
+            </field>
+        </record>
+
+        <menuitem action="account_analytic_account_payment_action" id="menu_contract_payment" name="Payments List" sequence="2" parent="menu_rent_contract" groups="rent_contract.payment_list_group" />
+
+        <record id="print_contract_document_action" model="ir.actions.report">
+            <field name="name">Payment Document</field>
+            <field name="model">rent.contract.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">rent_contract.payment_document_report</field>
+            <field name="report_file">rent_contract.payment_document_report</field>
+            <field name="attachment_use">False</field>
+        </record>
+
+
+
+    </data>
+</odoo>

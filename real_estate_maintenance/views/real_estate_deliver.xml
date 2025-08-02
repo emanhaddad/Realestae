@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="real_estate_delivery_view_form" model="ir.ui.view">
+        <field name="name">real.estate.delivery</field>
+        <field name="model">real.estate.delivery</field>
+        <field name="arch" type="xml">
+            <form string="Real estate delivery">
+                <header>
+                        <button string="Set to new" name="set_to_new" type="object" states='cancel' class="oe_highlight" />
+
+                        <button string="First confirm" name="action_wait_finance" type="object" states='new' class="oe_highlight" />
+
+                        
+                        <button string="Financial approval" name="action_wait_investment" type="object" states='wait_finance_approve' class="oe_highlight" groups="account.group_account_user"/>
+
+                        <button string="investment approval" name="action_ceo_waiting" type="object" states='wait_investment_approve' class="oe_highlight" groups="real_estate_maintenance.delivery_investment_group"/>
+                        <button string="Confirm" name="action_confirm" type="object" states="wait_ceo_approve"  class="oe_highlight" groups="real_estate_maintenance.delivery_ceo_group"/>
+
+                        <field name="state" widget="statusbar"/>
+                        <!-- statusbar_visible="new,wait,confirmed,cancel" -->
+
+                </header>
+                <sheet>
+                    
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Title"/>
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="phone"/>
+                            <field name="contract_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="unit_id" domain="[('state','=','evacuate')]" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="real_estate_id" string="Real Estate"/>
+                            <field name="evacuation_date" />  
+                            <field name="delivery_date" />  
+                            <!--field name="cancel_reason_id" attrs="{'invisible':[('state','!=','cancel')]}"/-->
+                            
+                            <field name="notify_date" />
+                            <field name="actual_delivere" />  
+
+                            <!--field name="attachment_id" attrs="{'required':[('state','=','wait')],'invisible':[('state','=','available')]}"/-->
+                           
+                        </group>
+                        <!-- <group>
+                            <field name="total_amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            <field name="amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />  
+                            
+                            <field name="currency_id" invisible="0"/>
+                            <field name="paid_amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            <field name="residual_amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            
+                        </group> -->
+                       
+                            
+                    </group>
+                    <field name="narration" placeholder="description" />
+                   
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+              
+            </form>
+        </field>
+    </record>
+
+     <record id="real_estate_delivery_view_tree" model="ir.ui.view">
+        <field name="name">real_estate_delivery.tree</field>
+        <field name="model">real.estate.delivery</field>
+        <field name="arch" type="xml">
+            <tree string="Delivery" multi_edit="1" >
+                <field name="name"/>
+                <field name="real_estate_id"/>
+                <field name="unit_id"/>
+                <field name="evacuation_date" />
+                <field name="partner_id" />
+                <field name="state"/>
+               
+            </tree>
+        </field>
+    </record>
+
+
+    
+
+    <record model="ir.actions.act_window" id="real_estate_delivery_act_window">
+        <field name="name">Real Estate delivery</field>
+        <field name="res_model">real.estate.delivery</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+   
+    <menuitem id="menu_real_estate_delivery" parent="real_estate.menu_base_real_estate" action="real_estate_delivery_act_window" sequence="10" />
+
+    
+</odoo>

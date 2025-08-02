@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_real_estate_delegation">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <h2 style="text-align: center;">تفويض بالبيع</h2>
+                        <p>تم تحرير هذا التفويض بتاريخ</p>
+                        <p>م 2022/.../... - هـ 1444 .../..../</p>
+                        <br/>
+                        <p>فوضت أنا الأستاذ/ <t t-esc="doc.user_id"/> سعودي الجنسية</p>
+                        <p>وصاحب الهوية رقم/ <t t-esc="doc.partner_id"/> تاريخ الميلاد .../.../........... جوال رقم/ <t t-esc="doc.partner_id.phone"/></p>
+                        <p>ي مؤسسة آفاق بلدي العقارية وبدون إجبار ولا إكراه من أحد</p>
+                        <p>ببيع الوحدة السكنية المملوكة لي بوثيقة عقد نظامية رقم: <t t-esc="doc.contract_id"/></p>
+                        <p>من مؤسسة آفاق بلدي العقارية وتفاصيل الشقة على النحو التالي:</p>
+                        <p>المملوك لشر ع غرف أمامية مساحة ... م الدور ... رقم ... من مشروع مخطط السلطان، وللمؤسسة حق ...</p>
+                        <p>398 الريان على الأرض رقم بلدي العقارية الواقع بحي</p>
+                        <p>وإنهاء كافة الإجراءات اللازمة الاستلام والتسليم ومراجعة جميع الجهات ذات العلاقة</p>
+                        <p>المفوض له/ <t t-esc="doc.name"/> العقارية المفوض/ <t t-esc="doc.partner_id"/></p>
+                        <p>التوقيع / ....................</p>
+                        <p>الشاهد الأول/ .................... التوقيع/ ....................</p>
+                        <p>الهوية/ .................... تاريخ الميلاد/ ....................</p>
+                        <p>رقم الجوال/ ....................</p>
+                        <p>الشاهد الثاني/ .................... التوقيع/ ....................</p>
+                        <p>الهوية/ .................... تاريخ الميلاد/ ....................</p>
+                        <p>رقم الجوال/ ....................</p>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_report_delegation" model="ir.actions.report">
+            <field name="name">Delegation Report</field>
+            <field name="model">real.estate.delegate</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">real_estate_maintenance.report_delegation</field>
+            <field name="report_file">real_estate_maintenance.report_delegation</field>
+            <field name="print_report_name">'Delegation - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_real_estate_delegate"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Define the report template -->
+        <template id="report_delegation">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="real_estate_maintenance.report_delegation_document" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_delegation_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+                <div class="page">
+                    <div class="oe_structure"/>
+                    
+                    <h2 class="mt16 text-center">
+                        تفويض بالبيع
+                    </h2>
+                    
+                    <p>بسم الله والصلاة والسلام على رسول الله صلى الله عليه وسلم</p>
+                    
+                    <p>
+                        تم تحرير هذا التفويض بتاريخ <span t-field="doc.date"/> - هـ
+                    </p>
+                    
+                    <p>
+                        فوضت أنا الأستاذ/ <span t-field="doc.partner_id.name"/> سعودي الجنسية وصاحب الهوية رقم/ <span t-field="doc.partner_id.vat"/> جوال رقم/ <span t-field="doc.partner_id.mobile"/>
+                    </p>
+                    
+                    <p>
+                        ببيع الوحدة السكنية المملوكة لي بوثيقة عقد نظامية <span t-field="doc.user_id.company_id.vat"/> العقارية سجل رقم:
+                    </p>
+                    
+                    <p>
+                        وتفاصيل الشقة على النحو التالي: <br/>
+                        <!-- - المشروع: <span t-field="doc.base_property_id"/> <br/> -->
+                        - عدد الغرف: <span t-field="doc.room_count"/> <br/>
+                        - المساحة: <span t-field="doc.area"/> م² <br/>
+                        <!-- - الدور: <span t-field="doc.property_floors"/> <br/> -->
+                        - رقم الشقة: <span t-field="doc.apartment_number"/> <br/>
+                    </p>
+                    
+                    <p>
+                        وللمؤسسة حق الاستلام والتسليم ومراجعة جميع الجهات ذات العلاقة وإنهاء كافة الإجراءات اللازمة والتوقيع فيما يتطلبه ذلك.
+                    </p>
+                    
+                    <p>
+                        والله خير الشاهدين.
+                    </p>
+                    
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>المفوض له/ آفاق بلدي العقارية</th>
+                                <th>المفوض/</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div t-if="doc.signature">
+                                        <img t-att-src="'data:image/png;base64,%s' % doc.signature.decode('ascii')"
+                                             style="max-width: 200px;"/>
+                                    </div>
+                                    <span>التوقيع:</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        <span>الشاهد الأول: ...................................</span><br/>
+                        <span>الهوية: ............................................</span><br/>
+                        <span>رقم الجوال: ..................................</span><br/>
+                    </p>
+                    
+                    <p>
+                        <span>الشاهد الثاني: ...................................</span><br/>
+                        <span>الهوية: ............................................</span><br/>
+                        <span>رقم الجوال: ..................................</span><br/>
+                    </p>
+                    
+                    <p>
+                        نشهد لله تعالى على صحة التفويض وصحة التواقيع المنسوبة للطرفين.
+                    </p>
+                </div>
+            </t>
+        </template>
+ 
+    </data>
+</odoo>

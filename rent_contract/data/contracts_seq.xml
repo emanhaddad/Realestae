@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <record forcecreate="1" id="renter_code_sequ" model="ir.sequence">
+       <field name="name">Renter Code sequence</field>
+       <field name="code">res.partner.sequence</field>
+       <field name="prefix">/0000</field>
+       <field name="active">True</field>
+       <field eval="1" name="number_increment"/>
+    </record>
+
+ <record forcecreate="1" id="payment_sequ" model="ir.sequence">
+   <field name="name">Payment sequence</field>
+   <field name="code">rent.contract.payment</field>
+   <field name="prefix">Pay/0000</field>
+   <field name="active">True</field>
+   <field eval="1" name="number_increment"/>
+  </record>
+
+
+ <record forcecreate="1" id="contract_sequence" model="ir.sequence">
+   <field name="name">Congract sequence</field>
+   <field name="code">realestate.contract.model</field>
+   <field name="prefix">C/0000</field>
+   <field name="active">True</field>
+   <field eval="1" name="number_increment"/>
+  </record>
+
+
+    </data>
+</odoo>

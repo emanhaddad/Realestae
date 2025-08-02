@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+
+       
+
+        <!-- form view of expense inherit-->
+        <record model="ir.ui.view" id="expense_request_form_inherit">
+            <field name="name">Expense</field>
+            <field name="model">expense.request</field>
+            <field name="inherit_id" ref="real_estate_expenses.expense_request_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                    <xpath expr='//header' position="inside">
+                        <button string="Transfer" name="transfer" type="object" states='approve' class="oe_highlight" groups="real_estate_expenses_account.expense_transfer_group"/>
+                    </xpath>
+                    <xpath expr="//field[@name='amount']" position="after">
+                            <field name="payment_method" attrs="{'readonly':[('state','=','transferd')],'required':[('state','=','approve')]}"/>
+                          <field name="move_id" attrs="{'invisible':[('move_id','=',False)]}" required="0"/>
+                          <field name="exchange_type_id"/>
+                    </xpath>
+                </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,729 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cash_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-24 14:31+0000\n"
+"PO-Revision-Date: 2018-12-24 14:31+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "(edit)"
+msgstr "تعديل"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line__account_id
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_reason__account_id
+msgid "Account"
+msgstr "الحساب"
+
+#. module: cash_request
+#: model:ir.model,name:cash_request.model_account_voucher
+msgid "Accounting Voucher"
+msgstr "السند المحاسبي"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_view
+msgid "Accounts"
+msgstr "الحسابات"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_needaction
+msgid "Action Needed"
+msgstr "الإجراء المطلوب"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Address"
+msgstr "العنوان"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__amount
+msgid "Amount by Numbers"
+msgstr "المبلغ بالأرقام"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__amount_in_word
+msgid "Amount in Text"
+msgstr "المبلغ بالحروف"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_view
+msgid "Approve"
+msgstr "موافقة"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_view
+msgid "Back"
+msgstr "رفض"
+
+#. module: cash_request
+#: model:ir.actions.act_window,name:cash_request.action_partner_beneficiary_form
+msgid "Beneficiary"
+msgstr "المستفيدين"
+
+#. module: cash_request
+#: model:ir.ui.menu,name:cash_request.beneficiary_menu
+msgid "Beneficiary"
+msgstr "المطالبة المالية"
+
+#. module: cash_request
+#: model:ir.filters,name:cash_request.filter_cash_order_by_date
+msgid "By Date"
+msgstr "بالتاريخ"
+
+#. module: cash_request
+#: model:ir.filters,name:cash_request.filter_cash_order_department
+msgid "By Department"
+msgstr "بالإدارة"
+
+#. module: cash_request
+#: model:ir.filters,name:cash_request.filter_cash_order_by_employee
+msgid "By Employee"
+msgstr "بالموظف"
+
+#. module: cash_request
+#: model:ir.filters,name:cash_request.filter_cash_order_partner
+msgid "By Partner"
+msgstr "بالمستفيد"
+
+#. module: cash_request
+#: model:ir.filters,name:cash_request.filter_cash_order_state
+msgid "By State"
+msgstr "بالحالة"
+
+#. module: cash_request
+#: model:ir.actions.act_window,name:cash_request.cash_order_form_action
+#: model:ir.model.fields,field_description:cash_request.field_account_voucher__cash_order_id
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_tree_view
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_view
+msgid "Cash Order"
+msgstr "المطالبة المالية"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__line_ids
+msgid "Cash Order Line"
+msgstr "بنود المطالبة"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_account_move__cash_order_move
+msgid "Cash Order Move"
+msgstr "الحركات المحاسبية"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__check_number
+msgid "Check Number"
+msgstr "رقم الشيك"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "City"
+msgstr "المدينة"
+
+#. module: cash_request
+#: model_terms:ir.actions.act_window,help:cash_request.action_partner_beneficiary_form
+msgid "Click to add a contact in your address book."
+msgstr ""
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__company_id
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Company"
+msgstr "المؤسسة"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_view
+msgid "Confirm"
+msgstr "موافقة"
+
+#. module: cash_request
+#: model:ir.model,name:cash_request.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Contact / Address"
+msgstr "العنوان / جهة الإتصال"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Contact Name"
+msgstr "اسم جهة الاتصال"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.benefectiry_tree_view
+msgid "Contacts"
+msgstr "جهات الاتصال"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Contacts & Addresses"
+msgstr "بيانات الاتصال"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Country"
+msgstr "دولة"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Create company"
+msgstr "إنشاء مؤسسة"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__create_uid
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line__create_uid
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_reason__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__create_date
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line__create_date
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_reason__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__date
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_fielter
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__department_id
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_fielter
+msgid "Department"
+msgstr "القسم"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__disc
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__display_name
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line__display_name
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_reason__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: cash_request
+#: selection:cash.order,state:0
+msgid "Draft"
+msgstr "مبدئية"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__user_id
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_fielter
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: cash_request
+#: model:ir.actions.report,name:cash_request.cash_order_report_view
+#: model:ir.ui.menu,name:cash_request.cash_order_menu
+#: model:ir.ui.menu,name:cash_request.cash_order_root_menu
+#: model:ir.ui.menu,name:cash_request.cash_order_sub_menu
+msgid "Financial Ratification"
+msgstr "المطالبة المالية"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__id
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line__id
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_reason__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: cash_request
+#: model:ir.model.fields,help:cash_request.field_cash_order__message_unread
+msgid "If checked new messages require your attention."
+msgstr "إذا حددته، سيتم إخطارك بالرسائل الجديدة."
+
+#. module: cash_request
+#: model:ir.model.fields,help:cash_request.field_cash_order__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا حددته، سيتم إخطارك بالرسائل الجديدة."
+
+#. module: cash_request
+#: model:ir.model.fields,help:cash_request.field_cash_order__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده ، فإن بعض الرسائل بها خطأ في التسليم."
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Internal Notes"
+msgstr "ملاحظات داخلية"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Internal note..."
+msgstr "ملاحظات داخلية .. "
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__journal_id
+msgid "Journal"
+msgstr "دفتر اليومية"
+
+#. module: cash_request
+#: model:ir.model,name:cash_request.model_account_move
+msgid "Journal Entries"
+msgstr "قيود اليومية"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__move_related
+msgid "Journal Item"
+msgstr "عنصر يومية"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__move_ids
+msgid "Journals"
+msgstr "اليوميات"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order____last_update
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line____last_update
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_reason____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__write_uid
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line__write_uid
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_reason__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__write_date
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line__write_date
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_reason__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Misc"
+msgstr "متفرقات"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Mobile:"
+msgstr "الجوال:"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Name"
+msgstr "الاسم"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_view
+msgid "Number"
+msgstr "المتسلسل"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_has_error_counter
+msgid "Number of error"
+msgstr "عدد الاخطاء"
+
+#. module: cash_request
+#: model:ir.model.fields,help:cash_request.field_cash_order__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب اجراء"
+
+#. module: cash_request
+#: model:ir.model.fields,help:cash_request.field_cash_order__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل مع خطأ في التسليم"
+
+#. module: cash_request
+#: model:ir.model.fields,help:cash_request.field_cash_order__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: cash_request
+#: model_terms:ir.actions.act_window,help:cash_request.action_partner_beneficiary_form
+msgid "Odoo helps you easily track all activities related to\n"
+"                a customer: discussions, history of business opportunities,\n"
+"                documents, etc."
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_view
+msgid "Other"
+msgstr "غير ذلك"
+
+#. module: cash_request
+#: selection:cash.order,state:0
+msgid "Paid"
+msgstr "مدفوعة"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__partner_id
+msgid "Partner"
+msgstr "المستفيد"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Partners"
+msgstr "المستفيدين"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_view
+msgid "Payment"
+msgstr "دفع"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Phone:"
+msgstr "رقم الهاتف"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Purchase"
+msgstr "الشراء"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_view
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: cash_request
+#: selection:cash.order,state:0
+msgid "Refused"
+msgstr "مرفوضة"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "SDG"
+msgstr "ج.س"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Sale"
+msgstr "المبيعات"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Sales & Purchases"
+msgstr "المبيعات و المشتريات"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_fielter
+msgid "Search Cash Order"
+msgstr "بحث المطالبة المالية"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__name
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__state
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "State"
+msgstr "الحالة"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Street 2..."
+msgstr "الشارع 2"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Street..."
+msgstr "الشارع..."
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "Tags..."
+msgstr "العلامات ..."
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_unread
+msgid "Unread Messages"
+msgstr "الرسائل الجديدة"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__voucher_id
+#: model:ir.module.category,name:cash_request.category_voucher
+msgid "Voucher"
+msgstr "قيد"
+
+#. module: cash_request
+#: model:res.groups,name:cash_request.voucher_Auditor
+msgid "Voucher Auditor"
+msgstr "المراجع"
+
+#. module: cash_request
+#: model:res.groups,name:cash_request.voucher_department_manger
+msgid "Voucher Department Manager "
+msgstr "مدير إدارة"
+
+#. module: cash_request
+#: model:res.groups,name:cash_request.voucher_finicial_manger
+msgid "Voucher Finacial Manager "
+msgstr "المدير المالي"
+
+#. module: cash_request
+#: model:res.groups,name:cash_request.voucher_general_manager
+msgid "Voucher General Manager"
+msgstr ""
+
+#. module: cash_request
+#: model:res.groups,name:cash_request.voucher_Payment
+msgid "Voucher Payment"
+msgstr "الدفعيات"
+
+#. module: cash_request
+#: model:res.groups,name:cash_request.voucher_user
+msgid "Voucher user"
+msgstr "مستخدم"
+
+#. module: cash_request
+#: selection:cash.order,state:0
+msgid "Waiting For General Manger"
+msgstr "فى إنتظار موافقة المدير العام"
+
+#. module: cash_request
+#: selection:cash.order,state:0
+msgid "Waiting for Finacial Manager"
+msgstr "فى إنتظار موافقة المدير المالي"
+
+#. module: cash_request
+#: selection:cash.order,state:0
+msgid "Wating for Payment"
+msgstr "فى إنتظار الدفع"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: cash_request
+#: model:ir.model.fields,help:cash_request.field_cash_order__website_message_ids
+msgid "Website communication history"
+msgstr "سجل تواصل الموقع"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "ZIP"
+msgstr "الرمز البريدي"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order__active
+msgid "active"
+msgstr "نشط"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_res_partner__beneficiary
+msgid "beneficiary"
+msgstr "المستفيد"
+
+#. module: cash_request
+#: model:ir.model,name:cash_request.model_cash_order
+msgid "cash.order"
+msgstr "المطالبة المالية"
+
+#. module: cash_request
+#: model:ir.model,name:cash_request.model_cash_order_line
+msgid "cash.order.line"
+msgstr "بنود المطالبة المالية"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "e.g. Mr."
+msgstr "مثلا السيد"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "e.g. Sales Director"
+msgstr "مثلا مدير مبيعات"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "e.g. www.odoo.com"
+msgstr "مثلا www.odoo.com"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.view_beneficiary_form_edit
+msgid "internal note..."
+msgstr "مذكرة داخلية ..."
+
+#. module: cash_request
+#: code:addons/cash_request/models/cash_request.py:94
+#, python-format
+msgid "invalid amount \n"
+" pleas check that the amount is equals to liens amount  ^_^  "
+msgstr "الرجاء التأكد من ان مجموع مبالغ البنود يساوي المبلغ الإجمالي"
+
+#. module: cash_request
+#: code:addons/cash_request/models/cash_request.py:66
+#, python-format
+msgid "it seems that there are no purchase journal please configuer it first."
+msgstr "يبدو عدم وجود يومية مشتريات .. رجاءً قم بإعدادها اولا"
+
+#. module: cash_request
+#: model:ir.model.fields,field_description:cash_request.field_cash_order_line__order_id
+msgid "order id"
+msgstr "المطالبة"
+
+#. module: cash_request
+#: selection:cash.order,state:0
+msgid "waiting for Auditor"
+msgstr "فى إنتظار موافقة المراجع"
+
+#. module: cash_request
+#: selection:cash.order,state:0
+msgid "wating for Department Manager"
+msgstr "فى إنتظار موافقة مدير الإدارة"
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "البيان"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "التاريخ"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "التوقيع"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "الجهة الطالبة"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "الدفعيات"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "الرقم"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "المبلغ"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "المبلغ كتابة"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "المدير العام"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "المدير المالي"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "المراجع"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "المستفيد"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "تحويل"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "شيك"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "مدير إدارة الجهة الطالبة"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "مطالبة مالية"
+msgstr ""
+
+#. module: cash_request
+#: model_terms:ir.ui.view,arch_db:cash_request.cash_order_report
+msgid "نقد"
+msgstr ""

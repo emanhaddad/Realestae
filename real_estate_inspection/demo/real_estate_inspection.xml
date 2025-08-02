@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo noupdate="1">
+
+    <!--Items-->
+    <record model="real.estate.inspection.item" id="real_estate_inspection_item_demo_1">
+       <field name="name">Electricity</field>
+    </record>
+
+    <record model="real.estate.inspection.item" id="real_estate_inspection_item_demo_2">
+       <field name="name">Asanseer</field>
+    </record>
+    <record model="real.estate.inspection.item" id="real_estate_inspection_item_demo_3">
+       <field name="name">Exterior</field>
+    </record>
+
+    <record model="real.estate.inspection.item" id="real_estate_inspection_item_demo_4">
+       <field name="name">Locker</field>
+    </record>
+
+    <record model="real.estate.inspection.item" id="real_estate_inspection_item_demo_5">
+       <field name="name">Water Reservoirs</field>
+    </record>
+
+    <record model="real.estate.inspection.item" id="real_estate_inspection_item_demo_6">
+       <field name="name">Doors</field>
+    </record>
+    <record model="real.estate.inspection.item" id="real_estate_inspection_item_demo_7">
+       <field name="name">Furniture</field>
+    </record>
+    <record model="real.estate.inspection.item" id="real_estate_inspection_item_demo_8">
+       <field name="name">Interior</field>
+    </record>
+
+    <!-- Appreciation-->
+
+    <record model="appreciation.setting" id="appreciation_setting_demo_1">
+       <field name="status">exellent</field>
+       <field name="from_degree">90</field>
+       <field name="to_degree">100</field>
+    </record>
+
+    <record model="appreciation.setting" id="appreciation_setting_demo_2">
+       <field name="status">verygood</field>
+       <field name="from_degree">80</field>
+       <field name="to_degree">89</field>
+    </record>
+
+    <record model="appreciation.setting" id="appreciation_setting_demo_3">
+       <field name="status">good</field>
+       <field name="from_degree">60</field>
+       <field name="to_degree">79</field>
+    </record>
+
+    <record model="appreciation.setting" id="appreciation_setting_demo_4">
+       <field name="status">acceptable</field>
+       <field name="from_degree">40</field>
+       <field name="to_degree">59</field>
+    </record>
+
+    <record model="appreciation.setting" id="appreciation_setting_demo_5">
+       <field name="status">bad</field>
+       <field name="from_degree">0</field>
+       <field name="to_degree">39</field>
+    </record>
+</odoo>

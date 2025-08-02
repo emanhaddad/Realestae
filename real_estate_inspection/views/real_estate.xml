@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="real_estates_form_inherit">
+        <field name="name">real.estate.form (in real_estates_inspection)</field>
+        <field name="model">real.estate</field>
+        <field name="inherit_id" ref="real_estate.real_estates_form"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" position="inside">
+                <button class="oe_stat_button" type="object"
+                        name="action_view_inspection" icon="fa-th-list"
+                        context="{'default_real_estate_id': id}">
+                    <div class="o_stat_info">
+                        <field name="inspection_count" class="o_stat_value"/>
+                        <span class="o_stat_text"> Inspection</span>
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="units_real_estate_form_inherit">
+        <field name="name">real.estate.units.form (in real_estates_inspection)</field>
+        <field name="model">real.estate.units</field>
+        <field name="inherit_id" ref="real_estate.units_real_estate_form"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" position="inside">
+
+                <button class="oe_stat_button" type="object"
+                        name="action_view_inspection" icon="fa-th-list"
+                        context="{'default_unit_id': id}">
+                    <div class="o_stat_info">
+                        <field name="inspection_count" class="o_stat_value"/>
+                        <span class="o_stat_text"> Inspection</span>
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="real_estate_contract_form_inherit">
+        <field name="name">realestate.contract.model.form (in real_estates_inspection)</field>
+        <field name="model">realestate.contract.model</field>
+        <field name="inherit_id" ref="rent_contract.real_estate_contract_form"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" position="inside">
+                <button class="oe_stat_button" type="object"
+                        name="action_view_inspection" icon="fa-th-list"
+                        context="{'default_contract_id': id}">
+                    <div class="o_stat_info">
+                        <field name="inspection_count" class="o_stat_value"/>
+                        <span class="o_stat_text"> Inspection</span>
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+        <!-- Search view definition for filters -->
+        <record id="real_estate_contract_report_search_view" model="ir.ui.view">
+            <field name="name">real.estate.contract.report.search</field>
+            <field name="model">real.estate.contract.report</field>
+            <field name="arch" type="xml">
+                <search string="Real Estate Contract Report Search">
+                    <field name="date" string="Date"/>
+                    <field name="partner_id" string="Customer"/>
+                    <!-- <filter string="Today" name="today" domain="[('date', '=', context_today())]"/> -->
+                    <!-- <filter string="This Month" name="this_month" domain="[('date', '>=', context_today().strftime('%Y-%m-01'))]"/> -->
+                    <group expand="1" string="Group By">
+                        <filter string="Customer" name="group_by_customer" context="{'group_by':'partner_id'}"/>
+                        <filter string="Date" name="group_by_date" context="{'group_by':'date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action to open the views -->
+        <record model="ir.actions.act_window" id="action_real_estate_contract_report_view">
+            <field name="name">Sales Contracts</field>
+            <field name="res_model">real.estate.contract.report</field>
+            <field name="view_mode">pivot,graph,tree</field>
+            <!-- Link the search view to the action -->
+            <field name="search_view_id" ref="real_estate_contract_report_search_view"/>
+        </record>
+
+        <!-- Pivot view definition -->
+        <record id="real_estate_contract_analysis_pivot_view" model="ir.ui.view">
+            <field name="name">Real Estate Contract Report Pivot</field>
+            <field name="model">real.estate.contract.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Real Estate Unit Contracts" disable_linking="True">
+                    <field name="contract_no" type="row"/>
+                    <!-- <field name="partner_id" type="row"/> -->
+                    <field name="date" type="col"/>
+                    <field name="contract_amount" type="measure"/>
+                    <field name="total_paid" type="measure"/>
+                    <field name="remaining_amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Bar chart view definition -->
+        <record id="real_estate_contract_analysis_bar_chart_view" model="ir.ui.view">
+            <field name="name">Real Estate Contract Report Bar Chart</field>
+            <field name="model">real.estate.contract.report</field>
+            <field name="arch" type="xml">
+                <graph string="Real Estate Contract Bar Chart" type="bar">
+                    <field name="date" type="row"/>
+                    <field name="contract_amount" type="measure"/>
+                    <field name="total_paid" type="measure"/>
+                    <field name="remaining_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Line chart view definition -->
+        <record id="real_estate_contract_analysis_line_chart_view" model="ir.ui.view">
+            <field name="name">Real Estate Contract Report Line Chart</field>
+            <field name="model">real.estate.contract.report</field>
+            <field name="arch" type="xml">
+                <graph string="Real Estate Contract Line Chart" type="line">
+                    <field name="date" type="row"/>
+                    <field name="contract_amount" type="measure"/>
+                    <field name="total_paid" type="measure"/>
+                    <field name="remaining_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Menu items -->
+
+        <menuitem id="menu_realestate_contract_details" 
+                  parent="menu_realestate_sale_report" 
+                  action="action_real_estate_contract_report_view" 
+                  sequence="5"/>
+    </data>
+</odoo>

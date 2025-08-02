@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cash_order_voucher_view" model="ir.ui.view">
+            <field name="name">cash order form</field>
+            <field name="model">cash.order</field>
+            <field name="arch" type="xml">
+                <form string="Payment">
+                  <field name="date" />
+                  <field name="amount" />
+                  <field name="journal_id"/>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

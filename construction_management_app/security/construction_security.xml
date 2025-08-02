@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        
+      <!--  <record id="const_mgt_user_rule" model="ir.rule">
+            <field name="name">Project User - Construction Management</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="domain_force">[('task_user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4,ref('project.group_project_user'))]"/>
+        </record>
+        ,(4, ref('stock.group_stock_user'))
+        <record id="const_mgt_manager_rule" model="ir.rule">
+            <field name="name">Project User - Construction Management</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('project.group_project_manager'))]"/>
+        </record> -->
+        
+        <record id="project.group_project_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        
+        <record model="ir.module.category" id="module_category_construction">
+            <field name="name">Construction Managements</field>
+            <field name="sequence">3</field>
+            <field name="visible" eval="0" />
+        </record>
+        
+        <record id="construction_architect" model="res.groups">
+            <field name="name">Architect</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_user'))]"/>
+        </record>
+        
+        <record id="construction_architect_engineer" model="res.groups">
+            <field name="name">Architect-Engineer</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_user'))]"/>
+        </record>
+        
+        <record id="construction_civil_engineer" model="res.groups">
+            <field name="name">Civil Engineer</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_user'))]"/>
+        </record>
+        
+        <record id="construction_construction_manager" model="res.groups">
+            <field name="name">Construction Manager</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_manager'))]"/>
+        </record>
+        
+        <record id="construction_project_control_manager" model="res.groups">
+            <field name="name">Project Controls Manager</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_manager'))]"/>
+        </record>
+        
+        <record id="construction_design_engineer" model="res.groups">
+            <field name="name">Design Engineer</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_user'))]"/>
+        </record>
+        
+        <record id="construction_design_manager" model="res.groups">
+            <field name="name">Design Manager</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_manager'))]"/>
+        </record>
+        
+        <record id="construction_estimator" model="res.groups">
+            <field name="name">Estimator</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_user'))]"/>
+        </record>
+        
+        <record id="construction_field_engineer" model="res.groups">
+            <field name="name">Field Engineer</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_user'))]"/>
+        </record>
+        
+        <record id="construction_planning_engineer" model="res.groups">
+            <field name="name">Planning Engineer</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_user'))]"/>
+        </record>
+        
+        <record id="construction_project_architect" model="res.groups">
+            <field name="name">Project Architect</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_user'))]"/>
+        </record>
+        
+        <record id="construction_project_manager" model="res.groups">
+            <field name="name">Project Manager</field>
+            <field name="category_id" ref="module_category_construction"/>
+            <field name="implied_ids" eval="[(4, ref('project.group_project_user'))]"/>
+        </record>
+    
+    </data>
+</odoo>

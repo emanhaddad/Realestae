@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Res Config Settings -->
+    <!-- Res Config Settings Inherit Form View-->
+    <record id="res_config_settings_view_form2" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.realstate</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="45"/>
+        <field name="inherit_id" ref="real_estate.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='property_partner_id']" position="after">
+            <div>                  
+                <label string="Income Journal" for="income_journal_id"/>
+                <field name="income_journal_id" options="{'no_create': True, 'no_open': True}"/>
+            </div>
+
+            <div>
+                <label string="Income Account" for="account_id"/>
+                <field name="account_id" options="{'no_create': True, 'no_open': True}"/>
+             </div>
+
+            
+                               
+                                                    
+            </xpath>
+        </field>
+    </record>
+    
+   
+
+</odoo>

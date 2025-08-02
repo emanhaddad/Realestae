@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+#  Hash Information Technology (c) 2024. All rights reserved.
+#  See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <!-- Contract Templates -->
+    <record id="construction_contract_template_form" model="ir.ui.view">
+        <field name="name">Construction Contract Template Form View</field>
+        <field name="model">project.contract.template</field>
+        <field name="arch" type="xml">
+            <form string="Contract Template">
+                <field name="active" invisible="1"/>
+                <sheet>
+                    <div class="oe_button_box"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Template Name"/>
+                        </h1>
+                    </div>
+                    <group name="template_main">
+                        <group name="main_left">
+                            <field name="company_id"
+                                   groups="base.group_multi_company"
+                                   options="{'no_create_edit': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="clause" string="Clauses">
+                            <field name="clause_ids" nolabel="1">
+                                <tree string="Clauses" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="content"/>
+                                    <field name="company_id" groups="base.group_multi_company"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="construction_contract_template_tree" model="ir.ui.view">
+        <field name="name">Construction Contract Template Tree View</field>
+        <field name="model">project.contract.template</field>
+        <field name="arch" type="xml">
+            <tree string="Contract Templates">
+                <field name="active" invisible="1"/>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="company_id" optional="hide" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="construction_contract_template_search" model="ir.ui.view">
+        <field name="name">Construction Contract Template Search View</field>
+        <field name="model">project.contract.template</field>
+        <field name="arch" type="xml">
+            <search string="Contract Templates">
+                <field name="name" string="Template Name"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <filter name="clause_text" string="Clause Contents"
+                        domain="['|', ('clause_ids.content', 'ilike', self), ('clause_ids.name', 'ilike', self)]"/>
+                <separator/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="construction_contract_template_action" model="ir.actions.act_window">
+        <field name="name">Contract Templates</field>
+        <field name="res_model">project.contract.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="construction_contract.construction_contract_template_search"/>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_construction_contract_template_root" name="Contract Templates"
+              action="construction_contract_template_action"
+              parent="construction_management_app.menu_const_configuration" sequence="10"/>
+
+
+
+    <!-- Contracts -->
+    <record id="construction_contract_form" model="ir.ui.view">
+        <field name="name">Construction Contract Form View</field>
+        <field name="model">project.contract</field>
+        <field name="arch" type="xml">
+            <form string="Construction Contract">
+                <field name="active" invisible="1"/>
+                <field name="sequence" invisible="1"/>
+                <header>
+                    <button string="Waiting" name="set_confirm" type="object" states='draft' class="oe_highlight"/>
+
+                    <button string="Confirm" name="approve_pm" type="object" states='waiting' class="oe_highlight"/>
+
+                    <button string="Approval" name="approve_admin" type="object" states='pm_approval' class="oe_highlight"/>
+
+                    <button string="CEO Approval" name="action_progress" type="object" states='admin_approval' class="oe_highlight"/>
+
+                    <!-- <button string="Done" name="action_done" type="object" states='progress' class="oe_highlight"/> -->
+
+                    <button string="Reject" name="set_reject" type="object" class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['waiting', 'pm_approval', 'admin_approval'])]}"/>
+
+                    <button string="Cancel" name="set_cancel" type="object" class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['draft', 'waiting', 'pm_approval', 'admin_approval', 'progress'])]}"/>
+
+                    <button string="Set to Draft" name="set_to_draft" type="object" states='cancel' class="oe_highlight"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,pm_approval,admin_approval,progress,done"/>
+
+                </header>
+                <sheet>
+                    <div class="oe_button_box"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Contract ID"/>
+                        </h1>
+                    </div>
+                    <group name="contract_main">
+
+                        <group name="main_contact">
+                            <field name="partner_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="partner_role"/>
+                        </group>
+                        <group name="main_dates">
+                            <field name="date_contract"/>
+                            <label for="date_start" string="Duration"/>
+                            <div class="o_row">
+                                <field name="date_start" widget="daterange" options='{"related_end_date": "date_end"}'/>
+                                <i class="fa fa-long-arrow-right mx-2 oe_edit_only" aria-label="Arrow icon" title="Arrow"/>
+                                <field name="date_end" widget="daterange" options='{"related_start_date": "date_start"}'/>
+                            </div>
+                        </group>
+                        <group name="main_contract">
+                            <field name="contract_type"/>
+                            <field name="amount" attrs="{'invisible': [('contract_type','not in',['cost_plus','ratio'])], 'required': [('contract_type','in',['cost_plus','ratio'])]}"/>
+                            <field name="ten_percentage" attrs="{'invisible': [('contract_type','not in',['cost_plus','ratio'])]}"/>
+                            <field name="remain_amount" attrs="{'invisible': [('contract_type','not in',['cost_plus','ratio'])]}"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="unit_price" attrs="{'invisible': [('contract_type','not in',['meter','unit'])], 'required': [('contract_type','in',['meter','unit'])]}"/>
+                            <field name="total" attrs="{'invisible': [('contract_type','not in',['meter','unit'])], 'required': [('contract_type','in',['meter','unit'])]}"/>
+                            <field name="total_price" attrs="{'invisible': [('contract_type','not in',['meter','unit'])]}"/>
+                            <field name="ten_percent" attrs="{'invisible': [('contract_type','not in',['meter','unit'])]}"/>
+                            <field name="price" attrs="{'invisible': [('contract_type','not in',['meter','unit'])]}"/>
+                        </group>
+                        <group>
+                            <field name="discount"/>
+                            <field name="discount_type" attrs="{'invisible': [('discount','=',False)], 'required': [('discount','=',True)]}"/>
+                            <field name="discount_amount" attrs="{'invisible': [('discount','=',False)], 'required': [('discount','=',True)]}"/>
+                            <field name="discount_subtotal" attrs="{'invisible': [('discount','=',False)]}"/>
+                        </group>
+                        <group name="main_project">
+                            <field name="project_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="analytic_account_id"/>
+                        </group>
+
+                    </group>
+
+                    <notebook>
+                        <page name="stages" string="Contract Stages">
+                            <field name="contract_stage_ids">
+                                <tree name="contract_stage" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="contract_type" optional="hide"/>
+                                    <field name="date_start" widget="daterange" options='{"related_end_date": "date_end"}'/>
+                                    <field name="date_end" widget="daterange" options='{"related_start_date": "date_start"}'/>
+                                    <field name="stage_amount" widget="monetary" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','ratio'])], 'required': [('contract_type', 'not in', ['meter', 'unit','ratio'])]}"/>
+                                    <field name="percent" widget="percentage" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','cost_plus'])], 'required': [('contract_type', 'not in', ['meter', 'unit','cost_plus'])]}"/>
+                                    <field name="percent_amount" widget="monetary" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','cost_plus'])]}" sum="Total"/>
+                                    <field name="unit" attrs="{'invisible': [('contract_type', 'in', ['cost_plus', 'ratio'])], 'required': [('contract_type', 'not in', ['cost_plus', 'ratio'])]}" sum="Total"/>
+                                    <field name="unit_amount" attrs="{'invisible': [('contract_type', 'in', ['cost_plus', 'ratio'])]}" sum="Total"/>
+                                    <field name="user_id" optional="hide"
+                                           options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name="receipt_id" optional="hide"/>
+                                    <field name="settlement_id" optional="hide"/>
+                                    <field name="state"/>
+                                    <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="lines" string="Work Items" invisible="1">
+                            <field name="line_ids">
+                                <tree string="contract_lines" editable="bottom">
+                                    <field name="project_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="uom_category_id" invisible="1"/>
+                                    <!-- <field name="po_line_ids" invisible="1"/> -->
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="contract_stage_id" domain="[('contract_id', '=', parent.id)]"/>
+                                    <field name="project_stage_id"/> <!-- TODO: Add domain -->
+                                    <field name="task_id" domain="[('project_id', '=', project_id), ('stage_id', 'in', [project_stage_id, False])]"/>
+                                    <field name="quantity"/>
+                                    <field name="quantity_purchased"
+                                           attrs="{'column_invisible': [('parent.state', 'not in', ['progress', 'done', 'cancel'])]}"/>
+                                    <field name="uom_id"/>
+                                    <field name="price_unit" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                    <field name="tax_ids" widget="many2many_tags"
+                                           options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name="price_subtotal" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"
+                                           groups="account.group_show_line_subtotals_tax_excluded"/>
+                                    <field name="price_total" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"
+                                           groups="account.group_show_line_subtotals_tax_included"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="clauses" string="Legal Contents">
+                            <group name="template_main" attrs="{'invisible': [('state', '!=', 'draft')]}">
+                                <group name="template_left">
+                                    <field name="contract_template_id"/>
+                                </group>
+                            </group>
+                            <field name="clause_ids">
+                                <tree name="clauses_list" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="content"/>
+                                    <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Payment History">
+                            <field name="history_line_ids" readonly="1">
+                                <tree name="History" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="contract_type" invisible="1"/>
+                                    <field name="contract_stage_id"/>
+                                    <field name="progress" widget="progressbar" optional="hide"/>
+                                    <field name="percent" widget="percentage" optional="hide"/>
+                                    <field name="actual_progress" widget="percentage" optional="hide" sum="Total"/>
+                                    <field name="percent_amount" widget="monetary" optional="hide" sum="Total"/>
+                                    <field name="unit" optional="hide"/>
+                                    <field name="actual_unit" optional="hide" sum="Total"/>
+                                    <field name="unit_amount" optional="hide" sum="Total"/>
+                                    <field name="stage_amount" widget="monetary" optional="hide"/>
+                                    <field name="payment_amount" sum="Total"/>
+                                    <field name="state"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="cancel" string="Cancel/Reject" attrs="{'invisible': [('state', 'not in', ['cancel', 'reject'])]}">
+                            <group name="cancel_main">
+                                <group name="cancel_left">
+                                    <field name="cancel_reason_id"/>
+                                </group>
+                                <group name="cancel_right">
+                                    <field name="cancel_date"/>
+                                </group>
+                            </group>
+                            <field name="cancel_reason"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <!-- <field name="message_follower_ids" widget="mail_followers"/> -->
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="construction_contract_tree" model="ir.ui.view">
+        <field name="name">Construction Contract Tree View</field>
+        <field name="model">project.contract</field>
+        <field name="arch" type="xml">
+            <tree string="Contracts">
+                <field name="active" invisible="1"/>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="date_contract" optional="hide"/>
+                <field name="date_start" optional="hide"/>
+                <field name="date_end" optional="show"/>
+                <field name="partner_id"/>
+                <field name="contract_type" optional="hide"/>
+                <field name="project_id"/>
+                <field name="analytic_account_id" optional="hide"/>
+                <field name="state"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="construction_contract_search" model="ir.ui.view">
+        <field name="name">Construction Contract Search View</field>
+        <field name="model">project.contract</field>
+        <field name="arch" type="xml">
+            <search string="Contracts">
+                <filter name="name" domain="['|', '|', ('name', 'ilike', self),
+                                                       ('project_id.name', 'ilike', self),
+                                                       ('partner_id.name', 'ilike', self),]"/>
+                <separator name="filter_dates"/>
+                <field name="date_contract"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <separator name="archive"/>
+                <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
+                <filter name="archived" string="Include archived" domain="['|', ('active', '=', False), ('active', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_partner" string="Contractor" context="{'group_by': 'partner_id'}"/>
+                    <separator name="group_date"/>
+                    <filter name="group_date_contract" string="Contract Date" context="{'group_by': 'date_contract'}"/>
+                    <filter name="group_date_start" string="Start Date" context="{'group_by': 'date_start'}"/>
+                    <filter name="group_date_end" string="End Date" context="{'group_by': 'date_end'}"/>
+                    <separator name="group_state"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="construction_contract_action" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">project.contract</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="construction_contract.construction_contract_search"/>
+        <field name="context">{}</field>
+    </record>
+
+
+    <menuitem id="menu_construction_contract_root" name="Contracts" parent="construction_management_app.menu_construction_managmt" sequence="2"/>
+    <menuitem id="menu_construction_contract" name="Contracts"
+              action="construction_contract_action"
+              parent="menu_construction_contract_root" sequence="5"/>
+
+    <!-- Contract Stages -->
+    <record id="construction_contract_stage_form" model="ir.ui.view">
+        <field name="name">Construction Contract Stage Form View</field>
+        <field name="model">project.contract.stage</field>
+        <field name="arch" type="xml">
+            <form string="Contract Stage">
+                <field name="active" invisible="1"/>
+                <field name="sequence" invisible="1"/>
+                <header>
+                    <button name="set_confirmed" string="Confirm" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="set_waiting" string="Confirm" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'waiting')]}"/>
+                    <button name="set_done" string="Mark Closed" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'progress')]}"/>
+                    <button name="set_cancel" string="Cancel" type="object"
+                            attrs="{'invisible': [('state', 'in', ['draft', 'waiting', 'cancel'])]}"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,waiting,progress,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Stage Name"/>
+                        </h1>
+                    </div>
+                        <group col="4">
+                            <field name="contract_id" options="{'no_create_edit': True, 'no_create': True}" readonly="1"/>
+                            <field name="contract_type" readonly="1"/>
+                            <field name="date_start" widget="daterange" options='{"related_end_date": "date_end"}'/>
+                            <field name="date_end" widget="daterange" options='{"related_start_date": "date_start"}'/>
+                            <field name="stage_amount" widget="monetary" readonly="1" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','ratio'])]}"/>
+                        </group>
+                        <group col="4">
+                            <field name="percent" widget="percentage" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','cost_plus'])], 'required': [('contract_type', 'not in', ['meter', 'unit','cost_plus'])]}"/>
+                            <field name="percent_amount" widget="monetary" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','cost_plus'])]}"/>
+                            <field name="actual_progress" widget="percentage" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','cost_plus'])], 'required': [('contract_type', 'not in', ['meter', 'unit','cost_plus'])]}"/>
+                            <field name="progress" widget="progressbar" attrs="{'invisible': [('contract_type', 'not in', ['unit', 'ratio', 'meter'])]}"/>
+                            <field name="unit" readonly="1" attrs="{'invisible': [('contract_type', 'in', ['cost_plus', 'ratio'])], 'required': [('contract_type', 'not in', ['cost_plus', 'ratio'])]}"/>
+                            <field name="unit_amount" attrs="{'invisible': [('contract_type', 'in', ['cost_plus', 'ratio'])]}"/>
+                            <field name="actual_unit" attrs="{'invisible': [('contract_type', 'in', ['cost_plus', 'ratio'])], 'required': [('contract_type', 'not in', ['cost_plus', 'ratio'])]}"/>
+                        </group>
+                    <notebook>
+                        <page name="info" string="Details" attrs="{'invisible': [('state', 'in', ['draft', 'waiting', 'cancel'])]}">
+                            <group name="info_main">
+                                <group name="info_left">
+                                    <field name="receipt_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name="settlement_id" options="{'no_create_edit': True, 'no_create': True}" invisible='1'/>
+                                    <field name="payment_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                </group>
+                                <group name="info_right">
+                                    <field name="user_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name="company_id" groups="base.group_multi_company"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="construction_contract_stage_tree" model="ir.ui.view">
+        <field name="name">Construction Contract Stage Tree View</field>
+        <field name="model">project.contract.stage</field>
+        <field name="arch" type="xml">
+            <tree name="contract_stage_tree" string="Contract Stages">
+                <field name="active" invisible="1"/>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="contract_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="progress" widget="progressbar"/>
+                <field name="state"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="construction_contract_stage_search" model="ir.ui.view">
+        <field name="name">Construction Contract Stage Search View</field>
+        <field name="model">project.contract.stage</field>
+        <field name="arch" type="xml">
+            <search string="Search Stages">
+                <filter name="names" string="Stage"
+                        domain="['|', '|', ('name', 'ilike', self),
+                                           ('contract_id.name', 'ilike', self),
+                                           ('partner_id.name', 'ilike', self)]"/>
+                <field name="contract_id"/>
+                <field name="partner_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <separator name="dates"/>
+                <filter name="date_today" string="Ending Today" domain="[('date_end', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="date_future" string="Ending Later" domain="[('date_end', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="date_late" string="Late" domain="[('date_end', '&lt;', context_today().strftime('%Y-%m-%d')), ('state', 'not in', ['cancel', 'done'])]"/>
+                <separator name="states"/>
+                <filter name="state_draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="state_waiting" string="Waiting" domain="[('state', '=', 'waiting')]"/>
+                <filter name="state_progress" string="Rejected" domain="[('state', '=', 'progress')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_contract" string="Contract" context="{'group_by': 'contract_id'}"/>
+                    <filter name="group_partner" string="Contractor" context="{'group_by': 'partner_id'}"/>
+                    <separator name="group_date"/>
+                    <filter name="group_date_start" string="Start Date" context="{'group_by': 'date_start'}"/>
+                    <filter name="group_date_end" string="End Date" context="{'group_by': 'date_end'}"/>
+                    <filter name="group_date_close" string="Close Date" context="{'group_by': 'date_close'}"/>
+                    <separator name="group_state"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="construction_contract_stage_action" model="ir.actions.act_window">
+        <field name="name">Contract Stages</field>
+        <field name="res_model">project.contract.stage</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="construction_contract.construction_contract_stage_search"/>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_construction_contract_stage" name="Contract Stages"
+              action="construction_contract_stage_action"
+              parent="menu_construction_contract_root" sequence="10"/>
+
+</odoo>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="cash_request.cash_order_report">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="report.external_layout">
+                            <div class="page">
+                            <center><h3>مطالبة مالية</h3></center>
+
+                    <table width="100%" style="text-align:center;vertical-align: middle;;vertical-align:middle">
+                        <tr>
+                            <td style="border:1px solid black;vertical-align:middle">
+                                <div t-field="o.date" />
+                            </td>
+                            <td width="20%" style="border:1px solid black;vertical-align:middle;padding:10px">
+                                <lable>التاريخ</lable>
+                            </td>
+                            <td style="border:1px solid black;;vertical-align:middlepadding:10px">
+                                #
+                            </td>
+                            <td style="border:1px solid black;;vertical-align:middle;padding:10px">
+                                <lable>الرقم</lable>
+                            </td>
+                        </tr>
+                        <tr style="border:1px solid black">
+                            <td  colspan="3"  style="border:1px solid black;vertical-align:middle;padding:10px">
+
+                                <div t-field="o.partner_id" />
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:10px">
+                                 <lable>المستفيد</lable>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                     <hr />
+                     <br />
+                    <table width="100%" style="text-align:center;vertical-align:middle;vertical-align: middle;">
+                        <tr>
+                            <td style="border:1px solid black;vertical-align:middle;padding:10px">
+                                <p>
+                                <div style="display: inline-block;" t-field="o.amount" />  SDG</p>
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:5px" width="20%">
+                                <lable>المبلغ</lable>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black;vertical-align:middle;padding:10px">
+                                <div t-field="o.amount_in_word" />
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:5px" width="20%">
+                                <lable>المبلغ كتابة</lable>
+                            </td>
+                        </tr>
+
+                        <tr height="90px">
+                            <td style="border:1px solid black;vertical-align:middle;padding:10px">
+                                <div t-field="o.name" />
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:5px" width="20%">
+                                <lable>البيان</lable>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black;vertical-align:middle;padding:10px">
+                                <div t-field="o.department_id" />
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:5px" width="20%">
+                                <lable>الجهة الطالبة</lable>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <br /><hr /><br /><br />
+
+                    <table width="100%" style="text-align:center;vertical-align: middle;margin-top:5px">
+                         <tr>
+                            <td style="border:1px solid black;" width="11%">
+                                
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="10%" height="45">
+                                <lable>التاريخ</lable>
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="12%" height="45">
+                                
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="10%" height="45">
+                                <lable>التوقيع</lable>
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="25%" height="45">
+                                
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="17%" height="45">
+                                <lable>مدير الإدارة الطالبة</lable>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;vertical-align:middle;" width="11%">
+                                
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="10%" height="45">
+                                <lable>التاريخ</lable>
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="12%" height="45">
+                                
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="10%" height="45">
+                                <lable>التوقيع</lable>
+                            </td>
+                            <td style="border:1px solid black;padding:2px" width="25%" height="45">
+                                
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="17%" height="45">
+                                <lable>المدير العام</lable>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;" width="11%">
+                                
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="10%" height="45">
+                                <lable>التاريخ</lable>
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;padding:2px" width="12%" height="45">
+                                
+                            </td>
+                            <td style="border:1px solid black;;vertical-align:middle;padding:2px" width="10%" height="45">
+                                <lable>التوقيع</lable>
+                            </td>
+                            <td style="border:1px solid black;;vertical-align:middle;padding:2px" width="25%" height="45">
+                                
+                            </td>
+                            <td style="border:1px solid black;;vertical-align:middle;padding:2px" width="17%" height="45">
+                                <lable>المدير المالي</lable>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td style="border:1px solid black;" width="11%">
+                                
+                            </td>
+                            <td style="border:1px solid black;;vertical-align:middle;padding:2px" width="10%" height="45">
+                                <lable>التاريخ</lable>
+                            </td>
+                            <td style="border:1px solid black;padding:2px" width="12%" height="45">
+                                
+                            </td>
+                            <td style="border:1px solid black;;vertical-align:middle;padding:2px" width="10%" height="45">
+                                <lable>التوقيع</lable>
+                            </td>
+                            <td style="border:1px solid black;;vertical-align:middle;padding:2px" width="25%" height="45">
+                                
+                            </td>
+                            <td style="border:1px solid black;;vertical-align:middle;padding:2px" width="17%" height="45">
+                                <lable>المراجع</lable>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br /><br /><br />
+
+                    <table  style="text-align:center;margin-top:15px;margin-left: auto;margin-right: auto;" width="100%">
+                        <tr height="50px">
+                            <td style="border:1px solid black;vertical-align:middle;" width="21.33%">
+                                
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;" width="12%" >
+                                <lable>تحويل</lable>
+                            </td>
+                            <td style="border:1px solid black;" width="21.33%">
+                                
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;" width="12%">
+                                <lable>نقد</lable>
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;" width="21.33%">
+                                
+                            </td>
+                            <td style="border:1px solid black;vertical-align:middle;" width="12%">
+                                <lable>شيك</lable>
+                            </td>
+                        </tr>
+                    </table>
+
+              
+              
+                </div>  <!-- page end-->
+            </t>
+        </t>
+    </t>
+</template>
+</data>
+</odoo>

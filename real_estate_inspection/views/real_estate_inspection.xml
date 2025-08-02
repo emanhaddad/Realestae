@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="real_estate_inspection_form_view">
+        <field name="name">real.estate.inspection.form (in real_estate_inspection)</field>
+        <field name="model">real.estate.inspection</field>
+        <field name="arch" type="xml">
+            <form string="Real Estate Inspection">
+                <header>
+                    <button name="button_confirm" type="object" states="draft" string="Confirm Inspection"
+                            class="oe_highlight" id="bid_confirm"/>
+                    <button name="button_draft" states="cancel" string="Set to Draft" type="object" />
+                    <button name="button_cancel" states="draft,confirmed" string="Cancel" type="object" />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,cancel" />
+                </header>
+                <sheet>
+                    <div class="badge-pill badge-danger float-right"
+                         attrs="{'invisible': [('new_unit_status', 'not in', ['bad'])]}">Bad</div>
+                    <div class="badge-pill badge-success float-right"
+                         attrs="{'invisible': [('new_unit_status', 'not in', ['exellent'])]}">Exellent</div>
+                    <div class="badge-pill badge-success float-right"
+                         attrs="{'invisible': [('new_unit_status', 'not in', ['verygood'])]}">Very Good</div>
+                    <div class="badge-pill badge-warning float-right"
+                         attrs="{'invisible': [('new_unit_status', 'not in', ['good'])]}">Good</div>
+                    <div class="badge-pill badge-warning float-right"
+                         attrs="{'invisible': [('new_unit_status', 'not in', ['acceptable'])]}">Acceptable</div>
+
+
+                         <div class="badge-pill badge-danger float-right"
+                         attrs="{'invisible': [('new_property_status', 'not in', ['bad'])]}">Bad</div>
+                    <div class="badge-pill badge-success float-right"
+                         attrs="{'invisible': [('new_property_status', 'not in', ['exellent'])]}">Exellent</div>
+                    <div class="badge-pill badge-success float-right"
+                         attrs="{'invisible': [('new_property_status', 'not in', ['verygood'])]}">Very Good</div>
+                    <div class="badge-pill badge-warning float-right"
+                         attrs="{'invisible': [('new_property_status', 'not in', ['good'])]}">Good</div>
+                    <div class="badge-pill badge-warning float-right"
+                         attrs="{'invisible': [('new_property_status', 'not in', ['acceptable'])]}">Acceptable</div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="inspection_type" widget="radio"/>
+                            <field name="real_estate_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="unit_id" attrs="{'invisible':[('inspection_type','!=','specific_units')],'required':[('inspection_type','=','specific_units')]}" domain="[('base_property_id', '=', real_estate_id)]" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="renter_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="contract_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="old_property_status" attrs="{'invisible':[('inspection_type','!=','all_property')]}"/>
+                            <field name="new_property_status" attrs="{'invisible':[('inspection_type','!=','all_property')]}" readonly="1"/>
+                            <field name="old_unit_status" attrs="{'invisible':[('inspection_type','=','all_property')]}"/>
+                            <field name="new_unit_status" attrs="{'invisible':[('inspection_type','=','all_property')]}" readonly="1"/>
+                            <field name="status_percentage" widget="progressbar"/>
+                        </group>
+                        <group>
+                            <field name="date_inspected"/>
+                            <field name="inspected_by"/>
+                            <field name="template_id" attrs="{'required':[('inspection_type','=','all_property')],'invisible':[('inspection_type','!=','all_property')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        
+                        <page string="Inspection Lines" name="inspection_lines" attrs="{'invisible':[('inspection_type','!=','specific_units')]}">
+                            <label for="template_id" string="Inspection Template"/>
+                            <field name="template_id" attrs="{'required':[('inspection_type','=','specific_units')]}"/>
+                            <button name="get_inspection_line" title="Get Inspection Line" icon="fa-refresh" type="object" attrs="{'invisible':[('state','!=','draft')]}"/>
+                            <field name="inspection_line_ids">
+                                <tree decoration-info="result=='todo'" decoration-danger="result == 'failure'" decoration-success="result == 'success'" editable="top">
+                                    <field name="inspection_item_id"/>
+                                    <field name="result"/>
+                                    <field name="status_percentage"/>
+                                    <!-- <field name="status_percentage" widget="progressbar" nolabel="1"/> -->
+                                    <field name="state" invisible="1"/>
+                                    <button name="action_item_result"
+                                            states="draft"
+                                            string="Confirm"
+                                            type="object"
+                                            class="oe_highlight btn-success"
+                                            icon="fa-check-circle text-success"
+                                    />
+                                    <field name="note"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Units Inspection" name="unit_inspection" attrs="{'invisible':[('inspection_type','=','specific_units')]}">
+                           
+                            <button name="get_unit_inspection" title="Get Units Inspection" icon="fa-refresh" type="object" attrs="{'invisible':[('state','!=','draft')]}"/>
+                            <field name="unit_inspection_ids">
+                                <tree string="Units Inspection" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="unit_id"/>
+                                    <field name="new_unit_status"/>
+                                    <field name="state"/>
+                                    <field name="note"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes_information">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="real_estate_inspection_search_view">
+        <field name="name">real.estate.inspection.search (in real_estate_inspection)</field>
+        <field name="model">real.estate.inspection</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="real_estate_id"/>
+                <field name="inspected_by"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                	<filter string="Real Estate" name="real_estate_id" domain="[]" context="{'group_by':'real_estate_id'}"/>
+                	
+                    <filter string="Inspected Date" name="date_inspected" domain="[]" context="{'group_by':'date_inspected'}"/>
+                    <filter string="Inspector" name="inspected_by" domain="[]" context="{'group_by':'inspected_by'}"/>
+                    <separator/>
+                    <filter string="Inspection State" name="state" domain="[]" context="{'group_by':'state'}"/>
+               	</group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="real_estate_inspection_tree_view">
+        <field name="name">real.estate.inspection.tree (in real_estate_inspection)</field>
+        <field name="model">real.estate.inspection</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date_inspected"/>
+                <field name="real_estate_id"/>
+                <field name="inspected_by"/>
+                 <field name="old_property_status"/>
+                <field name="new_property_status"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="real_estate_inspection_tree_view2">
+        <field name="name">real.estate.inspection.tree (in real_estate_inspection)</field>
+        <field name="model">real.estate.inspection</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date_inspected"/>
+                <field name="unit_id"/>
+                <field name="inspected_by"/>
+                <field name="old_unit_status"/>
+                <field name="new_unit_status"/>
+                <field name="state"/>
+
+                
+            </tree>
+        </field>
+    </record>
+    <record model='ir.ui.view' id='real_estate_inspection_pivot_view'>
+        <field name="name">real.estate.inspection.pivot (in real_estate_inspection)</field>
+        <field name="model">real.estate.inspection</field>
+        <field name="arch" type="xml">
+            <pivot string="Real Estate Inspections" >
+                <field name="state" type="row"/>
+                <field name="real_estate_id" type="row"/>
+                <field name="new_unit_status" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="real_estate_inspection_graph_view">
+        <field name="name">real.estate.inspection.graph (in real_estate_inspection)</field>
+        <field name="model">real.estate.inspection</field>
+        <field name="arch" type="xml">
+            <graph string="Real Estate Inspections">
+                <field name="new_unit_status" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="unit_inspection_act_window">
+        <field name="name">Unit Inspection</field>
+        <field name="res_model">real.estate.inspection</field>
+        <field name="view_mode">tree,pivot,graph,form</field>
+        <field name="domain">[('inspection_type', '=', 'specific_units')]</field>
+        <field name="context">{'default_inspection_type':'specific_units'}</field>
+        <field name="view_id" ref="real_estate_inspection_tree_view2"/>
+
+        
+    </record>
+
+    <record model="ir.actions.act_window" id="real_estate_inspection_act_window">
+        <field name="name">Real Estate Inspection</field>
+        <field name="res_model">real.estate.inspection</field>
+        <field name="view_mode">tree,pivot,graph,form</field>
+        <field name="domain">[('inspection_type', '=', 'all_property')]</field>
+        <field name="context">{'default_inspection_type':'all_property'}</field>
+        <field name="view_id" ref="real_estate_inspection_tree_view"/>
+    </record>
+
+    <record model="ir.ui.menu" id="real_estate_inspection_root_menu">
+        <field name="name">Real Estate Inspections</field>
+        <field name="parent_id" ref="real_estate.menu_real_estate_main"/>
+        <field name="sequence" eval="4"/>
+    </record>
+
+    <record model="ir.ui.menu" id="real_estate_inspection_menu">
+        <field name="name">Real Estate Inspections</field>
+        <field name="parent_id" ref="real_estate_inspection_root_menu"/>
+        <field name="action" ref="real_estate_inspection_act_window"/>
+        <field name="sequence" eval="1"/>
+    </record>
+
+    <record model="ir.ui.menu" id="unit_inspection_menu">
+        <field name="name">Units Inspections</field>
+        <field name="parent_id" ref="real_estate_inspection_root_menu"/>
+        <field name="action" ref="unit_inspection_act_window"/>
+        <field name="sequence" eval="1"/>
+    </record>
+
+</odoo>

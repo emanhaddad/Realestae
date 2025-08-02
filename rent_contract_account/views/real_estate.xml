@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="real_estates_form_inherits">
+        <field name="name">real.estate.form</field>
+        <field name="model">real.estate</field>
+        <field name="inherit_id" ref="real_estate.real_estates_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='commission']" position="after">
+                <page name="account_information" string="Account Information">
+                    <group col="4" name="account_info" colspan="2">
+                        <field name='analytic_id'/>
+                        <field name='income_account_id'/> 
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="real_estate_units_form_inherits_in">
+        <field name="name">real.estate.units.form</field>
+        <field name="model">real.estate.units</field>
+        <field name="inherit_id" ref="real_estate.units_real_estate_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='unit_content']" position="after">
+                <page name="account_information" string="Account Information">
+                    <group col="4" name="account_info" colspan="2">
+                        <field name='analytic_id'/>
+                        <field name='income_account_id'/> 
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="account_analytic_account_payment_view_form_inherit">
+        <field name="name">rent.contract.payment (in real_estates_inspection)</field>
+        <field name="model">rent.contract.payment</field>
+        <field name="inherit_id" ref="rent_contract.account_analytic_account_payment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_review" string="Review Payment" type="object" class="oe_highlight" states="draft" />
+                <button name="action_confirm" string="Confirm Payment" type="object" class="oe_highlight" states="review" />
+           
+            </xpath>
+             
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="rent_contract_view_form_inherit">
+        <field name="name">rent.contract.model (in real_estates_inspection)</field>
+        <field name="model">realestate.contract.model</field>
+        <field name="inherit_id" ref="rent_contract.real_estate_contract_form"/>
+        <field name="arch" type="xml">
+           
+             <div class="oe_button_box" position="inside">
+                 <button class="oe_stat_button" name="action_invoices" type="object" icon="fa-files-o" string="Invoices" invisible="1">
+                    <!-- attrs="{'invisible':[('invoice_ids','=',False)]}" -->
+                      <field string="Invoices" name="invoice_ids" widget="statinfo" invisible="1"/>
+                 </button>
+                 <button class="oe_stat_button" name="action_payments" type="object" icon="fa-files-o" string="Payments" invisible="1">
+                    <!-- attrs="{'invisible':[('account_payment_ids','=',False)]}" -->
+                      <field string="Invoices" name="account_payment_ids" widget="statinfo" />
+                 </button>
+             </div> 
+        </field>
+    </record>
+</odoo>

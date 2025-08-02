@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+    
+    <record id="material_purchase_requisition_form_inherited_probc" model="ir.ui.view">
+        <field name="name">material.purchase.requisition.form</field>
+        <field name="model">material.purchase.requisition</field>
+        <field name="inherit_id" ref="material_purchase_requisitions.material_purchase_requisition_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='requisiton_responsible_id']" position="after">
+                <field name="task_user_id"/>
+            </xpath>
+            <xpath expr="//form/sheet/notebook" position="inside">
+                <page string="Materials / BOQ Cost">
+                    <group>
+                        <field name="equipment_machine_total"/>
+                        <field name="worker_resource_total"/>
+                        <field name="work_cost_package_total"/>
+                        <field name="subcontract_total"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    
+    </data>
+</odoo>

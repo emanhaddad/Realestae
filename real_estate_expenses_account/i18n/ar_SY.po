@@ -1,0 +1,159 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate_expenses_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-20 12:24+0000\n"
+"PO-Revision-Date: 2020-12-20 12:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: real_estate_expenses_account
+#: model:ir.model,name:real_estate_expenses_account.model_res_company
+msgid "Companies"
+msgstr "شركات"
+
+#. module: real_estate_expenses_account
+#: model:ir.model,name:real_estate_expenses_account.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الاعدادات"
+
+#. module: real_estate_expenses_account
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_expense_request__display_name
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_real_estate__display_name
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_real_estate_units__display_name
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_res_company__display_name
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: real_estate_expenses_account
+#: model:res.groups,comment:real_estate_expenses_account.expense_transfer_group
+msgid "Expense Transfer access Group"
+msgstr "ترحيل"
+
+#. module: real_estate_expenses_account
+#: code:addons/real_estate_expenses_account/models/real_estate_expenses.py:0
+#, python-format
+msgid "Expense of %s"
+msgstr "مصروف ل"
+
+#. module: real_estate_expenses_account
+#: model_terms:ir.ui.view,arch_db:real_estate_expenses_account.res_config_settings_view_form2
+msgid "Expenses Account"
+msgstr "حساب المصروفات"
+
+#. module: real_estate_expenses_account
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_res_company__expenses_journal_id
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_res_config_settings__expenses_journal_id
+#: model_terms:ir.ui.view,arch_db:real_estate_expenses_account.res_config_settings_view_form2
+msgid "Expenses Journal"
+msgstr "دفتر يومية المصروفات"
+
+#. module: real_estate_expenses_account
+#: model:res.groups,name:real_estate_expenses_account.expense_transfer_group
+msgid "Expenses Transfer"
+msgstr "انشاء السند"
+
+#. module: real_estate_expenses_account
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_real_estate__expenss_account_id
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_real_estate_units__expenss_account_id
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_res_company__expenss_account_id
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_res_config_settings__expenss_account_id
+msgid "Expenss Account"
+msgstr "حساب المصروفات"
+
+#. module: real_estate_expenses_account
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_real_estate__expenss_analytic_id
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_real_estate_units__expenss_analytic_id
+msgid "Expenss Analytic Account"
+msgstr "مركز تكلفة المصروفات"
+
+#. module: real_estate_expenses_account
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_expense_request__id
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_real_estate__id
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_real_estate_units__id
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_res_company__id
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_res_config_settings__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: real_estate_expenses_account
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_expense_request____last_update
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_real_estate____last_update
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_real_estate_units____last_update
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_res_company____last_update
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: real_estate_expenses_account
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_expense_request__move_id
+msgid "Move"
+msgstr "السند"
+
+#. module: real_estate_expenses_account
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_expense_request__payment_method
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+#. module: real_estate_expenses_account
+#: code:addons/real_estate_expenses_account/models/real_estate_expenses.py:0
+#, python-format
+msgid "Sorry !! can you please configuer Expenses Accont"
+msgstr "عزرا !!الرجاء اعداد حساب المصروفات"
+
+#. module: real_estate_expenses_account
+#: code:addons/real_estate_expenses_account/models/real_estate_expenses.py:0
+#, python-format
+msgid "Sorry !! can you please configuer Expenses Analytic"
+msgstr "عزرا !!الرجاء اعداد مركز تكلفة المصروفات"
+
+#. module: real_estate_expenses_account
+#: code:addons/real_estate_expenses_account/models/real_estate_expenses.py:0
+#, python-format
+msgid "Sorry !! can you please configuer Expenses Journal"
+msgstr "الرجاء ادخال دفتر يومية المصروفات"
+
+#. module: real_estate_expenses_account
+#: code:addons/real_estate_expenses_account/models/real_estate_expenses.py:0
+#, python-format
+msgid "Sorry !! this request is almost Transferd"
+msgstr "عزرا تم انشاء السند من قبل"
+
+#. module: real_estate_expenses_account
+#: model:ir.model.fields,field_description:real_estate_expenses_account.field_expense_request__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: real_estate_expenses_account
+#: model_terms:ir.ui.view,arch_db:real_estate_expenses_account.expense_request_form_inherit
+msgid "Transfer"
+msgstr "انشاء السند"
+
+#. module: real_estate_expenses_account
+#: model:ir.model.fields.selection,name:real_estate_expenses_account.selection__expense_request__state__transferd
+msgid "Transferd"
+msgstr "تم انشاء السند"
+
+#. module: real_estate_expenses_account
+#: model:ir.model,name:real_estate_expenses_account.model_expense_request
+msgid "expense.request"
+msgstr ""
+
+#. module: real_estate_expenses_account
+#: model:ir.model,name:real_estate_expenses_account.model_real_estate
+msgid "real.estate"
+msgstr "العقارات"
+
+#. module: real_estate_expenses_account
+#: model:ir.model,name:real_estate_expenses_account.model_real_estate_units
+msgid "real.estate.units"
+msgstr "الوحدات"

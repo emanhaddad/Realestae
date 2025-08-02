@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Contract Templates -->
+        <record id="realestate_contract_template_form" model="ir.ui.view">
+            <field name="name">Real Estate Contract Template Form View</field>
+            <field name="model">realestate.contract.template</field>
+            <field name="arch" type="xml">
+                <form string="Contract Template">
+                    <field name="active" invisible="1"/>
+                    <sheet>
+                        <div class="oe_button_box"/>
+                            <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Template Name"/>
+                            </h1>
+                        </div>
+                        <group name="template_main">
+                            <group name="main_left">
+                                <field name="company_id"
+                                       groups="base.group_multi_company"
+                                       options="{'no_create_edit': True, 'no_open': True}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="clause" string="Clauses">
+                                <field name="clause_ids" nolabel="1">
+                                    <tree string="Clauses" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="name"/>
+                                        <field name="content"/>
+                                        <field name="company_id" groups="base.group_multi_company"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="realestate_contract_template_tree" model="ir.ui.view">
+            <field name="name">Real Estate Contract Template Tree View</field>
+            <field name="model">realestate.contract.template</field>
+            <field name="arch" type="xml">
+                <tree string="Contract Templates">
+                    <field name="active" invisible="1"/>
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="company_id" optional="hide" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="realestate_contract_template_search" model="ir.ui.view">
+            <field name="name">Real Estate Contract Template Search View</field>
+            <field name="model">realestate.contract.template</field>
+            <field name="arch" type="xml">
+                <search string="Contract Templates">
+                    <field name="name" string="Template Name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <filter name="clause_text" string="Clause Contents"
+                            domain="['|', ('clause_ids.content', 'ilike', self), ('clause_ids.name', 'ilike', self)]"/>
+                    <separator/>
+                    <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="realestate_contract_template_action" model="ir.actions.act_window">
+            <field name="name">Contract Templates</field>
+            <field name="res_model">realestate.contract.template</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="search_view_id" ref="rent_contract.realestate_contract_template_search"/> -->
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.ui.menu" id="real_estate_contract_template_root_menu">
+            <field name="name">Contract</field>
+            <field name="parent_id" ref="real_estate.menu_config_real_estate_root"/>
+            <field name="sequence" eval="5"/>
+        </record>
+        <record model="ir.ui.menu" id="real_estate_inspection_item_menu">
+            <field name="name">Contract Legal Contents Template</field>
+            <field name="parent_id" ref="real_estate_contract_template_root_menu"/>
+            <field name="action" ref="realestate_contract_template_action"/>
+            <field name="sequence" eval="3"/>
+        </record>
+
+        <!--  search view for contract -->
+        <record id="res_partner_search" model="ir.ui.view">
+            <field name="name">res.partner.search.expand</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search"  position="replace">
+                    <search>
+                        <field name="name" filter_domain="[('display_name','ilike',self)]"/>
+                        <field name="identiti_no"/>
+                        <field name="mobile_phone"/>
+                    </search>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_account_analytic_sale_overdue_all">
+            <field name="name">Contracts</field>
+            <field name="res_model">realestate.contract.model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- Search view for partner  -->
+        <record id="rent_partner_search" model="ir.ui.view">
+            <field name="name">realestate.contract.model.search.expand</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" filter_domain="[('display_name','ilike',self)]"/>
+                    <field name="mobile_phone"/>
+                    
+                </search>
+            </field>
+        </record>
+
+        <!-- form view of  contract  -->
+        <record model="ir.ui.view" id="real_estate_contract_form">
+            <field name="name">Contract</field>
+            <field name="model">realestate.contract.model</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_review" string="Send to Finance" type="object" class="oe_highlight" states="draft" groups="rent_contract.valid_contracts_group"/>
+                        <button name="start_contract" string="Confirm Contract" type="object" class="oe_highlight" states="finance"/>
+                        <button name="action_end_rent" string="End Rent Contract" type="object" class="oe_highlight" states="confirmed" attrs="{'invisible':['|', ('contract_partner_type', '!=', 'rent'), '&amp;', ('state', '!=', 'confirmed')]}"/>
+                        <button name="set_to_draft_contract" string="Set Contract to Draft" type="object" class="oe_highlight" states="valid" />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="open_sale" type="object" icon="fa-files-o" attrs="{'invisible':[('sale_unit_id','=',False)]}" string="Unit Sale">
+                                <field string="Sale Unit" name="sale_unit_id" widget="statinfo" invisible="1"/>
+                            </button>
+
+                            <button type="object" name="action_payment_receive" class="oe_stat_button"
+                                    icon="fa-bars" attrs="{'invisible':[('investment_request_ids','=',False)]}" groups="account.group_account_manager" string="Receipt Vouchers">
+                                    <field string="Contract" name="investment_request_ids" widget="statinfo" invisible="1"/>
+
+                            </button>
+                        </div>
+
+                        <div class="oe_title">
+                            <label for="contract_no" class="oe_edit_only" string="Title"/>
+                            <h1>
+                                <field name="contract_no" readonly="1"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <field name="contract_type" widget="radio" options="{'horizontal': true}" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+
+                        <group col="4" colspan="6" string="Contract Partner Type">
+                            <field name='contract_partner_type' widget="radio" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="investment_type" widget="radio" attrs="{'readonly':[('state','!=','draft')], 'required':[('contract_partner_type','=','investment')], 'invisible':[('contract_partner_type','!=','investment')]}"/>
+                        </group>
+                       
+                        <group col="4" colspan="6" string="Main Information">
+                            <field name='partner_id' options="{'no_create_edit': True, 'no_create': True}" required="1" attrs="{'readonly':[('state','!=','draft')]}" context="{'form_view_ref': 'real_estate.tenant_res_partner_form_view'}"/>
+                            <field name="representative_id" attrs="{'readonly':[('state','!=','draft')], 'required':[('contract_partner_type','!=','investment')], 'invisible':[('contract_partner_type','=','investment')]}"/>
+                            <!-- <field name='investor_id' options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','!=','draft')], 'required':[('contract_partner_type','=','investment')], 'invisible':[('contract_partner_type','!=','investment')]}"/>           -->
+                            <field name="month_amount" attrs="{'readonly':[('state','!=','draft')], 'required':[('contract_partner_type','!=','investment')], 'invisible':[('contract_partner_type','=','investment')]}"/>
+                            <field name="is_transfer" invisible="1"/>
+                            <field name="investor_contract" invisible="1"/>
+                            <field name="investor_clearance_id" invisible="1"/>
+                        </group>
+
+                        <group col="4" string="Unit Information">
+                            <field name='property_id' required="1" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="unit_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'invisible': [('contract_type', '!=','specific_units')],'required': [('contract_type', '=','specific_units')]}"/>
+                            <field name="property_type"/>
+                            <field name="contract_amount" attrs="{'readonly':[('state','!=','draft')], 'required':[('contract_partner_type','!=','investment')], 'invisible':[('contract_partner_type','=','investment')]}"/>
+                            <field name="monthly_rental" attrs="{'invisible': [('contract_partner_type', '!=','rent')],'required': [('contract_partner_type', '=','rent')],'readonly':[('state','!=','draft')]}"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="contract_paid_amount" invisible="1"/>
+                        </group>
+
+                        <group col="4" string="Investment Information" attrs="{'required':[('contract_partner_type','=','investment')], 
+                            'invisible':[('contract_partner_type','!=','investment')]}">
+                            <field name="investor_ratio" widget="percentage" attrs="{'required':[('contract_partner_type','=','investment')], 
+                            'invisible':[('contract_partner_type','!=','investment')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <field name="company_ratio" widget="percentage" attrs="{'required':[('contract_partner_type','=','investment')],
+                            'invisible':[('contract_partner_type','!=','investment')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <field name="commission_type" attrs="{'required':[('investment_type','=','shares')], 'invisible':[('investment_type','!=','shares')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <field name="share_amount" attrs="{'required':[('investment_type','=','shares')], 'invisible':[('investment_type','!=','shares')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <field name="shares" attrs="{
+                            'required':[('investment_type','=','shares')], 'invisible':[('investment_type','!=','shares')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <field name="investment_amount" attrs="{'required':[('investment_type','=','shares')], 'invisible':[('investment_type','!=','shares')],
+                            'readonly':[('state','!=','draft')]}" readonly="1"/>
+
+
+                            <field name="land_amount" attrs="{'required':[('investment_type','=','land')], 'invisible':[('investment_type','!=','land')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <field name="land_prof" attrs="{
+                            'required':[('investment_type','=','land')], 'invisible':[('investment_type','!=','land')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <field name="land_tax" attrs="{
+                            'required':[('investment_type','=','land')], 'invisible':[('investment_type','!=','land')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <field name="land_com" attrs="{
+                            'required':[('investment_type','=','land')], 'invisible':[('investment_type','!=','land')],
+                            'readonly':[('state','!=','draft')]}"/>
+                            <field name="land_cost" attrs="{
+                            'required':[('investment_type','=','land')], 'invisible':[('investment_type','!=','land')]}"/>
+
+                            <field name="is_cleared" invisible="1"/>
+                            <field name="clearance_type" attrs="{'invisible':[('is_cleared','!=',True)]}"/>
+                            <field name="transfer_amount" attrs="{'invisible':[('is_transfer','!=',True)]}" readonly="1"/>
+                        </group>
+
+                        <group col="4" string="Important Dates">
+                            <field name="date" placeholder="Date" attrs="{'readonly':[('state','!=','draft')]}" required="1"/>
+                            <field name="notify_date" placeholder="Date" attrs="{'readonly':[('state','!=','draft')], 'invisible':[('contract_partner_type','=','investment')]}"/>
+                            <field name="date_start" placeholder="Date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="date_end" placeholder="Date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="delivery_date" placeholder="Date"/>
+                            <field name="evacuation_date" placeholder="Date" attrs="{'readonly':[('state','!=','draft')], 'invisible':[('contract_partner_type','in',['investment','resale'])]}"/>
+                            <field name="sign_date" placeholder="Date" 
+                            attrs="{'required':[('contract_partner_type','=','investment')], 
+                            'invisible':[('contract_partner_type','!=','investment')],
+                            'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        
+                        <notebook>
+                            <page string="Payment" attrs="{'required':[('investment_type','!=','shares')], 'invisible':[('investment_type','=','shares')]}">
+                                <field name="payment_ids">
+                                    <tree string="Contract Payments" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="property_id"/>
+                                        <field name="unit_id"/>
+                                        <field name="renter_id"/>
+                                        <field name="due_date"/>
+                                        <field name="pay_amount"/>
+                                        <field name="paid_amount" readonly='1'/>
+                                        <field name="pay_date"  readonly='1'/>
+                                        <field name="state" readonly="1"/>
+                                       
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Commissions" attrs="{'invisible':[('contract_partner_type','!=','investment')]}">
+                                <field name="commission_sale_lines">
+                                    <tree editable="bottom">
+                                        <field name="partner_id" attrs="{'readonly': [('check', '=', True)]}" options="{'no_create':True,'no_edit':True,'no_open':True}"/>
+                                        <field name="currency_id" invisible="1"/>
+                                        <field name="amount" attrs="{'readonly': [('check', '=', True)]}"/>
+                                        <field name="sale_commission_type"/>
+                                        <field name="account_id" attrs="{'readonly': [('check', '=', True)]}" />
+                                        <field name="journal_id" attrs="{'readonly': [('check', '=', True)]}" options="{'no_create':True,'no_edit':True,'no_open':True}"/>
+                                        <field name="exchange_type_id" attrs="{'readonly': [('check', '=', True)]}" options="{'no_create':True,'no_edit':True,'no_open':True}"/>
+                                        <button name="create_payment" type="object" string="Create Payment" class="oe_highlight" attrs="{'invisible': [('check', '=', True)]}"/>
+                                        <field name="check" />
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="commission" class="oe_subtotal_footer_separator" />
+                                </group>
+                            </page>
+                            <page string="Terms" name="terms" invisible="1">
+                                <field name ="term_ids" nolabel="1">
+                                  <tree string="Terms" editable="top">
+                                      <field name="term_no"/>
+                                      <field name="name"/>
+                                      <field name="type"/>
+                                      <field name="description"/>
+                                   </tree>
+                                </field>
+                            </page>
+                            <page name="clauses" string="Legal Contents">
+                                <group name="template_main" attrs="{'invisible': [('state', '!=', 'draft')]}">
+                                    <group name="template_left">
+                                        <field name="contract_template_id"/>
+                                    </group>
+                                </group>
+                                <field name="clause_ids">
+                                    <tree name="clauses_list" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="name"/>
+                                        <field name="content"/>
+                                        <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Clearance History" attrs="{ 'invisible':[('investment_type','!=','shares')]}">
+                                <field name ="line_ids" readonly="1">
+                                  <tree string="History" editable="top">
+                                      <field name="name"/>
+                                      <field name="clearance_type"/>
+                                      <field name="date"/>
+                                      <field name="investor_ratio" widget="percentage" string="Profit Ratio"/>
+                                      <field name="commission_type"/>
+                                      <field name="shares"/>
+                                      <field name="investment_amount"/>
+                                      <field name="currency_id" invisible="1"/>
+                                      <field name="share_amount"/>
+                                      <field name="profit"/>
+                                      <field name="clearance_amount"/>
+                                      <field name="state"/>
+                                   </tree>
+                                </field>
+                            </page>  
+                        </notebook>
+                    </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+        </record>
+        <!-- tree view for contract -->
+        <record model="ir.ui.view" id="real_estate_contract_tree">
+            <field name="name">Contract List</field>
+            <field name="model">realestate.contract.model</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="contract_no"/>
+                    <field name="contract_partner_type"/>
+                    <field name='property_id'/>
+                    <field name='partner_id'/>
+                    <field name="date"/>
+                    <field name="delivery_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <menuitem id="menu_rent_contract" name="Contract" parent="real_estate.menu_investment_main" sequence="3" groups="rent_contract.contract_group"/>
+
+        <menuitem id="menu_action_account_analytic_sale_overdue_all"
+            parent="rent_contract.menu_rent_contract"
+            action="action_account_analytic_sale_overdue_all"
+            sequence="1"
+            groups="rent_contract.realestate_contract_group"
+        />
+
+        <record model="ir.ui.view" id="sale_commission_tree">
+            <field name="name">Sale Commission</field>
+            <field name="model">sale.commission</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sale_id"/>
+                    <field name="partner_id" options="{'no_create':True,'no_edit':True,'no_open':True}"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="amount"/>
+                    <field name="sale_commission_type"/>
+                    <field name="account_id"/>
+                    <field name="journal_id" options="{'no_create':True,'no_edit':True,'no_open':True}"/>
+                    <field name="exchange_type_id" options="{'no_create':True,'no_edit':True,'no_open':True}"/>
+                    <button name="create_payment" type="object" string="Create Payment" class="oe_highlight"/>
+                    <field name="check" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="sale_commission_act_window">
+            <field name="name">Sale Commission</field>
+            <field name="res_model">sale.commission</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<!--         <menuitem id="menu_sale_commission"
+            parent="real_estate_maintenance.menu_investor_clearance_root"
+            action="sale_commission_act_window"
+            sequence="2"
+            name="Sale Commission"
+        /> -->
+
+        <!-- Contract Items -->
+        <record id="contract_term_form" model="ir.ui.view">
+            <field name="name">Contract term Form View</field>
+            <field name="model">hr.contract.term</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Contract Terms">
+                    <sheet>
+                        <group col="4">
+                            <field name="name" placeholder="Term Name"/>
+                            <field name="term_no"/>
+                            <field name="type"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contract_term_tree">
+            <field name="name">Contract term Tree View</field>
+            <field name="model">hr.contract.term</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Contract Terms">
+                    <field name="term_no"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="contract_term_action" model="ir.actions.act_window">
+            <field name="name">Contract Templates</field>
+            <field name="res_model">hr.contract.term</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.ui.menu" id="contract_term_item_menu">
+            <field name="name">Contract Terms</field>
+            <field name="parent_id" ref="real_estate_contract_template_root_menu"/>
+            <field name="action" ref="contract_term_action"/>
+            <field name="sequence" eval="3"/>
+        </record>
+
+    </data>
+</odoo>

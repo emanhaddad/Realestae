@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="leaves_reports_wizard" model="ir.ui.view">
+            <field name="name">Time Off Report wiz.form</field>
+            <field name="model">leaves.report.wiz</field>
+            <field name="arch" type="xml">
+                <form string="Time Off Reports">
+
+                    <group>
+                        <field name="report_type"/>
+                    </group>
+
+                    <group >
+                                
+                        <field name="holiday_status_ids" widget="many2many_tags"/>
+                        <field name="department_ids" widget="many2many_tags"/>
+                        <field name="employee_ids" widget="many2many_tags"/>
+                    </group>
+
+                    <group>
+                        <group>
+                            <field name="from_date"/>
+                        </group>
+                        <group>
+                            <field name="to_date"/>
+                        </group>
+                    </group>
+                 
+                    <footer>
+                   		<button name="get_report" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                  		or
+                  		<button string="Cancel" class="oe_link" special="cancel"/>
+                	</footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="emp_leaves_report_wiz_action" model="ir.actions.act_window">
+            <field name="name">Time Off Report</field>
+            <field name="res_model">leaves.report.wiz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+       
+      <!--   <menuitem
+            name="Employees"
+            id="employees_report_root_menu"
+            parent="menu_hr_reports" 
+            sequence="1"/> -->
+
+        <menuitem
+            name="Employees Time Off Report"
+            id="employees_leaves_report_menu"
+            parent="hr_holidays.menu_hr_holidays_report" 
+            action="emp_leaves_report_wiz_action"
+            groups="hr_holidays.group_hr_holidays_manager"
+            sequence="4"/>
+
+        <report id="employee_leaves_report"
+            string="Time Off Reports"
+            model="leaves.report.wiz"
+            report_type="qweb-pdf"
+            name="holiday_report.employee_leaves_report_template"
+            menu="False"/>
+
+
+        <template id="employee_leaves_report_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                   <div class="page">
+                       <style type="text/css">
+
+                             @font-face {
+                                font-family:Cairo-Regular ;
+                                src: url(/holiday_report/static/font/Cairo-Regular.ttf);
+                              }
+
+                              h2 {font-family: Cairo-Regular;}
+                              td {font-family: Cairo-Regular;}
+                              th { font-family: Cairo-Regular;}
+                              h5 { font-family: Cairo-Regular;}
+                              h4 { font-family: Cairo-Regular;}
+                              p { font-family: Cairo-Regular;}
+                              span { font-family: Cairo-Regular;}
+
+                              
+                           .bob{
+                           border:1px solid #000000 !important;
+                           }
+
+                           th {
+                              font-weight: bold;
+                              text-align: center;
+                              background-color:#ABC94C;
+                              }
+
+                          table, tr, th, td {
+                              border:1px solid #000000 !important;
+                              }
+
+                        tr{
+                            font-size:10pt !important;
+                            padding-top: -15px !important;
+                        }
+                          
+                       </style>
+                   
+
+                        <div style="margin-top: 0px;font-size: 18px;">
+                                <div style="text-align: center">
+                                   <h4 t-if="report_type == 'leave'" style="color:#ABC94C;font-size: 24px;" class="text-center">تقرير الإجازات</h4>
+                                   <h4 t-if="report_type == 'planned'" style="color:#ABC94C;font-size: 24px;" class="text-center">تقرير تخطيط الإجازات</h4>
+                                   <h4 t-if="report_type == 'permission'" style="color:#ABC94C;font-size: 24px;" class="text-center">تقرير الأذونات</h4>
+                               </div>
+                               <br></br>
+                               <group>
+
+                                     <br></br>
+
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2" class="text-center"><b> م</b></th>
+                                                <th rowspan="2" class="text-center"><b> رقم الموظف </b></th>
+                                                <th rowspan="2" class="text-center"><b> الموظف </b></th>
+                                                <th rowspan="2" class="text-center"><b> القسم</b></th>
+                                                <th rowspan="2" class="text-center"><b> نوع الاجازة </b></th>
+                                                <th rowspan="2" class="text-center"><b> المدة </b></th>
+                            
+                                                <th colspan="2" class="text-center" >
+                                                    <b t-if="report_type in ['leave','planned']">التاريخ</b>
+                                                    <b t-if="report_type == 'permission'">الاساعات</b>
+                                                </th>
+                                            </tr>
+
+                                            <tr>
+                                                <th class="text-center">
+                                                    <b>البداية </b>
+                                                </th>
+                                                <th class="text-center">
+                                                    <b>الإنتهاء</b> 
+                                                </th>
+                                            </tr>
+
+                                        </thead>
+
+                                        <tbody>
+                                        <t t-set="no" t-value="1"/>
+                                        <t t-foreach ="docsw" t-as="docw">
+                                            <tr style="padding-top: -65px !important">
+                                                <td class="text-center" width="4%" t-esc="no"/>
+                                                <td class="text-center" width="10%"  style="border:1px solid black;">
+                                                    <p><span t-esc="docw['code']"/></p>
+                                                </td>
+                                                <td class="text-center" width="23%"  style="border:1px solid black;">
+                                                    <p><span t-esc="docw['name']"/></p>
+                                                </td>
+                                                <td class="text-center" width="20%"  style="border:1px solid black;">
+                                                    <p><span t-esc="docw['department']"/></p>
+                                                </td>
+                                                <td class="text-center" width="18%"  style="border:1px solid black;">
+                                                    <p><span t-esc="docw['holiday_status']"/></p>
+                                                </td>
+                                               
+                                                <td class="text-center" width="7%"  style="border:1px solid black;">
+                                                    <p>
+                                                        <span t-if="docw['repo_type'] == 'day'" t-esc="docw['day_duration']"/>
+                                                        <span t-if="docw['repo_type'] == 'hour'" t-esc="docw['hours_duration']"/>
+                                                    </p>
+                                                </td>
+
+                                                <td class="text-center" width="9%"  style="border:1px solid black;">
+                                                    <p>
+                                                        <span t-if="docw['repo_type'] == 'day'" t-esc="docw['request_date_from']"/>
+                                                        <span t-if="docw['repo_type'] == 'hour'" t-esc="docw['request_hour_from']"/>
+                                                    </p>
+                                                </td>
+
+                                                <td class="text-center" width="9%"  style="border:1px solid black;">
+                                                    <p>
+                                                        <span t-if="docw['repo_type'] == 'day'" t-esc="docw['request_date_to']"/>
+                                                        <span t-if="docw['repo_type'] == 'hour'" t-esc="docw['request_hour_to']"/>
+                                                    </p>
+                                                </td>
+
+                                                  <t t-set="no" t-value="no+1"/>
+                                              </tr>
+                                                 
+                                            </t>
+                                      
+                                      </tbody>
+                                    </table>
+                                </group>
+                            </div>
+                   </div>
+               </t>
+            </t>     
+        </template>
+    </data>
+</odoo>
+

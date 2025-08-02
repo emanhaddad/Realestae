@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="real_estate_booking_search" model="ir.ui.view">
+        <field name="name">booking search</field>
+        <field name="model">real.estate.booking</field>
+        <field name="arch" type="xml">
+            <search>
+
+                <!-- <filter string="Archived" name="active" domain="[('active', '=', False)]"/> -->
+                <group expand="0" string="Group By">
+                    <filter string="Real Estate" name="group_by_real_estate_id" context="{'group_by': 'real_estate_id'}"/>
+                    <filter string="State" name="group_by_state" context="{'group_by': 'state'}"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+     <record id="real_estate_booking_view_form" model="ir.ui.view">
+        <field name="name">real estate booking</field>
+        <field name="model">real.estate.booking</field>
+        <field name="arch" type="xml">
+            <form string="Real estate booking">
+                <header>
+                        <!--button string="Set to new" name="set_to_new" type="object" states='cancel' class="oe_highlight" /-->
+
+                        <button string="Waiting under payment" name="action_booked" type="object" states='new' class="oe_highlight"/>
+                        <button string="Confirm" name="action_wait" type="object" states='wait' class="oe_highlight" groups="account.group_account_user"/>
+                        <button string="Create Sale Contract" name="action_sale" type="object" states='confirmed' class="oe_highlight" />
+                        <button string="Cancel" name="%(action_real_booking_cancellation)d" type="action" states='new,wait,confirmed' class="oe_highlight" context="{'default_booking_id':active_id}"/>
+                        <button string="Return Deposit" name="create_paymnet" type="object" attrs="{'invisible':[('check_deserve','=',False)]}" class="oe_highlight" groups="account.group_account_user"/>
+                        <field name="state" widget="statusbar" statusbar_visible="new,wait,confirmed,cancel"/>
+
+                </header>
+                <sheet>
+                    <div class="oe_button_box">
+                        <button class="oe_stat_button" name="open_move" type="object" icon="fa-files-o" attrs="{'invisible':[('payment_move_id','=',False)]}" string="Payment Deposit">
+                            <field string="Payment Deposit" name="payment_ids" widget="statinfo" invisible="1"/>
+                        </button>
+
+                        <button class="oe_stat_button" name="open_cancel_move" type="object" icon="fa-files-o" attrs="{'invisible':[('cancel_reason_id','=',False)]}" string="Return Deposit">
+                            <field string="Return Deposit" name="payment_ids" widget="statinfo" invisible="1"/>
+                        </button>
+
+                        <button class="oe_stat_button" name="open_customer" type="object" icon="fa-files-o" attrs="{'invisible':[('payment_move_id','=',False)]}" string="Customer Status">
+                            <field string="Customer Status" name="customer_ids" widget="statinfo" invisible="1"/>
+                        </button>
+
+                        <button class="oe_stat_button" name="open_csale" type="object" icon="fa-files-o" attrs="{'invisible':[('payment_move_id','=',False)]}" string="Unit Sale Contract">
+                            <field string="Unit Sale Contract" name="realestate_contract_ids" widget="statinfo" invisible="1"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Reservation deposit"/>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group col="4" string="Unit information">
+                        <field name="unit_id"  options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','!=','new')]}"/>
+                        <!-- domain="[('state','=','available')]" -->
+                        <field name="property_type"/>
+                        <field name="unit_amount"/>
+                        <field name="unit_state"/>
+                        <field name="unit_space" string="Space"/>
+                        <field name="property_floors"/>
+                        <field name="real_estate_id" string="Real Estate"/>
+                    </group>
+                    <group col="4" string="Customer information">
+                        <field name="partner_id"  attrs="{'required':[('state','=','new')], 'readonly':[('state','!=','new')]}"/>
+                        <field name="id_partner_number" string="ID Number"/>
+                        <field name="phone" string="Phone number"/>
+                    </group>
+                    <group col="4" string="Sales information">
+                        <field name="sales_user_id" attrs="{'readonly':[('state','!=','new')]}"/>
+                        <field name="date" attrs="{'required':[('state','=','new')],'readonly':[('state','!=','new')]}"/>  
+                        <field name="amount" attrs="{'required':[('state','=','new')],'readonly':[('state','!=','new')]}"/>
+                        <field name="payment_method" attrs="{'readonly':[('state','!=','new')]}"/>
+                        <field name="attachment_id" attrs="{'required':[('state','=','new')],'readonly':[('state','!=','new')]}"/>
+                        <field name="check_number" attrs="{'invisible':[('payment_method','=','cash')],'readonly':[('state','!=','new')],'required':[('payment_method','=','bank')]}"/>
+                        <field name="cancel_reason_id" attrs="{'invisible':[('state','not in',['cancel','canceled'])], 'readonly':[('state','in',['cancel','canceled'])]}"/>
+                    </group>
+                    <group col="4" string="Accounting information" attrs="{'invisible':[('state','=','new')]}">
+                        <field name="journal_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','in',['confirmed','sale','canceled'])]}"/>
+                        <field name="account_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','in',['confirmed','sale','canceled'])]}"/>
+                        <field name="cost_center" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','in',['confirmed','sale','canceled'])]}"/>
+                        <field name="payment_move_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                        <field name="check_deserve" attrs="{'invisible':[('state','not in',['cancel','canceled'])], 'readonly':[('state','=','canceled')]}"/>
+                        <field name="exchange_type_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'invisible':[('state','not in',['cancel','canceled'])], 'required':[('check_deserve','=',True)], 'readonly':[('state','=','canceled')]}"/>
+                    </group>
+                    <group>
+                        <field name="booking_description" attrs="{'readonly':[('state','!=','new')],'required':[('state','=','new')]}"/>
+                    </group>
+                   
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+              
+            </form>
+        </field>
+    </record>
+
+     <record id="real_estate_booking_view_tree" model="ir.ui.view">
+        <field name="name">real_estate_booking.tree</field>
+        <field name="model">real.estate.booking</field>
+        <field name="arch" type="xml">
+            <tree string="maintenance Request" multi_edit="1" sample="1">
+                <field name="name"/>
+                <field name="real_estate_id"/>
+                <field name="unit_id"/>
+                <field name="date" />
+                <field name="partner_id" />
+                <field name="sales_user_id" />
+                <field name="state"/>
+               
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="real_estate_booking_act_window">
+        <field name="name">Real Estate booking</field>
+        <field name="res_model">real.estate.booking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="real_estate_booking_search"/>
+    </record>
+
+   
+    <menuitem id="menu_real_estate_booking" parent="real_estate.menu_base_real_estate" action="real_estate_booking_act_window" sequence="3" />
+
+    <record model="ir.actions.act_window" id="book_cancel_reason_act_window">
+        <field name="name">Booking cancel reason</field>
+        <field name="res_model">booking.cancel.reason</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+   
+    <menuitem id="menu_booking_cancel_reason" parent="real_estate.menu_config_real_estate" action="book_cancel_reason_act_window" sequence="7" />
+</odoo>

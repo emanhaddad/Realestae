@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_journal_entries">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <br/><br/>
+                    <div class="oe_structure"/>
+                        <div>
+                            <h3 class="text-center mb32">
+                                <strong>Journal Entry</strong>
+                            </h3>
+                        </div>
+                    <br/>
+
+                <div class="row" id="journal_information">
+                    <div class="col-8">
+                        <div>
+                            <strong>Journal Entry :</strong>
+                            <p t-field="o.name"/>
+                        </div>
+
+                        <div class="text-left">
+                            <strong>Date :</strong>
+                            <p t-field="o.date"/>
+                        </div>
+                    </div>  
+               
+                    <div class="col-8">
+                        <div>
+                            <strong>Journal :</strong>
+                            <p t-field="o.journal_id"/>
+                        </div>
+                        <div class="text-left">
+                            <strong>Reference :</strong>
+                            <p t-field="o.ref"/>
+                        </div>
+                    </div>  
+                </div>
+                        <br/>
+                        <table style="border-collapse: collapse;width: 100%;" class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Account</th>
+                                    <th>Date</th>
+                                    <th>Partner</th>
+                                    <th>Label</th>
+                                    <th>Analytic Account</th>
+                                    <th>Taxes(%)</th>
+                                    <th>Debit</th>
+                                    <th>Credit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="total_credit" t-value="0"/>
+                                <t t-set="total_debit" t-value="0"/>
+                                <t t-foreach="o.line_ids" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.account_id.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line.date" t-options="{'widget': 'date'}"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.partner_id.display_name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.analytic_account_id.display_name"/>
+                                        </td>
+                                       <td>
+			                    <span t-field="line.tax_ids" />
+			               </td>
+                                        <td>
+                                            <t t-esc="line.debit"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line.credit"/>
+                                        </td>
+                                        <t t-set="total_debit" t-value="total_debit + line.debit"/>
+                                        <t t-set="total_credit" t-value="total_credit + line.credit"/>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <th colspan="6"></th>
+                                    <th>
+                                        <t t-esc="total_debit"/>
+                                    </th>
+                                    <th>
+                                        <t t-esc="total_credit"/>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

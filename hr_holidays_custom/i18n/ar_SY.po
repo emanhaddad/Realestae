@@ -1,0 +1,124 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_holidays_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-01 13:15+0000\n"
+"PO-Revision-Date: 2023-06-01 13:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__leave_transfer
+msgid "Allow Transfer ?"
+msgstr "يمكن ترحيله"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields.selection,name:hr_holidays_custom.selection__hr_leave_type__type__annual
+msgid "Annual"
+msgstr "سنوية"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__available_days
+msgid "Available days"
+msgstr "الأيام المتاحة"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__balance
+msgid "Balance"
+msgstr "الرصيد"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hr_holidays_custom
+#: model:ir.model,name:hr_holidays_custom.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_holidays_custom
+#: model_terms:ir.ui.view,arch_db:hr_holidays_custom.hr_employee_view
+msgid "Holidays"
+msgstr "الإجازات"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__max_transfer_year
+msgid "Maximum Transfer Years"
+msgstr "اقصى عدد سنوات للترحيل"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields.selection,name:hr_holidays_custom.selection__hr_leave_type__type__normal
+msgid "Normal"
+msgstr "عادية"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__paid_days
+msgid "Paid Days"
+msgstr "الأيام المدفوعة"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__paid_married_period
+msgid "Paid days (married)"
+msgstr "الأيام المدفوعة ( للمتزوجين("
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__paid_single_period
+msgid "Paid days (single)"
+msgstr "الأيام المدفوعة ( العزاب("
+
+#. module: hr_holidays_custom
+#: model:ir.model,name:hr_holidays_custom.model_hr_leave_type
+msgid "Time Off Type"
+msgstr "نوع الإجازة "
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__transferred_balance
+msgid "Transferred Balance"
+msgstr "الرصيد المرحل"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__type
+msgid "Type"
+msgstr "النوع"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__unpaid_days
+msgid "Un Paid Days"
+msgstr "الأيام غير المدفوعة"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__unpaid_married_period
+msgid "Un Paid days (married)"
+msgstr "الأيام غير المدفوعة ( للمتزوجين("
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__unpaid_single_period
+msgid "Un Paid days (single)"
+msgstr "الأيام غير المدفوعة ( العزاب ("
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__annual_leave_entitlement
+msgid "annual leave entitlement(months)"
+msgstr ""

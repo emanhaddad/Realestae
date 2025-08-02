@@ -1,0 +1,361 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+            <h2 class="oe_slogan"><b>Construction Management</b</h2>
+        <p class="oe_mt32" style="color:olive;">
+            This module provide features to manage Construction of buidling/property/offices/Home/etc.</b>
+            <br><br><b style="color:CRIMSON;">Main Features</b><br>
+            <ul>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+                <li style="color:olive;"></li>
+            </ul>
+        </p>
+        <p style="color:CRIMSON;">
+          Menus:
+            <ul style="color:olive;">
+                <li>Construction</li>
+                <li>Construction/Configuration</li>
+                <li>Construction/Configuration /Stages</li>
+                <li>Construction/Construction</li>
+                <!-- <li>Construction/Construction/Budgets</li> -->
+                <li>Construction/Construction/Notes</li>
+                <li>Construction/Construction/Projects</li>
+                <li>Construction/Job Orders</li>
+                <!-- <li>Construction/Job Orders /Issues</li> -->
+                <li>Construction/Job Orders /Job Orders</li>
+                <li>Construction/Job Orders /Notes</li>
+                <li>Construction/Materials / BOQ</li> 
+                <li>Construction/Materials /Material Requisitions / BOQ</li>
+                <li>Construction/Materials /Materials</li>
+                <li>Construction/Vendors</li>
+                <li>Construction/Vendors /Contractors</li>
+            </ul>
+        </p>
+        <p style="color:CRIMSON;">
+        Defined Reports
+        <ul style="color:olive;">
+            <li>Notes</li>
+            <li>Project Report</li>
+            <li>Task Report</li>
+        </ul>
+</p>
+<p style="color:CRIMSON;">If you are going with Detail Construction / Job Costing / Job Contracting Please check below app in similar app section:
+         Similar App(s): https://www.odoo.com/apps/modules/12.0/job_costing_contracting_bundle/ </p>
+
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Construction Project - Project Manager</b></h2>
+<p  style="color:CRIMSON;"> Project manager can create construction project and manage project with different jor orders / Issues / Notes etc... Using project as Construction Project we are using all project management features and which will give strong mangement of Construction business.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="safal.png">
+                </div>
+            </p>
+    </div>
+</section>
+<!-- <section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:Grey;" >Configure Project Budget</h2>
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="budget.png">
+                </div>
+            </p>
+    </div>
+</section> -->
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Project User Work on Job Orders</b></h2>
+<p  style="color:CRIMSON;"> Each project user will be assign to job orders for that Construction project where he can view full details and documents related to that job order/ task. Project user can communicate with project team using chatter of job order.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="timesheet.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+         <h2 class="oe_slogan"><b style="color:CRIMSON;">Material Planning On Job Order</b></h2>
+<p  style="color:CRIMSON;"> This tab allow project manager / project user to plan material and products before starting job and they can request procuremnt / stock deparment for that.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="material_planning.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+         <h2 class="oe_slogan"><b style="color:CRIMSON;">Material Consumed On Job Order</b></h2>
+<p  style="color:CRIMSON;"> This will give idea material consumed during job order related to construction project.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="cosumed_material.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+         <h2 class="oe_slogan"><b style="color:CRIMSON;">Material Request / Bill of Quantity On Job Order</b></h2>
+<p  style="color:CRIMSON;"> This tab will show all material request to outside vendor/subcontractor which we call Bill of Quantity for construction job order.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="material_requsition.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+         <h2 class="oe_slogan"><b style="color:CRIMSON;">Stock Move On Job Orders</b></h2>
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="stock_moves.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Project Manager - Create SubTask Job Order</b></h2>
+<p  style="color:CRIMSON;"> Project manager can dividie main/big task into subtasks/sub job orders and assign to users.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="subtask.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Project Manager - Add Notes</b></h2>
+<p  style="color:CRIMSON;"> This note feature is customizated to handle notes for specific Construction project. So project manager can make notes for different projects for his/her todo list and meetings.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="notes_pm.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Added BOQ Type on Material</b></h2>
+<p  style="color:CRIMSON;"> Options are Machinery / Equipment, Worker / Resource, Work Cost Package, Subcontract.</p>
+<p  style="color:CRIMSON;"> This will be used in Material Request / BOQ whlie calculating total cost for each category/type of material/labour. 
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="boq_type.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Material Request / Bill of Quantity - Project User</b></h2>
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="operations.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Material Request - Materials BOQ Cost</b></h2>
+<p  style="color:CRIMSON;"> Total costs of every BOQ type with material request lines / BOQ lines.</p>
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="material_boq_cost.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Material Request / Bill of Quantity - Create Purchase Orders</b></h2>
+<p  style="color:CRIMSON;"> Using create purchase order button you can create RFQ to multiple suppliers and compare prices for that BOQ and finalize one of supplier to order material. This wizard will allow you change qty request during running wizard.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="wizard.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Create Purchase Order Show Selected Products</b></h2>
+<p  style="color:CRIMSON;"> You can change qty here for requested product for that BOQ.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="select_product.png">
+                </div>
+            </p>
+    </div>
+</section>
+<!-- <section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:Grey;">Job Order Related Issues</h2>
+<p> This is screen where project manager can log all issues during constuction of project.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="s6.png">
+                </div>
+            </p>
+    </div>
+</section> -->
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Job Order Related Notes</b></h2>
+<p  style="color:CRIMSON;"> Allow your project user to make notes by job order.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="notes_jo.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;"></b><Contractors</h2>
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="vendors.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Configuration - Stages</b></h2>
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="stages.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Print Project Report</b></h2>
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="project_report.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Print Project Note</b></h2>
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="note.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Print Job Order Report</b></h2>
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="report1.png">
+                    <img src="report2.png">
+                    <img src="report3.png">
+                    <img src="report4.png">
+                </div>
+            </p>
+    </div>
+</section>
+<section class="oe_container">
+    <div class="oe_row">
+        <h2 class="oe_slogan"><b style="color:CRIMSON;">Construction Management - Groups</b></h2>
+<p  style="color:CRIMSON;"> New groups are created on top of project user and project manager role. For example Planning Enginner is Project user and Design Manager can be project manager.
+            <p>
+                <div class="oe_demo oe_screenshot">
+                    <img src="construction_management.png">
+                </div>
+            </p>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">
+            <strong><font style="color:#2dd280;" class="text-epsilon">Contact / Support<br/></font></strong>
+            <strong>
+                <font style="color:crimson;" class="text-epsilon">Introducing</font>
+                <font style="color:crimson;" class="text-epsilon">Probuse Consulting Services Pvt. Ltd.</font>
+            </strong>
+        </h2>
+        <div class="oe_span6">
+           <div class="mt32 col-md-10">
+               <div class="oe_picture" style="margin: 25px 10%;">
+                   <a href="http://www.probuse.com/" target='new'>
+                       <img src="logo.png">
+                   </a>
+               </div>
+               <p class="oe_mt32">
+                   <font style="color:crimson;">If you need any help or want more additional features, you may contact us through:</font><br/>
+                   <font style="color:crimson;">Email: <a href="contact@probuse.com">contact@probuse.com</a> <br/>
+                   <font style="color:crimson;">Website: </font><a href="http://www.probuse.com/" target='new'><u>www.probuse.com</u></a> <br/>
+                   <font style="color:crimson;">Skype: mustufa_probuse</font><br/>
+               </p>
+               <p>
+                    <h2>
+                        <a href="https://www.facebook.com/probusecs" target="new">
+                          <i class="fa fa-facebook-square" style="font-size:38px;"></i>
+                        </a>
+                        <a href="https://twitter.com/mustufa_odoo" target="new">
+                          <i class="fa fa-twitter" style="font-size:38px;"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mustufa-rangwala-odoo-openerp-0a46777/" target="new">
+                          <i class="fa fa-linkedin" style="font-size:38px;"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCHlyoC4khP44M1cOCJXo2FQ" target="new">
+                          <i class="fa fa-youtube-play" style="font-size:38px;"></i>
+                        </a>
+                        <a href="https://plus.google.com/u/0/113284573788891837715/posts" target="new" rel="publisher">
+                          <i class="fa fa-google-plus-square" style="font-size:38px;"></i>
+                        </a>
+                  </h2>
+                </p>
+           </div>
+        </div>
+        <div class="mt32 col-md-5">
+              <p style="text-align: justify;">
+                    <font class="text-epsilon" style="color:crimson;">Probuse Consulting Service Pvt Ltd is an Software and Web development specialist which offers complete business application together. We are well experienced to provide a face for your business on the software and Internet level.</font>
+              </p>
+              <p style="text-align: justify;">
+                <font class="text-epsilon" style="color:crimson">Probuse Consulting Service Pvt Ltd is a specialist in Odoo/OpenERP services and could give your business open source hand to drive.</font>
+              </p>
+              <h3 class="o_animate o_anim_bounce_in" style="text-align: left; animation-play-state: paused;">
+                    <font style="font-size: 18px;color:#ff8000;" class="text-epsilon"><strong>Our Services</strong></font>
+              </h3>
+              <ul style="list-style-type:square">
+                    <a href="http://www.probuse.com/page/odoo-implementation" target="new"><li list-style-type: "*";><p style="text-align: left; color:crimson;">Odoo Implementation</p></li></a>
+                    <a href="http://www.probuse.com/page/odoo-support" target="new"><li><p style="text-align: left; color:crimson;">Odoo Support</p></li></a>
+                    <a href="http://www.probuse.com/page/odoo-customization" target="new"><li><p style="text-align: left; color:crimson;">Odoo Customization</p></li></a>
+                    <a href="http://www.probuse.com/page/odoo-migration" target="new"><li><p style="text-align: left; color:crimson;">Odoo Migration</p></li></a>
+                    <a href="http://www.probuse.com/page/odoo-training" target="new"><li><p style="text-align: left; color:crimson;">Odoo Training</p></li></a>
+              </ul>
+        </div>
+    </div>
+</section>
+
+

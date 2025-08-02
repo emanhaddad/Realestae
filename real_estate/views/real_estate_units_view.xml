@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!--   action for empty units-->
+        <record id="real_estate.action_estate_units" model="ir.actions.act_window" >
+            <field name="name">Unit</field>
+            <field name="res_model">real.estate.units</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain"></field>
+            <field name="context">{'default_base_property_id': context.get('name', False),}</field>
+        </record>
+
+    
+
+        <!-- Units -->
+
+        <!-- Units Form View-->
+        <record id="units_real_estate_form" model="ir.ui.view">
+            <field name="name">Unit</field>
+            <field name="model">real.estate.units</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                         <div class="oe_button_box">
+                            
+                        </div>
+                        <group col="4" colspan="2" name="unit_information" string="Unit Information">
+                            <group name="main_info" col="2" colspan="2">
+                                <field name="unit_name"/>
+                                <field name='code' required="1"/>
+                                <field name='base_property_id' required="1"/>
+                                <field name='property_floors' required="1"/>
+                                <field name='property_rooms'/>
+                                <!-- <field name='prople_no'/> -->
+                                <field name='unit_space' required="1" attrs="{'readonly':[('profit_calculated','=',True)]}"/>
+                                <!--field name='unit_status'/-->
+                                <field name="buyer_id" readonly="1" attrs="{'invisible':[('state','=','rent')]}"/>
+                                <field name="owner_id" readonly="1" attrs="{'invisible':[('state','=','rent')]}"/>
+                                <field name="renter_id" readonly="1" attrs="{'invisible':[('state','!=','rent')]}"/>
+                            </group>
+                            <group col="2" name="other_info" colspan="2">
+                                <field name="priority" widget="priority"/>
+                                <field name='property_type_id' required="1" domain="[('type','=','units')]"/>
+                                <field name='property_type' />
+                                <field name='electricity_supply_account_number'/>
+                                <field name='water_supply_account_number'/>
+                            </group>
+
+                            <field name='date' invisible="1"/>
+                            <field name='unit_name' required="0" invisible="1"/>
+                            <field name='cost_duration' required="0" invisible="1"/>
+
+                        </group>
+                        <group col="4" colspan="2" name="unit_value" string="Unit Value">
+                            <field name='unit_amount' attrs="{'readonly':[('profit_calculated','=',True)]}" readonly="1"/>
+                            <field name='unit_price' required="1"/>
+                            <field name='commission_type'/>
+                            <field name='unit_commission'/>
+                            <field name='unit_taxes'/>
+                            <field name='profit_calculated'/>
+                            <field name='construc_date' attrs="{'required':[('property_type','=','ready')]}"/>
+                            <field name='unit_age'/>
+                        </group>
+                        <group col="4" colspan="2" name="services_value" string="Services Value">
+                            <field name='water_bill_amount'/>
+                            <field name='maintenanace_account_value'/>
+                            <field name='electricity_bill_amount'/>
+                        </group>
+                        <notebook>
+                            
+                            <page name="unit_content" string="Unit Content">
+                                <field name="content_rel" widget="one2many_list">
+                                    <list editable='top'>
+                                        <field name='content' />
+                                        <field name='quantity'/>
+                                        <field name='note'/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page name="description" string="Description">
+                                <field name="unit_image_ids" widget="many2many_kanban">
+                                    <kanban quick_create="false" create="true" delete="true"> 
+                                        <templates>                                    
+                                            <t t-name="kanban-box">                                        
+                                                <div class="oe_kanban_global_click" style="position: relative">
+                                                    <div class="oe_module_vignette"> 
+                                                        <field name="datas" widget="image" style="width:50px; height:50px;" class="oe_avatar"/>
+                                                        <field name="description"/>                                                
+                                                        <div class="oe_module_desc">                                               
+                                                        </div>                                            
+                                                    </div>                                        
+                                                </div>                                    
+                                            </t>                                
+                                        </templates>                            
+                                    </kanban> 
+                                </field>  
+                                <group>
+                                    <field name='description'/>
+                                </group>
+                            </page>
+                            <page name="unit_evaluation" string="Unit Evaluation">
+                                <field name="evaluation_ids">
+                                    <list editable='top'>
+                                        <field name='amount'/>
+                                        <field name='note'/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Units list View-->
+        <record id="real_estate_unit_tree" model="ir.ui.view" >
+            <field name="name">Units</field>
+            <field name="model">real.estate.units</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='unit_name'/>
+                    <field name='code'/>
+                    <field name='base_property_id'/>
+                    <field name='unit_space'/>
+                    <field name='unit_amount'/>
+                    <field name='priority'/>
+                    <field name='state'/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Units Search View-->
+        <record id="view_realestate_units_search" model="ir.ui.view">
+            <field name="name">real.estate.units.search</field>
+            <field name="model">real.estate.units</field>
+            <field name="arch" type="xml">
+                <search string="transformation">
+                    <field name='base_property_id'/>
+                    <field name='code'/>
+                </search>
+            </field>
+        </record>
+
+       
+    
+        <!--Floors Action-->
+        <record id="action_floors_action" model="ir.actions.act_window" >
+            <field name="name">Floors</field>
+            <field name="res_model">floors.model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        
+        <!-- menues -->
+        <menuitem id="menu_real_estate_unit" name="Unit" parent="menu_base_investment" action="action_estate_units" sequence="1"/>
+
+
+        <menuitem id="menu_floors" name="Floors" parent="menu_config_real_estate" groups="configurarion_list_group" action="action_floors_action" sequence="4"/>
+
+
+        <!-- content seting -->
+
+        <record id="estate_content_setting_form" model="ir.ui.view">
+            <field name="name">content</field>
+            <field name="model">content.setting</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="4">
+                            <field name='code' />
+                            <field name='name' />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="real_estate_content_setting" model="ir.ui.view" >
+            <field name="name">content</field>
+            <field name="model">content.setting</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='code'/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_content_action" model="ir.actions.act_window" >
+            <field name="name">content</field>
+            <field name="res_model">content.setting</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menues -->
+
+       <menuitem id="menu_content" name="Content" parent="menu_config_real_estate" action="action_content_action" groups="configurarion_list_group" sequence="5"/>
+
+
+
+        <!-- content line -->
+
+
+        <!--   action for content line-->
+  <!--       <record id="action_content_line" model="ir.actions.act_window" >
+            <field name="name">content line</field>
+            <field name="res_model">furniture.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+ -->
+        <!-- tree view for content line -->
+        <record id="real_estate_content_LINE" model="ir.ui.view" >
+            <field name="name">content line</field>
+            <field name="model">content.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='content'/>
+                    <field name='content_code' invisible='1'/>
+                    <field name='content_name' invisible='1'/>
+                    <field name='quantity'/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- form view of  content LINE  -->
+        <record id="estate_cont_line_form" model="ir.ui.view" >
+            <field name="name">content line</field>
+            <field name="model">content.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="4">
+                            <field name='content'/>
+                            <field name='content_code' invisible='1'/>
+                            <field name='content_name' invisible='1'/>
+                            <field name='quantity'/>
+                            <field name='note' />
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+         <!-- Units Type Action-->
+        <record id="action_unit_type"  model="ir.actions.act_window">
+            <field name="name">Units Type</field>
+            <field name="res_model">real.estate.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('real_estate_type_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('estate_type_form')})]"/>
+            <field name="context">{'default_type': 'units'}</field>
+            <field name="domain">[('type','=','units')]</field>
+        </record>
+
+        <menuitem id="menu_unit_type" name="Units Type" parent="menu_config_real_estate" action="action_unit_type" sequence="2"/>
+</odoo>

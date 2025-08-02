@@ -1,0 +1,804 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate_inspection
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.1alpha1-20201003\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-24 22:32+0000\n"
+"PO-Revision-Date: 2020-11-24 22:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__state
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__state
+msgid ""
+" * Draft: not confirmed yet.\n"
+" * Confirmed: inspection has been confirmed.\n"
+" * Cancelled: has been cancelled, can't be confirmed anymore."
+msgstr "مبدئ :لم يتم التأكيد بعد.\n"
+	
+" * ملغي: تم الالغاء"
+"* مؤكد: تم تأكيد الكشف\n"
+              
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate__inspection_count
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_units__inspection_count
+#: model:ir.model.fields,field_description:real_estate_inspection.field_realestate_contract_model__inspection_count
+msgid "# Inspection Count"
+msgstr "عدد الكشوفات الدورية"
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_contract_form_inherit
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estates_form_inherit
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.units_real_estate_form_inherit
+msgid "<span class=\"o_stat_text\"> Inspection</span>"
+msgstr "الكشف الدوري"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__appreciation_setting__status__acceptable
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__new_property_status__acceptable
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__new_unit_status__acceptable
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__old_property_status__acceptable
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__old_unit_status__acceptable
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Acceptable"
+msgstr "مقبول"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_needaction
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item__active
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__activity_ids
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__activity_exception_decoration
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__activity_state
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__activity_type_icon
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__inspection_type__all_property
+msgid "All property"
+msgstr "عقار"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_appreciation_setting__status
+msgid "Appreciation"
+msgstr "التقييم"
+
+#. module: real_estate_inspection
+#: model:ir.actions.act_window,name:real_estate_inspection.appreciation_action
+#: model:ir.ui.menu,name:real_estate_inspection.appreciation_setting_menu
+msgid "Appreciation Setting"
+msgstr "التقييم"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_attachment_count
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__appreciation_setting__status__bad
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__new_property_status__bad
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__new_unit_status__bad
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__old_property_status__bad
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__old_unit_status__bad
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Bad"
+msgstr "سئ"
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__state__cancel
+msgid "Cancelled"
+msgstr "ملعي"
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Confirm Inspection"
+msgstr "تأكيد الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__state__confirmed
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_appreciation_setting__create_uid
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__create_uid
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item__create_uid
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__create_uid
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_appreciation_setting__create_date
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__create_date
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item__create_date
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__create_date
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__date_inspected
+msgid "Date when the Real State has been inspected"
+msgstr "تاريخ كشف العقار"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_appreciation_setting__display_name
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate__display_name
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__display_name
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item__display_name
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__display_name
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template__display_name
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_units__display_name
+#: model:ir.model.fields,field_description:real_estate_inspection.field_realestate_contract_model__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__state__draft
+msgid "Draft"
+msgstr "مبدئ"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__appreciation_setting__status__exellent
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__new_property_status__exellent
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__new_unit_status__exellent
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__old_property_status__exellent
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__old_unit_status__exellent
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Exellent"
+msgstr "ممتاز"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection_line__result__failure
+msgid "Failure"
+msgstr "فشل"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_follower_ids
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_channel_ids
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_partner_ids
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__activity_type_icon
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Get Inspection Line"
+msgstr "جلب عناصر الكشف"
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Get Units Inspection"
+msgstr "انشاء كشوفات الوحدات"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__appreciation_setting__status__good
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__new_property_status__good
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__new_unit_status__good
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__old_property_status__good
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__old_unit_status__good
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Good"
+msgstr "جيد"
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_appreciation_setting__id
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate__id
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__id
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item__id
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__id
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template__id
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_units__id
+#: model:ir.model.fields,field_description:real_estate_inspection.field_realestate_contract_model__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__activity_exception_icon
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__activity_exception_icon
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__message_needaction
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__message_unread
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__message_needaction
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__message_has_error
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__message_has_sms_error
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__message_has_error
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__inspected_by
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__inspected_by
+msgid "Inspected By"
+msgstr "كشف بواسطة"
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_search_view
+msgid "Inspected Date"
+msgstr "تاريخ الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.ui.menu,name:real_estate_inspection.real_estate_inspection_item_root_menu
+msgid "Inspection"
+msgstr "الكشف الدوري"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__date_inspected
+msgid "Inspection Date"
+msgstr "تاريخ الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.actions.act_window,name:real_estate_inspection.real_estate_inspection_item_act_window
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__inspection_item_id
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__inspection_item_id
+msgid "Inspection Item"
+msgstr "عناصر الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.ui.menu,name:real_estate_inspection.real_estate_inspection_item_menu
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_template_form_view
+msgid "Inspection Items"
+msgstr "عناصر الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__result
+msgid "Inspection Line Result "
+msgstr "النتيجة"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__inspection_line_ids
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Inspection Lines"
+msgstr "عناصر الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate__inspection_ids
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_units__inspection_ids
+#: model:ir.model.fields,field_description:real_estate_inspection.field_realestate_contract_model__inspection_ids
+msgid "Inspection Logs"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:res.groups,name:real_estate_inspection.inspection_manager_group
+msgid "Inspection Manager"
+msgstr "مدير الكشف الدوري"
+
+#. module: real_estate_inspection
+#: model:res.groups,comment:real_estate_inspection.inspection_manager_group
+msgid "Inspection Manager access Group"
+msgstr "صلاحية مدير الكشف الدوري"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__inspection_id
+msgid "Inspection Reference"
+msgstr "المرجع"
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_search_view
+msgid "Inspection State"
+msgstr "الحالة"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__state
+msgid "Inspection Status"
+msgstr "حالة الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.actions.act_window,name:real_estate_inspection.real_estate_inspection_template_act_window
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__template_id
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__template_id
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Inspection Template"
+msgstr "نموذج الكشف"
+
+#. module: real_estate_inspection
+
+#: model:ir.ui.menu,name:real_estate_inspection.real_estate_inspection_template_menu
+msgid "Inspection Template"
+msgstr "نماذج الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__inspection_type
+msgid "Inspection Type"
+msgstr "نوع الكشف"
+
+#. module: real_estate_inspection
+#: model:res.groups,name:real_estate_inspection.inspection_user_group
+msgid "Inspection User"
+msgstr "مستحدم الكشف"
+
+#. module: real_estate_inspection
+#: model:res.groups,comment:real_estate_inspection.inspection_user_group
+msgid "Inspection User access Group"
+msgstr "صلاحية مستخدم الكشف"
+
+#. module: real_estate_inspection
+#: code:addons/real_estate_inspection/models/real_estate_inspection.py:0
+#, python-format
+msgid "Inspection cannot be completed. There are no inspected items."
+msgstr "لا يمكن إتمام الكشف لم بتم كشف العناصر"
+
+#. module: real_estate_inspection
+#: code:addons/real_estate_inspection/models/real_estate_inspection.py:0
+#, python-format
+msgid "Inspection cannot be completed. There are no inspected units."
+msgstr "لا يمكن اتمام الكشف لم يتم كشف الوحدات "
+
+#. module: real_estate_inspection
+#: code:addons/real_estate_inspection/models/real_estate_inspection.py:0
+#, python-format
+msgid "Inspection cannot be completed. There are uninspected Unit."
+msgstr "لا يمكن اتمام الكشف بعض الوحدات لم يتم كشفها"
+
+#. module: real_estate_inspection
+#: code:addons/real_estate_inspection/models/real_estate_inspection.py:0
+#, python-format
+msgid "Inspection cannot be completed. There are uninspected items."
+msgstr "لا يمكن إتمام الكشف بعض العناصر لم يتم كشفها"
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_search_view
+msgid "Inspector"
+msgstr "Inspector"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_is_follower
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template__item_ids
+msgid "Items"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_appreciation_setting____last_update
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate____last_update
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection____last_update
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item____last_update
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line____last_update
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template____last_update
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_units____last_update
+#: model:ir.model.fields,field_description:real_estate_inspection.field_realestate_contract_model____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_appreciation_setting__write_uid
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__write_uid
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item__write_uid
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__write_uid
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_appreciation_setting__write_date
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__write_date
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item__write_date
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__write_date
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_main_attachment_id
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_has_error
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_ids
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item__name
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__new_property_status
+msgid "New Property Status"
+msgstr "حالة العقار الحالية"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__new_unit_status
+msgid "New Unit Status"
+msgstr "حالة الوحدة الحالية"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__activity_date_deadline
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__activity_summary
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__activity_type_id
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__note
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item__note
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__note
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_template__note
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_template_form_view
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_needaction_counter
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_has_error_counter
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__message_needaction_counter
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__message_has_error_counter
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__message_unread_counter
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__old_property_status
+msgid "Old Property Status"
+msgstr "حالة العقار السابقة"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__old_unit_status
+msgid "Old Unit Status"
+msgstr "حالة الوحدة السابقة"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__real_estate_id
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__real_estate_id
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_search_view
+msgid "Real Estate"
+msgstr "العقار"
+
+#. module: real_estate_inspection
+#: model:ir.actions.act_window,name:real_estate_inspection.real_estate_inspection_act_window
+msgid "Real Estate Inspection"
+msgstr "الكشف الدوري"
+
+#. module: real_estate_inspection
+#: model:ir.model,name:real_estate_inspection.model_real_estate_inspection_item
+msgid "Real Estate Inspection Item"
+msgstr "عناصر الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.actions.act_window,name:real_estate_inspection.real_estate_inspection_line_act_window
+#: model:ir.model,name:real_estate_inspection.model_real_estate_inspection_line
+msgid "Real Estate Inspection Line"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model,name:real_estate_inspection.model_real_estate_inspection_template
+msgid "Real Estate Inspection Template"
+msgstr "نموذج الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.ui.menu,name:real_estate_inspection.real_estate_inspection_root_menu
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_graph_view
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_line_pivot_view
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_pivot_view
+msgid "Real Estate Inspections"
+msgstr "الكشف الدوري"
+
+#. module: real_estate_inspection
+#: model:ir.ui.menu,name:real_estate_inspection.real_estate_inspection_menu
+msgid "Real Estate Inspections"
+msgstr "كشوفات العقارات"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__real_state_inspection_id
+msgid "Real State Inspection"
+msgstr "الكشف"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__name
+msgid "Reference"
+msgstr "مرجع"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__contract_id
+msgid "Rent Contract"
+msgstr "عقد الايجار"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__renter_id
+msgid "Renter"
+msgstr "المؤجر"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__activity_user_id
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__result
+msgid "Result"
+msgstr "النتيجة"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_has_sms_error
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Set to Draft"
+msgstr "ارجاع لمبدئ"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__inspection_type__specific_units
+msgid "Specific Units"
+msgstr "وحدة"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__status_percentage
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__status_percentage
+msgid "Status Percentage"
+msgstr "الحالة"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__activity_state
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection_line__result__success
+msgid "Success"
+msgstr "نجاح"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection_line__result__todo
+msgid "Todo"
+msgstr "لم يكشف"
+
+#. module: real_estate_inspection
+#: code:addons/real_estate_inspection/models/real_estate_inspection_item.py:0
+#, python-format
+msgid "Total Of Items Weight must be 100%"
+msgstr "يجب أن يكون إجمالي وزن العناصر 100٪"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__activity_exception_decoration
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__unit_id
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: real_estate_inspection
+#: model:ir.actions.act_window,name:real_estate_inspection.unit_inspection_act_window
+msgid "Unit Inspection"
+msgstr "كشوفات الوحدات"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__unit_inspection_ids
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Units Inspection"
+msgstr "كشف الوحدات"
+
+#. module: real_estate_inspection
+#: model:ir.ui.menu,name:real_estate_inspection.unit_inspection_menu
+msgid "Units Inspections"
+msgstr "كشوفات الوحدات"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_unread
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__message_unread_counter
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Real Estate Inspection"
+msgstr "كشف العقار"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__appreciation_setting__status__verygood
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__new_property_status__verygood
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__new_unit_status__verygood
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__old_property_status__verygood
+#: model:ir.model.fields.selection,name:real_estate_inspection.selection__real_estate_inspection__old_unit_status__verygood
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_form_view
+msgid "Very Good"
+msgstr "جيد جدا"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection__website_message_ids
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_line__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection__website_message_ids
+#: model:ir.model.fields,help:real_estate_inspection.field_real_estate_inspection_line__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_real_estate_inspection_item__weight
+msgid "Weight"
+msgstr "وزن"
+
+#. module: real_estate_inspection
+#: model:ir.model,name:real_estate_inspection.model_appreciation_setting
+msgid "appreciation.setting"
+msgstr "تقييم العقار"
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_appreciation_setting__from_degree
+msgid "from"
+msgstr "من"
+
+#. module: real_estate_inspection
+#: model:ir.model,name:real_estate_inspection.model_real_estate_inspection
+msgid "real Estate Inspection"
+msgstr "كشف العقار"
+
+#. module: real_estate_inspection
+#: model:ir.model,name:real_estate_inspection.model_real_estate
+msgid "real.estate"
+msgstr "العقارات"
+
+#. module: real_estate_inspection
+#: model:ir.model,name:real_estate_inspection.model_real_estate_units
+msgid "real.estate.units"
+msgstr "الوحدات"
+
+#. module: real_estate_inspection
+#: model:ir.model,name:real_estate_inspection.model_realestate_contract_model
+msgid "realestate.contract.model"
+msgstr ""
+
+#. module: real_estate_inspection
+#: model:ir.model.fields,field_description:real_estate_inspection.field_appreciation_setting__to_degree
+msgid "to"
+msgstr "الي"
+
+#. module: real_estate_inspection
+#: model_terms:ir.ui.view,arch_db:real_estate_inspection.real_estate_inspection_template_form_view
+msgid "weight"
+msgstr "وزن"

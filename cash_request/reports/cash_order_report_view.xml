@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="cash_order_report_view"
+            model="cash.order"
+            string="Payment Vouchers"
+            report_type="qweb-pdf"
+            name="cash_request.cash_order_report"
+            file="cash_request.cash_order_report"
+            />
+
+        <report
+            id="cash_receive_report_view"
+            model="cash.receive"
+            string="Receipt Vouchers"
+            report_type="qweb-pdf"
+            name="cash_request.cash_receive_report"
+            file="cash_request.cash_receive_report"
+            />
+
+    </data>
+</odoo>

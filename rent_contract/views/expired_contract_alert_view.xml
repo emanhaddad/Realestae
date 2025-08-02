@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="tree_expired_contracts" model="ir.ui.view">
+      <field name="name">Expired Contracts</field>
+      <field name="model">re.expired.contract</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="start_date"/>
+          <field name="end_date"/>
+         
+        </tree>
+      </field>
+    </record>
+
+    <record id="return_expired_contract_form" model="ir.ui.view">
+        <field name="name"> Expired Contract</field>
+        <field name="model">re.expired.contract</field>
+        <field name="arch" type="xml">
+            <form >
+                <header>
+                <button name="confirm_return" string="Confirm" type="object"  class="oe_highlight" states='draft'/>
+
+                <button name="return_expired_contracts" string="Return Contracts" type="object"  class="oe_highlight" states='confirmed'/>
+
+                <field name="state" widget="statusbar"/>
+              </header>
+
+                <sheet>
+                    <div class="oe_button_box"  name="button_box" attrs="{'invisible':[('has_lines','=',True)]}">
+                <button name="get_expired_contracts" string="Get Expired Contracts" type="object"  class="oe_stat_button" icon="fa-magnet"/>
+              </div>
+
+                <group col="4" colspan="2" string="Return Expired Contracts">
+                        <field name="start_date" required="1" placeholder="التاريخ الميلاي"/>
+                        <field name="end_date" required="1" placeholder="التاريخ الميلاي"/>
+                        <field name="name" invisible="1" />
+                        <field name="has_lines" invisible="1" />     
+                </group>
+
+                <notebook attrs="{'invisible':[('has_lines','!=',True)]}">
+                    <page string="Expired Contracts">
+                        <field name="expired_lines" >
+                            <tree editable="bottom">
+
+                                <field name="return_boolean" />
+                                <field name="contract_id" readonly="1"/>
+                                <field name="unit_id" readonly="1"/>
+                                <field name="renter_id" readonly="1"/>
+                                <field name="date" readonly="1"/>
+                                <field name="old_amount" readonly="1"/>
+                                <field name="old_cost_duration" readonly="1"/>
+                                <field name="new_start_date" placeholder="التاريخ الميلاي"/>
+                                <field name="new_end_date" placeholder="التاريخ الميلاي"/>
+                                <field name="new_amount" />
+                                <field name="new_pay_duration" />
+
+                            </tree>
+
+                        </field>
+
+                    </page>
+
+
+                </notebook>
+              <!--   <footer>
+                    <button name="return_expired_contracts" string="Return Expired Contracts" type="object"  class="oe_highlight"  groups="rent_contract.return_expired_group"/>
+                    -
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer> -->
+                   </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="act_return_expired_contract" model="ir.actions.act_window">
+        <field name="name"> Expired Contracts</field>
+        <field name="res_model">re.expired.contract</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        
+    </record>
+
+    <menuitem id="menu_rent_contract" name="Contract" parent="real_estate.menu_investment_main" sequence="3" groups="rent_contract.contract_group"/>
+    
+    <menuitem id="menu_return_expired_contract" name="Expired Contract" action="act_return_expired_contract" parent="menu_rent_contract" groups="rent_contract.re_expired_contract_group" sequence="10" active="0"/>
+
+</data>
+</odoo>

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Real Estate -->
+
+        <!-- Real Estate Form View-->
+        <record id="real_estates_form" model="ir.ui.view">
+            <field name="name">real estate</field>
+            <field name="model">real.estate</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box">
+                            <button class="oe_stat_button" name="attachment_list_view" type="object" icon="fa-files-o">
+                                <field string="Documents" name="attachment_number" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <group>
+                            <field name="property_charact" widget="radio" options="{'horizontal': true}"/>
+                        </group>
+                        <group name="property_information" col="4" colspan="2" string="Property Information">
+                            <group col="2" name="info1" colspan="2">
+                                <field name='code' required="1"/>
+                                <field name='date' required="1" invisible="1"/>
+                                <field name='name' />
+                                <!--field name='asset_id'/-->
+                                <field name='property_type_id' required="1" domain="[('type','=','property')]" options="{'no_create': True}"/>
+                                <field name="company_id" invisible="1"/>
+                                <field name="user_ids" invisible="1"/>
+                                <field name='supervisor_id' options="{'no_create': True}"/>
+                                <field name='project_id' required="1"/>
+                                <field name='property_status'/>
+                            </group>
+                            <group name="info2" col="2" colspan="2">
+                                <field name="priority" widget="priority"/>
+                                <field name="pro_block_no" placeholder="Block No" class="o_address_slistt"/>
+                                <field name="pro_slistt_name" placeholder="Street Name" class="o_address_street"/>
+                                <field name="hai_id" placeholder="Hai" class="o_address_city"/>
+                                <field name="pro_city_id" class="o_address_state" placeholder="City Name"/>
+                                <field name="mail_code" placeholder="Mail Code"/>
+                                <field name="extension_num" placeholder="extension number"/>
+                                <field name="remain_days"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+
+                            <page name="general_information" string="General Information">
+                                <group col="4" colspan="2">
+                                    <group col="2" colspan="2">
+                                        <field name='property_floors' required="1"/>
+                                        <field name='asanseer_nums' />
+                                        <field name='property_total_area'/>
+                                        <field name='property_builtup_area'/>
+                                        <field name='planned_units_number'/>
+                                        <field name='property_units_number'/>
+                                        <field name='stores_number' invisible="1"/>
+                                        <field name='supplements_number' invisible="1"/>
+                                    </group>
+                                    <group col="2" colspan="2">
+                                        <field name='approximate_value' required="1"/>
+                                        <field name='num_of_share'/>
+                                        <field name='property_share_number'/>
+                                        <field name='remain_share_number'/>
+                                        <field name='property_share_amount'/>
+                                    </group>
+                                    <group col="2" colspan="2">
+                                        <field name="electricity_supply_account_number"/>
+                                        <field name="water_supply_account_number"/>
+                                        <field name='is_guard' widget='radio' options="{'horizontal': True}"/>
+                                    </group>
+                                </group>
+                                <group col="2" colspan="2">
+                                    <field name='description' />
+                                </group>
+                            </page>
+                            <page name="unit" string="Unit">
+                                <field name='unit_ids' context="{'default_base_property_id':active_id,'default_name': True}" widget="one2many_list" readonly="1">
+                                    <tree editable='bottom'>
+
+                                        <field name='code'/>
+                                        <field name='unit_name'/>
+                                        <field name='property_type_id'/>
+                                        <field name='unit_space'/>
+                                        <field name='property_floors'/>
+                                        <field name='property_rooms'/>
+                                        <field name='property_floors'/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Images">
+                                <field name="bulding_image_ids" widget="many2many_kanban">
+                                    <kanban quick_create="false" create="true" delete="true"> 
+                                        <templates>                                    
+                                            <t t-name="kanban-box">                                        
+                                                <div class="oe_kanban_global_click" style="position: relative">
+                                                    <div class="oe_module_vignette"> 
+                                                        <field name="datas" widget="image" style="width:50px; height:50px;" class="oe_avatar"/>
+                                                        <field name="description"/>                                                
+                                                        <div class="oe_module_desc">                                               
+                                                        </div>                                            
+                                                    </div>                                        
+                                                </div>                                    
+                                            </t>                                
+                                        </templates>                            
+                                    </kanban>                        
+                                </field>
+                            </page>
+                            <page name="owners" string="Owners">
+                                <field name='owner_ids' context="{'default_partner_type':'owner' ,'form_view_ref': 'real_estate.owners_res_partner_form_view'}" label="0" domain="[('partner_type','=','owner')]" readonly="1">
+
+                                <tree editable='bottom'>
+                                    <field name='name'/>
+                                    <field name='phone'/>
+                                    <field name='email'/>
+                                    <field name='date' string="Sale Date"/>
+                                    <!-- <field name='delivery_date'/> -->
+                                </tree>
+                            </field>
+                            </page>
+                            <page name="investors" string="Investors">
+                                <field name='investors_ids' context="{'default_partner_type':'investor' ,'form_view_ref': 'real_estate.investors_res_partner_form_view'}" label="0" readonly="1">
+
+                                <tree editable='bottom'>
+                                    <field name='name' domain="[('partner_type','=','investor')]"/>
+                                    <field name='commission_type'/>
+                                    <field name='commission_amount'/>
+                                    <field name='shares'/>
+                                    <field name='sign_date'/>
+                                    <field name='deliver_date'/>
+                                </tree>
+                            </field>
+                            </page>
+                            <page name="commission" string="Commission">
+                                <field name='commission_ids'>
+
+                                <tree editable='bottom'>
+                                    <field name='name'/>
+                                    <field name='commission_type'/>
+                                    <field name='commission_amount'/>
+                                    <field name='date'/>
+                                </tree>
+                            </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Real Estate Tree View-->
+        <record id="real_estate_tree_viiew" model="ir.ui.view" >
+            <field name="name">Property</field>
+            <field name="model">real.estate</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='code'/>
+                    <field name='property_status'/>
+                    <field name='property_type_id' required="1"/>
+                    <field name='priority' />
+                    <field name='property_units_number' />
+                    <field name='state'/>
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- Real Estate Search View-->
+        <record id="view_realestate_search" model="ir.ui.view">
+            <field name="name">real.estate</field>
+            <field name="model">real.estate</field>
+            <field name="arch" type="xml">
+                <search string="transformation">
+                    <field name='name'/>
+                    <field name='code'/>
+                    <field name='property_status'/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Real Estate Action-->
+        <record id="action_real_estate" model="ir.actions.act_window" >
+            <field name="name">Property</field>
+            <field name="res_model">real.estate</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        
+        <!-- Real Estate-->
+
+        <!-- Real Estate Type Form View-->
+        <record id="estate_type_form" model="ir.ui.view" >
+            <field name="name">real estate type</field>
+            <field name="model">real.estate.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                      
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <widget name="web_ribbon" title="Active" bg_color="badge-success" attrs="{'invisible': [('active', '=', False)]}"/>
+                        <group>
+                            <label for="name" string="Name"/>
+                            <field name='name'/>
+                            <field name='active' invisible="1"/>
+                            <field name='code' required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+        <!-- Real Estate Type Tree View-->
+        <record  id="real_estate_type_tree" model="ir.ui.view" >
+            <field name="name">estate type</field>
+            <field name="model">real.estate.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='code' required="1"/>
+                    <field name='name' required="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Real Estate Type Action-->
+        <record id="action_estate_type"  model="ir.actions.act_window">
+            <field name="name">Property Type</field>
+            <field name="res_model">real.estate.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('real_estate_type_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('estate_type_form')})]"/>
+            <field name="context">{'default_type': 'property'}</field>
+            <field name="domain">[('type','=','property')]</field>
+        </record>
+
+
+        <!-- City -->
+
+        <!-- City Form View  -->
+        <record id="estate_type_form" model="ir.ui.view" >
+            <field name="name">realestate city</field>
+            <field name="model">realestate.city</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                        <group col="4">
+                            <field name='code' />
+                            <field name='name' required="1"/>
+
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+        <!-- City Tree View  -->
+        <record id="real_estate_type_tree" model="ir.ui.view" >
+            <field name="name">estate city</field>
+            <field name="model">realestate.city</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='code' />
+                    <field name='name' />
+                </tree>
+            </field>
+        </record>
+
+        <!-- City Action-->
+        <record id="action_estate_city" model="ir.actions.act_window" >
+            <field name="name">City</field>
+            <field name="res_model">realestate.city</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+         
+        <!-- minues -->
+
+        <!-- property -->
+        <menuitem id="menu_real_estate_main" name="Real Estate Operations" />
+        <menuitem id="menu_base_real_estate" name="Real Estate Operations" parent="menu_real_estate_main" sequence="1"/>
+        <menuitem id="menu_config_real_estate_operations_root" name="Configuration" parent="menu_real_estate_main" groups="configurarion_list_group" sequence="1000"/>
+        
+        <!-- Investment -->
+        <menuitem id="menu_investment_main" name="Investment" groups="rent_contract.realestate_contract_group"/>
+
+        <menuitem id="menu_base_investment" name="Real State" parent="menu_investment_main" sequence="1" groups="property_unit_group"/>
+
+        <menuitem id="menu_real_estate" name="Property" parent="menu_base_investment" action="action_real_estate" sequence="0" />
+
+        <menuitem id="menu_config_real_estate_root" name="Configuration" parent="menu_investment_main" groups="configurarion_list_group" sequence="1000"/>
+
+        <menuitem id="menu_config_real_estate" name="Real Estate" parent="menu_config_real_estate_root" groups="configurarion_list_group" sequence="1"/>
+
+        <menuitem id="menu_real_estate_doc" name="Documents" parent="menu_investment_main" action="documents.document_action" sequence="4" />
+
+        <menuitem id="menu_config_doc" name="Documents" parent="menu_config_real_estate_root" sequence="90"/>
+
+        <menuitem id="menu_workspaces" name="Workspaces" parent="menu_config_doc" 
+            action="documents.folder_action"/>
+
+        <menuitem id="menu_tags" name="Tags" parent="menu_config_doc" 
+            action="documents.facet_action"/>
+
+        <menuitem id="menu_workflow_actions" name="Workflow Actions" parent="menu_config_doc" 
+            action="documents.workflow_rule_action"/>
+
+        <menuitem id="menu_share_links" name="Share links" parent="menu_config_doc" 
+            action="documents.share_action"/>
+
+        <menuitem id="menu_spreadsheet_templates" name="Spreadsheet Templates" parent="menu_config_doc" 
+            action="documents_spreadsheet.spreadsheet_template_action"/>
+        
+
+        <!-- property type -->
+        
+        <menuitem id="menu_type_realestae" name="Property Type" parent="menu_config_real_estate" action="action_estate_type" sequence="1"/>
+
+        <!-- city menu-->
+       <menuitem id="menu_config_real_estate_city" name="city" parent="menu_config_real_estate" action="action_estate_city" groups="configurarion_list_group" sequence="7"/>
+
+
+</odoo>

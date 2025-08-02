@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+            id="leave_permisiion_report"
+            string="Employee Time Off Report"
+            model="hr.leave"
+            report_type="qweb-pdf"
+            name="holiday_report.leave_permisiion_report_template"/>
+
+        <template id="leave_permisiion_report_template">
+            <t t-call="web.html_container">
+               <t t-foreach ="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <style type="text/css">
+                               @font-face {
+                                font-family:Cairo-Regular ;
+                                src: url(/holiday_report/static/font/Cairo-Regular.ttf);
+                              }
+
+                              h2 {font-family: Cairo-Regular;}
+                              td {font-family: Cairo-Regular;}
+                              th { font-family: Cairo-Regular;}
+                              h5 { font-family: Cairo-Regular;}
+                              h4 { font-family: Cairo-Regular;}
+                              p { font-family: Cairo-Regular;}
+                              span { font-family: Cairo-Regular;}
+
+                              th {
+                                    font-weight: bold;
+                                    text-align: center;
+                                    background-color:#ABC94C;
+                                    }
+
+                                .bor {
+                                    border:1px solid #000000 !important;
+                                    }
+                             
+                              .nobo{border:none !important;margin-right:0px !important;}
+                              
+
+                              .pic{
+                                width:130px;
+                                height:135px;
+                                float:left;
+                                padding-left:0px;
+                                margin-top:-220px;
+                                border: 1px solid #000;
+                              .bob{
+                              border:2px solid #000 !important;
+                              }                              }
+                              <!-- tr{border-bottom:1px solid #000000 !important;} -->
+                       </style>
+          
+                              <br></br>
+                       <div style="margin-top: 0px;">
+                            <group>
+                                <div style="width:100%;padding-top:10px;padding-right:10px;padding-left:10px;float:right;">
+                                    <div style="width:100%;height:40px;font-size: 26px;">
+                                        <center>
+                                            <p t-if="o.holiday_status_id.request_unit == 'day'">الإجازات</p>
+                                            <p t-if="o.holiday_status_id.request_unit != 'day'">الإذونات</p>
+                                        </center>
+                                    </div>
+
+
+                                    <table class="nobo" width="40%" style="margin-top:0px !important;padding-right:60px;">
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td width="35%">
+                                                <p style="font-size: 12pt;text-align:right;">الإسم الكامل: </p>
+                                            </td>
+                                            <td width="65%">
+                                                <p style="font-size: 11pt;text-align:right;margin-bottom:0px !important;" t-field="o.employee_id.name"></p>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td>
+                                                <p style="font-size: 12pt;text-align:right;"> الرقم الوظيفي :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 11pt;text-align:right;margin-bottom:0px !important;" t-field="o.employee_id.barcode"></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="pic">
+                                        <img t-if="o.employee_id.image_1920" t-att-src="image_data_uri(o.employee_id.image_1920)" style="height:100%;width:100%" alt="Employee Image"/>
+                                    </div>
+                               
+                                    <table class="nobo" width="100%" style="margin-top:50px;">
+                                        <tr><td><p style="font-size: 10pt;"></p></td></tr>
+                                        <tr><td><p style="font-size: 10pt;"></p></td></tr>
+                                        <tr class="bob" style="border-bottom:1px solid #ccc !important;">
+                                            <td >
+                                               <p style="font-size: 12pt;text-align:right;"> نوع الإجازة     :</p>
+                                            </td>
+                                            <td colspan="3">
+                                                <p style="font-size: 11pt;text-align:right;" t-field="o.holiday_status_id.name"></p>
+                                            </td>
+
+                                        </tr>
+                                 
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td width="14%">
+                                                <p style="font-size: 12pt;text-align:right;"> من :</p>
+                                            </td>
+                                            <td width="36%">
+                                                <p t-if="o.holiday_status_id.request_unit == 'day'" style="font-size: 11pt;text-align:right;" t-field="o.request_date_from"></p>
+                                                <p t-if="o.holiday_status_id.request_unit != 'day'" style="font-size: 11pt;text-align:right;" t-field="o.request_hour_from"></p>
+
+                                            </td> 
+                                            <td width="14%">
+                                               <p style="font-size: 12pt;text-align:right;"> الى :</p>
+                                            </td>
+                                            <td width="36%">
+                                                <p t-if="o.holiday_status_id.request_unit == 'day'" style="font-size: 11pt;text-align:right;" t-field="o.request_date_to"></p>
+                                                <p t-if="o.holiday_status_id.request_unit != 'day'" style="font-size: 11pt;text-align:right;" t-field="o.request_hour_to"></p>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td>
+                                                <p style="font-size: 12pt;text-align:right;"> المدة :</p>
+                                            </td>
+                                            <td>
+                                                <p t-if="o.holiday_status_id.request_unit == 'day'" style="font-size: 11pt;text-align:right;" t-field="o.number_of_days_display"></p>
+                                                <p t-if="o.holiday_status_id.request_unit != 'day'" style="font-size: 11pt;text-align:right;" t-field="o.number_of_hours_display"></p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 12pt;text-align:right;"> - </p>
+                                            </td>
+                                            <td>
+                                                <p t-if="o.holiday_status_id.request_unit == 'day'" style="font-size: 11pt;text-align:right;">يوم</p>
+                                                <p t-if="o.holiday_status_id.request_unit != 'day'" style="font-size: 11pt;text-align:right;" t-field="o.number_of_hours_text"></p>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                        	<td>
+                                                <p style="font-size: 12pt;text-align:right;"> الوصف :</p>
+                                            </td>
+                                            <td colspan="3">
+                                                <p style="font-size: 11pt;text-align:right;" t-field="o.name"></p>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                               </div> 
+                          </group>                         
+                       </div>
+                   </div>
+               </t>
+            </t>
+           </t>     
+        </template>
+    </data>
+</odoo>

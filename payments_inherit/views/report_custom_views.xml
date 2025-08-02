@@ -1,0 +1,15 @@
+<odoo>
+  <data>
+<!--   add new field to General Ledger report-->
+    <record id="custom_report_inherit" model="ir.ui.view">
+        <field name="name">custom report inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree_grouped"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='balance']" position="after">
+                <field name="remaining_balance" string="Remaining balance" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>

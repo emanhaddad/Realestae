@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="real_estate_evacuate_view_form" model="ir.ui.view">
+        <field name="name">real estate evacuate form</field>
+        <field name="model">real.estate.evacuate</field>
+        <field name="arch" type="xml">
+            <form string="Real estate evacuate">
+                <header>
+                    <button string="Sent to Finance" name="action_wait_finance" type="object" states='draft' class="oe_highlight" />
+                    <button string="Sent to Investment" name="action_wait_investment" type="object" states='finance' class="oe_highlight" />
+                    <button string="Sent to Evacuate" name="action_wait_evacuate" type="object" states='investment' class="oe_highlight" />
+                    <button string="Sent to GM" name="action_wait_general" type="object" states='evacuate' class="oe_highlight" />
+                    <button string="Approve" name="action_approve" type="object" states='general' class="oe_highlight" />
+                    <!-- <button name="create_product" string="Create Product" type="object" class="oe_highlight" attrs="{'invisible': [('product_id', '=',True)]}"/>
+                    <button name="create_invoice" string="Create Invoice" type="object" class="oe_highlight"/> -->
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <!-- <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="open_invoice" type="object" icon="fa-files-o" attrs="{'invisible':[('invoice_id','=',False)]}" groups="account.group_account_user" string="Unit Invoice">
+                            <field string="Invoice" name="invoice_id" widget="statinfo" invisible="1"/>
+                        </button>
+                    </div> -->
+                    
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Title"/>
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="evacuate_type" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                    </group>
+                    
+                    <group col="4" string="Customer information">
+                        <field name="partner_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                        <field name="num_id"/>
+                        <field name="phone"/>
+                    </group>
+
+                    <group col="4" string="Unit information">
+                        <field name="unit_id"/>
+                        <field name="real_estate_id"/>
+                        <field name="property_floors"/>
+                        <!-- <field name="product_id" attrs="{'invisible': [('product_id', '=',False)]}" readonly="1"/> -->
+                    </group>
+
+                    <group col="4" string="Contract information">
+                        <field name="contract_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                        <field name="notify_d"/>
+                        <field name="date"/>
+                        <field name="notify_date"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="evacuation_date"/>
+                        <field name="delivery_date"/>
+                        <field name="contract_period" readonly="1"/>
+                    </group>
+
+                    <group col="4" string="Accounting Information">
+                        <field name="total_amount"/>
+                        <field name="month_amount"/>
+                        <field name="paid_amount"/>
+                        <field name="residual_amount" readonly="1"/>
+                        <field name="compensation_amount"/>
+                    </group>
+
+                    <group col="4" string="Instrument Data">
+                        <field name="number_id"/>
+                        <field name="unit_num"/>
+                        <field name="date_con"/>
+                    </group>
+                    
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+              
+            </form>
+        </field>
+    </record>
+
+     <record id="real_estate_evacuate_view_tree" model="ir.ui.view">
+        <field name="name">real estate evacuate tree</field>
+        <field name="model">real.estate.evacuate</field>
+        <field name="arch" type="xml">
+            <tree string="Evacuate" multi_edit="1" >
+                <field name="name"/>
+                <field name="real_estate_id"/>
+                <field name="state"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="sequence_real_estate_evacuate" model="ir.sequence">
+        <field name="name">real estate evacuate sequence</field>
+        <field name="code">real.estate.evacuate.code</field>
+        <field name="prefix">/%(range_year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field eval="True" name="use_date_range"/>
+        <field eval="False" name="company_id"/>
+        <field name="padding">4</field>
+    </record>
+    
+
+    <record model="ir.actions.act_window" id="real_estate_evacuate_act_window">
+        <field name="name">Real Estate Evacuate</field>
+        <field name="res_model">real.estate.evacuate</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- <menuitem id="menu_real_estate_evacuate" parent="real_estate.menu_base_real_estate" action="real_estate_evacuate_act_window" sequence="9" /> -->
+
+    <menuitem id="menu_real_estate_evacuate" parent="real_estate.menu_base_investment" action="real_estate_evacuate_act_window" sequence="9" />
+    
+</odoo>

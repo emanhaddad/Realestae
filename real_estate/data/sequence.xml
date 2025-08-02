@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="real_estate_booking_time" model="ir.sequence">
+            <field name="name">Booking</field>
+            <field name="code">real.estate.booking</field>
+            <field name="prefix">RB/%(year)s/%(month)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+
+    </data>
+
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- group of Expense User-->
+    <record id="expense_user_group" model="res.groups">
+        <field name="name">Expense User</field>
+        <field name="comment">Expense User access Group</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <!-- group of Expense Manager-->
+    <record id="expense_manager_group" model="res.groups">
+        <field name="name">Expense Manager</field>
+        <field name="comment">Expense Manager access Group</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+
+    <!-- group of Expense Approve-->
+    <record id="approve_expences_button_group" model="res.groups">
+        <field name="name">Expense Approve</field>
+        <field name="comment">Expense Approve access Group</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <!-- group of Expense Confirm_-->
+    <record id="confirm_expences_button_group" model="res.groups">
+        <field name="name">Expense Confirm</field>
+        <field name="comment">Expense Confirm access Group</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+</odoo>

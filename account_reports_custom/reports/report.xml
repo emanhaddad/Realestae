@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="action_report_journal_entries_pdf" model="ir.actions.report">
+            <field name="name">Journals Entries</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">account_reports_custom.report_journal_entries</field>
+            <field name="report_file">account_reports_custom.report_journal_entries</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+        </record>
+
+    </data>
+</odoo>

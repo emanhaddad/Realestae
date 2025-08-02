@@ -1,0 +1,426 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_punichment_violation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-08 11:29+0000\n"
+"PO-Revision-Date: 2023-09-08 11:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__violation_category__appraisal_postponing
+msgid "Appraisal Postponing"
+msgstr "تأجيل الترقية"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_violation__category__attendance
+msgid "Attendance"
+msgstr "حضور"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_violation__category__behavior
+msgid "Behavior"
+msgstr "سلوك"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation__category
+msgid "Category"
+msgstr "التصنيف"
+
+#. module: hr_punichment_violation
+#: model:ir.ui.menu,name:hr_punichment_violation.hr_violation_punichment_config_menu
+msgid "Configration"
+msgstr "الإعدادات"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__create_uid
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__create_uid
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__create_date
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__create_date
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__first__denail_of_bonus
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__fourth__denail_of_bonus
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__second__denail_of_bonus
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__third__denail_of_bonus
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__violation_category__denail_of_bonus
+msgid "Denail of bonus"
+msgstr "الحرمان من العلاوة"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__description
+#: model_terms:ir.ui.view,arch_db:hr_punichment_violation.view_hr_employee_violation_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__violation_category__dismiss
+msgid "Dismissal from work"
+msgstr "الفصل من العمل"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__display_name
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__display_name
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_punichment_violation
+#: model:ir.actions.act_window,name:hr_punichment_violation.hr_employee_violation_action
+#: model:ir.model,name:hr_punichment_violation.model_hr_employee_violation
+#: model:ir.ui.menu,name:hr_punichment_violation.hr_employee_violation_menu
+#: model_terms:ir.ui.view,arch_db:hr_punichment_violation.view_hr_employee_violation_form
+#: model_terms:ir.ui.view,arch_db:hr_punichment_violation.view_hr_employee_violation_tree
+msgid "Employee Violation"
+msgstr "مخالفات الموظف"
+
+#. module: hr_punichment_violation
+#: model:ir.model,name:hr_punichment_violation.model_hr_penalty
+msgid "Employee penalty"
+msgstr "الجزاءات"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__first_days
+msgid "First Days"
+msgstr "اليوم الأول"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__first_percentage
+msgid "First Percentage"
+msgstr "النسبة الأولى"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__first
+msgid "First Punichment"
+msgstr "العقاب الأول"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__first_time
+msgid "First Time"
+msgstr "أول مرة"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__fourth_days
+msgid "Fourth Days"
+msgstr "اليوم الرابع"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__fourth_percentage
+msgid "Fourth Percentage"
+msgstr "النسبة الرابعة"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__fourth
+msgid "Fourth Punichment"
+msgstr "العقاب الرابع"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__fourth_time
+msgid "Fourth Time"
+msgstr "المرة الرابعة"
+
+#. module: hr_punichment_violation
+#: model:ir.model,name:hr_punichment_violation.model_hr_violation
+msgid "HR Violation"
+msgstr "المخالفات"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation__has_penalty
+msgid "Has Penalty"
+msgstr "لديه جزاء"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__id
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__id
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation____last_update
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty____last_update
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__write_uid
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__write_uid
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__write_date
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__write_date
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__name
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_violation__name
+msgid "Name"
+msgstr "الإسم"
+
+#. module: hr_punichment_violation
+#: code:addons/hr_punichment_violation/models/hr_employee_violation.py:0
+#: code:addons/hr_punichment_violation/models/hr_employee_violation.py:0
+#: code:addons/hr_punichment_violation/models/hr_employee_violation.py:0
+#: code:addons/hr_punichment_violation/models/hr_employee_violation.py:0
+#, python-format
+msgid "New"
+msgstr "جديد"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_violation__category__org
+msgid "Organization"
+msgstr "المؤسسة"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__violation_category__payment
+msgid "Payment"
+msgstr "الغرامة"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__first__payroll_days
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__fourth__payroll_days
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__second__payroll_days
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__third__payroll_days
+msgid "Payroll Days"
+msgstr "أيام من الراتب"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__first__payroll_percentage
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__fourth__payroll_percentage
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__second__payroll_percentage
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__third__payroll_percentage
+msgid "Payroll Percentage"
+msgstr "نسبة من الراتب"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__first__payroll_time
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__fourth__payroll_time
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__second__payroll_time
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__third__payroll_time
+msgid "Payroll Time"
+msgstr "زمن الراتب"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__penalty_id
+msgid "Penalty"
+msgstr "الجزاء"
+
+#. module: hr_punichment_violation
+#: model:ir.actions.act_window,name:hr_punichment_violation.hr_penalty_action
+#: model:ir.ui.menu,name:hr_punichment_violation.hr_penalty_menu
+#: model_terms:ir.ui.view,arch_db:hr_punichment_violation.view_hr_penalty_form
+#: model_terms:ir.ui.view,arch_db:hr_punichment_violation.view_hr_penalty_tree
+msgid "Penalty"
+msgstr "الجزاءات"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__penalty_committee
+#: model_terms:ir.ui.view,arch_db:hr_punichment_violation.view_hr_employee_violation_form
+msgid "Penalty Committee"
+msgstr "لجنة الجزاءات"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__penalty_start_date
+msgid "Penalty Start Date"
+msgstr "تاريخ بداية الجزاء"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__percentage
+msgid "Percentage"
+msgstr "النسبة"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__second_days
+msgid "Second Days"
+msgstr "اليوم الثاني"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__second_percentage
+msgid "Second Percentage"
+msgstr "النسبة الثانية"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__second
+msgid "Second Punichment"
+msgstr "الجزاء الثاني"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__second_time
+msgid "Second Time"
+msgstr "المرة الثانية"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__violation_category__suspension
+msgid "Suspension"
+msgstr "الإياف من العمل"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__first__suspension_with_payment
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__fourth__suspension_with_payment
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__second__suspension_with_payment
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__third__suspension_with_payment
+msgid "Suspension with payment"
+msgstr "الأيقاف مع الحرمان من الأجر"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__first__suspension_no_payment
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__fourth__suspension_no_payment
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__second__suspension_no_payment
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__third__suspension_no_payment
+msgid "Suspension without payment"
+msgstr "الإيقاف بدون حرمان من الأجر"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__third_days
+msgid "Third Days"
+msgstr "اليوم الثالث"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__third_percentage
+msgid "Third Percentage"
+msgstr "النسبة الثالثة"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__third
+msgid "Third Punichment"
+msgstr "الجزاء الثالث"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__third_time
+msgid "Third Time"
+msgstr "المرة الثالثة"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__violation_id
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__violation_id
+msgid "Violation"
+msgstr "المخالفة"
+
+#. module: hr_punichment_violation
+#: model:ir.actions.act_window,name:hr_punichment_violation.hr_violation_action
+#: model:ir.ui.menu,name:hr_punichment_violation.hr_violation_menu
+#: model_terms:ir.ui.view,arch_db:hr_punichment_violation.view_hr_violation_form
+#: model_terms:ir.ui.view,arch_db:hr_punichment_violation.view_hr_violation_tree
+msgid "Violation"
+msgstr "المخالفات"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__violation_category
+msgid "Violation Category"
+msgstr "تصنيف المخالفة"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__violation_date
+msgid "Violation Date"
+msgstr "تاريخ المخالفة"
+
+#. module: hr_punichment_violation
+#: model:ir.ui.menu,name:hr_punichment_violation.hr_violation_punichment_menu
+msgid "Violation and Punichment"
+msgstr "المخالفات والجزاءات"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__first__warning
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__fourth__warning
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__second__warning
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__third__warning
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__violation_category__warning
+msgid "Warning"
+msgstr "الإنذار"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__amount_type
+msgid "Amount Type"
+msgstr "نوع المبلغ"
+
+#. module: hr_punichment_violation
+#: model_terms:ir.ui.view,arch_db:hr_punichment_violation.view_hr_employee_violation_form
+msgid "Approve"
+msgstr "تأكيد"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__amount_type__percent
+msgid "Based on salary"
+msgstr "نسبة من الراتب"
+
+#. module: hr_punichment_violation
+#: model_terms:ir.ui.view,arch_db:hr_punichment_violation.view_hr_employee_violation_form
+msgid "Calculate"
+msgstr "تنفيذ"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__amount_type
+msgid "Calculation Type"
+msgstr "طريقة الحساب"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_employee_violation__state__done
+msgid "Done"
+msgstr "تم"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_employee_violation__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_penalty__amount_type__amount
+msgid "Fix Amount"
+msgstr "مبلغ ثابت"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields.selection,name:hr_punichment_violation.selection__hr_employee_violation__state__in_progress
+msgid "IN Progress"
+msgstr "جاري التنفيذ"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__salary_rule_id
+msgid "Rule"
+msgstr "الخصم"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_penalty__salary_rule_ids
+msgid "Rules"
+msgstr "قواعد المرتب"
+
+#. module: hr_punichment_violation
+#: model:ir.model.fields,field_description:hr_punichment_violation.field_hr_employee_violation__state
+msgid "State"
+msgstr "الحالة"

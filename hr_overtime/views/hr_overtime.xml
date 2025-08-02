@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_overtime_view_form" model="ir.ui.view">
+        <field name="name">hr.overtime.form</field>
+        <field name="model">hr.overtime</field>
+        <field name="arch" type="xml">
+            <form string="Overtime">
+                <header>
+                    
+                    <button name="hr" type="object" string="Confirm"  attrs="{'invisible': [('state', '!=', 'department')]}" class="btn-primary"/>
+                    <button name="department" type="object" string="Confirm"  attrs="{'invisible': [('state', '!=', 'draft')]}" class="btn-primary"/>
+                    <button name="cancel" type="object" string="Cancel"  attrs="{'invisible': [('state', 'not in', ['department','hr'])]}"/>
+                    <button name="set_to_draft" type="object" string="Set to Draft"  attrs="{'invisible': [('state', 'not in', ['cancel'])]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,department,hr,done"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id" widget="many2one_avatar_employee"/>
+                            <field name="department_id"/>
+                            <field name="hours" widget="float_time" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="manager_id"/>
+                            <field name="user_id" widget="many2one_avatar_user" readonly="1"/>
+                            <field name="working_date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="notes" placeholder="Add a some notes..." attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_overtime_view_list" model="ir.ui.view">
+        <field name="name">hr.overtime.list</field>
+        <field name="model">hr.overtime</field>
+        <field name="arch" type="xml">
+            <list string="Overtime"
+                decoration-success="state == 'done'"
+                decoration-danger="state in ['department','hr']"
+                decoration-info="state == 'draft'">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="working_date"/>
+                <field name="hours" widget="float_time" sum="Total"/>
+                <field name="company_id" readonly="1" groups="base.group_multi_company"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_overtime_action_form" model="ir.actions.act_window">
+        <field name="name">Overtime</field>
+        <field name="res_model">hr.overtime</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do -->
+            </p>
+        </field>
+    </record>
+
+    <record id="view_hr_overtime_filter" model="ir.ui.view">
+        <field name="name">hr.overtime.list.select</field>
+        <field name="model">hr.overtime</field>
+        <field name="priority" eval="15"/>
+        <field name="arch" type="xml">
+            <search string="Search Hr Overtime">
+                <field name="name" string="Overtime" filter_domain="['|', '|', ('name', 'ilike', self), ('user_id', 'ilike', self), ('employee_id', 'ilike', self)]"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="user_id"/>
+                <field name="working_date"/>
+                <filter invisible="1" string="Late Activities" name="activities_overdue"
+                    domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                    help="Show all records which has next action date is before today"/>
+                <filter invisible="1" string="Today Activities" name="activities_today"
+                    domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                    domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Employee" name="employee" domain="[]" context="{'group_by': 'employee_id'}"/>
+                    <filter name="department" string="Department" domain="[]" context="{'group_by': 'department_id'}"/>
+                    <filter string="Creation Date" name="order_month" domain="[]" context="{'group_by': 'date'}"/>
+                    <filter string="OvertCreationime Date" name="order_month" domain="[]" context="{'group_by': 'working_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <menuitem id="menu_hr_overtime_cat" name="Overtime" parent="hr.menu_hr_root"/>
+    <menuitem id="menu_hr_overtime" name="Overtime" parent="menu_hr_overtime_cat" action="hr_overtime_action_form"/>
+
+</odoo>
+
+     

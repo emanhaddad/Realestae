@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+#  Hash Information Technology (c) 2024. All rights reserved.
+#  See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <record id="project_construction_staff_form_view" model="ir.ui.view">
+        <field name="name">Construction Project Key Staff Form View</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="action"
+                        name="%(construction_contract.construction_contract_action)d" icon="fa-pencil">
+                            <field string="Contracts" name="contract_count" widget="statinfo"/>
+                        </button>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="engineer_user_id" string="Project Engineer" widget="many2one_avatar_user"
+                       attrs="{'readonly':[('active','=',False)]}"
+                       domain="[('share', '=', False)]"/>
+                <field name="maintenance_user_id" string="Maintenance Engineer" widget="many2one_avatar_user"
+                       attrs="{'readonly':[('active','=',False)]}"
+                       domain="[('share', '=', False)]"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="ceo_user_id" string="CEO" widget="many2one_avatar_user"
+                       attrs="{'readonly':[('active','=',False)]}"
+                       domain="[('share', '=', False)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,2060 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* rent_contract
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-20 09:42+0000\n"
+"PO-Revision-Date: 2020-12-20 09:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.return_supervisor_group
+msgid " Contracts supervisor"
+msgstr " المشرف"
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.act_return_expired_contract
+msgid " Expired Contracts"
+msgstr "العقود منتهية الصلاحية"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__10
+msgid "10"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__11
+msgid "11"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__12
+msgid "12"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__13
+msgid "13"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__14
+msgid "14"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__15
+msgid "15"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__16
+msgid "16"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__17
+msgid "17"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__18
+msgid "18"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__19
+msgid "19"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__20
+msgid "20"
+msgstr ""
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                        Attach Rent Contract Payment Documents.</p>"
+msgstr "ارفق مستندات الدفع"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/product.py:0
+#: model:ir.model.constraint,message:rent_contract.constraint_product_images_uniq_name_product_id
+#, python-format
+msgid "A product can have only one image with the same name"
+msgstr "يمكن أن يحتوي المنتج على صورة واحدة فقط بنفس الاسم"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__account_code
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__account_code
+msgid "Account Code"
+msgstr "كود الحساب"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_needaction
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_needaction
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__active
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__activity_ids
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__activity_ids
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__activity_exception_decoration
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__activity_exception_decoration
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__activity_state
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__activity_state
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__activity_type_icon
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__activity_type_icon
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__black_list
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__black_list
+msgid "Add to Black List"
+msgstr "اضافة للقائمة السوداء"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts__address
+#: model_terms:ir.ui.view,arch_db:rent_contract.owners_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.supervisor_res_partner_form_view
+msgid "Address"
+msgstr "العنوان"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__contract_type__all_property
+msgid "All property"
+msgstr "عقار"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate__income_amount
+msgid "Annual Revenue"
+msgstr "الإيرادات السنوية"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "Archive"
+msgstr "مؤرشف"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_attachment_count
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_attachment_count
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "Attachments"
+msgstr "المرفقات"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__auto_renewal
+msgid "Auto Renewal"
+msgstr "يجدد تلقائياً"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__payemnt_confirmation_wiz__payment_type__transfer
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__payment_type__transfer
+msgid "Bank Transfer"
+msgstr "تحويل بنكي"
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_estate_blacklist
+#: model:ir.ui.menu,name:rent_contract.menu_type_realestae_black_list
+#: model_terms:ir.ui.view,arch_db:rent_contract.estate_blacklist_tree_view
+msgid "Black List"
+msgstr "القائمة السوداء"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.owners_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.supervisor_res_partner_form_view
+msgid "Block No"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__pay_calender
+msgid "Calendar Type"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_product_product__rent_ok
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_product_form_inherit
+msgid "Can be Rented"
+msgstr "يمكن تأجيرها"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__payemnt_confirmation_wiz__payment_type__cash
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__payment_type__cash
+msgid "Cash"
+msgstr "نقدي"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__payemnt_confirmation_wiz__payment_type__check
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__payment_type__check
+msgid "Check"
+msgstr "شيك"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__check_number
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__check_number
+msgid "Check Number"
+msgstr "رقم الشيك"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__chlidren_no
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__chlidren_no
+msgid "Chlidren No"
+msgstr "عدد الاطفال"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.tenant_res_partner_form_view
+msgid "Citizenship and Other Information"
+msgstr "الجنسية والمعلومات الأخرى"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.owners_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.supervisor_res_partner_form_view
+msgid "City Name"
+msgstr "اسم المدينة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__click_pay
+msgid "Click Pay"
+msgstr "اضغط للدفع"
+
+#. module: rent_contract
+#: model_terms:ir.actions.act_window,help:rent_contract.account_analytic_contract_payment_action
+msgid "Click to create a new contract payment recurrence."
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.actions.act_window,help:rent_contract.account_analytic_account_payment_action
+msgid "Click to create a new contract payment."
+msgstr "اضغط لانشاء عقد جديد"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.payemnt_confirmation_wiz_form
+msgid "Close"
+msgstr "اغلاق"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__code
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__code
+msgid "Code"
+msgstr "الكود"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__comments
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_product_image_form
+msgid "Comments"
+msgstr "ملاحظات"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__company_id
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.contract_configuration_group
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.contract_configuration_group
+msgid "Configuration access Group"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.return_expired_contract_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "Confirm Contract"
+msgstr "تأكيد العقد"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.account_analytic_account_payment_view_form
+#: model_terms:ir.ui.view,arch_db:rent_contract.payemnt_confirmation_wiz_form
+msgid "Confirm Payment"
+msgstr "تأكيد الدفعية"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__re_expired_contract__state__confirmed
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.owners_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.supervisor_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.tenant_res_partner_form_view
+msgid "Contact Information"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_res_contactss
+#: model_terms:ir.ui.view,arch_db:rent_contract.tenant_res_partner_form_view
+msgid "Contacts"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_contract_archive__contract_id
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__contract_id
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__analytic_id
+msgid "Contract"
+msgstr "عقود الإيجار"
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.re_expired_contract_group
+msgid "Contract  Group"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__old_amount
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__contract_amount
+msgid "Contract Amount"
+msgstr "قيمة العقد"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_stop_contracts_renewal__line_ids
+msgid "Contract Lines"
+msgstr "تفاصيل الدفعيات"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "Contract Main Info"
+msgstr "بيانات العقد الرئيسية"
+
+#. module: rent_contract
+#: model:ir.module.category,name:rent_contract.rent_contract_access_categ
+msgid "Contract Management"
+msgstr "إدارة العقود"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__contract_no
+msgid "Contract No"
+msgstr "رقم العقد"
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.account_analytic_contract_payment_action
+#: model_terms:ir.ui.view,arch_db:rent_contract.account_analytic_contract_payment_view_search
+msgid "Contract Payment Recurrence"
+msgstr "تكرار دفع العقد"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "Contract Payments"
+msgstr "دفعيات العقد"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_hr_contract_term
+msgid "Contract Terms"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__contract_type
+msgid "Contract Type"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_account_analytic_sale_overdue_all
+#: model:ir.ui.menu,name:rent_contract.menu_action_account_analytic_sale_overdue_all
+#: model:ir.ui.menu,name:rent_contract.rent_contract_menu
+#: model:res.groups,name:rent_contract.contract_group
+msgid "Contracts"
+msgstr "العقود"
+
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.contract_group
+msgid "Contracts access Group"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Contracts that are assigned to me"
+msgstr "العقود المسندة الى"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__payment_rate
+msgid "Contrat Type"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__attachment
+msgid "Copy"
+msgstr "نسخة العقد"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__old_cost_duration
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__cost_duration
+msgid "Cost Duration"
+msgstr "الإستحقاق"
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.create_payments_group
+msgid "Create Payments Button"
+msgstr "انشاء الدفعيات"
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.create_payments_group
+msgid "Create Payments Button access Group"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_black_list__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_contract_archive__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_identity_types__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__create_uid
+#: model:ir.model.fields,field_description:rent_contract.field_stop_contracts_renewal__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_black_list__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_contract_archive__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_identity_types__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__create_date
+#: model:ir.model.fields,field_description:rent_contract.field_stop_contracts_renewal__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__currency_id
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__payemnt_confirmation_wiz__payment_state__current
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__payment_state__current
+msgid "Current"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__date
+msgid "Date"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__recurring_next_date
+msgid "Date of Next Payment"
+msgstr "تاريخ الدفعية القادمة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_stop_contracts_renewal__stop_date
+msgid "Date of stop"
+msgstr "تاريخ الإيقاف التلقائي للتجديد"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__duration_option__day
+msgid "Days"
+msgstr "يوم|أيام"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_black_list__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_contract_archive__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_identity_types__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_product_product__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate_units__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__display_name
+#: model:ir.model.fields,field_description:rent_contract.field_stop_contracts_renewal__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.account_analytic_account_payment_view_form
+msgid "Documents"
+msgstr "المستندات"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__re_expired_contract__state__done
+msgid "Done"
+msgstr "مكتمل"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__re_expired_contract__state__draft
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__state__draft
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__state__draft
+msgid "Draft"
+msgstr "مبدئي"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__due_date
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Due Date"
+msgstr "تاريخ الاستحقاق"
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_due_payment_tree
+msgid "Due Payments"
+msgstr "المدفوعات المستحقة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__duration_nums
+msgid "Duration"
+msgstr "المدة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__duration_option
+msgid "Duration Option"
+msgstr "خيارات المدة"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "Duration nums must be greater than zero"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "End Contract"
+msgstr "إنهاء العقد"
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.end_contracts_group
+msgid "End Contract Button"
+msgstr "زر انهاء العقد"
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.end_contracts_group
+msgid "End Contract Button access Group"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_contract_archive__end
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__expired_date
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__end_date
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__date_end
+msgid "End Date"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__state__expired
+msgid "Expired"
+msgstr "منتهي"
+
+#. module: rent_contract
+#: model:ir.ui.menu,name:rent_contract.menu_return_expired_contract
+msgid "Expired Contract"
+msgstr "العقود منتهية الصلاحية"
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.expired_contracts_group
+msgid "Expired Contract Button"
+msgstr "منتهي"
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.expired_contracts_group
+msgid "Expired Contract Button access Group"
+msgstr ""
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.re_expired_contract_group
+msgid "Expired Contract Contract "
+msgstr "زر إنهاء العقود "
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_expired_contracts_tree
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__expired_lines
+#: model_terms:ir.ui.view,arch_db:rent_contract.return_expired_contract_form
+msgid "Expired Contracts"
+msgstr "عقود منتهية الصلاحية"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_follower_ids
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_follower_ids
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_channel_ids
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_channel_ids
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_partner_ids
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_partner_ids
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__activity_type_icon
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__activity_type_icon
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__payemnt_confirmation_wiz__payment_state__future
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__payment_state__future
+msgid "Future"
+msgstr "مقدمة"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Future Paymants (7 days)"
+msgstr "الدفعيات خلال السبعة ايام القادمة"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Future Payments (All)"
+msgstr "جميع الدفعيات القادمة"
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.generate_payment_reciept_group
+msgid "Generate Payment Reciept Button"
+msgstr ""
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.generate_payment_reciept_group
+msgid "Generate Payment Reciept access Group"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.actions.server,name:rent_contract.cron_for_realestate_contract_ir_actions_server
+#: model:ir.cron,cron_name:rent_contract.cron_for_realestate_contract
+#: model:ir.cron,name:rent_contract.cron_for_realestate_contract
+msgid "Generate Renewal Contracts nnnnn"
+msgstr "تجديد العقود"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__recurring_invoices
+msgid "Generate recurring payments"
+msgstr "توليد المدفوعات المتكررة"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.return_expired_contract_form
+msgid "Get Expired Contracts"
+msgstr "احضار العقود منتهية الصلاحية"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "Gorgeian Date"
+msgstr "التاريخ الميلادي"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Group By"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.owners_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.supervisor_res_partner_form_view
+msgid "Hai"
+msgstr "الحي"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__has_lines
+msgid "Has Lines"
+msgstr "Has Lines"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__pay_calender__hijri
+msgid "Hijri"
+msgstr "هجري"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_black_list__id
+#: model:ir.model.fields,field_description:rent_contract.field_contract_archive__id
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__id
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__id
+#: model:ir.model.fields,field_description:rent_contract.field_identity_types__id
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__id
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__id
+#: model:ir.model.fields,field_description:rent_contract.field_product_product__id
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__id
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate__id
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate_units__id
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__id
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__id
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts__id
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__id
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__id
+#: model:ir.model.fields,field_description:rent_contract.field_stop_contracts_renewal__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__activity_exception_icon
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__activity_exception_icon
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__activity_exception_icon
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__activity_exception_icon
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__identiti_no
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__identiti_no
+msgid "Identification No"
+msgstr ""
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/res_partner.py:0
+#, python-format
+msgid "Identiti No Must be 10 numbers"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__date_release
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__date_release
+msgid "Identity Issue Date"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__identity_type
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__identity_type
+msgid "Identity Type"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__message_needaction
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__message_unread
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__message_needaction
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__message_unread
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__message_needaction
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__message_has_error
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__message_has_sms_error
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__message_has_error
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__message_has_sms_error
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__message_has_error
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__active
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__active
+msgid ""
+"If unchecked, it will allow you to hide the product without removing it."
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_product_image_form
+msgid "Image"
+msgstr "الصورة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__name
+msgid "Image Title"
+msgstr "عنوان الصورة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__file_db_store
+msgid "Image stored in database"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_product_form_inherit
+msgid "Images"
+msgstr "الصور"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_is_follower
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_is_follower
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__date_end
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__date_end
+msgid "Issue Finish Date"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_black_list____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_contract_archive____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_identity_types____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_product_images____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_product_product____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate_units____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner____last_update
+#: model:ir.model.fields,field_description:rent_contract.field_stop_contracts_renewal____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_black_list__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_contract_archive__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_identity_types__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__write_uid
+#: model:ir.model.fields,field_description:rent_contract.field_stop_contracts_renewal__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_black_list__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_contract_archive__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_identity_types__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__write_date
+#: model:ir.model.fields,field_description:rent_contract.field_stop_contracts_renewal__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Late Payments"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.owners_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.supervisor_res_partner_form_view
+msgid "Mail Code"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_main_attachment_id
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_main_attachment_id
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__hr_contract_term__type__mandatory
+msgid "Mandatory"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__partner_sate
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__partner_sate
+msgid "Marital Status"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__partner_sate__married
+msgid "Married"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__pay_calender__melady
+msgid "Melady"
+msgstr "ميلادي"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_has_error
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_has_error
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_ids
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_ids
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__expired_lines_model__new_pay_duration__monthly
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_rent_contract__recurring_rule_type__monthly
+msgid "Month(s)"
+msgstr "شهر(شهور)"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__cost_duration__monthly
+msgid "Monthly"
+msgstr "شهري"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__duration_option__month
+msgid "Months"
+msgstr "شهر|شهور"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__chlidren_no__more_than
+msgid "More Than 20"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__religion__muslim
+msgid "Muslim"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "My Contract"
+msgstr "عقوداتي"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_black_list__name
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__name
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__name
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__name
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts__name
+msgid "Name"
+msgstr "الإسم"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Name / Unit / property / Renter"
+msgstr "الاسم / العقار / الوحدات / المستأجرين"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__country_nath
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__country_nath
+msgid "Nationality"
+msgstr "الجنسية"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__new_amount
+msgid "New Amount"
+msgstr "القيمة الجديدة للإيجار"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__new_end_date
+msgid "New End Date"
+msgstr "تاريخ نهاية العقد الجديد"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__new_pay_duration
+msgid "New Pay Duration"
+msgstr "فترة الدفع الجديده"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__new_start_date
+msgid "New Start Date"
+msgstr "تاريخ بداية العقد الجديده"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/expired_contract_alert.py:0
+#, python-format
+msgid "New end date is after today and this contract is expired"
+msgstr ""
+"تاريخ نهاية العقد الجديد قبل تاريخ اليوم لذلك العقد مازال منتهي الصلاحية"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/expired_contract_alert.py:0
+#, python-format
+msgid "New start date cannot be after new end date"
+msgstr "تاريخ البداية الجديد لايمكن ان يكون بعد تاريخ النهاية الجديد"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/expired_contract_alert.py:0
+#, python-format
+msgid "New start date is after today or equal today"
+msgstr "تاريخ البداية الجديد يجب ان يبداً من تاريخ اليوم او مايليه"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__activity_date_deadline
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__activity_date_deadline
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__activity_summary
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__activity_summary
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__activity_type_id
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__activity_type_id
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.account_analytic_account_payment_view_form
+msgid "Next Payment"
+msgstr "الدفعية القادمة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__next_remain
+msgid "Next Payment Remain Amount"
+msgstr "متبقي الدفعية القادمة"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "No Supervisor Set"
+msgstr "لايوجد مشرف لهذا العقار"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__religion__not_muslim
+msgid "Not Muslim"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_needaction_counter
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_needaction_counter
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__attachment_number
+msgid "Number of Attachments"
+msgstr "عدد المرفقات"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate__property_rented_units_number
+msgid "Number of Rented Units"
+msgstr "عدد الوحدات المؤجرة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_has_error_counter
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_has_error_counter
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__message_needaction_counter
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__message_needaction_counter
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__message_has_error_counter
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__message_has_error_counter
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__message_unread_counter
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__message_unread_counter
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__hr_contract_term__type__optional
+msgid "Optional"
+msgstr "اختياري"
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_res_pat_owner
+msgid "Owner"
+msgstr "الملاك"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__mailbox
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__mailbox
+msgid "P.O. box"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__state__paid
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "Paid '%s' amount can't be greater than payment amount"
+msgstr " '%s' المبلغ المدفوع لايمكن ان يكون اكبر من قيمة الدفعية ككل"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__paid_amount
+msgid "Paid Amount"
+msgstr "المبلغ المدفوع"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__state__partialy_paid
+msgid "Partialy Paid"
+msgstr "دفع جزئي"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Partner"
+msgstr "المستفيد"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__passport_no
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__passport_no
+msgid "Passport Number"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__payemnt_date
+msgid "Payemnt Date"
+msgstr "تاريخ السداد"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__payment_id
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "Payment"
+msgstr "المرجع"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__pay_amount
+msgid "Payment Amount"
+msgstr "القيمة"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.account_analytic_account_payment_view_form
+msgid "Payment Amounts"
+msgstr "قيمة الدفعيات"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__pay_date
+msgid "Payment Date"
+msgstr "تاريخ السداد"
+
+#. module: rent_contract
+#: model:ir.actions.report,name:rent_contract.print_contract_document_action
+msgid "Payment Document"
+msgstr "إشعار سند القبض"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.account_analytic_account_payment_view_form
+msgid "Payment Info"
+msgstr "بيانات الدفعية"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__name
+msgid "Payment No"
+msgstr "رقم الدفعية"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__payment_state
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__payment_state
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Payment State"
+msgstr "حالة الدفعية"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_payemnt_confirmation_wiz__payment_type
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__payment_type
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Payment Type"
+msgstr "نوع السداد"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "Payment amount is more than contract amount"
+msgstr "مبلغ الدفعية اكبر من مبلغ العقد"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "Payment amount is must be more than zero"
+msgstr "مبلغ الدفعية يجب ان يكون اكبر من الصفر"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__payment_ids
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "Payments Details"
+msgstr "تفاصيل الدفعيات"
+
+#. module: rent_contract
+#: model:ir.ui.menu,name:rent_contract.menu_contract_payment
+#: model:res.groups,name:rent_contract.payment_list_group
+msgid "Payments List"
+msgstr "دفعيات الإيجارات"
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.payment_list_group
+msgid "Payments List Group"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.owners_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.supervisor_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.tenant_res_partner_form_view
+msgid "Personal Info"
+msgstr "المعلومات الشخصية"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__state__post
+msgid "Post Paid"
+msgstr "تم الترحيل"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__a
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__a
+msgid "Pr"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__payemnt_confirmation_wiz__payment_state__previous
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__payment_state__previous
+msgid "Previous"
+msgstr "مستحقة"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_product_product
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__product_id
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate_units__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_product_product__product_image
+msgid "Product Image"
+msgstr "صور المنتج"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_product_images__product_t_id
+#: model:ir.model.fields,field_description:rent_contract.field_product_product__image_ids
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate__image_ids
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate_units__image_ids
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_product_image_form
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_product_image_tree
+msgid "Product Images"
+msgstr "صور المنتج"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_product_images
+msgid "Products Image gallery"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__property_id
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Property"
+msgstr "العقار"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__property_id
+msgid "Property Name"
+msgstr "اسم العقار"
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.realestate_contract_group
+msgid "Realestate Contract "
+msgstr "عقد العقار"
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.realestate_contract_group
+msgid "Realestate Contract Group"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_black_list__reason
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__reason
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__reason
+msgid "Reason"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__recurring_interval
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__recurring_interval
+msgid "Recurring Interval"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__recurring_rule_type
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__recurring_rule_type
+msgid "Recurring Rule Type"
+msgstr "نوع تكرار الدفعية"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_product_product__default_code
+msgid "Reference"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__contacts
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__contacts
+msgid "References"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__refues_date
+msgid "Refues Date"
+msgstr "تاريخ الإرجاع"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__refues_reason
+msgid "Refues Reason"
+msgstr "سبب الإرجاع"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__religion
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__religion
+msgid "Religion"
+msgstr "الديانة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__renewal_contract
+msgid "Renewal contract"
+msgstr "تم تجديده"
+
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/real_estate.py:0
+#: code:addons/rent_contract/models/real_estate_units.py:0
+#, python-format
+msgid "Rent Amount cannot be zero or less"
+msgstr "قيمة الايجار يجب ان تكون اكبر من الصفر"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__rent_contract_id
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate__contract_id
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate_units__contract_id
+msgid "Rent Contract"
+msgstr "عقد الايجار"
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.account_analytic_account_payment_action
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Rent Contract Payment"
+msgstr "دفعية عقد الايجار"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estates_form_inherit
+#: model_terms:ir.ui.view,arch_db:rent_contract.units_real_estate_form_inherit
+msgid "Rent Information"
+msgstr "معلومات الايجار"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate__product_id
+msgid "Rent Product"
+msgstr "المنتج المستأجر"
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.rent_with_min_group
+msgid "Rent With Min"
+msgstr "الإيجار بمبالغ اقل "
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.rent_with_previous_date
+msgid "Rent With Previous Date"
+msgstr "إيجار بتواريخ قديمة"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__real_estate__state__rented
+#: model:ir.model.fields.selection,name:rent_contract.selection__real_estate_units__state__rented
+msgid "Rented"
+msgstr "مأجرة"
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_rented_product
+#: model:ir.ui.menu,name:rent_contract.action_rented_product_menu
+msgid "Rented Product"
+msgstr "المنتجات"
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_renters_form
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__renter_id
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate__renter_id
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate_units__renter_id
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__renter_id
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Renter"
+msgstr "المستأجر"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__renter_code
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__renter_code
+msgid "Renter Code"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__recurring_interval
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__recurring_interval
+msgid "Repeat every (Month/Year)"
+msgstr "تكرار كل ( شهر / سنة ("
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.account_analytic_account_payment_view_form
+msgid "Reset To Draft"
+msgstr "إعادة الى مبدئي"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.account_analytic_account_payment_view_form
+msgid "Reset To Paid"
+msgstr "إعادة الى مدفوع"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__activity_user_id
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__activity_user_id
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__return_boolean
+msgid "Return"
+msgstr "ارجاع"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__return_c_id
+msgid "Return C"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.return_expired_contract_form
+msgid "Return Contracts"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.return_expired_contract_form
+msgid "Return Expired Contracts"
+msgstr "إاعادة العقود منتهة الصلاحية"
+
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.return_expired_group
+msgid "Return Expired Contracts access Group"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_has_sms_error
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_has_sms_error
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__saltat_bool
+msgid "Saltat Bool"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "Set Contract to Draft"
+msgstr "اعادة الى مبدئي"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Show all records which has due payment before today"
+msgstr "عرض كل الدفعيات ذات تاخري السداد قبل اليوم"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__partner_sate__single
+msgid "Single"
+msgstr "أعزب"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid ""
+"Sorry! You cannot Edit Payment that related with other payment not on draft "
+"state please parse them first."
+msgstr ""
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "Sorry! You cannot delete contract not in Draft state."
+msgstr "عذرا !! لايمكنك حذف عقد ليس فى الحالة المبدئية"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "Sorry! You cannot delete payment not in Draft state."
+msgstr "عذرا !! لايمكنك حذف دفعية ليست فى الحالة المبدئية."
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "Sorry! You cannot open  contract in this property ."
+msgstr "يوجد عقد ساري لهذا العقار مسبقا"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "Sorry! You cannot rent this realstate with less than cost."
+msgstr "عذرا !! لايمكنك إستئجار هذا العقار باقل من التكلفة"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "Sorry! You cannot rent this realstate with previous date than cost."
+msgstr ""
+"عذرا !! لايمكنك استئجار هذا العقار بتاريخ سابق لليوم او بمبلغ اقل من التكلفة"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__contract_type__specific_units
+msgid "Specific Units"
+msgstr "وحدة"
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__recurring_rule_type
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__recurring_rule_type
+msgid "Specify Interval for payment generation."
+msgstr "حدد معدل تكرار الدفعية"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_contract_archive__start
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__start_date
+msgid "Start Date"
+msgstr "تاريخ البداية"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__date_start
+msgid "Start Date "
+msgstr "تاريخ البدء "
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_re_expired_contract__state
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate__state
+#: model:ir.model.fields,field_description:rent_contract.field_real_estate_units__state
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__state
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "State"
+msgstr "الحالة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__state
+msgid "Status"
+msgstr "الحالة "
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__activity_state
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__activity_state
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__stop_id
+msgid "Stop"
+msgstr "ايقاف"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__stop_renew_date
+msgid "Stop Renewal Date"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.owners_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.supervisor_res_partner_form_view
+msgid "Street Name"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Super Visor"
+msgstr "المشرف"
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_res_pat_supervisor
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__supervisor_id
+msgid "Supervisor"
+msgstr "المشرف"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__tax_amount
+msgid "Tax amount"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts__telephone
+msgid "Telephone"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_res_pat_ner
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__partner_id
+#: model:ir.model.fields.selection,name:rent_contract.selection__res_partner__partner_type__renter
+#: model:ir.ui.menu,name:rent_contract.menu_real_estate_renter
+msgid "Tenant"
+msgstr "المستأجر"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__name
+msgid "Term"
+msgstr "بنود العقد"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__term_no
+msgid "Term Number"
+msgstr "رقم البند"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__term_ids
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__term_ids
+#: model_terms:ir.ui.view,arch_db:rent_contract.account_analytic_contract_payment_view_form
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "Terms"
+msgstr "بنود العقد"
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_expired_lines_model__currency_id
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__currency_id
+msgid "The currency used to enter statement"
+msgstr "العملة المُستخدمة لإدخال كشف الحساب"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/expired_contract_alert.py:0
+#, python-format
+msgid "There is no expired Contracts"
+msgstr "لاتوجد عقود منتهية الصلاحية في هذه الفتره"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Today Payments"
+msgstr "دفعيات اليوم"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_hr_contract_term__type
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__partner_type
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__partner_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_identity_types__name
+msgid "Type Name"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__activity_exception_decoration
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__activity_exception_decoration
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Unassigned"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_estate_rented_units
+#: model:ir.model.fields,field_description:rent_contract.field_expired_lines_model__unit_id
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__unit_id
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__unit_id
+#: model_terms:ir.ui.view,arch_db:rent_contract.view_rent_contract_payment_filter
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_unread
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_unread
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__message_unread_counter
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__message_unread_counter
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__user_ids
+msgid "Users"
+msgstr "المستخدمين"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__state__valid
+msgid "Valid"
+msgstr "ساري"
+
+#. module: rent_contract
+#: model:res.groups,name:rent_contract.valid_contracts_group
+msgid "Valid Contract Button"
+msgstr ""
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.valid_contracts_group
+msgid "Valid Contract Button access Group"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.action_valid_contracts_tree
+msgid "Valid Contracts"
+msgstr "العقود السارية"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__website_message_ids
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_rent_contract__website_message_ids
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,help:rent_contract.field_realestate_contract_model__website_message_ids
+#: model:ir.model.fields,help:rent_contract.field_realestate_rent_contract__website_message_ids
+#: model:ir.model.fields,help:rent_contract.field_rent_contract_payment__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__address_new
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__address_new
+msgid "Work Address"
+msgstr "عنوان العمل"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__work_email
+msgid "Work Email"
+msgstr "بريد العمل"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__work_location
+msgid "Work Location"
+msgstr "موقع العمل"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__mobile_phone
+msgid "Work Mobile"
+msgstr "جوال العمل"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__work_phone
+msgid "Work Phone"
+msgstr "هاتف العمل"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__expired_lines_model__new_pay_duration__yearly
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_rent_contract__recurring_rule_type__yearly
+msgid "Year(s)"
+msgstr "سنه"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__cost_duration__yearly
+msgid "Yearly"
+msgstr "سنوي"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__duration_option__year
+msgid "Years"
+msgstr "سنه|سنين"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/expired_contract_alert.py:0
+#, python-format
+msgid "You mus has a least one contract"
+msgstr ""
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "You must click on payment creation button"
+msgstr "عليك الضغط على زر انشاء الدفعيات"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/expired_contract_alert.py:0
+#, python-format
+msgid "You must specify new end date"
+msgstr "يجب تحديد تاريخ نهاية جديد"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/expired_contract_alert.py:0
+#, python-format
+msgid "You must specify new start date"
+msgstr "يجب تحديد تاريخ بداية جديد"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "You must supply a start date for contract "
+msgstr "يجب تحديد تاريخ بداية العقد"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "You must supply a tenant for the contract "
+msgstr "يجب تحديد مستأجر في العقد"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "You must supply a tenant for the contract '%s'"
+msgstr "يجب تحديد المستأجر في العقد"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_realestate_contract_model__archive_ids
+msgid "archive"
+msgstr "الإرشيف"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_black_list
+msgid "black.list"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_res_partner__more_children_no
+#: model:ir.model.fields,field_description:rent_contract.field_res_users__more_children_no
+msgid "children number"
+msgstr "عدد الاطفال"
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#: code:addons/rent_contract/models/realestate_contract_model.py:0
+#, python-format
+msgid "contract of this payment is not valid"
+msgstr "عقد هذه الدفعية ليس صالح"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_contract_archive
+msgid "contract.archive"
+msgstr "ارشيف العقودات"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+msgid "create Payments"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.payemnt_confirmation_wiz_form
+msgid "description"
+msgstr "الوصف"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_expired_lines_model
+msgid "expired.lines.model"
+msgstr ""
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.owners_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.supervisor_res_partner_form_view
+msgid "extension number"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__realestate_contract_model__state__hanging
+msgid "hanging"
+msgstr "معلق"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_identity_types
+msgid "identity.types"
+msgstr ""
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/res_partner.py:0
+#, python-format
+msgid "mobile Phone must be exactly 9 Numbers without ZERO 0 ."
+msgstr "يجب أن يكون رقم الهاتف المحمول 9 أرقام بالضبط بدون صفر 0"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__note
+msgid "note"
+msgstr "ملاحظة"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.payemnt_confirmation_wiz_form
+msgid "or"
+msgstr "او"
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__real_estate__state__partial_rented
+msgid "partialy Rented"
+msgstr "مؤجر جزئيا"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_payemnt_confirmation_wiz
+msgid "payemnt.confirmation.wiz"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.actions.act_window,name:rent_contract.payemnt_confirmation_wiz_action
+msgid "payemnt.confirmation.wiz.action"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_rent_contract_payment__related_payment_ids
+msgid "payments"
+msgstr "الدفعيات"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_re_expired_contract
+msgid "re.expired.contract"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_real_estate
+msgid "real.estate"
+msgstr "العقارات"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_real_estate_units
+msgid "real.estate.units"
+msgstr "الوحدات"
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_realestate_contract_model
+msgid "realestate.contract.model"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_reference_contacts
+msgid "reference.contacts"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model.fields.selection,name:rent_contract.selection__rent_contract_payment__state__refused
+msgid "refused"
+msgstr "مُرجعة"
+
+#. module: rent_contract
+#: model:ir.model.fields,field_description:rent_contract.field_reference_contacts__res_relation
+msgid "relation"
+msgstr "علاقة"
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.rent_with_min_group
+msgid "rent realestate with min than thire monthly cost"
+msgstr ""
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.rent_with_previous_date
+msgid "rent realestate with previous Date"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_rent_contract_payment
+msgid "rent.contract.payment"
+msgstr ""
+
+#. module: rent_contract
+#: model:ir.model,name:rent_contract.model_stop_contracts_renewal
+msgid "stop.contracts.renewal"
+msgstr ""
+
+#. module: rent_contract
+#: model:res.groups,comment:rent_contract.return_supervisor_group
+msgid "supervisor access Group"
+msgstr ""
+
+#. module: rent_contract
+#: code:addons/rent_contract/models/res_partner.py:0
+#, python-format
+msgid "work Phone must be exactly 9 Numbers without ZERO 0 ."
+msgstr "هاتف العمل يجب أن يكون 9 أرقام بالضبط بدون صفر 0"
+
+#. module: rent_contract
+#: model_terms:ir.ui.view,arch_db:rent_contract.account_analytic_account_payment_view_form
+#: model_terms:ir.ui.view,arch_db:rent_contract.owners_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.real_estate_contract_form
+#: model_terms:ir.ui.view,arch_db:rent_contract.return_expired_contract_form
+#: model_terms:ir.ui.view,arch_db:rent_contract.supervisor_res_partner_form_view
+#: model_terms:ir.ui.view,arch_db:rent_contract.tenant_res_partner_form_view
+msgid "التاريخ الميلاي"
+msgstr ""

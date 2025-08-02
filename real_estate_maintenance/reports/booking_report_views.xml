@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <report
+            id="booking_view"
+            model="real.estate.booking"
+            string="RealEstate Booking"
+            report_type="qweb-pdf"
+            name="real_estate_maintenance.booking"
+            file="real_estate_maintenance.booking"
+            />
+
+            <report
+            id="evacuate_view"
+            model="real.estate.evacuate"
+            string="RealEstate Evacuate"
+            report_type="qweb-pdf"
+            name="real_estate_maintenance.evacuate"
+            file="real_estate_maintenance.evacuate"
+            />
+
+            <report
+            id="clearance_view"
+            model="investor.clearance"
+            string="Investor Clearance"
+            report_type="qweb-pdf"
+            name="real_estate_maintenance.clearance"
+            file="real_estate_maintenance.clearance"
+            />
+
+            <report
+            id="action_report_real_estate_delegation"
+            model="real.estate.delegate"
+            string="Real Estate Delegation"
+            report_type="qweb-pdf"
+            name="real_estate_maintenance.report_real_estate_delegation"
+            file="real_estate_maintenance.report_real_estate_delegation"
+            />
+
+            <report
+            id="action_report_real_estate_maintenance"
+            model="real.estate.maintenance"
+            string="Real Estate Maintenance"
+            report_type="qweb-pdf"
+            name="real_estate_maintenance.maintenance"
+            file="real_estate_maintenance.maintenance"
+            />
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Res Config Settings -->
+    <!-- Res Config Settings Inherit Form View-->
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.realstate</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="45"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Realstate" string="Realstate" data-key="realstate">
+                    <h2>Realstate Settings</h2>
+                    <div class="row mt16 o_settings_container" id="realestate">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                
+                                <label string="Supervisor Role" for="supervisor_role_id"/>
+                                <field name="supervisor_role_id" options="{'no_create': True, 'no_open': True}"/>
+                                <label string="Property Partner" for="property_partner_id"/>
+                                <field name="property_partner_id" options="{'no_create': True, 'no_open': True}"/>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    
+    <!-- Res Config Settings Action-->
+    <record id="action_realstate_configuration" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'real_estate'}</field>
+    </record>
+    
+   <!-- menues -->
+   <menuitem id="menu_realstate_global_settings" name="Settings" parent="menu_config_real_estate_root" sequence="0" action="action_realstate_configuration" groups="base.group_system,configurarion_list_group"/>
+
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="category_voucher" model="ir.module.category">
+            <field name="name">Voucher</field>
+        </record>
+
+		<record id="voucher_general_manager" model="res.groups">
+			<field name="name">Voucher General Manager</field>
+			<field name="category_id" ref="category_voucher" />
+		</record>
+
+		<record id="voucher_finicial_manger" model="res.groups">
+			<field name="name">Voucher Finacial Manager </field>
+			<field name="category_id" ref="category_voucher" />
+		</record>
+
+        <record id="voucher_department_manger" model="res.groups">
+            <field name="name">Voucher Department Manager </field>
+            <field name="category_id" ref="category_voucher" />
+        </record>
+
+		<record id="voucher_Auditor" model="res.groups">
+			<field name="name">Voucher Auditor</field>
+			<field name="category_id" ref="category_voucher" />
+		</record>
+
+        <record id="voucher_Payment" model="res.groups">
+            <field name="name">Voucher Payment</field>
+            <field name="category_id" ref="category_voucher" />
+        </record>
+
+        <record id="voucher_user" model="res.groups">
+            <field name="name">Voucher user</field>
+            <field name="category_id" ref="category_voucher" />
+        </record>
+
+        <record id="voucher_general_manager_rule" model="ir.rule">
+            <field name="name">Voucher General Manager</field>
+            <field name="model_id" ref="model_cash_order"/>
+            <field name="domain_force">[('state','=','department')]</field>
+            <field name="groups" eval="[(4,ref('cash_request.voucher_general_manager'))]"/>
+        </record>
+
+        <record id="voucher_finicial_manger_rule" model="ir.rule">
+            <field name="name">Voucher Finicial Manager</field>
+            <field name="model_id" ref="model_cash_order"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('cash_request.voucher_finicial_manger'))]"/>
+        </record>
+
+        <record id="voucher_Auditor_rule" model="ir.rule">
+            <field name="name">Voucher Auditor Manager</field>
+            <field name="model_id" ref="model_cash_order"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('cash_request.voucher_Auditor'))]"/>
+        </record>
+
+        <record id="voucher_Payment_rule" model="ir.rule">
+            <field name="name">Voucher Payment Manager</field>
+            <field name="model_id" ref="model_cash_order"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('cash_request.voucher_Payment'))]"/>
+        </record>
+
+        <record id="voucher_department_manger_rule" model="ir.rule">
+            <field name="name">Department Manager voucher</field>
+            <field name="model_id" ref="model_cash_order"/>
+            <field name="domain_force">['|',('department_id.member_ids.user_id', 'in', [user.id]), ('department_id.manager_id.user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4,ref('cash_request.voucher_department_manger'))]"/>
+        </record>
+
+        <record id="employee_voucher_user" model="ir.rule">
+            <field name="name">Voucher User</field>
+            <field name="model_id" ref="model_cash_order"/>
+            <field name="domain_force">[('user_id.user_id.id','=',user.id)]</field>
+            <field name="groups" eval="[(4,ref('cash_request.voucher_user'))]"/>
+        </record>
+
+	</data>
+</odoo>

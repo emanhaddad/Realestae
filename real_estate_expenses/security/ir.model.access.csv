@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_expense_request_user,expense_request_user,model_expense_request,real_estate_expenses.expense_user_group,1,0,0,0
+access_expense_request_manger,expense_request_manager,model_expense_request,real_estate_expenses.expense_manager_group,1,1,1,1
+,,,,,,,
+access_expense_type_user,expense_type_user,model_expense_type,real_estate_expenses.expense_user_group,1,0,0,0
+access_expense_type_manger,expense_type_manager,model_expense_type,real_estate_expenses.expense_manager_group,1,1,1,1

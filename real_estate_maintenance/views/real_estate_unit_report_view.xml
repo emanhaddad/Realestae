@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_real_estate_unit_report_view">
+            <field name="name">Real Estate Unit</field>
+            <field name="res_model">real.estate.unit.report</field>
+            <field name="view_mode">pivot</field>
+        </record>
+
+        <record id="product_sales_analysis_pivot_view" model="ir.ui.view">
+            <field name="name">Real Estate Unit Report Pivot</field>
+            <field name="model">real.estate.unit.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Real Estate Unit" disable_linking="True">
+                    <field name="unit_name" type="row"/>
+                    <!-- <field name="property_type_id" type="col"/> -->
+                    <field name="property_rooms" type="measure"/>
+                    <field name="unit_space" type="measure"/>
+                    <field name="property_floors" type="measure"/>
+                    <!-- <field name="state" type="col"/> -->
+                    <field name="unit_price" type="measure"/>
+                    <field name="unit_commission" type="measure"/>
+                    <field name="unit_taxes" type="measure"/>
+                    <field name="unit_amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+
+        <!-- menu -->
+
+        <menuitem id="menu_realestate_unit_details" 
+                parent="menu_real_estate_report" 
+                action="action_real_estate_unit_report_view" 
+                sequence="2"/>
+
+
+    </data>
+</odoo>

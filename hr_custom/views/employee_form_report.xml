@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+            id="employee_form_report"
+            string="Employee Form"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            name="hr_custom.employee_form_report_template"/>
+
+        <template id="employee_form_report_template">
+            <t t-call="web.html_container">
+               <t t-foreach ="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <style type="text/css">
+
+                              th {
+                                    font-weight: bold;
+                                    text-align: center;
+                                    background-color:#918C3F;
+                                    }
+
+                                .bor {
+                                    border:1px solid #000000 !important;
+                                    }
+                             
+                              .nobo{border:none !important;margin-right:0px !important;}
+                              
+
+                              .pic{
+                                width:130px;
+                                height:135px;
+                                float:left;
+                                padding-left:0px;
+                                margin-top:-120px;
+                                border: 1px solid #000;
+                              .bob{
+                              border:2px solid #000 !important;
+                              }                              }
+                              <!-- tr{border-bottom:1px solid #000000 !important;} -->
+                       </style>
+          
+                              <br></br>
+                       <div style="margin-top: 64px;">
+                            <group>
+                                <div style="width:100%;padding-top:10px;padding-right:10px;padding-left:10px;float:right;">
+
+                                    <div style="width:100%;height:40px;background-color:#918C3F;font-size: 26px;">
+                                        <center>
+                                            <p>المعلومـــات الشـخصــية</p>
+                                        </center>
+                                    </div>
+                                    <table class="nobo" width="40%" style="margin-top:0px !important;padding-right:60px;">
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td width="31%">
+                                                <p style="font-size: 11pt;text-align:right;">الإسم الكامل: </p>
+                                            </td>
+                                            <td width="69%">
+                                                <p style="font-size: 10pt;text-align:right;margin-bottom:0px !important;" t-field="o.name"></p>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td>
+                                                <p style="font-size: 11pt;text-align:right;"> الرقم الوظيفي :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;margin-bottom:0px !important;" t-field="o.barcode"></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <div class="pic">
+                                        <img t-if="o.image_1920" t-att-src="image_data_uri(o.image_1920)" style="height:100%;width:100%" alt="Employee Image"/>
+                                    </div>
+                               
+                                    <table class="nobo" width="100%" style="margin-top:50px;">
+                                        <tr><td><p style="font-size: 10pt;"></p></td></tr>
+                                        <tr><td><p style="font-size: 10pt;"></p></td></tr>
+                                        <tr class="bob" style="border-bottom:1px solid #ccc !important;">
+                                            <td width="15%">
+                                               <p style="font-size: 11pt;text-align:right;"> العــنوان     :</p>
+                                            </td>
+                                            <td width="17%">
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.address_home_id.slistt"></p>
+                                            </td>
+
+                                            <td width="15%">
+                                               <p style="font-size: 11pt;text-align:right;"> النوع      :</p>
+                                            </td>
+                                            <td width="15%">
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.gender"></p>
+                                            </td>
+                                            <td width="13%">
+                                                <p style="font-size: 11pt;text-align:right;"> هاتف العمل :</p>
+                                            </td>
+                                            <td width="25%">
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.work_phone"></p>
+                                            </td>
+                                        </tr>
+                                 
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td>
+                                               <p style="font-size: 11pt;text-align:right;"> البريد الإلكتروني :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.work_email"></p>
+                                            </td>
+                                            <td>
+                                               <p style="font-size: 11pt;text-align:right;"> حساب البنك :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.bank_account_id.acc_number"></p>
+                                            </td>
+                                            <td>
+                                               <p style="font-size: 11pt;text-align:right;"> الهاتف :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.phone"></p>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td>
+                                                <p style="font-size: 11pt;text-align:right;"> إسم للطوارئ :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.emergency_contact"></p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 11pt;text-align:right;"> رقم الطوارئ :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.emergency_phone"></p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 11pt;text-align:right;"> الحالة الإجتماعية :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.marital"></p>
+                                            </td> 
+                                        </tr>
+                                    </table>
+
+                                    <div style="width:100%;height:40px;background-color:#918C3F;font-size: 26px;">
+                                        <center>
+                                            <p>مــعـلـومــات الـهــويــة</p>
+                                        </center>
+                                    </div>
+
+                                    <br/>
+
+                                    <table class="nobo" width="100%" style="margin-top:-30px;">
+                                        <tr><td><p style="font-size: 10pt;"></p></td></tr>
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td width="15%">
+                                                <p style="font-size: 11pt;text-align:right;"> رقم الهــوية :</p>
+                                            </td>
+                                            <td width="17%">
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.identification_id"></p>
+                                            </td>
+
+                                            <td width="17%">
+                                               <p style="font-size: 11pt;text-align:right;"> رقم الجواز :</p>
+                                            </td>
+                                            <td width="15%">
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.passport_id"></p>
+                                            </td>
+                                            <td width="20%">
+                                                <p style="font-size: 11pt;text-align:right;"> تاريخ انتهاء الجواز :</p>
+                                            </td>
+                                            <td width="16%">
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.passport_expiry_date"></p>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="border-bottom:1px solid #ccc !important;padding-top:0px !important;">
+                                            <td>
+                                                <p style="font-size: 11pt;text-align:right;"> رقم تصريح العمل :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.permit_no"></p>
+                                            </td>
+
+                                            <td>
+                                               <p style="font-size: 11pt;text-align:right;"> تاريخ انتهاء التصريح :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.work_permit_expiration_date"></p>
+                                            </td>
+
+                                            <td>
+                                               <p style="font-size: 11pt;text-align:right;"> الإقامة :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.iqama"></p>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="border-bottom:1px solid #ccc !important;padding-top:0px !important;">
+                                            <td>
+                                               <p style="font-size: 11pt;text-align:right;"> رقم التأشيرة :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.visa_no"></p>
+                                            </td>
+
+                                            <td>
+                                               <p style="font-size: 11pt;text-align:right;"> تاريخ انتهاء التأشيرة :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.visa_expire"></p>
+                                            </td>
+
+                                            <td>
+                                               <p style="font-size: 11pt;text-align:right;"> تاريخ إنتهاءالاقامة :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.expiration_date_residence"></p>
+                                            </td>
+                                        </tr>
+
+                                   </table>
+
+                                   <div style="width:100%;height:40px;background-color:#918C3F;font-size: 16pt;">
+                                        <center>
+                                            <p>مــعـلـومــات الــوظــيـفة</p>
+                                        </center>
+                                   </div>
+
+                                   <table class="nobo" width="100%" style="margin-top:4px;">
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td width="15%">
+                                               <p style="font-size: 11pt;text-align:right;"> الـوظيــفة :</p>
+                                            </td>
+                                            <td width="17%">
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.job_id.name"></p>
+                                            </td>
+
+                                            <td width="18%">
+                                               <p style="font-size: 11pt;text-align:right;"> القــسم :</p>
+                                            </td>
+                                            <td width="50%">
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.department_id.name"></p>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td>
+                                                <p style="font-size: 11pt;text-align:right;"> المدير :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.parent_id.name"></p>
+                                            </td>
+
+                                            <td>
+                                                <p style="font-size: 11pt;text-align:right;"> تاريخ الإنضمام للقسم :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.job_join_date"></p>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="border-bottom:1px solid #ccc !important;">
+                                            <td>
+                                                <p style="font-size: 11pt;text-align:right;"> تاريخ البدء :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.start_date"></p>
+                                            </td>
+                                            <td>
+                                               <p style="font-size: 11pt;text-align:right;"> نوع الموظف :</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 10pt;text-align:right;" t-field="o.employee_type"></p>
+                                            </td>
+                                        </tr>
+                                   </table>
+                               </div>
+
+                            </group>                         
+                       </div>
+                   </div>
+               </t>
+            </t>
+           </t>     
+        </template>
+    </data>
+</odoo>

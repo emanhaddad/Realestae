@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cash_order,cash_request.cash_order,cash_request.model_cash_order,,1,1,1,1
+access_cash_order_user,cash_request.cash_order,cash_request.model_cash_order,voucher_user,1,1,1,1
+access_account_account,account_account.account_account,account.model_account_account,,1,1,1,1
+access_exchange_item,cash_request.exchange_item,cash_request.model_exchange_item,,1,1,1,1
+access_exchange_type,cash_request.exchange_type,cash_request.model_exchange_type,,1,1,1,1
+access_cash_order_line,cash_request.cash_order_line,cash_request.model_cash_order_line,,1,1,1,1
+access_cash_receive,cash_request.cash_receive,cash_request.model_cash_receive,,1,1,1,1
+access_cash_receive_line,cash_request.cash_receive_line,cash_request.model_cash_receive_line,,1,1,1,1
+
+

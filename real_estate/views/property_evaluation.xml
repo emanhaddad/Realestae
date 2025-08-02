@@ -1,0 +1,101 @@
+<odoo>
+	<data>
+
+
+
+    <!-- Evaluation -->
+
+    <!-- Evaluation Form View-->
+    <record model="ir.ui.view" id="expense_type_form">
+      <field name="name">Evaluation</field>
+      <field name="model">property.evaluation</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+      <form>
+        
+        <header>
+            <button string="Confirm" name="confirm" type="object" states='draft' class="oe_highlight" groups="real_estate.confirm_evaluation_button_group"/>
+
+           <button string="Review" name="review" type="object" states='confirm' class="oe_highlight" groups="real_estate.review_evaluation_button_group"/>
+
+           <button string="Premeditate" name="premeditated" type="object" states='review' class="oe_highlight" groups="real_estate.premidiation_button_group"/>
+
+           <button string="Premeditation" name="premeditation" type="object" states='premeditated' class="oe_highlight" groups="real_estate.fm_premidiation_button_group"/>
+
+           <field name="state" widget="statusbar" statusbar_visible="draft,confirm,review,premeditated,premeditation"/>
+         </header>
+         <sheet>
+          <group col="4" colspan="2" name="main_info" string="Property Main Info">
+              <field name='property_id' required="1" attrs="{'readonly':[('state','=','premeditation')]}"/>
+              <field name='date' placeholder="التاريخ الميلاي" attrs="{'readonly':[('state','=','premeditation')]}"/>
+
+              <field name='supervisor_id' readonly="1"/>
+              <field name='property_type_id' reauired="1" readonly="1"/>
+
+              <field name='state_id' attrs="{'readonly':[('state','=','premeditation')]}"/>
+              <field name='area' attrs="{'readonly':[('state','=','premeditation')]}"/>
+            
+              <field name='surfaces' attrs="{'readonly':[('state','=','premeditation')]}"/>
+              <field name='unit_no' attrs="{'readonly':[('state','=','premeditation')]}"/>
+              
+          </group>
+          <group col="4" colspan="2" name="property_estimated" string="Property Estimated calculation">
+            <group col="2" colspan="2">
+             
+            <field name='annual_income' attrs="{'readonly':[('state','=','premeditation')]}"/>
+            <field name='estimated_meter_value' attrs="{'readonly':[('state','=','premeditation')]}"/>
+            <field name='meter_area' invisible="1" attrs="{'readonly':[('state','=','premeditation')]}"/>
+            <field name='estimated_meter_construction' attrs="{'readonly':[('state','=','premeditation')]}"/>
+            <field name='total_construction_costs' attrs="{'readonly':[('state','=','premeditation')]}" readonly="1" reauired="1"/>  
+          </group>
+             
+            <group col="2" name="other" colspan="2">
+             <field name='real_estate_office' attrs="{'readonly':[('state','=','premeditation')]}"/>
+             
+             <field name='property_estimated_cost' />
+              <field name='land_prise' />
+            <field name='property_avrage_cost' />
+             </group>
+          </group>
+          <group col="4" colspan="2" name="income_persentages" string="Income Persentages">
+            <field name='investment_income' />
+          </group>
+        </sheet>
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
+      </form>
+
+      </field>
+    </record>
+
+
+    <!-- Evaluation list View-->
+    <record model="ir.ui.view" id="evaluation_tree">
+      <field name="name">Evaluation</field>
+      <field name="model">property.evaluation</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree> 
+            <field name='property_id'/>
+            <field name='supervisor_id'/>
+            <field name='state'/>
+       </tree>
+      </field>
+    </record>
+
+    <!-- Evaluation Action-->
+    <record model="ir.actions.act_window" id="action_property_evaluation">
+      <field name="name">Evaluation</field>
+      <field name="res_model">property.evaluation</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+   
+
+    <!-- menues -->
+    <menuitem id="menu_real_estate_evaluation" name="Evaluation" parent="menu_base_real_estate" action="action_property_evaluation" sequence="100"/>
+
+	</data>
+</odoo>

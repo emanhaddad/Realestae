@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_task,task.line,model_task_line,base.group_user,1,1,1,1
+access_edit_task,edit.parts.work.order,model_edit_parts_work_order,base.group_user,1,1,1,1
+access_equipment_installation,equipment.installation,model_equipment_installation,base.group_user,1,1,1,1
+access_job_line,job.line,model_job_line,base.group_user,1,1,1,1
+,,,,,,,
+access_equipment_mngr_parts_work_order,equipment_mngr_parts_work_order,model_parts_work_order,maintenance.group_equipment_manager,1,1,1,1
+access_equipment_mngr_add_parts_work_order,equipment_mngr_add_parts_work_order,model_add_parts_work_order,maintenance.group_equipment_manager,1,1,1,1
+access_equipment_mngr_edit_parts_work_order,equipment_mngr_edit_parts_work_order,model_edit_parts_work_order,maintenance.group_equipment_manager,1,1,1,1

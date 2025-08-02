@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_holidays_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-06 08:42+0000\n"
+"PO-Revision-Date: 2023-07-06 08:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__annual_leave_available_days
+#: model_terms:ir.ui.view,arch_db:hr_holidays_custom.hr_employee_view
+msgid "Annual Leave Available Days"
+msgstr "أيام الإجازة السنوية المتاحة"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__annual_leave_days
+#: model_terms:ir.ui.view,arch_db:hr_holidays_custom.hr_employee_view
+msgid "Annual Leave Days"
+msgstr "أيام الإجازة السنوية"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__annual_leave_total_days
+#: model_terms:ir.ui.view,arch_db:hr_holidays_custom.hr_employee_view
+msgid "Annual Leave Total Days"
+msgstr "أيام الإجازة السنوية الكلية"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hr_holidays_custom
+#: model:ir.model,name:hr_holidays_custom.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_holidays_custom
+#: model:ir.actions.server,name:hr_holidays_custom.annual_leave_summary_cron_ir_actions_server
+#: model:ir.cron,cron_name:hr_holidays_custom.annual_leave_summary_cron
+#: model:ir.cron,name:hr_holidays_custom.annual_leave_summary_cron
+msgid "Employee Annual Leave Summary"
+msgstr "ملخص الإجازة السنوية للموظف"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type__is_annual_leave
+msgid "Is Annual Leave"
+msgstr "الإجازة السنوية"
+
+#. module: hr_holidays_custom
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:hr_holidays_custom.field_hr_leave_type____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: hr_holidays_custom
+#: code:addons/hr_holidays_custom/models/hr_employee.py:0
+#, python-format
+msgid "Leave"
+msgstr "إجازة"
+
+#. module: hr_holidays_custom
+#: model:ir.model,name:hr_holidays_custom.model_hr_leave_type
+msgid "Time Off Type"
+msgstr "نوع الإجازة "
+
+#. module: hr_holidays_custom
+#: code:addons/hr_holidays_custom/models/hr_leave.py:0
+#, python-format
+msgid "Unable to set more than one leave type as Annual Leave"
+msgstr "لا يمكن تحديد نوعين للإجازة كإجازة سنوية في نفس الوقت"

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_hr_violation_form" model="ir.ui.view">
+            <field name="name">hr.violation.form</field>
+            <field name="model">hr.violation</field>
+            <field name="arch" type="xml">
+                <form string="Violation">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="has_penalty"/>
+                            </group>
+                            <group>
+                                <field name="category"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>               
+               
+
+        <record id="view_hr_violation_tree" model="ir.ui.view">
+            <field name="name">hr.violation.tree</field>
+            <field name="model">hr.violation</field>
+            <field name="arch" type="xml">
+                <tree string="Violation">
+                    <field name="name"/>
+                    <field name="category"/>
+                    <field name="has_penalty"/>
+                </tree>   
+            </field>
+        </record>
+
+        <record id="hr_violation_action" model="ir.actions.act_window">
+            <field name="name">Violation</field>
+            <field name="res_model">hr.violation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="hr_violation_menu" name="Violation" parent="hr_violation_punichment_config_menu" sequence="10" action="hr_violation_action"/>
+    </data>
+</odoo>

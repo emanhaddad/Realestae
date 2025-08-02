@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--  search view for contract -->
+        <record id="res_partner_search" model="ir.ui.view">
+            <field name="name">res.partner.search.expand</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search"  position="replace">
+                    <search>
+                        <field name="name" filter_domain="[('display_name','ilike',self)]"/>
+                        <field name="identiti_no"/>
+                        <field name="mobile_phone"/>
+                    </search>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_account_analytic_sale_overdue_all">
+            <field name="name">Contracts</field>
+            <field name="res_model">realestate.contract.model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- Search view for partner  -->
+        <record id="rent_partner_search" model="ir.ui.view">
+            <field name="name">realestate.contract.model.search.expand</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" filter_domain="[('display_name','ilike',self)]"/>
+                    <field name="mobile_phone"/>
+                    
+                </search>
+            </field>
+        </record>
+
+        <!-- form view of  contract  -->
+        <record model="ir.ui.view" id="real_estate_contract_form">
+            <field name="name">Contract</field>
+            <field name="model">realestate.contract.model</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="start_contract" string="Confirm Contract" type="object" class="oe_highlight" states="draft" groups="rent_contract.valid_contracts_group"/>
+                        <!--button name="end_contract" string="End Contract" type="object" class="oe_highlight" states="valid" groups="rent_contract.end_contracts_group"/-->
+                        <button name="set_to_draft_contract" string="Set Contract to Draft" type="object" class="oe_highlight" states="valid" />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!--button name="recurring_create_payment" type="object"
+                                string="create Payments"
+                                class="oe_stat_button"
+                                icon="fa-file"
+                                groups="rent_contract.generate_payment_reciept_group"
+                                attrs="{'invisible': [('recurring_interval','=',False) ]}"/-->
+                        </div>
+                       
+                        <group col="4" colspan="6" string="Contract Main Info">
+                            <field name='contract_no' readonly="1"/>
+                            <field name="contract_type" widget="radio"/>
+                            <field name='partner_id' required="1" attrs="{'readonly':[('state','!=','draft')]}"  context="{'form_view_ref': 'real_estate.tenant_res_partner_form_view'}"/>
+                            <field name="representative_id" required="1" />
+                            <!--field name="date" placeholder="Date" required="1"
+                            attrs="{'readonly':[('state','!=','draft')]}"/-->
+                            <field name='property_id' required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                          <!--   <field name='owner' readonly="1" context="{'default_partner_type':'owner' ,'form_view_ref': 'real_estate.owners_res_partner_form_view'}" widget="many2many_tags"/> -->
+                            <field name='unit_id' attrs="{'invisible': [('contract_type', '!=','specific_units')],'required': [('contract_type', '=','specific_units')]}" domain="[('base_property_id','=',property_id)]"/>
+                            <!--field name="click_pay" invisible="1" /-->
+                            <field name="contract_amount" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="company_id" invisible="1"/>
+                          
+                            <field name="date" placeholder="Date" required="1"
+                            attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="notify_date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="monthly_rental" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                            <field name="date_start" placeholder="Date" 
+                            attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="date_end" placeholder="Date" 
+                            attrs="{'readonly':[('state','!=','draft')]}"/>
+                            
+                        </group>
+                        
+                        <notebook>
+                            <page string="Payment" 
+                                >
+                                <field name="payment_ids" attrs="{'readonly':[('state','=','confirmed')]}">
+                                    <tree string="Contract Payments" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="property_id"/>
+                                        <field name="unit_id"/>
+                                        <field name="renter_id"/>
+                                        <field name="due_date"/>
+                                        <field name="pay_amount"/>
+                                        <field name="paid_amount" readonly='1'/>
+                                        <field name="pay_date"  readonly='1'/>
+                                        <field name="state" readonly="1"/>
+                                       
+                                    </tree>
+                                </field>
+                            </page>
+                             <page string="Terms" name="terms">
+                                    <field name ="term_ids" nolabel="1">
+                                      <tree string="Terms" editable="top">
+                                          <field name="term_no"/>
+                                          <field name="name"/>
+                                          <field name="type"/>
+                                          <field name="description"/>
+                                       </tree>
+                                    </field>
+                                </page>
+                            
+                        </notebook>
+                    </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+        </record>
+        <!-- tree view for contract -->
+        <record model="ir.ui.view" id="real_estate_contract_tree">
+            <field name="name">Contract List</field>
+            <field name="model">realestate.contract.model</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="contract_no"/>
+                    <field name='property_id'/>
+                    <field name='partner_id'/>
+                    <field name="date"/>
+                    <field name="delivery_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <menuitem id="menu_rent_contract" name="Contract" parent="real_estate.menu_investment_main" sequence="3" groups="rent_contract.contract_group"/>
+
+        <menuitem id="menu_action_account_analytic_sale_overdue_all"
+            parent="rent_contract.menu_rent_contract"
+            action="action_account_analytic_sale_overdue_all"
+            sequence="1"
+            groups="rent_contract.realestate_contract_group"
+        />
+    </data>
+</odoo>

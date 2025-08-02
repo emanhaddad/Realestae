@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- group of Inspection User-->
+    <record id="inspection_user_group" model="res.groups">
+        <field name="name">Inspection User</field>
+        <field name="comment">Inspection User access Group</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <!-- group of Inspection Manager-->
+    <record id="inspection_manager_group" model="res.groups">
+        <field name="name">Inspection Manager</field>
+        <field name="comment">Inspection Manager access Group</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="real_estate_maintenance.clearance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div style="width:100%; margin: 0 auto;"> <!-- page start-->
+        
+                            <div class="text-center arabic">
+                                <strong style="text-align: center; font-family: 'Times New Roman', Times, serif; font-weight: bold; border: solid 2px gray; border-radius: 30px;padding: 10px 30px 10px 30px; font-size: 20px;background-color: #f2f2f2;">إعتماد تصفية</strong> 
+                            </div>
+
+                            <br/>
+
+                            <div class="text-right arabic" style="font-family: 'Times New Roman', Times, serif;">
+                                <ul class="row">
+                                    <div class="col-4" style="direction:rtl;">
+                                        <strong style="font-weight:bold;font-size:20px;">الرقم:</strong> &#160;<span style="font-size:20px;margin-left:90px;" t-field="o.name"/>
+                                    </div>
+                                    <div class="col-4" style="direction:rtl;">
+                                        <strong style="font-weight:bold;font-size:20px;">التاريخ:</strong> &#160;<span style="font-size:20px;margin-left:50px;" t-field="o.date"/>
+                                    </div>
+                                </ul>
+                            </div>
+
+                            <br/>
+
+                            <div class="text-center arabic">
+                                <strong style="text-align: center; font-family: 'Times New Roman', Times, serif; font-weight: bold; border: solid 2px gray; border-radius: 30px;padding: 10px 30px 10px 30px; font-size: 20px;background-color: #f2f2f2;">بيانات المستثمر</strong> 
+                            </div>
+
+                            <br/>
+
+                            <table style="font-size:20px;font-family: 'Times New Roman', Times, serif;border-collapse: collapse; width: 100%;" class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>مبلغ التصفية</th>
+                                        <th>مبلغ الإستثمار</th>
+                                        <th>الإسم</th>
+                                        <th>رقم العقد</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="docs" t-as="o">
+                                        <td>
+                                            <span t-field="o.clearance_amount"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.investment_amount"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.partner_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.contract_id"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br/>
+
+                            <div class="text-center arabic">
+                                <strong style="text-align: center; font-family: 'Times New Roman', Times, serif; font-weight: bold; border: solid 2px gray; border-radius: 30px;padding: 10px 30px 10px 30px; font-size: 20px;background-color: #f2f2f2;">بيانات العقد</strong> 
+                            </div>
+
+                            <br/>
+
+                            <table style="font-size:20px;font-family: 'Times New Roman', Times, serif;border-collapse: collapse; width: 100%;" class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>تاريخ النهاية</th>
+                                        <th>تاريخ البداية</th>
+                                        <th>المشروع</th>
+                                        <th>العقار</th>
+                                        <th>رقم العقد</th>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                    <tr t-foreach="docs" t-as="o">
+                                        <td>
+                                            <span t-field="o.date_end"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.date_start"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.project_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.property_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.contract_id"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br/>
+
+                            <div class="text-right arabic">
+                                <div style="font-family: 'Times New Roman', Times, serif;">
+
+                                    <div>
+                                        <span style="font-weight:bold;font-size:20px;"/>
+                                        <strong class="text-right" style="margin-left:700px;font-weight:bold;font-size:20px;">:البيان </strong>
+                                        <p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.description"/>
+                                    </div>
+
+                                    <br/>
+
+                                    <div>
+                                        <span style="font-weight:bold;font-size:20px;"/>
+                                        <strong class="text-right" style="margin-left:700px;font-weight:bold;font-size:20px;">:الملاحظات </strong>
+                                        <p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.note"/>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <br/>
+
+                            <div class="row">
+                                <div class="col-4" style="font-family: 'Times New Roman', Times, serif;border: solid 2px gray; border-radius: 20px; font-size:19px;">
+                                    <div class="text-center">
+                                        <strong>المدير المالي</strong>
+                                        <br/><br/><br/>
+                                    </div>
+                                </div>
+
+                                <div class="col-4" style="font-family: 'Times New Roman', Times, serif;border: solid 2px gray; border-radius: 20px; font-size:19px;">
+                                    <div class="text-center">
+                                        <strong>المدير العام</strong>
+                                        <br/><br/><br/>
+                                    </div>
+                                </div>
+
+                                <div class="col-4" style="font-family: 'Times New Roman', Times, serif;border: solid 2px gray; border-radius: 20px; font-size:19px;">
+                                    <div class="text-center">
+                                        <strong>إدارة الإستثمار</strong>
+                                        <br/><br/><br/><br/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

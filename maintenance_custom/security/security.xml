@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <!-- filter product -->
+
+        <record id="filter_user_product_allowed" model="ir.rule">
+            <field name="name">Filter Product Allowed</field>
+            <field name="model_id" ref="product.model_product_template"/>
+            <field name="domain_force">['|',('categ_id','in', [ p.id for p in user.user_categ_ids ]),('categ_id','child_of', [ p.id for p in user.user_categ_ids ])]</field>
+
+        </record>
+
+        <!-- filter product -->
+
+        <record id="filter_user_category_allowed" model="ir.rule">
+            <field name="name">Filter Category Allowed</field>
+            <field name="model_id" ref="product.model_product_category"/>
+            <field name="domain_force">['|',('id','in', [ p.id for p in user.user_categ_ids ]),('id','child_of', [ p.id for p in user.user_categ_ids ])]</field>
+
+        </record>
+
+    </data>
+</odoo>

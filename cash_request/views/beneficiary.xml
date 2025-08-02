@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo> 
+
+    <record id="action_partner_beneficiary_form" model="ir.actions.act_window">
+        <field name="name">Beneficiary</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('beneficiary','=',True)]</field>
+        <field name="context">{
+            'default_beneficiary':True,
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new Beneficiary
+            </p><p>
+            Odoo helps you easily track all activities related to a operating company.
+            </p>
+        </field>
+    </record>
+
+        <menuitem id="beneficiary_menu" name="Beneficiary" parent="cash_order_sub_menu" action="action_partner_beneficiary_form"/>
+</odoo>

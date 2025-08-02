@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="construction_contract_reject_form" model="ir.ui.view">
+        <field name="name">construction.contract.reject.form</field>
+        <field name="model">construction.reject.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="contract_id" invisible="1"/>
+                <field name="receipt_id" invisible="1"/>
+                <field name="settlement_id" invisible="1"/>
+                <group>
+                    <field name="reason_id"/>
+                    <field name="cancel_reason"/>
+                </group>
+                <footer>
+                    <button string="Confirm" name="action_reject" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

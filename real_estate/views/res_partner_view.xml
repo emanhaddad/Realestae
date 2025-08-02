@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+
+
+  
+
+    <record model="ir.ui.view" id="real_estates_form_partner_inherit">
+        <field name="name">partner form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="partner_type" required='True'/>
+                <!-- <field name="id_partner_number"/> -->
+            </field>
+         
+        </field>
+    </record>
+
+
+        <!--record id="owners_res_partner_form_view" model="ir.ui.view">
+            <field name="name">Owners Partner</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name='partner_type' invisible="1"/>
+                    <group col="2">
+                      <field name='company_type' required="1" widget="radio"/>
+                        <field name='name' required="1"/>
+                        <field name='code' required="1"/>
+                    </group>
+                            <group col="4" colspan="2" string="Personal Info" attrs="{'invisible': [('company_type','!=', 'person')]}">
+                                <field name='date_birth' placeholder="التاريخ الميلاي"/>
+                                <field name='partner_gender' widget='radio' options="{'horizontal': True}"/>
+                            </group>
+                    <group col="4" colspan="2" string="Contact Information">
+                     <label for="national_address" string="Address"/>
+                    <div class="o_address_format">
+                    <field name="pro_block_no" placeholder="Block No" class="o_address_street" required="1"/>
+                    <field name="pro_street_name" placeholder="Street Name" class="o_address_street" required="1"/>
+                    <field name="hai_id" placeholder="Hai" class="o_address_city" required="1"/>
+                    <field name="pro_city_name" class="o_address_state" placeholder="City Name" required="1" />
+                    <field name="mail_code" placeholder="Mail Code" required="1" />
+                    <field name="extension_num" placeholder="extension number" required="1"/>                     
+                </div>
+                            <field name='phone' required="1"/>
+                            <field name='email'/>
+                          <field name='national_address' readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rowners_partner_tree_view" model="ir.ui.view">
+                <field name="name">Owner partner</field>
+                <field name="model">res.partner</field>
+                <field name="arch" type="xml">
+                    <tree>
+                        <field name="name"/>
+                        <field name="company_type"/>
+                    </tree>
+                </field>
+            </record>
+
+        
+
+        <record id="supervisor_res_partner_form_view" model="ir.ui.view">
+            <field name="name">Supervisor Partner</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name='partner_type' invisible="0"/>
+                    <group col="2">
+                        
+                      <field name='company_type' required="1" widget="radio"/>
+                     
+                        <field name='name' required="1"/>
+                          <field name='code' required="1"/>
+                      </group>
+                            <group col="4" colspan="2" string="Personal Info" attrs="{'invisible': [('company_type','!=', 'person')]}">
+                                <field name='date_birth' placeholder="التاريخ الميلاي"/>
+                                <field name='partner_gender' widget='radio' options="{'horizontal': True}"/>
+                                 
+                            </group>
+                        <group col="4" colspan="2" string="Contact Information">
+
+                    <label for="national_address" string="Address"/>
+                    <div class="o_address_format">
+                    <field name="pro_block_no" placeholder="Block No" class="o_address_street" required="1"/>
+                    <field name="pro_street_name" placeholder="Street Name" class="o_address_street" required="1"/>
+                    <field name="hai_id" placeholder="Hai" class="o_address_city" required="1"/>
+                    <field name="pro_city_name" class="o_address_state" placeholder="City Name" required="1" />
+                    <field name="mail_code" placeholder="Mail Code" required="1" />
+                    <field name="extension_num" placeholder="extension number" required="1"/>                     
+                    </div>
+                            <field name='phone' required="1"/>
+                            <field name='email'/>
+                          <field name='national_address' readonly="1"/>
+                      
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="supervisor_partner_tree_view" model="ir.ui.view">
+            <field name="name">Supervisor partner</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="company_type"/>
+                </tree>
+            </field>
+        </record-->
+
+        <!-- Res Partner Actions For Owner-->
+    
+
+        <!--record id="action_owner_partner_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="rowners_partner_tree_view" />
+            <field name="act_window_id" ref="action_res_pat_owner" />
+        </record>
+        <record id="action_owner_partner_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="owners_res_partner_form_view" />
+            <field name="act_window_id" ref="action_res_pat_owner" />
+        </record>
+
+
+        <record id="action_supervisor_partner_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="supervisor_partner_tree_view" />
+            <field name="act_window_id" ref="action_res_pat_supervisor" />
+        </record>
+
+        <record id="action_supervisor_partner_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="supervisor_res_partner_form_view" />
+            <field name="act_window_id" ref="action_res_pat_supervisor" />
+        </record-->
+        <record model="ir.actions.act_window" id="action_res_pat_owner">
+            <field name="name">Owner</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_partner_type': 'owner'}</field>
+            <field name="domain">[('partner_type','=','owner')]</field>
+        </record>
+        <record model="ir.actions.act_window" id="action_res_pat_supervisor">
+            <field name="name">Supervisor</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_partner_type': 'supervisor'}</field>
+            <field name="domain">[('partner_type','=','supervisor')]</field>
+        </record>
+        <record model="ir.actions.act_window" id="action_res_pat_investor">
+            <field name="name">Supervisor</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_partner_type': 'investor'}</field>
+            <field name="domain">[('partner_type','=','investor')]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_res_pat_enterpreneur">
+            <field name="name">Entrepreneur</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_partner_type': 'entrepreneur'}</field>
+            <field name="domain">[('partner_type','=','entrepreneur')]</field>
+        </record>
+        <!--record id="action_enterpreneur_partner_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="supervisor_res_partner_form_view" />
+            <field name="act_window_id" ref="action_res_pat_enterpreneur" />
+        </record>
+        <record id="action_enterpreneur_partner_tree" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="action_supervisor_partner_tree" />
+            <field name="act_window_id" ref="action_res_pat_enterpreneur" />
+        </record-->
+
+       
+      <!-- menues -->
+      <menuitem id="menu_beneficiaries_list_real_estate" name="List of beneficiaries" parent="menu_investment_main" sequence="2" groups="benifictaries_group"/>
+      
+     
+     
+      <menuitem id="menu_real_estate_owner" name="Owner" parent="menu_beneficiaries_list_real_estate" action="action_res_pat_owner" sequence="1"/>
+      <menuitem id="menu_real_estate_enterpreneur" name="Entrepreneur" parent="menu_beneficiaries_list_real_estate" action="action_res_pat_enterpreneur" sequence="1"/>
+
+      <menuitem id="menu_real_estate_supervisors" name="Supervisor" parent="menu_beneficiaries_list_real_estate" action="action_res_pat_supervisor" sequence="3"/>
+
+      <menuitem id="menu_real_estate_investors" name="Investors" parent="menu_beneficiaries_list_real_estate" action="action_res_pat_investor" sequence="4"/>
+
+      
+
+
+	</data>
+</odoo>

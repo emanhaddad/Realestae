@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+#  Hash Information Technology (c) 2024. All rights reserved.
+#  See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <!-- Construction Stage Receipt -->
+    <record id="construction_contract_receipt_form" model="ir.ui.view">
+        <field name="name">Construction Contract Receipt Form View</field>
+        <field name="model">project.contract.receipt</field>
+        <field name="arch" type="xml">
+            <form string="Contract Receipt">
+                <field name="waiting_approval" invisible="1"/>
+                <field name="is_cancelled" invisible="1"/>
+                <header>
+                    <button name="set_confirm" string="Confirm" type="object" class="oe_highlight"
+                    states='state'/>
+                            <!-- attrs="{'invisible': [('state', '!=', 'draft')]}" -->
+                    <button name="action_wait" string="PM approval" type="object" class="oe_highlight" states='waiting' groups='project.group_project_manager'/>
+                    <button name="fm_approve" string="Finance Approval" type="object" class="oe_highlight" states='fm_approved' groups="cash_request.voucher_finicial_manger"/>
+                    <button name="gm_approve" string="GM Approval" type="object" class="oe_highlight" states='gm_approved' groups="cash_request.voucher_general_manager"/>
+                    <button name="set_cancel" string="Cancel" type="object" class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['draft', 'waiting', 'fm_approved'])]}"/>
+                    <button name="set_reject" string="Reject" type="object" class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['waiting', 'fm_approved'])]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,waiting,fm_approved,gm_approved,approved"/>
+                </header>
+                <sheet>
+
+                    <div class="oe_button_box">
+                        <button class="oe_stat_button" name="open_cash_order" type="object" icon="fa-files-o" attrs="{'invisible':[('contractor_ids','=',False)]}" string="Cash order">
+                            <field string="Cash order" name="contractor_ids" widget="statinfo" invisible="1"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group name="main">
+                        <group name="main_left">
+                            <field name="receipt_type" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                            <field name="partner_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="contract_id" attrs="{'required':[('receipt_type','=','with_c')], 'invisible':[('receipt_type','!=','with_c')]}" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="project_id" readonly="1" attrs="{'required':[('receipt_type','=','with_c')], 'invisible':[('receipt_type','!=','with_c')]}" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="contract_type" readonly="1" attrs="{'required':[('receipt_type','=','with_c')], 'invisible':[('receipt_type','!=','with_c')]}" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="date_contract" readonly="1" attrs="{'required':[('receipt_type','=','with_c')], 'invisible':[('receipt_type','!=','with_c')]}"/>
+                            <field name="project" attrs="{'required':[('receipt_type','=','without_c')], 'invisible':[('receipt_type','!=','without_c')]}" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="task" attrs="{'invisible':[('receipt_type','!=','without_c')]}" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="stage" attrs="{'invisible':[('receipt_type','!=','without_c')]}" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="amount" attrs="{'required':[('receipt_type','=','without_c')], 'invisible':[('receipt_type','!=','without_c')]}"/>
+                            <!-- <field name="contract_line_id" options="{'no_create_edit': True, 'no_create': True}"/> -->
+                            <field name="exchange_type_id" attrs="{'required':[('state','=','fm_approved')], 'invisible':[('state','!=','fm_approved')]}" options="{'no_create_edit': True, 'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="date_receipt"/>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <group col="4" string='Contract Stage Details' attrs="{ 'invisible':[('receipt_type','!=','with_c')]}">
+                        <field name="contract_stage_id" attrs="{'required':[('receipt_type','=','with_c')], 'invisible':[('receipt_type','!=','with_c')]}" options="{'no_create_edit': True, 'no_create': True}"/>
+                        <!-- domain="[('state', 'not in', ['done','cancel'])]" -->
+                        <field name="stage_amount" widget="monetary" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','ratio'])]}"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="percent" widget="percentage" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','cost_plus'])]}"/>
+                        <field name="percent_amount" widget="monetary" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','cost_plus'])]}"/>
+                        <field name="actual_progress" widget="percentage" attrs="{'invisible': [('contract_type', 'in', ['meter', 'unit','cost_plus'])], 'required': [('contract_type', 'not in', ['meter', 'unit','cost_plus'])]}"/>
+                        <field name="stage_state" invisible="1"/>
+                        <field name="unit" attrs="{'invisible': [('contract_type', 'in', ['cost_plus', 'ratio'])]}"/>
+                        <field name="unit_amount" attrs="{'invisible': [('contract_type', 'in', ['cost_plus', 'ratio'])]}"/>
+                        <field name="actual_unit" attrs="{'invisible': [('contract_type', 'in', ['cost_plus', 'ratio'])], 'required': [('contract_type', 'not in', ['cost_plus', 'ratio'])]}"/>
+                        <field name="progress" widget="progressbar" attrs="{'invisible': [('contract_type', 'not in', ['unit', 'ratio', 'meter'])]}"/>
+                        <field name="payment_amount" widget="monetary" attrs="{ 'required':[('receipt_type','=','with_c')]}"/>
+                    </group>
+                    <notebook>
+                        <page name="description" string="Content">
+                            <field name="description" widget="html"/>
+                        </page>
+                        <page name="info" string="Extra Info">
+                            <group name="info_main">
+                                <group name="info_left">
+                                    <field name="project_stage_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name="task_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                </group>
+                                <group name="info_right">
+                                    <field name="user_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name="company_id" groups="base.group_multi_company"
+                                           options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="approval" string="Approvals">
+                            <group name="approval_user">
+                                <field name="manager_user_id"/>
+                                <field name="maintenance_user_id"/>
+                                <field name="engineer_user_id"/>
+                                <field name="ceo_user_id"/>
+                            </group>
+                            <group name="approval_date">
+                                <field name="manager_approval_date"/>
+                                <field name="maintenance_approval_date"/>
+                                <field name="engineer_approval_date"/>
+                                <field name="ceo_approval_date"/>
+                            </group>
+                            <group name="approval_final">
+                                <field name="approval_date"/>
+                            </group>
+                        </page>
+                        <page name="cancellation" string="Cancel/Reject"
+                              attrs="{'invisible': [('state', 'not in', ['cancel', 'reject'])]}">
+                            <group name="cancel_main">
+                                <group name="cancel_left">
+                                    <field name="cancel_reason_id"/>
+                                </group>
+                                <group name="cancel_right">
+                                    <field name="cancel_date"/>
+                                </group>
+                            </group>
+                            <field name="cancel_reason"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="construction_contract_receipt_tree" model="ir.ui.view">
+        <field name="name">Construction Contract Receipt Tree View</field>
+        <field name="model">project.contract.receipt</field>
+        <field name="arch" type="xml">
+            <tree string="Contract Receipts">
+                <field name="name"/>
+                <field name="date_receipt"/>
+                <field name="date" optional="hide"/>
+                <field name="receipt_type"/>
+                <field name="partner_id"/>
+                <field name="project_id"/>
+                <field name="contract_id"/>
+                <field name="payment_amount" widget="monetary" attrs="{ 'invisible':[('receipt_type','!=','with_c')]}"/>
+                <field name="amount" attrs="{'invisible':[('receipt_type','!=','without_c')]}"/>
+                <field name="contract_stage_id" optional="hide"/>
+                <field name="project_stage_id" optional="hide"/>
+                <field name="task_id" optional="hide"/>
+                <field name="user_id" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="construction_contract_receipt_search" model="ir.ui.view">
+        <field name="name">Construction Contract Receipt Search View</field>
+        <field name="model">project.contract.receipt</field>
+        <field name="arch" type="xml">
+            <search string="Search Contract Receipts">
+                <filter name="names" string="Name"
+                        domain="['|', '|', '|', '|',
+                                 ('name', 'ilike', self), ('project_id.name', 'ilike', self),
+                                 ('partner_id.name', 'ilike', self),
+                                 ('contract_id.name', 'ilike', self), ('contract_stage_id.name', 'ilike', self)]"/>
+                <field name="partner_id"/>
+                <field name="project_id"/>
+                <field name="contract_id"/>
+                <field name="date_receipt"/>
+                <separator name="dates"/>
+                <filter name="date_today" string="Today" domain="[('date_receipt', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="date_future" string="Future" domain="[('date_receipt', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="date_late" string="Late" domain="[('date_receipt', '&lt;', context_today().strftime('%Y-%m-%d')), ('state', 'in', ['waiting', 'draft'])]"/>
+                <separator name="states"/>
+                <filter name="state_draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="state_waiting" string="Waiting" domain="[('state', '=', 'waiting')]"/>
+                <filter name="state_reject" string="Rejected" domain="[('state', '=', 'reject')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_contract" string="Contract" context="{'group_by': 'contract_id'}"/>
+                    <filter name="group_contract_stage" string="Contract Stage" context="{'group_by': 'contract_stage_id'}"/>
+                    <filter name="group_partner" string="Contractor" context="{'group_by': 'partner_id'}"/>
+                    <separator name="group_state_date"/>
+                    <filter name="group_date" string="Date" context="{'group_by': 'date_receipt'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="construction_contract_receipt_action" model="ir.actions.act_window">
+        <field name="name">Construction Receipts</field>
+        <field name="res_model">project.contract.receipt</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="construction_contract.construction_contract_receipt_search"/>
+        <field name="context">{'search_default_state_draft': 1, 'search_default_state_waiting': 1}</field>
+    </record>
+
+    <record id="construction_contract_final_receipt_form" model="ir.ui.view">
+        <field name="name">Construction Contract Final Receipt Form View</field>
+        <field name="model">project.contract.final.receipt</field>
+        <field name="arch" type="xml">
+            <form string="Final Receipt">
+                <header>
+                    <button name="set_confirm" string="Confirm" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_maintenance" string="Maintenance approval" type="object" class="oe_highlight" states='maintenance'/>
+                    <!-- groups="maintenance_team.maintenance_team_admin_user" -->
+                    <button name="pm_approve" string="PM Approval" type="object" class="oe_highlight" states='pm_approved' groups="project.group_project_manager"/>
+                    <button name="fm_approved" string="Finance Approval" type="object" class="oe_highlight" states='fm_approved' groups="cash_request.voucher_finicial_manger"/>
+                    <button name="gm_approve" string="GM Approval" type="object" class="oe_highlight" states='gm_approved' groups="cash_request.voucher_general_manager"/>
+                    <!-- <button name="set_cancel" string="Cancel" type="object" class="oe_highlight" attrs="{'invisible': [('state', 'in', ['draft', 'waiting', 'approved', 'reject','cancel'])]}"/> -->
+                    <button name="set_reject" string="Reject" type="object" class="oe_highlight" attrs="{'invisible': [('state', 'in', ['waiting', 'approved', 'reject','cancel'])]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,maintenance,pm_approved,fm_approved,gm_approved,approved"/>
+                </header>
+                <sheet>
+
+                    <div class="oe_button_box">
+                        <button class="oe_stat_button" name="open_cash_order" type="object" icon="fa-files-o" attrs="{'invisible':[('contractor_ids','=',False)]}" string="Cash order">
+                            <field string="Cash order" name="contractor_ids" widget="statinfo" invisible="1"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="partner_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="contract_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="contract_type"/>
+                            <field name="project_id" options="{'no_create_edit': True, 'no_create': True}" readonly="1"/>
+                            <!-- <field name="ten_percentage"/> -->
+                            <field name="ten_percentage" attrs="{'invisible': [('contract_type','not in',['cost_plus','ratio'])]}"/>
+                            <field name="ten_percent" attrs="{'invisible': [('contract_type','not in',['meter','unit'])]}"/>
+                            <field name="exchange_type_id" attrs="{'required':[('state','=','fm_approved')], 'invisible':[('state','not in',['fm_approved','gm_approved','approved'])], 'readonly':[('state','in',['gm_approved','approved'])]}" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="engineer_user_id"/>
+                            <field name="maintenance_user_id"/>
+                            <field name="manager_user_id"/>
+                        </group>
+                        <group>
+                            <field name="change"/>
+                            <field name="reason" attrs="{'invisible': [('change','=',False)], 'required': [('change','=',True)]}"/>
+                            <field name="change_amount" attrs="{'invisible': [('change','=',False)], 'required': [('change','=',True)]}"/>
+                            <field name="subtotal" attrs="{'invisible': [('change','=',False)]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="cancellation" string="Cancel/Reject"
+                          attrs="{'invisible': [('state', 'not in', ['cancel', 'reject'])]}">
+                            <group name="cancel_main">
+                                <group name="cancel_left">
+                                    <field name="cancel_reason_id"/>
+                                </group>
+                                <group name="cancel_right">
+                                    <field name="cancel_date"/>
+                                </group>
+                            </group>
+                            <field name="cancel_reason"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="construction_contract_final_receipt_tree" model="ir.ui.view">
+        <field name="name">Construction Contract Final Receipt Tree View</field>
+        <field name="model">project.contract.final.receipt</field>
+        <field name="arch" type="xml">
+            <tree string="Final Receipts">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="project_id"/>
+                <field name="manager_user_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="construction_contract_final_receipt_action" model="ir.actions.act_window">
+        <field name="name">Final Receipts</field>
+        <field name="res_model">project.contract.final.receipt</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_construction_contract_receipt_root" 
+                name="Receipts" 
+                parent="construction_management_app.menu_construction_managmt" 
+                sequence="3"/>
+    <menuitem id="menu_construction_receipt" 
+                name="Receipts"
+                parent="menu_construction_contract_receipt_root"
+                action="construction_contract_receipt_action" 
+                sequence="1"/>
+
+    <menuitem id="menu_construction_final_receipt" 
+                name="Final Receipt"
+                parent="menu_construction_contract_receipt_root"
+                action="construction_contract_final_receipt_action" 
+                sequence="2"/>
+</odoo>

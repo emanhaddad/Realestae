@@ -1,0 +1,84 @@
+<odoo>
+    <data>
+        <!-- Search view definition for filters -->
+        <record id="real_estate_sale_report_search_view" model="ir.ui.view">
+            <field name="name">real.estate.sale.report.search</field>
+            <field name="model">real.estate.sale.report</field>
+            <field name="arch" type="xml">
+                <search string="Real Estate Sale Report Search">
+                    <field name="date" string="Date"/>
+                    <field name="sales_user_id" string="Sales Person"/>
+                    <!-- <filter string="Today" name="today" domain="[('date', '=', context_today())]"/> -->
+                    <!-- <filter string="This Month" name="this_month" domain="[('date', '>=', context_today().strftime('%Y-%m-01'))]"/> -->
+                    <group expand="1" string="Group By">
+                        <filter string="Sales Person" name="group_by_sales_user" context="{'group_by':'sales_user_id'}"/>
+                        <filter string="Date" name="group_by_date" context="{'group_by':'date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action to open the views -->
+        <record model="ir.actions.act_window" id="action_real_estate_sale_report_view">
+            <field name="name">Unit Sales</field>
+            <field name="res_model">real.estate.sale.report</field>
+            <field name="view_mode">pivot,graph,tree</field>
+            <!-- Link the search view to the action -->
+            <field name="search_view_id" ref="real_estate_sale_report_search_view"/>
+        </record>
+
+        <!-- Pivot view definition -->
+        <record id="unit_sales_analysis_pivot_view" model="ir.ui.view">
+            <field name="name">Real Estate Sale Report Pivot</field>
+            <field name="model">real.estate.sale.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Real Estate Unit Sales" disable_linking="True">
+                    <field name="sales_user_id" type="row"/>
+                    <field name="name" type="row"/>
+                    <field name="date" type="col"/>
+                    <field name="amount" type="measure"/>
+                    <field name="commission" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Bar chart view definition -->
+        <record id="unit_sales_analysis_bar_chart_view" model="ir.ui.view">
+            <field name="name">Real Estate Sale Report Bar Chart</field>
+            <field name="model">real.estate.sale.report</field>
+            <field name="arch" type="xml">
+                <graph string="Real Estate Unit Sales Bar Chart" type="bar">
+                    <field name="date" type="row"/>
+                    <field name="amount" type="measure"/>
+                    <field name="commission" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Line chart view definition -->
+        <record id="unit_sales_analysis_line_chart_view" model="ir.ui.view">
+            <field name="name">Real Estate Sale Report Line Chart</field>
+            <field name="model">real.estate.sale.report</field>
+            <field name="arch" type="xml">
+                <graph string="Real Estate Unit Sales Line Chart" type="line">
+                    <field name="date" type="row"/>
+                    <field name="amount" type="measure"/>
+                    <field name="commission" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Menu items -->
+        
+        <menuitem id="menu_realestate_sale_report" 
+                  name="Real Estate Sales" 
+                  parent="menu_real_estate_report_root" 
+                  sequence="3"/>
+
+        <menuitem id="menu_realestate_unitsale_details" 
+                  parent="menu_realestate_sale_report" 
+                  action="action_real_estate_sale_report_view" 
+                  sequence="4"/>
+
+    </data>
+</odoo>

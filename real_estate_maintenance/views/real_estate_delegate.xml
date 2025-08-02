@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="real_estate_delegate_view_form" model="ir.ui.view">
+        <field name="name">real.estate.delegate</field>
+        <field name="model">real.estate.delegate</field>
+        <field name="arch" type="xml">
+            <form string="Real estate delegate">
+                <header>
+                        <button name="action_quotation_send" string="Send by Email" type="object" states="new" class="btn-primary"/>
+                        <button name="action_wait_finance" string="Finance Confirm" type="object" states="confirmed" class="btn-primary"/>
+                        <button name="action_confirm" string="Confirm" type="object" states="wait_customer_sign" class="btn-primary"/>
+                        <button name="action_approve" string="Approve" type="object" states="finance" class="btn-primary"/>
+                        <field name="state" widget="statusbar" statusbar_visible="new,wait_customer_sign,confirmed,cancel"/>
+
+                </header>
+                <sheet>
+                    <div class="oe_button_box">
+                        <button class="oe_stat_button" name="open_move" type="object" icon="fa-files-o" attrs="{'invisible':[('payment_ids','=',False)]}" string="Receive Payment">
+                            <field string="Receive Payment" name="payment_ids" widget="statinfo" invisible="1"/>
+                        </button>
+                    </div>
+                    
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Title"/>
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="unit_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <!-- <field name="base_property_id" readonly="1"/> -->
+                            <!-- <field name="property_floors" readonly="1"/> -->
+                            <field name="date" />  
+                            <field name="real_estate_id" string="Real Estate"/>
+                           
+                            
+                            <field name="partner_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="contract_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="user_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <!--field name="attachment_id" attrs="{'required':[('state','=','wait')],'invisible':[('state','=','available')]}"/-->
+                           
+                        </group>
+                        <group>
+                            <field name="currency_id" groups="base.group_multi_currency"/>
+                            <field name="marketing_amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            <field name="owner_amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            <field name="total_amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            
+                        
+                        </group>
+                       
+                            
+                    </group>
+                   
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+              
+            </form>
+        </field>
+    </record>
+
+     <record id="real_estate_delegate_view_tree" model="ir.ui.view">
+        <field name="name">real_estate_delegate.tree</field>
+        <field name="model">real.estate.delegate</field>
+        <field name="arch" type="xml">
+            <tree string="maintenance Request" multi_edit="1" >
+                <field name="name"/>
+                <field name="real_estate_id"/>
+                <field name="unit_id"/>
+                <field name="date" />
+                <field name="partner_id" />
+                <field name="user_id" />
+                <field name="state"/>
+               
+            </tree>
+        </field>
+    </record>
+
+
+    
+
+    <record model="ir.actions.act_window" id="real_estate_delegate_act_window">
+        <field name="name">Real Estate delegate</field>
+        <field name="res_model">real.estate.delegate</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+   
+    <menuitem id="menu_real_estate_delegate" parent="real_estate.menu_base_investment" action="real_estate_delegate_act_window" sequence="10" />
+
+    
+</odoo>

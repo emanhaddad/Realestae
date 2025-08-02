@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="exchange_item_view_form" model="ir.ui.view">
+        <field name="name">exchange.item.form</field>
+        <field name="model">exchange.item</field>
+        <field name="arch" type="xml">
+            <form string="Exchange Item">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="department_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="exchange_item_view_list" model="ir.ui.view">
+        <field name="name">exchange.item.tree</field>
+        <field name="model">exchange.item</field>
+        <field name="arch" type="xml">
+            <tree string="Exchange Item">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="exchange_item_action_form" model="ir.actions.act_window">
+        <field name="name">Exchange Item</field>
+        <field name="res_model">exchange.item</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do -->
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_exchange_item" name="Exchange Item" parent="cash_order_sub_menu" action="exchange_item_action_form" groups="voucher_finicial_manger"/>
+
+    <record id="exchange_type_view_form" model="ir.ui.view">
+        <field name="name">exchange.type.form</field>
+        <field name="model">exchange.type</field>
+        <field name="arch" type="xml">
+            <form string="Exchange Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="gm"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="exchange_type_view_tree" model="ir.ui.view">
+        <field name="name">exchange.type.tree</field>
+        <field name="model">exchange.type</field>
+        <field name="arch" type="xml">
+            <tree string="Exchange type">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="exchange_type_action_form" model="ir.actions.act_window">
+        <field name="name">Exchange type</field>
+        <field name="res_model">exchange.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do -->
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_configuration" name="Configuration" parent="cash_order_root_menu" groups="voucher_finicial_manger"/>
+    <menuitem id="menu_exchange_type" name="Exchange type" parent="menu_configuration" action="exchange_type_action_form" groups="voucher_finicial_manger"/>
+</odoo>

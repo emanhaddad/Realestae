@@ -1,0 +1,139 @@
+<odoo>
+    <data>
+
+        <!--   action for expences-->
+        <record model="ir.actions.act_window" id="action_expense_request">
+            <field name="name">Expenses Requests</field>
+            <field name="res_model">expense.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="expence_tree">
+            <field name="name">Expense</field>
+            <field name="model">expense.request</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='code'/>
+                    <field name='date'/>
+                    <field name='property_id'/>
+                    <field name='unit_id'/>
+                    <field name='amount'/>
+                    <field name='state'/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- form view of expense-->
+        <record model="ir.ui.view" id="expense_request_form">
+            <field name="name">Expense</field>
+            <field name="model">expense.request</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Approve" name="approve" type="object" states='confirm' class="oe_highlight" groups="real_estate_expenses.approve_expences_button_group"/>
+                        <button string="Confirm" name="confirm" type="object" states='draft' class="oe_highlight" groups="real_estate_expenses.confirm_expences_button_group"/>
+                        <button string="Set To Draft" name="set_to_draft" type="object" states='confirm' class="oe_highlight" groups="real_estate_expenses.confirm_expences_button_group"/>
+                        <button string="Transfer" name="transfer" type="object" states='approve' class="oe_highlight" groups="real_estate_expenses_account.expense_transfer_group"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,approve,confirm"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box">
+                            <button type="object" name="action_payment" class="oe_stat_button" icon="fa-bars" groups="account.group_account_manager">
+                                <field name="count_payment" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
+                                <field string="Documents" name="attachment_number" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <group col="4" colspan="2">
+                            <field name="code"/>
+                            <field name="date" required="1" placeholder="التاريخ الميلاي" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="property_id" required="1" attrs="{'readonly':[('state','!=','draft')]}" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="unit_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="supervisor" readonly="1" />
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                        <group col="4" colspan="2">
+                            <field name="expense_type" invisible='0' attrs="{'readonly':[('state','!=','draft')]}"/>
+                           
+                            <field name="amount" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="payment_method" attrs="{'readonly':[('state','=','transferd')],'required':[('state','=','approve')]}"/>
+                            <field name="move_id" attrs="{'invisible':[('move_id','=',False)]}" required="0"/>
+                            <field name="exchange_type_id"/>
+                        </group>
+                        <div>
+                            <group>
+                                <field name="description" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                        </div>
+                    </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+        <!--   action for expences type-->
+        <record model="ir.actions.act_window" id="action_expense_type">
+            <field name="name">Expense Type</field>
+            <field name="res_model">expense.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- form view of expense type-->
+        <record model="ir.ui.view" id="expense_typeee_form">
+            <field name="name">Expense Type</field>
+            <field name="model">expense.type</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+                        <group col="4">
+                            <field name="name" required="1"/>
+                            <field name="code" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+         <!-- tree view of expense type-->
+        <record model="ir.ui.view" id="expense_typeee_tree">
+            <field name="name">Expense Type</field>
+            <field name="model">expense.type</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <!-- menu -->
+        <menuitem id="menu_real_estate_expense_root" name="Expenses" parent="real_estate.menu_real_estate_main"/>
+
+        <menuitem id="menu_real_estate_expense" name="Expenses Requests" parent="menu_real_estate_expense_root" sequence="5" action="action_expense_request"/>
+
+         <menuitem id="menu_expense_config" name="Expense" parent="real_estate.menu_config_real_estate_operations_root" sequence="3" groups="real_estate.configurarion_list_group"/>
+
+
+        <menuitem id="menu_expense_type" name="Expense Type" parent="menu_expense_config" action="action_expense_type" groups="real_estate.configurarion_list_group"/>
+
+
+
+
+    </data>
+</odoo>

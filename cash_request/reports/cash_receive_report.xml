@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="cash_request.cash_receive_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+
+                            <div class="watermark" style="position:absolute;opacity:0.25;font-size:3em;width:100%;text-align:center;z-index:1000;">
+                                <div style="position: absolute; top: 500%; left: 50%; transform: translate(-50%, -50%);">
+                                    <div style="font-weight:bold;font-family: 'Times New Roman', Times, serif;font-size: 150px; color: #000;">الأصــل</div>
+                                </div>
+                            </div>
+
+                            <div style="width:100%; margin: 0 auto;">   <!-- page start-->
+
+                                <div class="text-center arabic" style="font-family: 'Times New Roman', Times, serif;">
+                                    <h1 style="text-align:center; font-size:25px;font-weight:bold;border:solid 2px black;border-radius: 30px;padding: 10px 30px 10px 30px;margin-left:15%;margin-right:15%;display:inline-block;">سند قبض<br/>RECEIPT VOUCHER</h1>
+                                </div>
+
+                                <div class="text-right arabic">
+                                    <ul class="row">
+                                        <div class="col-4" style="direction:rtl;">
+                                            <strong style="font-weight:bold;font-size:20px;">الرقم:</strong> &#160;<span style="font-size:20px;margin-left:90px;" t-field="o.name"/>
+                                        </div>
+                                        <div class="col-4" style="direction:rtl;">
+                                            <strong style="font-weight:bold;font-size:20px;">التاريخ:</strong> &#160;<span style="font-size:20px;margin-left:50px;" t-field="o.date"/>
+                                        </div>
+                                    </ul>
+                                </div>
+
+                                <div class="text-right arabic">
+
+                                    <div style="font-family: 'Times New Roman', Times, serif;">
+                                        <div>
+
+                                            <span style="font-weight:bold;font-size:20px;" t-esc="'Received from:'"/>
+                                            <strong class="text-right" style="margin-left:700px;font-weight:bold;font-size:20px;">:إستلمنا من السيد \ السادة</strong>
+                                            <p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.partner_id"/>
+                                        </div>
+
+                                        <div>
+                                            <span style="font-weight:bold;font-size:20px;" t-esc="'The sum of:'"/>
+                                            <strong style="margin-left:800px;font-weight:bold;font-size:20px;">:مبلغا وقدره</strong> &#160;<p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.amount"/>
+                                        </div>
+
+                                        <div>
+                                            <span style="font-weight:bold;font-size:20px;" t-esc="'Amount in word:'"/>
+                                            <strong style="margin-left:720px;font-weight:bold;font-size:20px;">: المبلغ بالأحرف</strong> &#160;<p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.amount_in_word"/>
+                                        </div>
+
+                                        <div>
+                                            <span style="font-weight:bold;font-size:20px;" t-esc="'Check number:'"/>
+                                            <strong style="margin-left:830px;font-weight:bold;font-size:20px;">:رقم الشيك</strong> &#160;<p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.check_number"/>
+                                        </div>
+
+                                        <div>
+                                            <span style="font-weight:bold;font-size:20px;" t-esc="'Being:'"/>
+                                            <strong style="margin-left:830px;font-weight:bold;font-size:20px;">:وذلك عبارة عن</strong> &#160;<p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.disc"/>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="text-center arabic" style="font-family: 'Times New Roman', Times, serif;">
+                                    <ul class="row">
+
+                                        <div class="col-4" style="direction:rtl;">
+                                            <strong style="font-weight:bold;font-size:17px;">أمين الصندوق:.................CASHIER</strong>
+                                        </div>
+
+                                        <div class="col-4" style="direction:rtl;">
+                                            <strong style="font-weight:bold;font-size:17px;">المستلم:.................RECEIVED BY</strong>
+                                        </div>
+
+                                    </ul>
+                                </div>
+
+                            </div>  <!-- page end-->
+
+                            <div>
+                                <strong style="font-weight:bold;font-size:19px;">-------------------------------------------------------------------------------------------------------------------------------------------------------</strong>
+                            </div>
+
+                            <br/>
+
+                            <div class="watermark" style="position:absolute;opacity:0.25;font-size:3em;width:100%;text-align:center;z-index:1000;">
+                                <div style="position: absolute; top: 500%; left: 50%; transform: translate(-50%, -50%);">
+                                    <div style="font-weight:bold;font-family: 'Times New Roman', Times, serif;font-size: 150px; color: #000;">النــسـخـة</div>
+                                </div>
+                            </div>
+
+                            <div style="width:100%; margin: 0 auto;">   <!-- page start-->
+
+                                <div class="text-center arabic" style="font-family: 'Times New Roman', Times, serif;">
+                                    <h1 style="text-align:center; font-size:25px;font-weight:bold;border:solid 2px black;border-radius: 30px;padding: 10px 30px 10px 30px;margin-left:15%;margin-right:15%;display:inline-block;">سند قبض<br/>RECEIPT VOUCHER</h1>
+                                </div>
+
+                                <div class="text-right arabic">
+                                    <ul class="row">
+                                        <div class="col-4" style="direction:rtl;">
+                                            <strong style="font-weight:bold;font-size:20px;">الرقم:</strong> &#160;<span style="font-size:20px;margin-left:90px;" t-field="o.name"/>
+                                        </div>
+                                        <div class="col-4" style="direction:rtl;">
+                                            <strong style="font-weight:bold;font-size:20px;">التاريخ:</strong> &#160;<span style="font-size:20px;margin-left:50px;" t-field="o.date"/>
+                                        </div>
+                                    </ul>
+                                </div>
+
+                                <div class="text-right arabic">
+
+                                    <div style="font-family: 'Times New Roman', Times, serif;">
+                                        <div>
+
+                                            <span style="font-weight:bold;font-size:20px;" t-esc="'Received from:'"/>
+                                            <strong class="text-right" style="margin-left:700px;font-weight:bold;font-size:20px;">:إستلمنا من السيد \ السادة</strong>
+                                            <p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:25px;background-color: #f2f2f2;" t-field="o.partner_id"/>
+                                        </div>
+
+                                        <div>
+                                            <span style="font-weight:bold;font-size:20px;" t-esc="'The sum of:'"/>
+                                            <strong style="margin-left:800px;font-weight:bold;font-size:20px;">:مبلغا وقدره</strong> &#160;<p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.amount"/>
+                                        </div>
+
+                                        <div>
+                                            <span style="font-weight:bold;font-size:20px;" t-esc="'Amount in word:'"/>
+                                            <strong style="margin-left:720px;font-weight:bold;font-size:20px;">: المبلغ بالأحرف</strong> &#160;<p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.amount_in_word"/>
+                                        </div>
+
+                                        <div>
+                                            <span style="font-weight:bold;font-size:20px;" t-esc="'Check number:'"/>
+                                            <strong style="margin-left:830px;font-weight:bold;font-size:20px;">:رقم الشيك</strong> &#160;<p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.check_number"/>
+                                        </div>
+
+                                        <div>
+                                            <span style="font-weight:bold;font-size:20px;" t-esc="'Being:'"/>
+                                            <strong style="margin-left:830px;font-weight:bold;font-size:20px;">:وذلك عبارة عن</strong> &#160;<p class="text-center" style="border: solid 2px gray; border-radius: 20px; font-size:20px;background-color: #f2f2f2;" t-field="o.disc"/>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="text-center arabic" style="font-family: 'Times New Roman', Times, serif;">
+                                    <ul class="row">
+                                        
+                                        <div class="col-4" style="direction:rtl;">
+                                            <strong style="font-weight:bold;font-size:17px;">أمين الصندوق:.................CASHIER</strong>
+                                        </div>
+
+                                        <div class="col-4" style="direction:rtl;">
+                                            <strong style="font-weight:bold;font-size:17px;">المستلم:.................RECEIVED BY</strong>
+                                        </div>
+
+                                    </ul>
+                                </div>
+
+                            </div>   <!-- page end-->
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

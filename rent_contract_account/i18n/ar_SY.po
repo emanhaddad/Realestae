@@ -1,0 +1,159 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* rent_contract_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-20 11:57+0000\n"
+"PO-Revision-Date: 2020-12-20 11:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: rent_contract_account
+#: code:addons/rent_contract_account/models/rent_contract.py:0
+#, python-format
+msgid " / Check Number : "
+msgstr "رقم الشيك"
+
+#. module: rent_contract_account
+#: code:addons/rent_contract_account/models/rent_contract.py:0
+#, python-format
+msgid " / Due Date : "
+msgstr "تاريخ الاستحقاق
+"
+
+#. module: rent_contract_account
+#: model_terms:ir.ui.view,arch_db:rent_contract_account.real_estate_units_form_inherits_in
+#: model_terms:ir.ui.view,arch_db:rent_contract_account.real_estates_form_inherits
+msgid "Account Information"
+msgstr "الحسابات"
+
+#. module: rent_contract_account
+#: model:ir.model,name:rent_contract_account.model_res_company
+msgid "Companies"
+msgstr "شركات"
+
+#. module: rent_contract_account
+#: model:ir.model,name:rent_contract_account.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الاعدادات"
+
+#. module: rent_contract_account
+#: model:ir.model.fields,field_description:rent_contract_account.field_payemnt_confirmation_wiz__display_name
+#: model:ir.model.fields,field_description:rent_contract_account.field_real_estate__display_name
+#: model:ir.model.fields,field_description:rent_contract_account.field_real_estate_units__display_name
+#: model:ir.model.fields,field_description:rent_contract_account.field_rent_contract_payment__display_name
+#: model:ir.model.fields,field_description:rent_contract_account.field_res_company__display_name
+#: model:ir.model.fields,field_description:rent_contract_account.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: rent_contract_account
+#: model:ir.model.fields,field_description:rent_contract_account.field_payemnt_confirmation_wiz__id
+#: model:ir.model.fields,field_description:rent_contract_account.field_real_estate__id
+#: model:ir.model.fields,field_description:rent_contract_account.field_real_estate_units__id
+#: model:ir.model.fields,field_description:rent_contract_account.field_rent_contract_payment__id
+#: model:ir.model.fields,field_description:rent_contract_account.field_res_company__id
+#: model:ir.model.fields,field_description:rent_contract_account.field_res_config_settings__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: rent_contract_account
+#: model:ir.model.fields,field_description:rent_contract_account.field_real_estate__income_account_id
+#: model:ir.model.fields,field_description:rent_contract_account.field_real_estate_units__income_account_id
+#: model:ir.model.fields,field_description:rent_contract_account.field_res_company__account_id
+#: model:ir.model.fields,field_description:rent_contract_account.field_res_config_settings__account_id
+#: model_terms:ir.ui.view,arch_db:rent_contract_account.res_config_settings_view_form2
+msgid "Income Account"
+msgstr "حساب الايرادات"
+
+#. module: rent_contract_account
+#: model:ir.model.fields,field_description:rent_contract_account.field_real_estate__analytic_id
+#: model:ir.model.fields,field_description:rent_contract_account.field_real_estate_units__analytic_id
+msgid "Income Analytic Account"
+msgstr "مركز تكلفة الايرادات"
+
+#. module: rent_contract_account
+#: model:ir.model.fields,field_description:rent_contract_account.field_res_company__income_journal_id
+#: model:ir.model.fields,field_description:rent_contract_account.field_res_config_settings__income_journal_id
+#: model_terms:ir.ui.view,arch_db:rent_contract_account.res_config_settings_view_form2
+msgid "Income Journal"
+msgstr "دفتر يومية الايرادات"
+
+#. module: rent_contract_account
+#: code:addons/rent_contract_account/models/rent_contract.py:0
+#: code:addons/rent_contract_account/models/rent_contract.py:0
+#, python-format
+msgid "Income of %s"
+msgstr "ايراد"
+
+#. module: rent_contract_account
+#: model:ir.model.fields,field_description:rent_contract_account.field_payemnt_confirmation_wiz____last_update
+#: model:ir.model.fields,field_description:rent_contract_account.field_real_estate____last_update
+#: model:ir.model.fields,field_description:rent_contract_account.field_real_estate_units____last_update
+#: model:ir.model.fields,field_description:rent_contract_account.field_rent_contract_payment____last_update
+#: model:ir.model.fields,field_description:rent_contract_account.field_res_company____last_update
+#: model:ir.model.fields,field_description:rent_contract_account.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: rent_contract_account
+#: model:ir.model.fields,field_description:rent_contract_account.field_rent_contract_payment__move_id
+msgid "Move"
+msgstr "السند"
+
+#. module: rent_contract_account
+#: code:addons/rent_contract_account/models/rent_contract.py:0
+#, python-format
+msgid "Payment amount is more than contract amount"
+msgstr "المبلغ اكبر من مبلغ الدفعية"
+
+#. module: rent_contract_account
+#: code:addons/rent_contract_account/models/rent_contract.py:0
+#, python-format
+msgid "Payment amount is must be more than zero"
+msgstr "المبلغ يجب ان يكون اكبر من الصفر"
+
+#. module: rent_contract_account
+#: code:addons/rent_contract_account/models/rent_contract.py:0
+#, python-format
+msgid "Property : "
+msgstr "العقار"
+
+#. module: rent_contract_account
+#: code:addons/rent_contract_account/models/rent_contract.py:0
+#, python-format
+msgid "Set Journal in settings"
+msgstr "الرجاء اعداد دفتر اليومية"
+
+#. module: rent_contract_account
+#: code:addons/rent_contract_account/models/rent_contract.py:0
+#, python-format
+msgid "contract of this payment is not valid"
+msgstr "عقد الدفعية غير ساري"
+
+#. module: rent_contract_account
+#: model:ir.model,name:rent_contract_account.model_payemnt_confirmation_wiz
+msgid "payemnt.confirmation.wiz"
+msgstr ""
+
+#. module: rent_contract_account
+#: model:ir.model,name:rent_contract_account.model_real_estate
+msgid "real.estate"
+msgstr "العقارات"
+
+#. module: rent_contract_account
+#: model:ir.model,name:rent_contract_account.model_real_estate_units
+msgid "real.estate.units"
+msgstr "الوحدات"
+
+#. module: rent_contract_account
+#: model:ir.model,name:rent_contract_account.model_rent_contract_payment
+msgid "rent.contract.payment"
+msgstr ""

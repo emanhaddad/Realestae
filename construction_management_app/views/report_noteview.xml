@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- QWeb Reports for Note -->
+        <!-- <report
+            id="print_note_report" 
+            model="note.note"
+            menu="True"
+            report_type="qweb-pdf"
+            string="Notes"
+            name="construction_management_app.note_report_id" 
+            file="construction_management_app.note_report_id"
+         /> -->
+
+        <record id="print_note_report" model="ir.actions.report">
+            <field name="name">Notes</field>
+            <field name="model">note.note</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">construction_management_app.note_report_id</field>
+            <field name="report_file">construction_management_app.note_report_id</field>
+            <field name="binding_model_id" ref="model_note_note"/>
+            <field name="binding_type">report</field>
+        </record>
+        
+        <template id="note_report_id">
+          <t t-foreach="docs" t-as="doc">
+            <t t-call="web.internal_layout">
+                <t t-call="web.html_container">
+                 <div class="page">
+                     <div>
+                         <p class="row">
+                             <div class="col-xs-12">
+                                   <p>
+                                       <t t-if="doc.tag_ids"><h3>Tag Notes :</h3></t>
+                                           <t t-foreach="doc.tag_ids" t-as="tag">
+                                              <span t-field="tag.name"/>,
+                                           </t>
+                                   </p>
+                                   <table class="table table-bordered">
+                                        <tr style="border: 2px solid black;">
+                                            <t t-if="doc.project_id"><td><strong>Project</strong></td></t>
+                                            <t t-if="doc.task_id"><td><strong>Task</strong></td></t>
+                                            <t t-if="doc.user_id"><td><strong>Respnosible User</strong></td></t>
+                                        </tr>
+                                        <tr style="border: 2px solid black;">
+                                            <t t-if="doc.project_id"><td><span t-field="doc.project_id"/></td></t>
+                                            <t t-if="doc.task_id"><td><span t-field="doc.task_id"/></td></t>
+                                            <t t-if="doc.user_id"><td><span t-field="doc.user_id"/></td></t>
+                                        </tr>
+                                    </table>
+                             </div>
+                         </p>
+                         <p class="row" t-if="doc.memo">
+                             <div class="col-xs-12">
+                                <h5><span t-field="doc.memo"/></h5>
+                             </div>
+                         </p>
+                     </div>
+                </div>
+              </t>
+            </t>
+        </t>
+        </template>
+    </data>
+</odoo>

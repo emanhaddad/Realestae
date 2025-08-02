@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- form view of  Account Analytic Contract  -->
+		<record model="ir.ui.view" id="account_analytic_contract_payment_view_form">
+			<field name="name">Account Analytic Contract Form View</field>
+			<field name="model">realestate.rent.contract</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+				 <sheet>
+					<div class="oe_button_box" name="button_box">
+						<button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+						<field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+						</button>
+					</div>
+					<group col="4">
+						<field name='name' required="1"/>
+						<field name='code' required="1"/>
+				 
+						<label for="recurring_interval" />
+						<div>
+							<field name="recurring_interval"
+																		 
+							required="True"/>
+							<field name="recurring_rule_type"
+							class="oe_inline"
+						    required="True"/>
+						</div>
+					</group>
+					 <notebook>
+					 	 <page string="Terms" name="terms">
+                                    <field name ="term_ids" nolabel="1">
+                                      <tree string="Terms" editable="top">
+                                          <field name="term_no"/>
+                                          <field name="name"/>
+                                          <field name="type"/>
+                                          <field name="description"/>
+                                       </tree>
+                                    </field>
+                                </page>
+					 </notebook>
+				 </sheet>
+				</form>
+			</field>
+		</record>
+
+ 		<!-- tree view for Account Analytic Contract -->
+		<record model="ir.ui.view" id="account_analytic_contract_payment_view_tree">
+			<field name="name">Account Analytic Contract Tree View</field>
+			<field name="model">realestate.rent.contract</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="recurring_interval"/>
+				 	<field name="recurring_rule_type"/>
+				 	<field name="code"/>
+			 	</tree>
+			</field>
+		</record>
+
+		<record id="account_analytic_contract_payment_view_search" model="ir.ui.view">
+				<field name="name">Account Analytic Contract Search View</field>
+				<field name="model">realestate.rent.contract</field>
+				<field name="arch" type="xml">
+						<search string="Contract Payment Recurrence">
+								<field name="code" />
+								<field name="recurring_rule_type" />
+								<field name="recurring_interval" />
+								<field name="active" />
+						</search>
+				</field>
+		</record>
+
+		<record id="account_analytic_contract_payment_action" model="ir.actions.act_window">
+				<field name="name">Contract Payment Recurrence</field>
+				<field name="res_model">realestate.rent.contract</field>
+				<field name="view_mode">tree,form</field>
+				<field name="help" type="html">
+						<p class="oe_view_nocontent_create">
+								Click to create a new contract payment recurrence.
+						</p>
+				</field>
+		</record>
+
+	 
+
+		<menuitem id="rent_contract_menu"
+			parent="real_estate.menu_config_real_estate_root"
+			name="Contracts"
+			sequence="2"
+			/>
+
+		<menuitem id="account_rent_contract_menu"
+			parent="rent_contract_menu"
+			action="account_analytic_contract_payment_action"
+			name="Contracts Terms"
+			sequence="1"
+			/>
+
+	</data>
+</odoo>

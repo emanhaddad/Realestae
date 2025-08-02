@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="profits_count_view_form" model="ir.ui.view">
+        <field name="name">Profits Count</field>
+        <field name="model">profits.count</field>
+        <field name="arch" type="xml">
+            <form string="Real estate evacuate">
+                <header>
+                    <button string="Review" name="action_review" type="object" states='draft' class="oe_highlight" />
+                    <button string="Done" name="action_done" type="object" states='review' class="oe_highlight" />
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Title"/>
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+
+                    <group col="4" string="Property Information">
+                        <field name="property_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="date" attrs="{'readonly':[('state','!=','draft')]}" required="1"/>
+                        <field name="property_share_number"/>
+                        <field name="project_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                        <field name='currency_id' invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+
+                    <group col="4" string="Expense Information">
+                        <field name="construction_cost" attrs="{'readonly':[('state','=','done')]}"/>
+                        <field name="admin_expens" attrs="{'readonly':[('state','=','done')]}"/>
+                        <field name="market_expens" attrs="{'readonly':[('state','=','done')]}"/>
+                        <field name="expense"/>
+                        <field name="journal_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'required':[('state','=','review')], 'readonly':[('state','=','done')]}"/>
+                        <field name="account_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'required':[('state','=','review')], 'readonly':[('state','=','done')]}"/>
+                        <field name="account_analytic_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','=','done')]}"/>
+                        <field name="move_id" readonly="1"/>
+                    </group>
+
+                    <group col="4" string="Profit Information">
+                        <field name="property_cost" attrs="{'readonly':[('state','=','done')]}"/>
+                        <field name="income" attrs="{'readonly':[('state','=','done')]}"/>
+                        <field name="profit"/>
+                        <field name="profit_ratio" widget="percentage"/>
+                        <!-- <field name="profit_journal_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'required':[('state','=','review')], 'readonly':[('state','=','done')]}"/> -->
+                        <!-- <field name="profit_account_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'required':[('state','=','review')], 'readonly':[('state','=','done')]}"/> -->
+                        <!-- <field name="profit_account_analytic_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','=','done')]}"/> -->
+                        <!-- <field name="profit_move_id" readonly="1"/> -->
+                    </group>
+
+                    <group col="4">
+                        <field name="company_ratio" widget="percentage" attrs="{'readonly':[('state','=','done')]}"/>
+                        <field name="company_profit"/>
+                        <field name="share_value"/>
+                        <field name="share_profit" widget="percentage"/>
+                    </group>
+
+                    <group>
+                        <field name="note" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </group>
+                    <notebook>
+                        <page string="Units">
+                            <field name='line_ids'>
+                                <tree editable='bottom'>
+                                    <field name='unit_id' options="{'no_create_edit': True, 'no_create': True}"/>
+                                    <field name='property_floors'/>
+                                    <field name='property_type_id'/>
+                                    <field name='property_type'/>
+                                    <field name='unit_space' string="Unit Space"/>
+                                    <field name='unit_amount'/>
+                                    <field name='profit_calculated'/>
+                                    <field name='currency_id' invisible="1"/>
+                                    <field name='space' attrs="{'readonly':[('profit_calculated','=',True)],'required':[('calculate_profit','=',True)]}"/>
+                                    <field name='unit_cost'/>
+                                    <field name='amount'/>
+                                    <field name='calculate_profit' attrs="{'readonly':[('profit_calculated','=',True)]}"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+              
+            </form>
+        </field>
+    </record>
+
+     <record id="profits_count_view_tree" model="ir.ui.view">
+        <field name="name">Profits Count</field>
+        <field name="model">profits.count</field>
+        <field name="arch" type="xml">
+            <tree string="Evacuate" multi_edit="1" >
+                <field name="name"/>
+                <field name="property_id"/>
+                <field name="date"/>
+                <field name="state"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="sequence_profits_count" model="ir.sequence">
+        <field name="name">Profits Count sequence</field>
+        <field name="code">profits.count.code</field>
+        <field name="prefix">/%(range_year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field eval="True" name="use_date_range"/>
+        <field eval="False" name="company_id"/>
+        <field name="padding">4</field>
+    </record>
+    
+
+    <record model="ir.actions.act_window" id="profits_count_act_window">
+        <field name="name">Profits Count</field>
+        <field name="res_model">profits.count</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_profits_count_root" name="Profits Count" parent="real_estate.menu_investment_main" sequence="7"/>
+
+    <menuitem id="menu_profits_count"
+        parent="menu_profits_count_root"
+        action="profits_count_act_window"
+        sequence="1"
+        name="Profits Count"
+    />
+    
+</odoo>

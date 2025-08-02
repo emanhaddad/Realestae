@@ -1,0 +1,1416 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20220422\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-31 06:42+0000\n"
+"PO-Revision-Date: 2024-01-31 09:48+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. module: real_estate
+#: code:addons/real_estate/models/real_estate.py:0
+#, python-format
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"           \n"
+"                                    Attach\n"
+"    documents of your employee.</p>"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate__property_status__acceptable
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__unit_status__acceptable
+msgid "Acceptable"
+msgstr "مقبول"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_needaction
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_needaction
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_needaction
+msgid "Action Needed"
+msgstr "الإجراء المطلوب"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__activity_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__activity_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__activity_exception_decoration
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__activity_exception_decoration
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__activity_state
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__activity_state
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__activity_type_icon
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__activity_type_icon
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__address
+msgid "Address"
+msgstr "العنوان"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__annual_income
+msgid "Annual Income"
+msgstr "الدخل السنوي"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__income_amount
+msgid "Annual Revenue"
+msgstr "الإيرادات السنوية"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__meter_area
+msgid "Area*Meter"
+msgstr "المساحة * متر"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__asanseer_nums
+msgid "Asanseer Nums"
+msgstr "عدد المصاعد"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_attachment_count
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_attachment_count
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: real_estate
+#: code:addons/real_estate/models/real_estate.py:0
+#, python-format
+msgid "Attachments"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__state__available
+msgid "Available"
+msgstr "متاح"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate__property_status__bad
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__unit_status__bad
+msgid "Bad"
+msgstr "سيئ"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__base_property_id
+msgid "Base Property"
+msgstr "العقار الرئيسي"
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.benifictaries_group
+msgid "Benifictaries"
+msgstr "المستفيدين"
+
+#. module: real_estate
+#: model:res.groups,comment:real_estate.benifictaries_group
+msgid "Benifictaries access Group"
+msgstr "صلاحية المستفيدين"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__date_birth
+#: model:ir.model.fields,field_description:real_estate.field_res_users__date_birth
+msgid "Birth Date"
+msgstr "تاريخ الميلاد"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__pro_block_no
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__pro_block_no
+#: model:ir.model.fields,field_description:real_estate.field_res_users__pro_block_no
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "Block No"
+msgstr "رقم المبنى"
+
+#. module: real_estate
+#: code:addons/real_estate/models/real_estate.py:0
+#, python-format
+msgid "Block No Must be 4 numbers"
+msgstr "رقم المبنى يجب ان يحتوي 4 ارقام"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__state__booked
+msgid "Booked"
+msgstr "محجوز"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__property_builtup_area
+msgid "Built-up Area"
+msgstr "مساحة المباني"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__buyer_id
+msgid "Buyer"
+msgstr "المشتري"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_estate_city
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__city
+#: model:ir.model.fields,field_description:real_estate.field_realestate_city__code
+msgid "City"
+msgstr "المدينة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__pro_city_id
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__pro_city_name
+#: model:ir.model.fields,field_description:real_estate.field_res_users__pro_city_name
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "City Name"
+msgstr "المدينة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__code
+#: model:ir.model.fields,field_description:real_estate.field_content_line__content_code
+#: model:ir.model.fields,field_description:real_estate.field_content_setting__code
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__code
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type__code
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__code
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__complete_name
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__code
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__owner_code
+#: model:ir.model.fields,field_description:real_estate.field_res_users__code
+#: model:ir.model.fields,field_description:real_estate.field_res_users__owner_code
+msgid "Code"
+msgstr "الرقم"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_res_company
+msgid "Companies"
+msgstr "شركات"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الاعدادات"
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.configurarion_list_group
+msgid "Configurarion"
+msgstr "الإعدادات"
+
+#. module: real_estate
+#: model:res.groups,comment:real_estate.configurarion_list_group
+msgid "Configurarion access Group"
+msgstr "صلاحية الاعداد"
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_config_real_estate_root
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.expense_type_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.confirm_evaluation_button_group
+msgid "Confirm Evaluation Button"
+msgstr "تأكيد التقييم"
+
+#. module: real_estate
+#: model:res.groups,comment:real_estate.confirm_evaluation_button_group
+msgid "Confirm Evaluation access Group"
+msgstr "تأكيد التقييم"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property_evaluation__state__confirm
+msgid "Confirmed"
+msgstr "تم التاكيد"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__content
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__content_rel
+#: model:ir.ui.menu,name:real_estate.menu_content
+msgid "Content"
+msgstr "المحتويات"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__copmute_code
+msgid "Copmute Code"
+msgstr "حساب الكود"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__cost_duration
+msgid "Cost Duration"
+msgstr "الإستحقاق"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_estate_country
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__country_id
+#: model:ir.model.fields,field_description:real_estate.field_res_country_state__country_id
+#: model:ir.ui.menu,name:real_estate.menu_state_country
+msgid "Country"
+msgstr "دولة"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_res_country_state
+msgid "Country state"
+msgstr "الولاية أو المنطقة في الدولة"
+
+#. module: real_estate
+#: model_terms:ir.actions.act_window,help:real_estate.action_res_pat_enterpreneur
+msgid "Create new document"
+msgstr "إنشاء مستند جديد"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_content_setting__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_floors_model__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_realestate_city__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__create_date
+#: model:ir.model.fields,field_description:real_estate.field_content_setting__create_date
+#: model:ir.model.fields,field_description:real_estate.field_floors_model__create_date
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__create_date
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__create_date
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type__create_date
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__create_date
+#: model:ir.model.fields,field_description:real_estate.field_realestate_city__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__date
+msgid "Creation date"
+msgstr "تاريخ الانشاء"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__currency_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__currency_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__date
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__description
+#: model_terms:ir.ui.view,arch_db:real_estate.units_real_estate_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__display_name
+#: model:ir.model.fields,field_description:real_estate.field_content_setting__display_name
+#: model:ir.model.fields,field_description:real_estate.field_floors_model__display_name
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__display_name
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__display_name
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type__display_name
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__display_name
+#: model:ir.model.fields,field_description:real_estate.field_realestate_city__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "Documents"
+msgstr "المستندات"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__date_donor
+msgid "Donor Date"
+msgstr "تاريخ التبرع"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__donor_name
+msgid "Donor Name"
+msgstr "اسم المتبرع"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property_evaluation__state__draft
+msgid "Draft"
+msgstr "مبدئ"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__electricity_bill_amount
+msgid "Electricity Bill Amount by month"
+msgstr "قيمة الكهرباء بالشهر"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__electricity_supply_account_number
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__electricity_supply_account_number
+msgid "Electricity supply account number"
+msgstr "رقم حساب الكهرباء"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate__state__0
+msgid "Empty"
+msgstr "فارغ"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_res_pat_enterpreneur
+#: model:ir.model.fields.selection,name:real_estate.selection__res_partner__partner_type__entrepreneur
+#: model:ir.ui.menu,name:real_estate.menu_real_estate_enterpreneur
+msgid "Entrepreneur"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__estimated_meter_construction
+msgid "Estimated construction meter cost"
+msgstr "مبلغ تقدير سعر متر البناء"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__estimated_meter_value
+msgid "Estimated ground meter cost"
+msgstr "قيمة تقدير متر الارض في الموقع"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_property_evaluation
+#: model:ir.ui.menu,name:real_estate.menu_real_estate_evaluation
+msgid "Evaluation"
+msgstr "تقييم عقار"
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.premidiation_button_group
+msgid "Evaluation Premidiation Button"
+msgstr "زر التقييم الإفتراضي"
+
+#. module: real_estate
+#: model:res.groups,comment:real_estate.premidiation_button_group
+msgid "Evaluation Premidiation access Group"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate__property_status__exellent
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__unit_status__exellent
+msgid "Exellent"
+msgstr "ممتاز"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__extension_num
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__extension_num
+#: model:ir.model.fields,field_description:real_estate.field_res_users__extension_num
+msgid "Extension Number"
+msgstr "الرقم الاضافي"
+
+#. module: real_estate
+#: code:addons/real_estate/models/real_estate.py:0
+#, python-format
+msgid "Extension Number Must be 4 numbers"
+msgstr "الرقم الاضافي يجب ان يحتوي علي 4 ارقام"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__fax_code
+#: model:ir.model.fields,field_description:real_estate.field_res_users__fax_code
+msgid "Fax"
+msgstr "الفاكس"
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_state_realestae
+msgid "Fed. States"
+msgstr "الأحياء"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__res_partner__partner_gender__female
+msgid "Female"
+msgstr "أنثى"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__property_type__final_prepare
+msgid "Final prepare"
+msgstr "التحضير النهائي"
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.fm_premidiation_button_group
+msgid "Financial Management Premidiation Button"
+msgstr ""
+
+#. module: real_estate
+#: model:res.groups,comment:real_estate.fm_premidiation_button_group
+msgid "Financial Management Premidiation access Group"
+msgstr "التعميد عند الإدارة المالية"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property_evaluation__state__premeditation
+msgid "Financial management premeditation"
+msgstr "التعميد عند الإدارة المالية"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_floors_model__name
+msgid "Floor Name"
+msgstr "اسم الدور"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__property_floors
+msgid "Floor Number"
+msgstr "إسم الدور"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_floors_action
+#: model:ir.ui.menu,name:real_estate.menu_floors
+msgid "Floors"
+msgstr "الأدوار"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__property_floors
+msgid "Floors Number"
+msgstr "عدد الأدوار"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_follower_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_follower_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_follower_ids
+msgid "Followers"
+msgstr "متابعين"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_partner_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_partner_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "متابعين"
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__activity_type_icon
+#: model:ir.model.fields,help:real_estate.field_real_estate__activity_type_icon
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "متابعين"
+
+#. module: real_estate
+#: model:res.groups,comment:real_estate.gm_approval_button_group
+msgid "GM approval access Group"
+msgstr "صلاحية المدير العام"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__partner_gender
+#: model:ir.model.fields,field_description:real_estate.field_res_users__partner_gender
+msgid "Gender"
+msgstr "الجنس"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "General Information"
+msgstr "المعلومات العامة"
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.gm_approval_button_group
+msgid "General manager approval Button"
+msgstr "زر موافقة المدير العام"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate__property_status__good
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__unit_status__good
+msgid "Good"
+msgstr "جيد"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__is_guard
+msgid "Guard"
+msgstr "يتطلب وجود حارس او عامل؟"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "Hai"
+msgstr "الحي"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__has_message
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__has_message
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__hai_id
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__hai_id
+#: model:ir.model.fields,field_description:real_estate.field_res_users__hai_id
+msgid "Hay Name"
+msgstr "إسم الحي"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__id
+#: model:ir.model.fields,field_description:real_estate.field_content_setting__id
+#: model:ir.model.fields,field_description:real_estate.field_floors_model__id
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type__id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__id
+#: model:ir.model.fields,field_description:real_estate.field_realestate_city__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__activity_exception_icon
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__activity_exception_icon
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__activity_exception_icon
+#: model:ir.model.fields,help:real_estate.field_real_estate__activity_exception_icon
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__id_source_location
+#: model:ir.model.fields,field_description:real_estate.field_res_users__id_source_location
+msgid "Identiti Location"
+msgstr "مكان الإصدار"
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__message_needaction
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__message_unread
+#: model:ir.model.fields,help:real_estate.field_real_estate__message_needaction
+#: model:ir.model.fields,help:real_estate.field_real_estate__message_unread
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__message_needaction
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__message_has_error
+#: model:ir.model.fields,help:real_estate.field_real_estate__message_has_error
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_real_estate_type__active
+msgid ""
+"If unchecked, it will allow you to hide the product without removing it."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__bulding_image_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__unit_image_ids
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "Images"
+msgstr ""
+
+#. module: real_estate
+#: code:addons/real_estate/models/real_estate.py:0
+#, python-format
+msgid "Income Amount cannot be zero or less"
+msgstr "المبلغ لا بد ان يكون اكبر من صفر"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.expense_type_form
+msgid "Income Persentages"
+msgstr "نسب الإيرادات لقيمة العقار"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__date_instrument
+msgid "Instrument Date"
+msgstr "تاريخ الصك"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_is_follower
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_is_follower
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line____last_update
+#: model:ir.model.fields,field_description:real_estate.field_content_setting____last_update
+#: model:ir.model.fields,field_description:real_estate.field_floors_model____last_update
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation____last_update
+#: model:ir.model.fields,field_description:real_estate.field_real_estate____last_update
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type____last_update
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units____last_update
+#: model:ir.model.fields,field_description:real_estate.field_realestate_city____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_content_setting__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_floors_model__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_realestate_city__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__write_date
+#: model:ir.model.fields,field_description:real_estate.field_content_setting__write_date
+#: model:ir.model.fields,field_description:real_estate.field_floors_model__write_date
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__write_date
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__write_date
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type__write_date
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__write_date
+#: model:ir.model.fields,field_description:real_estate.field_realestate_city__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_beneficiaries_list_real_estate
+msgid "List of beneficiaries"
+msgstr "المستفيدين"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__mail_code
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__mail_code
+#: model:ir.model.fields,field_description:real_estate.field_res_users__mail_code
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "Mail Code"
+msgstr "الرمز البريدي"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_main_attachment_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_main_attachment_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__maintenanace_account_value
+msgid "Maintenanace Account Value"
+msgstr "رسوم الصيانة"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__res_partner__partner_gender__male
+msgid "Male"
+msgstr "ذكر"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__google_map_partner
+msgid "Map"
+msgstr "الخريطة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__prople_no
+msgid "Maximum People Number"
+msgstr "أقصى عدد سكان"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_has_error
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_has_error
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__cost_duration__monthly
+msgid "Monthly"
+msgstr "شهرياً"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__my_activity_date_deadline
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__my_activity_date_deadline
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate__is_guard__no
+msgid "NO"
+msgstr "لا"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__content_name
+#: model:ir.model.fields,field_description:real_estate.field_content_setting__name
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type__name
+#: model:ir.model.fields,field_description:real_estate.field_realestate_city__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__national_address
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__national_address
+#: model:ir.model.fields,field_description:real_estate.field_res_users__national_address
+msgid "National Address"
+msgstr "العنوان الوطني"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__state_id
+msgid "Neighborhood"
+msgstr "الحي"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__activity_date_deadline
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__activity_date_deadline
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__activity_summary
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__activity_summary
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__activity_type_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__activity_type_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__Property_deed
+msgid "No. of Property deed"
+msgstr "رقم صك الملكية"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__waqf_instrument
+msgid "No. of Waqf instrument"
+msgstr "رقم صك الوقفية"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__description
+msgid "Description"
+msgstr "مميزات العقار"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_needaction_counter
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_needaction_counter
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__attachment_number
+msgid "Number of Attachments"
+msgstr "عدد المرفقات"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__stores_number
+msgid "Number of Stores"
+msgstr "عدد المحلات"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__supplements_number
+msgid "Number of Supplements"
+msgstr "عدد الملاحق"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__unit_no
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__property_units_number
+msgid "Number of Units"
+msgstr "عدد الوحدات داخل العقار"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_has_error_counter
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_has_error_counter
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__message_needaction_counter
+#: model:ir.model.fields,help:real_estate.field_real_estate__message_needaction_counter
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__message_has_error_counter
+#: model:ir.model.fields,help:real_estate.field_real_estate__message_has_error_counter
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__message_unread_counter
+#: model:ir.model.fields,help:real_estate.field_real_estate__message_unread_counter
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_res_pat_owner
+#: model:ir.model.fields.selection,name:real_estate.selection__res_partner__partner_type__owner
+#: model:ir.ui.menu,name:real_estate.menu_real_estate_owner
+msgid "Owner"
+msgstr "الملاك"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__owner_ids
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "Owners"
+msgstr "الملاك"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__investment_income
+msgid "Percentage of the income of the property of the Investment Department"
+msgstr "نسب الإيرادات لقيمة العقارمن دائرة الاستثمار"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.expense_type_form
+msgid "Premeditate"
+msgstr "التعميد"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.expense_type_form
+msgid "Premeditation"
+msgstr "التعميد"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__property_id
+#: model:ir.ui.menu,name:real_estate.menu_real_estate
+msgid "Property"
+msgstr "العقارات"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__date_Property_deed
+msgid "Property Deed Date"
+msgstr "تاريخ صك الملكية"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__property_estimated_cost
+msgid "Property Estimated Cost"
+msgstr "القيمة التقديرية للعقار لدى إدارة الإستثمار"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.expense_type_form
+msgid "Property Estimated calculation"
+msgstr "المبالغ التقديرية للعقار"
+
+#. module: real_estate
+#: code:addons/real_estate/models/real_estate.py:0
+#, python-format
+msgid "Property Floors cannot be less than zero"
+msgstr "عدد الادوار يجب ان يكون اكبر من صفر"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "Property Information"
+msgstr "بيانات العقار الأساسية"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.expense_type_form
+msgid "Property Main Info"
+msgstr "بيانات العقار الأساسية"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__name
+msgid "Property Name"
+msgstr "إسم العقار"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_res_company__property_partner_id
+#: model:ir.model.fields,field_description:real_estate.field_res_config_settings__property_partner_id
+#: model_terms:ir.ui.view,arch_db:real_estate.res_config_settings_view_form
+msgid "Property Partner"
+msgstr "مستفيد العقارات"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_estate_type
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__property_type_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__property_type_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__property_type
+#: model:ir.ui.menu,name:real_estate.menu_type_realestae
+msgid "Property Type"
+msgstr "أنواع العقارات"
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.property_unit_group
+msgid "Property and units"
+msgstr "العقارات و الوحدات"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__quantity
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__property_type__ready
+msgid "Ready"
+msgstr "جاهزة"
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_base_real_estate
+#: model:ir.ui.menu,name:real_estate.menu_config_real_estate
+#: model:ir.ui.menu,name:real_estate.menu_real_estate_main
+msgid "Real Estate"
+msgstr "العقارات"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__real_estate_office
+msgid "Real Estate Office Estimation"
+msgstr "مبلغ تقدير المكاتب العقارية بالحي"
+
+#. module: real_estate
+#: model:ir.module.category,name:real_estate.realestate_access_categ
+msgid "RealEstate Management"
+msgstr "إدارة العقارات"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.res_config_settings_view_form
+msgid "Realstate"
+msgstr "العقارات"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.res_config_settings_view_form
+msgid "Realstate Settings"
+msgstr "إعدادات العقارات"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__activity_user_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__activity_user_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.expense_type_form
+msgid "Review"
+msgstr "مراجعة"
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.review_evaluation_button_group
+msgid "Review Evaluation Button"
+msgstr " مراجعة التقييم"
+
+#. module: real_estate
+#: model:res.groups,comment:real_estate.review_evaluation_button_group
+msgid "Review Evaluation access Group"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property_evaluation__state__review
+msgid "Reviewed"
+msgstr "تمت المراجعة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__property_rooms
+msgid "Rooms Number"
+msgstr "عدد الغرف"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.units_real_estate_form
+msgid "Services Value"
+msgstr "قيمة خدمات الوحدة"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_realstate_configuration
+#: model:ir.ui.menu,name:real_estate.menu_realstate_global_settings
+msgid "Settings"
+msgstr "إعدادات"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__state__sold
+msgid "Sold"
+msgstr "مباع"
+
+#. module: real_estate
+#: code:addons/real_estate/models/property_evaluation.py:0
+#, python-format
+msgid "Sorry! You cannot delete evaluation record not in Draft state."
+msgstr "لا يمكن حذف تقييم مؤكد"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__unit_space
+msgid "Space"
+msgstr "مساحة الوحدة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__state
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__state
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__state_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_estate_state
+msgid "States"
+msgstr "الأحياء"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__property_status
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__unit_status
+msgid "Status"
+msgstr "الحالة"
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__activity_state
+#: model:ir.model.fields,help:real_estate.field_real_estate__activity_state
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__street
+msgid "Street"
+msgstr "الشارع"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__pro_street_name
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__pro_street_name
+#: model:ir.model.fields,field_description:real_estate.field_res_users__pro_street_name
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "Street Name"
+msgstr "إسم الشارع"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__street2
+msgid "Street2"
+msgstr "الشارع"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_res_employee
+#: model:ir.actions.act_window,name:real_estate.action_res_pat_supervisor
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__supervisor_id
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__supervisor_id
+#: model:ir.model.fields.selection,name:real_estate.selection__res_partner__partner_type__supervisor
+#: model:ir.ui.menu,name:real_estate.menu_real_estate_supervisors
+msgid "Supervisor"
+msgstr "المشرف"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_res_config_settings__supervisor_role_id
+msgid "Supervisor Group"
+msgstr "مجموعة المشرفين"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.res_config_settings_view_form
+msgid "Supervisor Role"
+msgstr "الدور الوظيفي للمشرف"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_res_company__supervisor_role_id
+msgid "Supervisor group"
+msgstr "مجموعة المشرفين"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__property_avrage_cost
+msgid "The Average Cost"
+msgstr "متوسط قيمة العقار"
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__currency_id
+#: model:ir.model.fields,help:real_estate.field_real_estate__currency_id
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__currency_id
+msgid "The currency used to enter statement"
+msgstr "العملة المُستخدمة لإدخال كشف الحساب"
+
+#. module: real_estate
+#: code:addons/real_estate/models/real_estate_units.py:0
+#, python-format
+msgid "There Is other Units In This Property Have The Same Code"
+msgstr ""
+"توجد وحدات أخرى في هذا العقار تحمل نفس رقم هذه الوحدة، الرجاء تغير رقم هذه "
+"الوحدة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__area
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__property_total_area
+msgid "Total Area"
+msgstr "مساحة الأرض"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__land_prise
+msgid "Total Land Prise"
+msgstr "إجمالي سعر الأرض"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__surfaces
+msgid "Total Property surfaces"
+msgstr " اجمالي مسطحات المباني"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__total_construction_costs
+msgid "Total construction costs"
+msgstr "اجمالي تكاليف البناء"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_type__type
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__partner_type
+#: model:ir.model.fields,field_description:real_estate.field_res_users__partner_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__activity_exception_decoration
+#: model:ir.model.fields,help:real_estate.field_real_estate__activity_exception_decoration
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__property_type__under_construction
+msgid "Under construction"
+msgstr "تحت الإنشاء"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_estate_units
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__unit_ids
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__unit_id
+#: model:ir.model.fields,field_description:real_estate.field_res_users__unit_id
+#: model:ir.ui.menu,name:real_estate.menu_real_estate_unit
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "Unit"
+msgstr "الوحدات"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.units_real_estate_form
+msgid "Unit Content"
+msgstr "مكونات الوحدة"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.units_real_estate_form
+msgid "Unit Information"
+msgstr "بيانات الوحدة الأساسية"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__unit_name
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__unit_name
+#: model:ir.model.fields,field_description:real_estate.field_res_users__unit_name
+msgid "Unit Name"
+msgstr "إسم الوحدة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__unit_no
+#: model:ir.model.fields,field_description:real_estate.field_res_users__unit_no
+msgid "Unit Number"
+msgstr "رقم الوحدة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__property_type_id
+msgid "Unit Type"
+msgstr "نوع الوحدة"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_type__type__units
+msgid "Units"
+msgstr "وحدة"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_unit_type
+#: model:ir.ui.menu,name:real_estate.menu_unit_type
+msgid "Units Type"
+msgstr "انواع الوحدات"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_unread
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_unread
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__message_unread_counter
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__message_unread_counter
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__user_ids
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate__property_status__verygood
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__unit_status__verygood
+msgid "Very Good"
+msgstr "جيد جداً"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__water_bill_amount
+msgid "Water Bill Amount by year"
+msgstr "قيمة المياه بالسنة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__water_supply_account_number
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__water_supply_account_number
+msgid "Water supply account number"
+msgstr "رقم حساب إمداد المياه"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_evaluation__website_message_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__website_message_ids
+#: model:ir.model.fields,field_description:real_estate.field_real_estate_units__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_property_evaluation__website_message_ids
+#: model:ir.model.fields,help:real_estate.field_real_estate__website_message_ids
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_units__cost_duration__yearly
+msgid "Yearly"
+msgstr "سنوياً"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate__is_guard__yes
+msgid "Yes"
+msgstr "نعم"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_real_estate__zip
+msgid "Zip"
+msgstr "الرمز البريدي"
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_config_real_estate_city
+msgid "city"
+msgstr "المدن"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__unit_code
+#: model:ir.model.fields,field_description:real_estate.field_res_users__unit_code
+msgid "code"
+msgstr "رقم الوحدة"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_content_action
+msgid "content"
+msgstr "المكونات"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_content_line
+msgid "content.line"
+msgstr "المكونات"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_content_setting
+msgid "content.setting"
+msgstr "اعداد المكونات"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.real_estates_form
+msgid "extension number"
+msgstr "الرقم الإضافي"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_floors_model
+msgid "floors.model"
+msgstr "الادوار"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__res_partner__partner_type__investor
+msgid "investor"
+msgstr "مستثمر"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_hr_employee__is_supervisor
+msgid "is Supervisor"
+msgstr "هل هو مشرف؟"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property_evaluation__state__premeditated
+msgid "premeditated"
+msgstr "تم التعميد"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__real_estate_type__type__property
+msgid "property"
+msgstr "عقار"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_property_evaluation
+msgid "property.evaluation"
+msgstr "تقييم العقار"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_real_estate
+msgid "real.estate"
+msgstr "العقارات"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_real_estate_type
+msgid "real.estate.type"
+msgstr "انواع العقارات"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_real_estate_units
+msgid "real.estate.units"
+msgstr "الوحدات"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_realestate_city
+msgid "realestate.city"
+msgstr "المدن"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_content_line__relation
+msgid "relation"
+msgstr "العلاقة"
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_real_estate_units__copmute_code
+msgid "this field is just used to call function that update the code "
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.view_realestate_search
+#: model_terms:ir.ui.view,arch_db:real_estate.view_realestate_units_search
+msgid "transformation"
+msgstr "تحويل"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.expense_type_form
+msgid "التاريخ الميلاي"
+msgstr ""

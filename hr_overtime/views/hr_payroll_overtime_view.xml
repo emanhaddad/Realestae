@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_payroll_overtime_view_form" model="ir.ui.view">
+        <field name="name">hr.payroll.overtime.form</field>
+        <field name="model">hr.payroll.overtime</field>
+        <field name="arch" type="xml">
+            <form string="PayrollOvertime">
+                <header>
+                    <button name="get_overtime" type="object" string="Get Overtime"  attrs="{'invisible': [('state', '!=', 'draft')]}" class="btn-primary"/>
+                    <button name="hr" type="object" string="Confirm"  attrs="{'invisible': [('state', '!=', 'draft')]}" class="btn-primary"/>
+                    <button name="gm" type="object" string="Confirm"  attrs="{'invisible': [('state', '!=', 'hr')]}" class="btn-primary"/>
+                    <button name="waiting" type="object" string="Confirm"  attrs="{'invisible': [('state', '!=', 'gm')]}" class="btn-primary"/>
+                    <button name="cancel" type="object" string="Cancel"  attrs="{'invisible': [('state', 'not in', ['gm','hr'])]}"/>
+                    <button name="set_to_draft" type="object" string="Set to Draft"  attrs="{'invisible': [('state', 'not in', ['cancel','hr'])]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,hr,gm,done"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="start" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="payroll_date"/>
+                        </group>
+                        <group>
+                            <field name="user_id" widget="many2one_avatar_user" readonly="1"/>
+                            <field name="end" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="department_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                    </group>
+                    <notebook>
+                        <page string="Overtime Lines" name="notes">
+                            <field name="line_ids" attrs="{'readonly':[('state','!=','draft')]}">
+                                <list editable="bottom">
+                                    <field name="employee_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <field name="department_id" readonly="1"/>
+                                    <field name="hours" sum="Total" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <field name="amount" sum="Total" />
+                                    <field name="payslip_id"/>
+                                    <field name="state" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_payroll_overtime_view_list" model="ir.ui.view">
+        <field name="name">hr.payroll.overtime.list</field>
+        <field name="model">hr.payroll.overtime</field>
+        <field name="arch" type="xml">
+            <list string="Payroll Overtime"
+                decoration-success="state == 'done'"
+                decoration-danger="state in ['gm','hr']"
+                decoration-info="state == 'draft'">
+                <field name="name"/>
+                <field name="start"/>
+                <field name="end"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_payroll_overtime_action_form" model="ir.actions.act_window">
+        <field name="name">Payroll Overtime</field>
+        <field name="res_model">hr.payroll.overtime</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do -->
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_payroll_overtime" name="Payroll Overtime" parent="menu_hr_overtime_cat" action="hr_payroll_overtime_action_form"/>
+
+</odoo>

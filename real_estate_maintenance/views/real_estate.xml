@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="real_estates_form_maintenance_inherit">
+        <field name="name">real.estate.form (in real_estates_maintenance)</field>
+        <field name="model">real.estate</field>
+        <field name="inherit_id" ref="real_estate.real_estates_form"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" position="inside">
+                <button class="oe_stat_button" type="object"
+                        name="action_view_maintenance" icon="fa-th-list"
+                        context="{'default_real_estate_id': id}">
+                    <div class="o_stat_info">
+                        <field name="maintenance_count" class="o_stat_value"/>
+                        <span class="o_stat_text">Maintenance</span>
+                    </div>
+                </button>
+            </div>
+
+            <field name="property_status" position="replace">
+                <field name="commission_type" />
+                <field name="commission_amount" attrs="{'required': [('commission_type','=','fixed')]}"/>
+                <field name="warranty_start_date" />
+                <field name="warranty_end_date" />
+            </field>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Unit Profit">
+                    <field name='unit_profit_ids' context="{'default_base_property_id':active_id,'default_name': True}" widget="one2many_list" readonly="1">
+                            <tree editable='bottom'>
+                            <field name='unit_id'/>
+                            <field name='property_type_id'/>
+                            <field name='unit_space' string="Unit Space"/>
+                            <field name='unit_amount'/>
+                            <field name='space'/>
+                            <field name='unit_cost'/>
+                            <field name='amount'/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Property Profit">
+                    <field name='property_line_ids' readonly="1">
+                            <tree editable='bottom'>
+                            <field name='date'/>
+                            <field name='property_cost'/>
+                            <field name='income'/>
+                            <field name='profit_ratio' widget="percentage"/>
+                            <field name='company_ratio' widget="percentage"/>
+                            <field name='company_profit'/>
+                            <field name='share_value'/>
+                            <field name='share_profit' widget="percentage"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="units_maintenance_form_inherit">
+        <field name="name">real.estate.units.form (in real_estates_maintenance)</field>
+        <field name="model">real.estate.units</field>
+        <field name="inherit_id" ref="real_estate.units_real_estate_form"/>
+        <field name="arch" type="xml">
+        <div class="oe_button_box" position="inside">
+                <button class="oe_stat_button" type="object"
+                        name="action_view_maintenance" icon="fa-th-list"
+                        context="{'default_unit_id': id}">
+                    <div class="o_stat_info">
+                        <field name="maintenance_count" class="o_stat_value"/>
+                        <span class="o_stat_text"> Maintenance</span>
+                    </div>
+                </button>
+        </div>
+        
+        </field>
+    </record>
+</odoo>

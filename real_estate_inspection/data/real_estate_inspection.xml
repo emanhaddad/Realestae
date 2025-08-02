@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sequences for Real estate inspection-->
+        <record id="seq_real_estate_inspection" model="ir.sequence">
+            <field name="name">Real Estate Inspection</field>
+            <field name="code">real.estate.inspection</field>
+            <field name="prefix">REI/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+</odoo>

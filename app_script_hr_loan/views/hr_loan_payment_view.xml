@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+		<record id="app_script_hr_loan_payment_form_view" model="ir.ui.view">
+			<field name="name">Loans Payment</field>
+			<field name="model">hr.loan.payment</field>
+			<field name="arch" type="xml">
+				<form string="Loans Payment">
+                	<header>
+	                    <button name="action_request" type="object" string="Request" states="draft" class="oe_highlight" groups="app_script_hr_loan.group_loan_payment_request"/>
+                        <button name="action_transfer" type="object" string="Transfer To Accounting" states="requested" class="oe_highlight" groups="app_script_hr_loan.group_loan_payment_post"/>
+                        <button name="action_payment" type="object" string="Payment" states="transfered" class="oe_highlight" groups="app_script_hr_loan.group_loan_payment_confirm"/>
+	                    <button string="Set to Draft" name="action_draft" states="requested" type="object" ps="app_script_hr_loan.group_loan_payment_post"/>
+	                    <field name="state" widget="statusbar" statusbar_visible="draft,requested,paid" />
+                    </header>
+                    <sheet>
+                       <div class="oe_button_box" name="button_box">
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1" attrs="{'invisible':[('name','=','/')]}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="loan_type_id" attrs="{'readonly':[('state','!=','draft')]}" widget="selection"/>
+                                <field name="loan_id" widget="selection" domain="[('loan_id','=',loan_type_id),('state','=','paid'),('employee_id','=',employee_id)]"/>
+                                
+                            </group>
+                            <group>
+                                <field name="loan_code" />
+                                <field name="loan_date"/>
+                                <field name="loan_amount"/>
+                                <field name="remain_amount"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="payment_type" />
+                                <field name="installment_type" attrs="{'required':[('payment_type','=','partial')],'invisible': [('payment_type', '!=', 'partial')]}"/>
+                                <field name="amount" attrs="{'required': [('installment_type', '=', 'reduce')],'invisible': [('installment_type', '!=', 'reduce')]}"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <field name="journal_id"/>
+                            </group>
+                        </group>
+                        <separator string="Installments To Pay" attrs="{'invisible': [('installment_type', '!=', 'pay')]}"/>
+                        <field name="arc_ids" attrs="{'required': [('installment_type', '=', 'pay')],'invisible': [('installment_type', '!=', 'pay')]}" domain="[('loan_id','=',loan_id),('state','=','paid')]" nolabel="1"/>
+                        <field name="note" nolabel="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    </sheet>
+                    <div class="oe_chatter">
+                      <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                      <field name="message_ids" widget="mail_thread"/>
+                  </div>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="app_script_hr_loan_payment_tree_view">
+			<field name="name">hr.loan.payment.tree</field>
+			<field name="model">hr.loan.payment</field>
+			<field name="arch" type="xml">
+				<tree string="Loans Payment" decoration-info="state == 'draft'" decoration-muted="state == 'paid'">
+					<field name="name" />
+					<field name="date" />
+					<field name="employee_id" />
+					<field name="loan_id" />
+					<field name="payment_type" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record> 
+
+		<record id="app_script_hr_loan_payment_action" model="ir.actions.act_window">
+			<field name="name">Loans Payment</field>
+			<field name="res_model">hr.loan.payment</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="app_script_hr_loan_payment_tree_view" />
+		</record>
+
+		<menuitem 
+		    id="menu_payment_loan" 
+		    parent="app_script_hr_loan.menu_app_script_hr_loan_root" 
+		    action="app_script_hr_loan_payment_action"
+		    sequence="3"
+		    groups="app_script_hr_loan.group_loan_read,app_script_hr_loan.group_loan_payment_request"
+			/>
+
+
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+,,,,,,,
+access_hr_violation_clasification_configuration,access_hr_violation_clasification_configuration,model_hr_violation_clasification,base.group_user,1,1,1,1
+access_hr_violation_punishment_readonly_base,access.hr.violation.punishment.readonly.base,model_hr_violation_punishment,base.group_user,1,1,1,1
+access_hr_violation_base,access.hr.violation.base,model_hr_violation,base.group_user,1,1,1,1
+access_hr_punishment_base,access.hr.punishment.base,model_hr_punishment,base.group_user,1,1,1,1

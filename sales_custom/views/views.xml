@@ -1,0 +1,77 @@
+<odoo>
+  <data>
+
+    <!-- CRM custom -->
+
+    <record model="ir.ui.view" id="crm_lead_view_form">
+      <field name="name">crm inherit form</field>
+      <field name="inherit_id" ref="crm.crm_lead_view_form" />
+      <field name="model">crm.lead</field>
+      <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='user_id']" position="before">
+          <field name="unit_id" options="{'no_create': True}"/>
+          <field name="real_estate_id" options="{'no_create': True}"/>
+        </xpath>
+
+      </field>
+    </record>
+
+    <!-- Product custom -->
+
+    <record model="ir.ui.view" id="product_template_form_view">
+      <field name="name">product inherit form</field>
+      <field name="inherit_id" ref="product.product_template_form_view" />
+      <field name="model">product.template</field>
+      <field name="arch" type="xml">
+
+        <!-- <xpath expr="//div/div/field[@name='sale_ok']" position="before">
+            <div>
+                <field name="investment_ok"/>
+                <label for="investment_ok"/>
+            </div>
+        </xpath> -->
+
+        <!-- <xpath expr="//field[@name='categ_id']" position="after">
+          <field name="unit_id" options="{'no_create': True}" attrs="{'invisible': [('investment_ok', '=', False)]}"/>
+          <field name="real_estate_id" options="{'no_create': True}" attrs="{'invisible': [('investment_ok', '=', False)]}"/>
+        </xpath> -->
+
+        <xpath expr="//field[@name='property_account_income_id']" position="after">
+          <field name="cost_center" options="{'no_create': True}"/>
+        </xpath>
+        
+      </field>
+    </record>
+
+    <!-- Sales custom -->
+
+    <record model="ir.ui.view" id="view_order_form">
+      <field name="name">sale inherit form</field>
+      <field name="inherit_id" ref="sale.view_order_form" />
+      <field name="model">sale.order</field>
+      <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='product_id']" position="replace">
+          <field name="product_id" options="{'no_create': True}"/>
+        </xpath>
+        
+      </field>
+    </record>
+
+    <!-- Partner custom -->
+
+    <record model="ir.ui.view" id="real_estates_form_partner_inherit">
+        <field name="name">partner form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="id_partner_number"/>
+            </field>
+         
+        </field>
+    </record>
+
+  </data>
+</odoo>

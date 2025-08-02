@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Form view -->
+    <record id="hr_equipment_request_view_form_inherit" model="ir.ui.view">
+        <field name="name">maintenance.request.form</field>
+        <field name="model">maintenance.request</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute name="attrs">{'readonly':[('invoiced','=',True)]}</attribute>
+            </field>
+            <field name="maintenance_type" position="attributes">
+                <attribute name="attrs">{'readonly':[('invoiced','=',True)]}</attribute>
+            </field>
+            <field name="maintenance_team_id" position="attributes">
+                <attribute name="attrs">{'readonly':[('invoiced','=',True)]}</attribute>
+            </field>
+            <field name="priority" position="attributes">
+                <attribute name="attrs">{'readonly':[('invoiced','=',True)]}</attribute>
+            </field>
+            <field name="user_id" position="attributes">
+                <attribute name="attrs">{'readonly':[('invoiced','=',True)]}</attribute>
+            </field>
+            <field name="request_date" position="replace">
+            </field>
+            <field name="close_date" position="replace">
+            </field> 
+            <field name="employee_id" position="replace">
+                <!-- Add your fields or attributes here -->
+            </field>
+            <field name="equipment_id" position="replace">
+                <field name="customer_id" attrs="{'readonly':[('invoiced','=',True)]}"/>
+                <field name="equipment_id" domain="[('customer_id','=',customer_id)]" attrs="{'readonly':[('invoiced','=',True)]}"/>
+            </field>
+            <field name="priority" position="after">
+                
+                <field name="request_date" attrs="{'readonly':[('invoiced','=',True)]}"/>
+                <field name="close_date" attrs="{'readonly':[('invoiced','=',True)]}"/>
+            </field>
+            <field name="maintenance_type" position="after">
+                <field name="employee_id" attrs="{'readonly':[('invoiced','=',True)]}"/>
+            </field>
+
+            <field name="schedule_date" position="replace">
+                <!-- Add your fields or attributes here -->
+            </field>
+            <field name="duration" position="replace">
+            </field>
+            <xpath expr="//button[@name='archive_equipment_request']" position="before">
+                <button string="Create Invoice" name="create_invoice" type="object"/>
+            </xpath>
+            <field name="description" position="replace">
+                <notebook>
+                    <page string="Planning" name="planning_page">
+                        <group>
+                            <field name="schedule_date" attrs="{'readonly':[('invoiced','=',True)]}"/>
+                            <field name="duration" attrs="{'readonly':[('invoiced','=',True)]}"/>
+                            <field name="schedule_date_end" readonly="1"/>
+                        </group>
+                        <group id="execution-right"/>
+                        <field name="description" attrs="{'readonly':[('invoiced','=',True)]}"/>
+                    </page>
+                    <page string="Instructions" name="instructions_page">
+                        <group string="Instructions" name="instructions_grp">
+                            <field name="todo" nolabel="1" widget="html" attrs="{'readonly':[('invoiced','=',True)]}"/>
+                        </group>
+                    </page>
+                    <page string="Execution" name="execution_page">
+                        <group>
+                            <group id="execution-left">
+                                <field name="date_start" attrs="{'readonly':[('invoiced','=',True)]}"/>
+                                <field name="date_end" attrs="{'readonly':[('invoiced','=',True)]}"/>
+                                <field name="actual_duration" readonly="1"/>
+                            </group>
+                            <group id="execution-right"/>
+                        </group>
+                    </page>
+                    <page string="Parts Used">
+                        <group col="4">
+                            <field name="warehouse_id" attrs="{'readonly':[('invoiced','=',True)]}"/>
+                            <field name="out_going_id"/>
+                            <!--field name="delivery_id"/-->
+                        </group>
+                        <button name="%(action_add_work_order)d" string="Add"
+                            type="action" class="oe_stat_button"
+                            context="{'date_open':schedule_date}"
+                            attrs="{'invisible':[('invoiced','=',True)]}"
+                        />
+
+                        <button name="%(action_edit_work_order)d" string="Edit"
+                            type="action" class="oe_stat_button"
+                            context="{'date_open':schedule_date}"
+                            attrs="{'invisible':[('invoiced','=',True)]}"/>
+                        <newline/>
+                        <group colspan="4">
+                            <field name="parts_ids" readonly='1' nolabel="1"
+                                context="{'date_open':schedule_date}" create='false' delete='false'>
+                                <tree string="Maintenance" editable="top">
+                                    <field name='product_id' string="Part No"
+                                        attrs="{'readonly':[('is_deliver','=',True)]}"
+                                        options="{'no_open': True, 'create': false, 'create_edit': false}"/>
+                                    <field name="name" attrs="{'readonly':[('is_deliver','=',True)]}"/>
+                                    <field name="qty_hand" />
+                                    <field name="encoded_qty" />
+                                    <field name='qty' attrs="{'readonly':[('is_deliver','=',True)]}"/>
+                                    <field name='product_uom' attrs="{'readonly':[('is_deliver','=',True)]}"/>
+                                    <field name='price_unit' attrs="{'readonly':[('is_deliver','=',True)]}"/>
+                                    <field name='total' />
+                                    <field name="date_issued"/>
+                                    <field name="old_part_return" />
+                                    <field name="issued_by" readonly="1"
+                                        options="{'no_open': True, 'create': false, 'create_edit': false}" />
+                                    <field name="is_deliver" invisible="1"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                    <page string="Services">
+                        <field name="job_ids" attrs="{'readonly':[('invoiced','=',True)]}">
+                            <tree string="Service Line" editable="buttom">
+                                <field name="name"/>
+                                <field name="product_id" domain="[('type', '=', 'service')]"/>
+                                <field name="price_unit"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Invoicing">
+                        <group>
+                            <field name="invoiced"/>
+                            <field name="invoice_id"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </field>
+    </record>
+</odoo>

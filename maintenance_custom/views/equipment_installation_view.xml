@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="equipment_installation_view_form" model="ir.ui.view">
+        <field name="name">equipment.installation.form</field>
+        <field name="model">equipment.installation</field>
+        <field name="arch" type="xml">
+            <form string="Equipments Installation">
+                <header>
+                    <button string="Confirm" name="confirm" type="object" states="draft"/>
+                    <button string="Start" name="start" type="object" states="assinged"/>
+                    <button string="Complete" name="complete" type="object" states="inprogress"/>
+                    <button string="Cancel" name="cancel" type="object" states="inprogress,assinged"/>
+                    <button string="Rest To Draft" name="rest_to_draft" type="object" states="inprogress,assinged"/>
+                    <button string="Create Invoice" name="create_invoice" type="object" states="done"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,assinged,inprogress,done,cancel"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="toggle_active" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" string="Name" placeholder="Equipment Name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="equipment_id" options="{'no_create': True}" attrs="{'required':[('state','=','draft')],'readonly':[('state','in',['assinged','inprogress','done','cancel'])]}"/>
+                            <field name="customer_id" attrs="{'required':[('state','=','draft')],'readonly':[('state','in',['assinged','inprogress','done','cancel'])]}"/>
+                            <field name="category_id" options="{&quot;no_open&quot;: True}"/>
+                            <field name="maintenance_team_id" attrs="{'required':[('state','=','assinged')],'readonly':[('state','in',['inprogress','done','cancel'])]}"/>
+                            <field name="priority" widget="priority"/>
+                        </group>
+                        <group>
+                            <field name="request_date" readonly="1"/>
+                            <field name="model" attrs="{'required':[('state','=','draft')],'readonly':[('state','in',['assinged','inprogress','done','cancel'])]}"/>
+                            <field name="serial_id"/>
+                            <field name="assign_date" attrs="{'required':[('state','=','assinged')],'readonly':[('state','in',['inprogress','done','cancel'])]}"/>
+                            <field name="location" string="Used in location"/>
+                            <field name="trianig" widget="radio"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="instrustions"/>
+                        </page>
+                        <page string="Execution">
+                            <group>
+                                <field name="date_start" attrs="{'required':[('state','=','inprogress')],'readonly':[('state','in',['draft','assinged','done','cancel'])]}"/>
+                                <field name="date_end" attrs="{'required':[('state','=','inprogress')],'readonly':[('state','in',['draft','assinged','done','cancel'])]}"/>
+                                <field name="actual_duration" readonly="1"/>
+                            </group>
+                            <newline/>
+                            <group string="Services">
+                                <field name="job_ids" nolabel="1">
+                                    <tree string="Service Line" editable="buttom">
+                                        <field name="name"/>
+                                        <field name="product_id" domain="[('type', '=', 'service')]"/>
+                                        <field name="price_unit"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Invoicing">
+                            <group>
+                                <field name="invoice_id"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="equipment_installation_view_tree" model="ir.ui.view">
+        <field name="name">equipment.installation.tree</field>
+        <field name="model">equipment.installation</field>
+        <field name="arch" type="xml">
+            <tree string="Equipments Installation">
+                <field name="equipment_id"/>
+                <field name="category_id"/>
+                <field name="model"/>
+                <field name="serial_id"/>
+                <field name="customer_id"/>
+                <field name="request_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="equipment_installation_action_form" model="ir.actions.act_window">
+        <field name="name">Equipments Installation</field>
+        <field name="res_model">equipment.installation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do -->
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_equipment_installation" name="Equipments Installation" parent="maintenance.menu_m_request" action="equipment_installation_action_form" />
+</odoo>

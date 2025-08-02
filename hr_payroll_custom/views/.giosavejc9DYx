@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record model="ir.ui.view" id="hr_bonus_tree">
+            <field name="name">hr.bonus.tree</field>
+            <field name="model">hr.bonus</field>
+            <field name="arch" type="xml">
+                <tree string="Bonuses">
+                    <field name="employee_id"/>
+                    <field name="amount"/>
+                    <field name="account_id"/>
+                    <!--field name="Journal_id"/-->
+                    <field name="note"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="hr_bonus_form">
+            <field name="name">hr.bonus.form</field>
+            <field name="model">hr.bonus</field>
+            <field name="arch" type="xml">
+                <form string="Bonuses">
+                    <header>
+			<button name="action_department_manager" type="object" string="Department Manager Approve" class="oe_highlight" attrs="{'invisible' : ['|',('bonus_type', '!=', 'bonus'),('state', '!=','draft')]}"/>
+                        <button name="action_financial_manager" type="object" string="Financial Manager Approve" class="oe_highlight" attrs="{'invisible' : ['|',('bonus_type', '!=', 'bonus'),('state', '!=','dept_manager')]}"/>
+			<button name="action_general_manager" type="object" string="General Manager Approve" class="oe_highlight" attrs="{'invisible' : ['|',('bonus_type', '!=', 'bonus'),('state', '!=','financial_manager')]}"/>
+			<button name="create_payment" type="object" states="general_manager" string="Register Payment" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,paid"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Title"/>
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                        <group>
+                            <group>
+                                <field name="bonus_type" invisible="1"/>
+                                <field name="employee_id" options='{"no_create":True}'/>
+                                <field name="account_id" attrs="{'required':['|',('state','=', 'dept_manager'),('bonus_type','!=', 'bonus')], 'readonly' : [('state', '!=', 'dept_manager'),('bonus_type','=', 'bonus')]}"/>
+                                <field name="amount"/>
+
+                            </group>
+                            <group>
+                                <field name="bonus_date"/>
+                                <field name="journal_id" attrs="{'required':['|',('state','=', 'dept_manager'),('bonus_type','!=', 'bonus')], 'readonly' : [('state', '!=', 'dept_manager'),('bonus_type','=', 'bonus')]}"/>    
+                                <field name="move_id" attrs="{'invisible':[('move_id','=', False)]}"/>                            
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name='note' string='Achievements'>
+                               <field name="note"/>      
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="hr_bonus_action" model="ir.actions.act_window">
+            <field name="name">Bonuses</field>
+            <field name="res_model">hr.bonus</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_bonus_type': 'bonus'}</field>
+            <field name="domain">[('bonus_type','=', 'bonus')]</field>
+        </record>
+
+        <menuitem id="hr_bonus_menu"
+            name="Bonuses"
+            parent="hr_payroll.menu_hr_payroll_payslips"
+            action="hr_bonus_action"
+            sequence="100"/>
+
+
+</odoo>

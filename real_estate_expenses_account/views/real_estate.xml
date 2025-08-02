@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="real_estates_form_inherits">
+        <field name="name">real.estate.form (in real_estates_expenses)</field>
+        <field name="model">real.estate</field>
+        <field name="inherit_id" ref="real_estate.real_estates_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='account_information']" position="inside">
+                <group col="2" name="account_info_ex" colspan="2">
+                        <field name='expenss_analytic_id'/>
+                        <field name='expenss_account_id'/>
+                    </group>
+            </xpath>
+        </field>
+    </record>
+
+
+     <record model="ir.ui.view" id="real_estate_units_form_inherits_ex">
+        <field name="name">real.estate.units.form</field>
+        <field name="model">real.estate.units</field>
+        <field name="inherit_id" ref="real_estate.units_real_estate_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='account_information']" position="inside">
+                <group col="2" name="account_info_ex" colspan="2">
+                        <field name='expenss_analytic_id'/>
+                        <field name='expenss_account_id'/>
+                    </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

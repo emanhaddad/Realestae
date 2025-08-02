@@ -1,0 +1,1 @@
+from . import add_spare_part_wizard

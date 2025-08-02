@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="real_estate_sale_view_form" model="ir.ui.view">
+        <field name="name">real.estate.sale</field>
+        <field name="model">real.estate.sale</field>
+        <field name="arch" type="xml">
+            <form string="Real estate sale">
+                <header>
+                        <button string="Set to new" name="set_to_new" type="object" states='cancel' class="oe_highlight" />
+
+                        <button string="Waiting under payment" name="action_wait" type="object" states='new' class="oe_highlight" />
+                        <button string="Confirm" name="action_confirm" type="object"  class="oe_highlight" states="wait"/>
+
+                        <field name="state" widget="statusbar" statusbar_visible="new,wait,confirmed,cancel"/>
+
+                </header>
+                <sheet>
+
+                    <div class="oe_button_box">
+                            <button class="oe_stat_button" name="open_contract" type="object" icon="fa-files-o" attrs="{'invisible':[('contract_id','=',False)]}" string="Contract">
+                                <field string="Contract" name="contract_id" widget="statinfo" invisible="1"/>
+                            </button>
+                    </div>
+                    
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Title"/>
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="unit_id" />
+                            <field name="date" required="1"/>  
+                            <field name="real_estate_id" string="Real Estate" />
+                            
+                            <field name="customer_type" attrs="{'required':[('property_type','!=','ready')],'invisible':[('property_type','=','ready')]}"/>
+                            <field name="partner_id"  />
+                            <field name="sales_user_id" />
+                            <field name="marketing_user_id" />
+                            <field name="delivery_date" attrs="{'required':[('property_type','!=','ready')],'invisible':[('property_type','=','ready')]}"/>  
+                            <field name="delivery_period" attrs="{'required':[('property_type','!=','ready')],'invisible':[('property_type','=','ready')]}"/>
+                            
+                            <!--field name="attachment_id" attrs="{'required':[('state','=','wait')],'invisible':[('state','=','available')]}"/-->
+                           
+                        </group>
+                        <group>
+                            <field name="total_amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            <field name="amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />  
+                            
+                            <field name="property_type" invisible="1"/>
+                            <field name="property_commission" invisible="0"/>
+                            <!--field name="commission" /-->
+                            <field name="invoice_ids" invisible="1"/>
+                            <field name="payment_ids" invisible="1"/>
+                            <field name="currency_id" invisible="0"/>
+                            <field name="paid_amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            <field name="residual_amount"  widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            <field name="monthly_rental" attrs="{'required':[('property_type','!=','ready')],'invisible':[('property_type','=','ready')]}"  widget="monetary" options="{'currency_field': 'currency_id'}" />
+                        </group>
+                       
+                            
+                    </group>
+                    <notebook>
+                        <page string="Commissions">
+                            <field name="commission_lines" >
+                                <tree editable="top">
+                                    <field name="partner_id"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="amount"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right">
+
+
+                                        <field name="commission" class="oe_subtotal_footer_separator" />
+                                    </group>
+                        </page>
+                    </notebook>
+                   
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+              
+            </form>
+        </field>
+    </record>
+
+     <record id="real_estate_sale_view_tree" model="ir.ui.view">
+        <field name="name">real_estate_sale.tree</field>
+        <field name="model">real.estate.sale</field>
+        <field name="arch" type="xml">
+            <tree string="maintenance Request" multi_edit="1" >
+                <field name="name"/>
+                <field name="real_estate_id"/>
+                <field name="unit_id"/>
+                <field name="date" />
+                <field name="partner_id" />
+                <field name="sales_user_id" />
+                <field name="state"/>
+               
+            </tree>
+        </field>
+    </record>
+
+
+    
+
+    <record model="ir.actions.act_window" id="real_estate_sale_act_window">
+        <field name="name">Real Estate sale</field>
+        <field name="res_model">real.estate.sale</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+   
+    <menuitem id="menu_real_estate_sale" parent="real_estate.menu_base_real_estate" action="real_estate_sale_act_window" sequence="4" />
+
+    
+</odoo>

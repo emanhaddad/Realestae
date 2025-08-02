@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="hr_violation_punishment_menu" name="Violation &amp; Punishment"
+                  sequence="97" web_icon="hr_violation_punishment,static/description/icon.png"/>
+
+        <menuitem id="menu_hr_configuration_menu" name="Configuration"
+                  parent="hr_violation_punishment_menu" sequence="2"/>
+
+        <record model="ir.ui.view" id="hr_violation_clasification_form_view">
+            <field name="name">hr.violation.clasification.form</field>
+            <field name="model">hr.violation.clasification</field>
+            <field name="arch" type="xml">
+                <form string="Violations clasifications">
+                    <sheet>
+                        <label for="name" class="oe_edit_only" string="Violation clasification Name"/>
+                        <h1>
+                            <field name="code" class="oe_inline" placeholder="Code"/>
+                            -
+                            <field name="name" class="oe_inline" placeholder="Violation clasification"
+                                   style="width: 6em" required="True"/>
+                        </h1>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_violation_clasification_tree_view">
+            <field name="name">hr.violation.clasification.tree</field>
+            <field name="model">hr.violation.clasification</field>
+            <field name="arch" type="xml">
+                <tree string="Violations clasifications">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_violation_clasification_action" model="ir.actions.act_window">
+            <field name="name">Violations clasifications</field>
+            <field name="res_model">hr.violation.clasification</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hr_violation_clasification_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new record.
+                </p>
+                <p>provide your information here.</p>
+            </field>
+        </record>
+
+        <menuitem id="hr_violation_clasification_menu"
+                  parent="menu_hr_configuration_menu" action="hr_violation_clasification_action"
+                  sequence="4"/>
+
+
+        <!-- Violation Configuration -->
+        <record model="ir.ui.view" id="hr_violation_form_view">
+            <field name="name">hr.violation.form</field>
+            <field name="model">hr.violation</field>
+            <field name="arch" type="xml">
+                <form string="Violations">
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Violation Name"/>
+                            </h1>
+                        </div>
+                        <group col="4">
+                            <field name="violation_clasification_id" options='{"no_create": True}'/>
+                        </group>
+                        <group string="Punishments" col="4">
+                            <field name="punishment_first_ids" widget="many2many_tags" options='{"no_create": True}'/>
+                            <field name="punishment_second_ids" widget="many2many_tags" options='{"no_create": True}'/>
+                            <field name="punishment_third_ids" widget="many2many_tags" options='{"no_create": True}'/>
+                            <field name="punishment_fourth_ids" widget="many2many_tags" options='{"no_create": True}'/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_violation_tree_view">
+            <field name="name">hr.violation.tree</field>
+            <field name="model">hr.violation</field>
+            <field name="arch" type="xml">
+                <tree string="Violations">
+                    <field name="violation_clasification_id"/>
+                    <field name="name"/>
+                    <field name="punishment_first_ids" widget="many2many_tags"/>
+                    <field name="punishment_second_ids" widget="many2many_tags"/>
+                    <field name="punishment_third_ids" widget="many2many_tags"/>
+                    <field name="punishment_fourth_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_violation_search" model="ir.ui.view">
+            <field name="name">hr.violation.search</field>
+            <field name="model">hr.violation</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="violation_clasification_id"/>
+                    <field name="name"/>
+                    <filter name="group_classification" string=" Clasification"
+                            context="{'group_by':'violation_clasification_id'}"/>
+                    <separator/>
+                    <filter name="group_punishment_first" string="punishment first"
+                            context="{'group_by':'punishment_first_ids'}"/>
+                    <filter name="group_punishment_second" string="punishment second"
+                            context="{'group_by':'punishment_first_ids'}"/>
+                    <filter name="group_punishment_third" string="punishment third"
+                            context="{'group_by':'punishment_third_ids'}"/>
+                    <filter name="group_punishment_fourth" string="punishment fourth"
+                            context="{'group_by':'punishment_fourth_ids'}"/>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="hr_violation_action" model="ir.actions.act_window">
+            <field name="name">Violations</field>
+            <field name="res_model">hr.violation</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="view_id" ref="hr_violation_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new record.
+                </p>
+                <p>provide your information here.</p>
+            </field>
+        </record>
+
+        <menuitem
+                id="hr_violation_menu"
+                parent="menu_hr_configuration_menu"
+                action="hr_violation_action"
+                sequence="1"/>
+
+        <record model="ir.ui.view" id="hr_punishment_form_view">
+            <field name="name">hr.punishment</field>
+            <field name="model">hr.punishment</field>
+            <field name="arch" type="xml">
+                <form string="Punishments">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Punishment Name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="type" required="1" widget="radio"/>
+                                <field name="active" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="reward" widget="radio" string="Dismiss Type"
+                                       attrs="{'required':[('type','=','dismiss')],'invisible':[('type','!=','dismiss')]}"/>
+                                <field name="penalty_type" widget="radio"
+                                       attrs="{'required':[('type','=','penalty')],'invisible':[('type','!=','penalty')]}"/>
+
+                                <!--                                <field name="dismiss_classification"-->
+                                <!--                                       attrs="{'required':[('type','=','dismiss')],'invisible':[('type','!=','dismiss')]}"/>-->
+                                                                <field name="deduct_ids"
+                                                                       attrs="{'required':[('type','=','penalty')],'invisible':[('type','!=','penalty')]}"
+                                                                       options='{"no_create": True,"no_open":True}' widget="many2many_tags"/>
+                                <field name="allow_deduct"
+                                       attrs="{'required':[('penalty_type','=','salary')],'invisible':['|',('penalty_type','!=','salary'),('type','!=','penalty')]}"
+                                       options='{"no_create": True,"no_open":True}'/>
+                                <field name="amount"
+                                       attrs="{'required':[('penalty_type','=','fixed')],'invisible':['|',('penalty_type','!=','fixed'),('type','!=','penalty')]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="penalty_amount_type"
+                                       attrs="{'required':[('penalty_type','=','salary')],'invisible':['|',('penalty_type','!=','salary'),('type','!=','penalty')]}"/>
+                            </group>
+                            <group attrs="{'invisible':['|',('penalty_type','!=','salary'),('type','!=','penalty')]}">
+                                <div>
+                                    <field name="percentage" class="oe_inline"
+                                           attrs="{'required':[('penalty_amount_type','=','percent')],'invisible':['|',('penalty_amount_type','!=','percent'),('type','!=','penalty')]}"/>
+                                    <field name="days" class="oe_inline"
+                                           attrs="{'required':[('penalty_amount_type','=','days')],'invisible':['|',('penalty_amount_type','!=','days'),('type','!=','penalty')]}"/>
+                                </div>
+                                <label for="percentage" string="%"
+                                       attrs="{'invisible':['|',('penalty_amount_type','!=','percent'),('type','!=','penalty')]}"/>
+                                <label for="days" string="Days"
+                                       attrs="{'invisible':['|',('penalty_amount_type','!=','days'),('type','!=','penalty')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_punishment_tree_view">
+            <field name="name">hr.punishment.tree</field>
+            <field name="model">hr.punishment</field>
+            <field name="arch" type="xml">
+                <tree string="Punishments">
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_hr_punishment_search" model="ir.ui.view">
+            <field name="name">hr.punishment.search</field>
+            <field name="model">hr.punishment</field>
+            <field name="arch" type="xml">
+                <search string="Punishments">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <filter name="warning" string="Warning"
+                            domain="[('type','=','warning')]"/>
+                    <filter name="penalty" string="penalty"
+                            domain="[('type','=','penalty')]"/>
+                    <filter name="dismiss" string="Dismiss"
+                            domain="[('type','=','dismiss')]"/>
+                    <filter name="deprivation" string="Deprivation"
+                            domain="[('type','=','deprivation')]"/>
+                    <filter name="group_type" string="Type" context="{'group_by':'type'}"/>
+                </search>
+            </field>
+        </record>
+        <record id="hr_punishment_action" model="ir.actions.act_window">
+            <field name="name">Punishments</field>
+            <field name="res_model">hr.punishment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hr_punishment_tree_view"/>
+            <field name="context">{'active_test': False}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new record.
+                </p>
+                <p>provide your information here.</p>
+            </field>
+        </record>
+        <menuitem id="hr_punishment_menu"
+                  parent="menu_hr_configuration_menu" action="hr_punishment_action" sequence="2"/>
+
+        <record id="view_hr_violation_punishment_filter" model="ir.ui.view">
+            <field name="name">hr.violation.punishment.select</field>
+            <field name="model">hr.violation.punishment</field>
+            <field name="arch" type="xml">
+                <search string="Search violation and punishment">
+                    <field name="employee_id"/>
+                    <field name="violation_id"/>
+                    <field name="time"/>
+                    <field name="state"/>
+                    <filter name="draft" string="Draft" domain="[('state','=','draft')]"
+                            help="draft violation and punishment"/>
+                    <filter name="confirm" string="Confirm" domain="[('state','=','confirm')]"
+                            help="confirm violation and punishment"/>
+                    <filter name="done" string="Done" domain="[('state','=','done')]"
+                            help="Done violation and punishment"/>
+                    <separator/>
+                    <filter name="frist_time" string="First Time" domain="[('time','=','first')]"/>
+                    <filter name="second_time" string="Second Time" domain="[('time','=','second')]"/>
+                    <filter name="third_time" string="Third Time" domain="[('time','=','third')]"/>
+                    <filter name="fourth_time" string="fourth Time" domain="[('time','=','fourth')]"/>
+                    <field name="punishment_ids" filter_domain="[('punishment_ids', 'in', self)]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="violation_id" string="Violation" domain="[]"
+                                context="{'group_by':'violation_id'}"/>
+                        <filter name="time" string="Time" domain="[]" context="{'group_by':'time'}"/>
+                        <filter name="state" string="Status" domain="[]" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Employee Violation and Punishment -->
+        <record model="ir.ui.view" id="hr_violation_punishment_form_view">
+            <field name="name">hr.violation.punishment.form</field>
+            <field name="model">hr.violation.punishment</field>
+            <field name="arch" type="xml">
+                <form string="Employee Violation and Punishment" version="7.0">
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" states="draft" class="oe_highlight"/>
+                        <button name="action_close" type="object" string="Done" states="confirm"
+                                class="oe_highlight"/>
+                        <button name="action_draft" type="object" string="Set to Draft" states="confirm"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,close"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="employee_id" class="oe_edit_only"/>
+                            <h2>
+                                <field name="employee_id" attrs="{'readonly':[('state','!=','draft')]}"
+                                       options='{"no_create": True,"no_open":True}'/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group string="Violation Information">
+                                <field name="violation_id" attrs="{'readonly':[('state','!=','draft')]}"
+                                       on_change="onchange_violation(violation_id)"
+                                       options='{"no_create": True,"no_open":True}'/>
+                                <field name="violation_date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="time" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="violation_descr" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                            <group string="Decision Description">
+                                <field name="decision_date"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="punishment_ids" widget="many2many_tags"
+                                       options='{"no_create": True,"no_open":True}'/>
+                                <field name="percentage"/>
+                                <field name="decision_descr" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                        </group>
+                        <group>
+		                <group string="Penalty" attrs="{'invisible': [('penalty_amount', '=', 0.00)]}">
+		                    <field name="penalty_amount" attrs="{'readonly':[('state','!=','draft')]}"/>
+		                </group>
+		                <group>
+				</group>
+			</group>
+                        <group string="Accounting committee">
+                            <field name="employee_ids" nolabel="1" widget="many2many_tags"
+                                   attrs="{'readonly':[('state','!=','draft')]}"
+                                   options='{"no_create": True,"no_open":True}'/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_violation_punishment_tree_view">
+            <field name="name">hr.violation.punishment.tree</field>
+            <field name="model">hr.violation.punishment</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Vaiolation and Punishment"
+                      decoration-info="state == 'draft' or state == 'confirm'">
+                    <field name="violation_date"/>
+                    <field name="violation_id"/>
+                    <field name="employee_id" widget="many2one_avatar_employee"/>
+                    <field name="time"/>
+                    <field name="decision_date"/>
+                    <field name="punishment_ids" widget="many2many_tags"/>
+                    <field name="employee_company_id" groups="base.group_multi_company" optional="show" readonly="1"/>
+                    <field name="state"
+                           decoration-info="state == 'draft' or state == 'confirm'"
+                           decoration-muted="state == 'close'"
+                           widget="badge"/>
+                </tree>
+            </field>
+        </record>
+        <record id="hr_violation_punishment_action" model="ir.actions.act_window">
+            <field name="name">Employee Violation and Punishment</field>
+            <field name="res_model">hr.violation.punishment</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="view_id" ref="hr_violation_punishment_tree_view"/>
+            <field name="context">{"search_default_violation date":1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new record.
+                </p>
+                <p>provide your information here.</p>
+            </field>
+        </record>
+        <menuitem id="hr_employee_violation_punishment_menu" name="Violation and Punishment" sequence="1"
+                  parent="hr_violation_punishment_menu" action="hr_violation_punishment_action"/>
+        <!-- violation Shortcut in Employee view -->
+        <!-- <act_window id="act_employee_all_violation" name="Employee Violation"
+            res_model="hr.violation.punishment" src_model="hr.employee"
+            domain="[('employee_id','=', active_id)]"
+            view_mode="tree,form" /> -->
+    </data>
+</odoo>

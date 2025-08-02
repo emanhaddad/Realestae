@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="seq_cash_order" model="ir.sequence">
+            <field name="name">Cash Order sequence</field>
+            <field name="code">cash.order</field>
+            <field name="prefix">CP/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+            <field name="implementation">no_gap</field>
+        </record>
+		<record id="cash_order_list_view" model="ir.ui.view">
+			<field name="name">cash.order.tree</field>
+			<field name="model">cash.order</field>
+			<field name="arch" type="xml">
+				<tree string="Cash Order" decoration-success="state=='paid'"  decoration-info="state in ['general','confirm','financial','auditor']"  decoration-danger="state=='refuse'">
+					<field name="name" />
+					<field name="partner_id" />
+					<field name="employee_id"/>
+					<field name="amount" />
+					<field name="date" />
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		<record id="cash_order_view" model="ir.ui.view">
+			<field name="name">cash.order.form</field>
+			<field name="model">cash.order</field>
+			<field name="arch" type="xml">
+				<form string="Payment Vouchers " create="0" delete="0">
+					<header>
+						<button name="action_confirm" type="object" states="draft" string="Confirm" class="oe_highlight" groups="cash_request.voucher_user"/>
+						<button name="action_department" type="object" states="confirm" string="Approve" class="oe_highlight" groups="cash_request.voucher_department_manger"/>
+						<button name="action_reject" type="object" string="Cancel" attrs="{'invisible': [('state','in', ['draft','cancel','paid'])]}" groups="cash_request.voucher_user"/>
+						<button name="action_general" type="object" states="department" string="Approve" class="oe_highlight" groups="cash_request.voucher_general_manager"/>
+						<button name="action_finance" type="object" states="general" string="confirm payment voucher" class="oe_highlight" groups="cash_request.voucher_finicial_manger"/>
+						<button name="cancel_request" string="Set to Draft" type="object" states="cancel"/>
+						<button name="action_pay" type="object" states="financial" string="Pay" class="oe_highlight" groups="cash_request.voucher_Payment"/>
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm,department,general,financial,paid"/>
+					</header>
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<field name="name" placeholder="cash/001" readonly="1"/>
+							</h1>
+						</div>
+						<group col="4">
+							
+								<field name="date"/>
+								<field name="exchange_type_id"/>
+								<field name="projects" options="{'no_create_edit': True, 'no_create': True}" widget="many2many_tags"/>
+								<field name="project_id" options="{'no_create_edit': True, 'no_create': True}" invisible="1"/>
+								<field name="custody_request_ids" invisible="1"/>
+								<field name="commission_request_ids" invisible="1"/>
+								<field name="maintenance_request_ids" invisible="1"/>
+								<field name="expense_request_ids" invisible="1"/>
+								<field name="booking_request_ids" invisible="1"/>
+								<field name="investor_clearance_ids" invisible="1"/>
+								<field name="resale_ids" invisible="1"/>
+							
+						</group>
+						<group>
+							<group>
+								<field name="employee_id" />
+								<field name="partner_id" attrs="{'readonly': [('state','!=', 'draft')]}" options="{'no_create': True}"/>
+								<!-- domain="[('beneficiary','=',True)]" context="{'default_beneficiary': True}"-->
+							</group>
+						</group>
+						<group>
+							<group>	
+								<field name="department_id" />
+								<field name="recever_name"/>
+							</group>
+						</group>
+
+						<group>
+							<group>
+								<field name="amount"/>
+								<field name="journal_id" attrs="{'invisible': [('state','not in', ['general','financial','paid'])],'required':[('state','=','financial')], 'readonly' : [('state', 'not in', ['general'])]}" domain="[('type','in',['cash','bank'])]"/>
+							</group>
+							<group>
+								<field name="amount_in_word"/>
+								<field name="company_id" readonly="1" groups="base.group_multi_company"/>
+							</group>
+						</group>
+	
+						<group>
+							<field name="disc" nolabel="1" placeholder="Expensess description..." attrs="{'readonly': [('state','!=', 'draft')]}"/>
+						</group>
+						<notebook>
+							<page string="Expensess Lines"  attrs="{ 'invisible':[('state' , 'in' ,['draft','confirm'])]}">
+								<field name="order_line_ids" attrs="{'readonly': [('state','not in', ['financial','auditor','general'])]}" groups="cash_request.voucher_finicial_manger,cash_request.voucher_Auditor,cash_request.voucher_Payment">
+									<tree editable="buttom">
+										<field name="description" attrs="{'readonly': [('state','in', ['paid'])]}" groups="cash_request.voucher_finicial_manger,cash_request.voucher_Auditor,cash_request.voucher_Payment"/>
+										<field name="account_id" 
+											attrs="{'readonly': [('state','in', ['paid'])],'required':[('state','=','financial')]}" 
+											groups="cash_request.voucher_finicial_manger,cash_request.voucher_Auditor,cash_request.voucher_Payment"
+										/>
+								        <field name="journal_id"/>
+
+										<field name="analytic_account_id" 
+											attrs="{'readonly': [('state','in', ['paid'])],'required':[('state','=','financial')]}" 
+											groups="cash_request.voucher_finicial_manger,cash_request.voucher_Auditor,cash_request.voucher_Payment"
+										/>
+										<field name="amount" attrs="{'readonly': [('state','in', ['paid'])]}"/>
+										<field name="state" invisible="1"/>
+										<field name="company_id" readonly="1" groups="base.group_multi_company"/>
+									</tree>
+								</field>
+							</page>
+							<page string="Other" attrs="{ 'invisible':[('state' , 'in' ,['draft','confirm'])]}" groups="cash_request.voucher_finicial_manger,cash_request.voucher_Auditor,cash_request.voucher_Payment">
+								<group col="4">
+									<field name="move_id" />
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids"/>
+						<field name="activity_ids"/>
+						<field name="message_ids"/>
+                	</div>
+				</form>
+			</field>
+		</record>		
+		
+		<record id="cash_order_line_view_form" model="ir.ui.view">
+			<field name="name">cash.order.line.form</field>
+			<field name="model">cash.order.line</field>
+			<field name="arch" type="xml">
+				<form string="Expensess lines">
+					<sheet>
+						<header>
+							<field name="state" widget="statusbar" statusbar_visible="draft,confirm,general,financial,auditor,paid"/>
+						</header>
+						<group>
+							<group>
+								<field name="description" attrs="{'readonly': [('state','in', ['paid'])]}" groups="cash_request.voucher_finicial_manger,cash_request.voucher_Auditor,cash_request.voucher_Payment"/>
+								<field name="account_id" attrs="{'readonly': [('state','in', ['paid'])]}" groups="cash_request.voucher_finicial_manger,cash_request.voucher_Auditor,cash_request.voucher_Payment"/>
+								<field name="company_id" readonly="1" groups="base.group_multi_company"/>
+							</group>
+							<group>
+								<field name="amount" attrs="{'readonly': [('state','in', ['paid'])]}"/>
+								<field name="analytic_account_id" 
+									attrs="{'readonly': [('state','in', ['paid'])]}" 
+									groups="cash_request.voucher_finicial_manger,cash_request.voucher_Auditor,cash_request.voucher_Payment"
+								/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="cash_order_form_action" model="ir.actions.act_window">
+			<field name="name">Payment Vouchers</field>
+			<field name="res_model">cash.order</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					<!-- Add Text Here -->
+				</p>
+				<p>
+					<!-- More details about what a user can do -->
+				</p>
+			</field>
+			<field name="context">{'delete': False}</field>
+		</record>
+
+		<menuitem id="cash_order_root_menu" name="Financial Vouchers" web_icon="cash_request,static/description/icon.png"/>
+		<menuitem id="cash_order_sub_menu" name="Financial Vouchers" parent="cash_order_root_menu" />
+		<menuitem id="cash_order_menu" name="Payment Vouchers" parent="cash_order_sub_menu" action="cash_order_form_action"/>
+
+		<record model="ir.ui.menu" id="account_reports.account_financial_html_report_menu_1">
+      		<field name="name">Income list</field>
+    	</record>
+
+	    <record model="ir.ui.menu" id="account_reports.account_financial_html_report_menu_2">
+	    	<field name="name">Financial Center</field>
+	    </record>
+
+	</data>
+</odoo>

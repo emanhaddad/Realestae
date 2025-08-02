@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="real_estate_customer_status_view_form" model="ir.ui.view">
+        <field name="name">real estate customer status</field>
+        <field name="model">real.estate.customer.status</field>
+        <field name="arch" type="xml">
+            <form string="Real estate customer status" create="0">
+                <header>
+
+                    <button string="Waiting" name="action_wait" type="object" states='new' class="oe_highlight"/>
+                    <button string="Confirm" name="action_confirm" type="object" states='wait' class="oe_highlight" />
+                    <button string="Cancelled" name="action_cancel" type="object" class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['new', 'cancel'])]}"/>
+
+                    <field name="state" widget="statusbar"/>
+
+                </header>
+                
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Customer status"/>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group col="4" string='Customer information'>
+                        <field name="partner_id" readonly="1"/>
+                        <field name="sales_user_id" readonly="1"/>
+                        <field name="amount_booking" readonly="1"/>
+                        <field name="booking_date" readonly="1"/>
+                        <field name="payment_method" readonly="1"/>
+                    </group>
+                    <group col="4" string="Property information">
+                        <field name="unit_id" readonly="1"/>
+                        <field name="real_estate_id" readonly="1"/>
+                        <field name="property_type" readonly="1"/>
+                        <field name="unit_state" readonly="1"/>
+                    </group>
+                    <group col="4" string='Housing support' attrs="{'invisible': ['|', ('payment_method','!=','bank'), ('property_type','!=','ready')]}">
+                        <field name="housing_support" widget="radio"/>
+                        <field name="housing_attachment"/>
+                    </group>
+                    <group col="4" string='Finance support' attrs="{'invisible': ['|', ('payment_method','!=','bank'), ('property_type','!=','ready')]}">
+                        <field name="finance_support" widget="radio"/>
+                        <field name="finance_attachment"/>
+                    </group>
+                    <group col="4" string='Funding contract information' attrs="{'invisible': ['|', ('payment_method','!=','bank'), ('property_type','!=','ready')]}">
+                        <field name="funding_contract" widget="radio"/>
+                        <field name="funding_attachment"/>
+                        <field name="check_state" widget="radio"/>
+                    </group>
+                    <group string='Bank evaluation' attrs="{'invisible': ['|', ('payment_method','!=','bank'), ('property_type','!=','ready')]}">
+                        <field name="bank_statement"/>
+                        <field name="evaluation_amount"/>
+                        <field name="bank_attachment"/>
+                    </group>
+                    <group col="4" string='Evacuation information'>
+                        <field name="evacuation_state" widget="radio"/>
+                        <field name="evacuation_attachment"/>
+                        <field name="evacuation_date"/>
+                    </group>
+                    <group col="4" string='Taxes information'>
+                        <field name="taxes" widget="radio"/>
+                        <field name="taxes_amount"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+              
+            </form>
+        </field>
+    </record>
+
+     <record id="real_estate_customer_status_view_tree" model="ir.ui.view">
+        <field name="name">real estate customer status tree</field>
+        <field name="model">real.estate.customer.status</field>
+        <field name="arch" type="xml">
+            <tree string="Customer status" create="0">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="real_estate_customer_status_act_window">
+        <field name="name">Customer Status</field>
+        <field name="res_model">real.estate.customer.status</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+   
+    <menuitem id="menu_real_estate_customer_status" parent="real_estate.menu_base_real_estate" action="real_estate_customer_status_act_window" sequence="4" />
+
+</odoo>

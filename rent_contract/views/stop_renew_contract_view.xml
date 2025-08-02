@@ -1,0 +1,39 @@
+
+<odoo>
+	<data>
+
+    <record id="act_stop_contract_renewal" model="ir.actions.act_window">
+            <field name="name">Stop Contracts Renewal</field>
+            <field name="res_model">stop.contracts.renewal</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">{"default_line_ids": active_ids }</field>
+    </record>
+
+ <record id="stop_contracts_wizard_view" model="ir.ui.view">
+            <field name="name">Stop Renew Contracts </field>
+            <field name="model">stop.contracts.renewal</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Stop Renewal" >
+                    <group col="2" colspan="2">
+                         <field name='stop_date' readonly="1"/>
+                           </group>
+                        <hr/>
+                       
+                        <field name='line_ids'/>
+                </form>
+                
+                 <footer>
+                        <button name="stop_renewal_method" string="Stop Renewal" type="object"
+                            class="oe_highlight" />
+                        -
+                        <button special="cancel" string="No" class="oe_link" />
+                    </footer>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="investor_clearance_view_form" model="ir.ui.view">
+        <field name="name">Investor Clearance</field>
+        <field name="model">investor.clearance</field>
+        <field name="arch" type="xml">
+            <form string="Real estate evacuate">
+                <header>
+                    <button string="Sent to Finance Manager" name="action_wait_finance" type="object" states='draft' class="oe_highlight" />
+                    <button string="Sent to Investment" name="action_wait_investment" type="object" states='finance' class="oe_highlight" />
+                    <button string="Sent to GM" name="action_wait_general" type="object" states='investment' class="oe_highlight" />
+                    <button string="Approve" name="action_approve" type="object" states='general' class="oe_highlight" />
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_payment" class="oe_stat_button" icon="fa-bars" groups="account.group_account_manager" string="Payment">
+                        </button>
+
+                        <button class="oe_stat_button" name="open_contract" type="object" icon="fa-files-o" string="Investor Contract">
+                        </button>
+                    </div>
+                    
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Title"/>
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="clearance_type" widget="radio" options="{'horizontal': true}" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </group>
+                    
+                    <group col="4" string="Investor Information">
+                        <field name="partner_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="contract_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <!-- domain="[('state','=','confirmed'),('contract_partner_type','=','investment'),('investment_type','=','shares')]" -->
+                        <field name="property_id"/>
+                        <field name="project_id"/>
+                        <field name="investment_type"/>
+                        <field name="investor_ratio" widget="percentage"/>
+                        <field name="commission_type"/>
+                        <field name="shares"/>
+                        <field name="share_amount"/>
+                        <field name="investment_amount"/>
+                        <field name="profit" attrs="{'readonly':[('state','!=','draft')], 'required':[('clearance_type','!=','trans')]}"/>
+                        <field name="clearance_amount" attrs="{'invisible':[('clearance_type','=','trans')]}"/>
+                        <field name="shares_num" attrs="{'readonly':[('state','!=','draft')], 'required':[('clearance_type','=','shares')], 'invisible':[('clearance_type','!=','shares')]}"/>
+                        <field name="share_profit" widget="percentage" attrs="{'readonly':[('state','!=','draft')], 'invisible':[('clearance_type','!=','shares')]}"/>
+                        <field name="trans_amount" attrs="{'readonly':[('state','!=','draft')], 'required':[('clearance_type','=','trans')], 'invisible':[('clearance_type','!=','trans')]}"/>
+                        <field name="trans_property_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','!=','draft')],'invisible':[('clearance_type','!=','trans')],'required':[('clearance_type','=','trans')]}"/>
+                        <field name="clear_type" attrs="{'invisible':[('is_cleared','!=',True)]}"/>
+                        <field name="is_cleared" invisible="1"/>
+                    </group>
+
+                    <group col="4" string="Accounting Information" attrs="{'invisible':[('state','=','draft')]}">
+                        <field name="journal_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'invisible':[('state','=','draft')],'readonly':[('state','!=','finance')]}"/>
+                        <field name="account_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'invisible':[('state','=','draft')],'readonly':[('state','!=','finance')]}"/>
+                        <field name="account_analytic_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'invisible':[('state','=','draft')],'readonly':[('state','!=','finance')]}"/>
+                        <field name="exchange_type_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'readonly':[('state','!=','finance')],'invisible':[('clearance_type','=','trans')]}"/>
+                        <field name="move_id" attrs="{'invisible':[('state','=','draft')]}" readonly="1"/>
+                        <field name="currency_id" invisible="1"/>
+                    </group>
+
+                    <group col="4" string="Contract Information">
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="delivery_date"/>
+                        <field name="sign_date"/>
+                    </group>
+
+                    <group>
+                        <field name="note" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="description" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </group>
+                    
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+              
+            </form>
+        </field>
+    </record>
+
+     <record id="investor_clearance_view_tree" model="ir.ui.view">
+        <field name="name">Investor Clearance</field>
+        <field name="model">investor.clearance</field>
+        <field name="arch" type="xml">
+            <tree string="Evacuate" multi_edit="1" >
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="property_id"/>
+                <field name="state"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="sequence_investor_clearance" model="ir.sequence">
+        <field name="name">Investor Clearance sequence</field>
+        <field name="code">investor.clearance.code</field>
+        <field name="prefix">/%(range_year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field eval="True" name="use_date_range"/>
+        <field eval="False" name="company_id"/>
+        <field name="padding">4</field>
+    </record>
+    
+
+    <record model="ir.actions.act_window" id="investor_clearance_act_window">
+        <field name="name">Investor Clearance</field>
+        <field name="res_model">investor.clearance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_investor_clearance_root" 
+        name="Investors Operations" 
+        parent="real_estate.menu_investment_main" 
+        sequence="4"/>
+
+    <menuitem id="menu_investor_clearance"
+        parent="menu_investor_clearance_root"
+        action="investor_clearance_act_window"
+        sequence="1"
+        name="Investor Clearance"
+    />
+    
+</odoo>

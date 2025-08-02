@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+     <!-- Project Contract -->
+    <record id="seq_project_contract" model="ir.sequence">
+        <field name="name">Construction Contract</field>
+        <field name="code">project.contract</field>
+        <field name="prefix">C</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+        <field name="implementation">no_gap</field>
+    </record>
+
+    <record id="seq_project_contract_receipt" model="ir.sequence">
+        <field name="name">Construction Receipt</field>
+        <field name="code">project.receipt</field>
+        <field name="prefix">R</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+        <field name="implementation">no_gap</field>
+    </record>
+
+    <record id="seq_project_contract_settlement" model="ir.sequence">
+        <field name="name">Construction Settlement</field>
+        <field name="code">project.settlement</field>
+        <field name="prefix">S</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+        <field name="implementation">no_gap</field>
+    </record>
+</odoo>

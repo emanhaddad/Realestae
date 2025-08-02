@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="hr_bonus_form" model="ir.ui.view">
+            <field name="name">hr.bonus.view.form</field>
+            <field name="model">hr.bonus</field>
+            <field name="inherit_id" ref="hr_payroll_custom.hr_bonus_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+			<button name="compute" type="object" string="Compute" class="oe_highlight" attrs="{'invisible' : ['|',('bonus_type', '!=', 'buy_leave'),('state', '!=','draft')]}"/>
+			<button name="set_to_draft" type="object" states="computed,paid" string="Set To Draft" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//button[@name='create_payment']" position="replace">
+			<button name="create_payment" type="object" states="general_manager,computed" string="Register Payment" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//field[@name='employee_id']" position="after">
+                    <field name="leave_type_id" attrs="{'invisible' : [('bonus_type', '!=', 'buy_leave')],'required' : [('bonus_type', '=', 'buy_leave')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='bonus_date']" position="after">
+                    <field name="bonus_type" invisible="1"/>
+                    <field name="number_of_days" attrs="{'invisible' : [('bonus_type', '!=', 'buy_leave')],'required' : [('bonus_type', '=', 'buy_leave')],'readonly':[('state','!=', 'draft')]}"/>
+                </xpath>
+                <xpath expr="//page[@name='note']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('bonus_type','!=', 'bonus')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='note']" position="attributes">
+                    <attribute name="attrs">{'required':[('bonus_type','=', 'bonus')],'invisible':[('bonus_type','!=', 'bonus')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='amount']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('bonus_type','=', 'buy_leave')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='amount']" position="after">
+                    <field name="exchange_type_id" attrs="{'invisible' : [('bonus_type', '!=', 'buy_leave')],'required' : [('bonus_type', '=', 'buy_leave')]}"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="buy_leave_action" model="ir.actions.act_window">
+            <field name="name">Bonuses</field>
+            <field name="res_model">hr.bonus</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_bonus_type': 'buy_leave'}</field>
+            <field name="domain">[('bonus_type','=', 'buy_leave')]</field>
+        </record>
+
+        <menuitem id="buy_leave_root_menu"
+            name="Buy Leave"
+            parent="hr_holidays.menu_hr_holidays_root"
+            sequence="3"/>
+
+        <menuitem id="hr_bonus_menu"
+            name="Buy Leave"
+            parent="buy_leave_root_menu"
+            action="buy_leave_action"
+            sequence="1"/>
+
+
+</odoo>
+

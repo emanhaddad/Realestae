@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="real_estate_maintenance_view_form" model="ir.ui.view">
+        <field name="name">real.estate.maintenance</field>
+        <field name="model">real.estate.maintenance</field>
+        <field name="arch" type="xml">
+            <form string="Maintenance Request">
+                <header>
+                        <button attrs="{'invisible': [('state', '!=', 'draft')]}" name="action_evaluation" string="Start evaluation"   type="object" groups="real_estate_maintenance.maintenance_worker_group"/>
+                        <button attrs="{'invisible': [('state', '!=', 'waiting_evaluation')]}" name="action_inprogress" string="In progress"   type="object" groups="real_estate_maintenance.maintenance_worker_group"/>
+                        <!--button  name="create_requisition" string="Stock Request" type="object" attrs="{'invisible': ['|', ('requisition_id', '!=', False),('state', '!=', 'in_progress')]}"/-->
+                        <button attrs="{'invisible': [('state', '!=', 'in_progress')]}"  name="revise_request" string="To Revision" type="object" groups="real_estate_maintenance.maintenance_worker_group"/>
+                        <!--button attrs="{'invisible': [('state', '!=', 'waiting_stock')]}" name="received" string="Received" type="object"  /-->
+                        <button attrs="{'invisible': [('state', '!=', 'received')]}" name="action_done" string="Done" type="object"  groups="real_estate_maintenance.maintenance_user_group"/>
+
+                        <field name="state" widget="statusbar"/>
+
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_payment" class="oe_stat_button" icon="fa-bars" groups="account.group_account_manager">
+                            <field name="count_payment" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="sequence" class="oe_edit_only" string="Title"/>
+                        <h1>
+                            <field name="sequence" readonly="1"/>
+                        </h1>
+                    </div>
+                    <div attrs="{'invisible': [('archive', '=', False)]}">
+                        <span class="badge badge-warning float-right">Canceled</span>
+                    </div>
+                    <div class="oe_right">
+                        <field name="kanban_state" class="oe_inline" widget="state_selection"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Title"/>
+                        <h1>
+                            <field name="name" placeholder="Maintenance Request"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="owner_user_id" string="Requested By" invisible="1"/>
+                            <field name="type" widget="radio"/>
+                            <field name="real_estate_id" string="Real Estate" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="unit_id" string="Unit" options="{'no_create_edit': True, 'no_create': True}" attrs="{'invisible': [('type', '=', 'all_property')],'required': [('type', '=', 'specific_units')]}" domain="[('state','in',('delivered','sold')),('base_property_id','=',real_estate_id)]"/>
+
+
+                            <!-- <field name="employee_id" invisible="1" /> -->
+
+                            <field name="request_date" readonly="True"/>
+                            <field name="amount" attrs="{'required': [('state', '=', 'waiting_evaluation')],'invisible': [('state', '=', 'draft')]}" required="1"/>
+                            <field name="exchange_type_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'required': [('state', '=', 'waiting_evaluation')],'invisible': [('state', '=', 'draft')]}"/>
+                            <field name="journal_id" options="{'no_create_edit': True, 'no_create': True}" attrs="{'required': [('state', '=', 'waiting_evaluation')],'invisible': [('state', '=', 'draft')]}"/>
+                            <field name="move_id" invisible="1"/>
+                            <field name="done" invisible="1"/>
+                            <field name="close_date" attrs="{'invisible': [('done', '!=', True)]}" readonly="True"/>
+                            <field name="archive" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="user_id" string="Responsible" required="1"/>
+
+                            <field name="priority" widget="priority"/>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Issue" name="planning_page">
+                            <group>
+                            <field name="description" placeholder="Description ...."/>
+                        </group>
+                            <field name="image_ids" widget="many2many_kanban">
+                                <kanban quick_create="false" create="true" delete="true">
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click" style="position: relative">
+                                                <div class="oe_module_vignette">
+                                                    <field name="datas" widget="image" style="width:50px; height:50px;" class="oe_avatar"/>
+                                                    <field name="description"/>
+                                                    <div class="oe_module_desc">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                            <field name="issue"/>
+                        </page>
+
+                        <page string="Planning" name="planning_page" attrs="{'invisible': [('state', '=', 'draft')]}">
+                            <group>
+                                <field name="schedule_date" attrs="{'required': [('state', '=', 'waiting_evaluation')]}"/>
+                                <field name="duration" attrs="{'required': [('state', '=', 'waiting_evaluation')]}"/>
+<!--                                <field name="schedule_date_end" readonly="1"/>-->
+                            </group>
+                            <group id="execution-right"/>
+
+                        </page>
+                        <page string="Instructions" name="instructions_page" attrs="{'invisible': [('state', '=', 'draft')]}">
+                            <group string="Instructions" name="instructions_grp">
+<!--                                <field name="todo" nolabel="1" widget="html"/>-->
+                            </group>
+                        </page>
+<!--                        <page string="Execution" name="execution_page" attrs="{'invisible': [('state', '=', 'draft')]}">-->
+<!--                            <group>-->
+<!--                                <group id="execution-left">-->
+<!--                                    <field name="date_start"/>-->
+<!--                                    <field name="date_end"/>-->
+<!--                                    <field name="actual_duration" readonly="1"/>-->
+<!--                                </group>-->
+<!--                                <group id="execution-right"/>-->
+<!--                            </group>-->
+<!--                        </page>-->
+                        <!--page string="Parts Used">
+                            <group col="4">
+                                <field name="warehouse_id"/>
+                                <field name="out_going_id"/>
+                            </group>
+
+                            <newline/>
+                            <group colspan="4">
+                                <field name="parts_ids" readonly='1' nolabel="1"
+                                    context="{'date_open':schedule_date}" create='false' delete='false'>
+                                    <tree string="Maintenance" editable="top">
+                                        <field name='product_id' string="Part No"
+                                            attrs="{'readonly':[('is_deliver','=',True)]}"
+                                            options="{'no_open': True, 'create': false, 'create_edit': false}"/>
+                                        <field name="name" attrs="{'readonly':[('is_deliver','=',True)]}"/>
+                                        <field name="qty_hand" />
+                                        <field name="encoded_qty" />
+                                        <field name='qty' attrs="{'readonly':[('is_deliver','=',True)]}"/>
+                                        <field name='product_uom' attrs="{'readonly':[('is_deliver','=',True)]}"/>
+                                        <field name='price_unit' attrs="{'readonly':[('is_deliver','=',True)]}"/>
+                                        <field name='total' />
+                                        <field name="date_issued"/>
+                                        <field name="old_part_return" />
+                                        <field name="issued_by" readonly="1"
+                                            options="{'no_open': True, 'create': false, 'create_edit': false}" />
+                                        <field name="is_deliver" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page-->
+                        <page attrs="{'invisible': [('state','in',['draft'])]}" string="Spare Parts">
+                            <field name="requisition_lines">
+                                <tree editable="bottom">
+                                    <field name="product_id" />
+                                    <field name="description" />
+                                    <field name="qty" />
+                                     <field name="uom" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+
+            </form>
+        </field>
+    </record>
+    
+    <record id="real_estate_maintenance_view_kanban" model="ir.ui.view">
+        <field name="name">real.estate.maintenance</field>
+        <field name="model">real.estate.maintenance</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="color"/>
+                <field name="priority"/>
+                <field name="equipment_id"/>
+                <field name="user_id"/>
+                <field name="owner_user_id"/>
+                <field name="category_id"/>
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <progressbar field="kanban_state" colors='{"done":"success", "blocked": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-tooltip">
+                       <ul class="oe_kanban_tooltip">
+                          <li t-if="record.category_id.raw_value"><b>Category:</b> <t t-esc="record.category_id.value"/></li>
+                          <li t-if="record.user_id.raw_value"><b>Request to:</b> <t t-esc="record.user_id.value"/></li>
+                       </ul>
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click oe_semantic_html_override">
+                            <div class="o_dropdown_kanban dropdown">
+
+                                <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <t t-if="widget.editable"><a role="menuitem" type="edit" class="dropdown-item">Edit...</a></t>
+                                    <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_content" tooltip="kanban-tooltip">
+                                <div class="o_kanban_record_top">
+                                    <b class="o_kanban_record_title"><field name="name"/></b>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <span name="owner_user_id" t-if="record.owner_user_id.raw_value">Requested by : <field name="owner_user_id"/><br/></span>
+                                    <span class="oe_grey" t-if="record.equipment_id.raw_value"><field name="equipment_id"/><br/></span>
+                                    <span t-if="record.category_id.raw_value"><field name="category_id"/></span>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="priority" widget="priority"/>
+                                        <div class="o_kanban_inline_block ml4 mr4">
+                                            <field name="activity_ids" widget="kanban_activity"/>
+                                        </div>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="kanban_state" widget="state_selection"/>
+                                        <field name="user_id" widget="many2one_avatar_user"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_clear"/>
+                        </div>
+                        </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+     <record id="maintenance_request_view_tree" model="ir.ui.view">
+        <field name="name">equipment.request.tree</field>
+        <field name="model">real.estate.maintenance</field>
+        <field name="arch" type="xml">
+            <tree string="maintenance Request" multi_edit="1" sample="1">
+                <field name="message_needaction" invisible="1"/>
+                <field name="name"/>
+                <field name="request_date" groups="base.group_no_one"/>
+                <field name="real_estate_id"/>
+                <field name="unit_id"/>
+                <field name="category_id" readonly="1" groups="maintenance.group_equipment_manager"/>
+                <field name="state"/>
+                <field name="company_id" readonly="1" groups="base.group_multi_company"/>
+                <field name="activity_exception_decoration" widget="activity_exception"/>
+            </tree>
+        </field>
+    </record>
+
+
+    
+
+    <record model="ir.actions.act_window" id="real_estate_maintenance_act_window">
+        <field name="name">Real Estate Maintenance</field>
+        <field name="res_model">real.estate.maintenance</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <!--field name="view_id" ref="maintenance_request_view_tree"/-->
+    </record>
+
+
+    <record model="ir.ui.menu" id="maintenance_request_root_menu">
+        <field name="name">Real Estate Maintenance</field>
+        <field name="parent_id" ref="real_estate.menu_base_real_estate"/>
+         <field name="action" ref="real_estate_maintenance_act_window"/>
+        <field name="sequence" eval="6"/>
+    </record>
+    <!--<record model="ir.ui.menu" id="maintenance_request_menu">
+        <field name="name">Maintenance Request</field>
+        <field name="parent_id" ref="maintenance_request_root_menu"/>
+        <field name="action" ref="real_estate_maintenance_act_window"/>
+        <field name="sequence" eval="1"/>
+    </record>-->
+
+</odoo>

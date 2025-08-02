@@ -1,0 +1,59 @@
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
+
+class HrBonus(models.Model):
+
+    _inherit = 'hr.bonus'
+    
+    leave_type_id = fields.Many2one('hr.leave.type','Leave Type',states={'draft': [('readonly', False)]},readonly=True,required=True,domain=[('buy_leave', '=', True)])
+    number_of_days = fields.Integer("Number Of Days")
+    bonus_type= fields.Selection(selection_add=[('buy_leave', 'Buy Leave')])
+    exchange_type_id = fields.Many2one('exchange.type', 'Exchange Type', tracking=True, required=True, readonly=True, states={
+        'draft': [('readonly', False)]})
+    state= fields.Selection([('draft', 'Draft'),('dept_manager', 'Department Manager Approved'),('financial_manager', 'Financial Manager Approved'),('general_manager', 'General Manager Approved'),('computed', 'Computed'),('paid', 'Paid')],default="draft")
+
+    def compute(self):
+        if self.number_of_days :
+            amount = 0
+            employee_leave = self.leave_type_id.get_days(self.employee_id.id)
+            if self.number_of_days > employee_leave[self.leave_type_id.id]['remaining_leaves'] :
+                #raise UserError("Number of days greater than remaining leave days for this employee,ramaining days : %s",employee_leave[self.leave_type_id.id]['remaining_leaves'])
+                raise UserError(_('Number of days greater than remaining leave days for this employee,ramaining days : %s ', employee_leave[self.leave_type_id.id]['remaining_leaves']))
+            if not self.leave_type_id.rule_ids :
+                raise UserError(_('There is no salary rules defined in this leave'))
+
+            for rule in self.leave_type_id.rule_ids :
+                if rule.struct_id == self.employee_id.contract_id.structure_type_id.default_struct_id :
+                    amount += self.number_of_days * (rule.compute_allowed_deduct_amount(self.employee_id.contract_id)/employee_leave[self.leave_type_id.id]['max_leaves'])
+            self.amount = amount
+            self.state = 'computed'
+
+    def set_to_draft(self):
+        self.state = 'draft'
+
+    def create_payment(self):
+        if self.bonus_type == 'bonus' :
+            return super(HrBonus, self).create_payment()
+        else :
+            payment_id = self.env['cash.order'].create({
+                    # 'state': 'general',
+                    # 'name': new_cash_order_name,
+                    'date': self.bonus_date,
+                    'exchange_type_id' : self.exchange_type_id.id,
+                    'partner_id': self.employee_id.address_home_id.id,
+                    'amount' : self.amount,
+                    'journal_id' : self.journal_id.id,
+                    'disc' : 'شراء إجازة',
+                    'custody_request_ids' : self.id,
+                    'order_line_ids': [(0, 0, {
+                        'description': 'شراء إجازة',
+                        'account_id': self.account_id.id,
+                        'amount': self.amount,
+                        # 'state': 'general',
+                    })],
+                })
+
+            payment_id.action_confirm()            
+            payment_id.action_finance()            
+            self.move_id = payment_id.move_id.id   
+        self.state = 'paid'

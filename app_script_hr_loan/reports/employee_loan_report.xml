@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="loan_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page ">    
+                        <div class="col-xs-12">  
+                            <th class="text-left" style="border: 0;" colspan="2">Date :</th>
+                            <th class="text-left" style="border: 0;" colspan="2"><span t-esc="datetime.datetime.now().strftime('%Y-%m-%d')"/></th> 
+                            <br/>
+
+                            <div class="col-xs-12">
+                                <center >
+                                    <h4><u>Employee Loan</u></h4>
+                                </center>
+                            </div>
+                            <br/>
+
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-left"><strong>Employee Name</strong></td>
+                                        <td class="text-left" colspan="3"><span t-field="o.employee_id.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left"><strong>Department</strong></td>
+                                        <td class="text-left"><span t-field="o.department_id.name"/></td>  
+                                        <td class="text-left"><strong>Job title</strong></td>
+                                        <td class="text-left"><span t-field="o.employee_id.job_id.name"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+
+                            <h5> Loan Details :</h5>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-left"><strong>Date</strong></td>
+                                        <td class="text-left"><span t-field="o.date"/></td>
+                                        <td class="text-left"><strong>Code</strong></td>
+                                        <td class="text-left"><span t-field="o.name"/></td>
+                                        <td class="text-left"><strong>Type</strong></td>
+                                        <td class="text-left"><span t-field="o.loan_id.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left"><strong>Total Amount</strong></td>
+                                        <td class="text-left"><span t-field="o.loan_amount"/></td>
+                                        <td class="text-left"><strong>Paid Amount</strong></td>
+                                        <td class="text-left"><span t-field="o.total_paid_amount"/></td>
+                                        <td class="text-left"><strong>Remain Amount</strong></td>
+                                        <td class="text-left"><span t-field="o.remain_amount"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+
+                            <h5> Remaining Installments :</h5>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <th>Payment Date</th>
+                                    <th>Amount</th>
+                                    <th>Payment Type</th>
+                                    <th>State</th>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.loan_arc_ids" t-as="line">
+                                        <t t-if="line.state in ('draft','paid') ">
+                                            <tr>
+                                                <td class="text-left"><span t-field="line.date"/></td>
+                                                <td class="text-left"><span t-field="line.amount"/></td>
+                                                <td class="text-left"><span t-field="line.payment_type"/></td>
+                                                <td class="text-left"><span t-field="line.state"/></td>
+                                            </tr> 
+                                        </t>    
+                                    </t>                              
+                                </tbody>
+                            </table>
+                      </div>
+                    </div>
+                </t>
+            </t>
+        </template>  
+
+        <template id="employee_loan_template">
+            <t t-call="web.html_container">
+                  <t t-foreach="docs" t-as="o">
+                    <t t-call="app_script_hr_loan.loan_template"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

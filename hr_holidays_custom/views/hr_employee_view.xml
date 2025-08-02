@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_employee_view" model="ir.ui.view">
+            <field name="name">hr.employee.view.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <!-- <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="oe_stat_button"
+                        name="view_emp_annual_leave_days"
+                        type="object"
+                        style="width:250px;height:80px;"
+                        >
+                        <table> 
+                            <tr> 
+                                <td>
+                                    <b>
+                                        <field name="annual_leave_days" widget="statinfo" nolabel="1"/>
+                                    </b> 
+                                </td>
+                                <td>
+                                    <n style="margin-left:5px;margin-right5px;">
+                                        Annual Leave Days 
+                                    </n>
+                                </td>
+                            </tr>
+                            <tr> 
+                                <td>
+                                    <b>
+                                        <field name="annual_leave_total_days" widget="statinfo" nolabel="1"/>
+                                    </b>
+                                </td>
+                                <td>
+                                    <n style="margin-left:5px;margin-right5px;">
+                                        Annual Leave Total Days 
+                                    </n>
+                                </td>
+                            </tr>
+                            <tr> 
+                                <td>
+                                    <b>
+                                        <field name="annual_leave_available_days" widget="statinfo" nolabel="1"/>
+                                    </b>
+                                </td>
+                                <td>
+                                    <n style="margin-left:5px;margin-right5px;">
+                                        Annual Leave Available Days
+                                    </n>
+                                </td>
+                            </tr>
+                        </table>
+                    </button>
+                </xpath> -->
+                <xpath expr="//page[@name='hr_settings']" position="after">
+                    <page name="hr_settings" string="Annual Leave" groups="hr.group_hr_user">
+                        <group colspan="4" col="4">
+                            <field name="annual_leave_days"/>
+                            <field name="annual_leave_total_days"/>
+                            <field name="annual_leave_available_days"/>
+                            <field name="special_leave_start_date"/>
+                            <field name="special_leave_end_date"/>
+                            <field name="special_leave_days"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+     

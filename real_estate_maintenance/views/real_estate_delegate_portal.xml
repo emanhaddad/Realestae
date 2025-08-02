@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home_menu_sale" name="Portal layout : sales menu entries" inherit_id="portal.portal_breadcrumbs" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'delegation' or delegate_order and delegate_order.state in ('wait_customer_sign')" t-attf-class="breadcrumb-item #{'active ' if not delegate_order else ''}">
+                <a t-if="delegate_order" t-attf-href="/my/delegations?{{ keep_query() }}">Real e-state delegation</a>
+                <t t-else="">Real e-state delegation</t>
+            </li>
+            <!--li t-if="delegate_real_estate" class="breadcrumb-item active">
+                <span t-field="delegate_real_estate.type_name"/>
+                <t t-esc="delegate_real_estate.name"/>
+            </li-->
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_real_estate" name="Show delegations" customize_show="True" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Delegations</t>
+                <t t-set="url" t-value="'/my/delegations'"/>
+                <t t-set="placeholder_count" t-value="'delegations_count'"/>
+            </t>
+            
+        </xpath>
+    </template>
+
+    
+    <template id="portal_my_delegations" name="My Delegations">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Real -estate delegations</t>
+            </t>
+            <t t-if="not delegations">
+                <p>There are currently no delegations for your account.</p>
+            </t>
+            <t t-if="delegations" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>
+                            <span class='d-none d-md-inline'>Delegation #</span>
+                        </th>
+                        <th class="text-right">Order Date</th>
+                        <th class="text-right">Unit</th>
+                        <th class="text-center"/>
+                        <th class="text-right">Total</th>
+                    </tr>
+                </thead>
+                <t t-foreach="delegations" t-as="order">
+                    <tr>
+                        <td><a t-att-href="order.get_portal_url()"><t t-esc="order.name"/></a></td>
+
+                        <td class="text-right">
+                            <span t-field="order.date" t-options="{'widget': 'date'}"/>&amp;nbsp;
+                        </td>
+                        <td><span t-esc="order.unit_id.unit_name"/></td>
+                        <td class="text-center">
+                            <span t-if="order.state == 'confirmed'"  class="badge badge-pill badge-success">
+                                <i class="fa fa-fw fa-check" role="img" aria-label="confirmed" title="confirmed"/>Confirmed
+                            </span>
+                        </td>
+                        
+                        <td class="text-right"><span t-field="order.total_amount" t-options='{"widget": "monetary", "display_currency": order.currency_id}'/></td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- Complete page of the delegate_real_estate -->
+    <template id="delegate_real_estate_portal_template" name="Delegation Portal Template" inherit_id="portal.portal_sidebar" primary="True">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <t t-set="o_portal_fullwidth_alert" >
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url" t-value="'/web#model=%s&amp;id=%s&amp;action=%s&amp;view_type=form' % (delegate_order._name, delegate_order.id, action.id)"/>
+                </t>
+            </t>
+
+            <div class="row mt16 o_portal_sale_sidebar">
+                <!-- Sidebar -->
+                <t t-call="portal.portal_record_sidebar">
+                    <t t-set="classes" t-value="'col-lg-auto d-print-none'"/>
+
+                    <t t-set="title">
+                        <h2 class="mb-0"><b t-field="delegate_order.total_amount" data-id="total_amount"/> </h2>
+                    </t>
+                    <t t-set="entries">
+                        <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                            <li class="list-group-item flex-grow-1">
+                                <a t-if="delegate_order.has_to_be_signed(True)" role="button" class="btn btn-primary btn-block mb8" data-toggle="modal" data-target="#modalaccept" href="#">
+                                    <i class="fa fa-check"/><t> Accept &amp; Sign</t>
+                                </a>
+                                
+                                <!--div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                    <div class="btn-group flex-grow-1 mr-1 mb-1">
+                                        <a class="btn btn-secondary btn-block o_download_btn" t-att-href="delegate_order.get_portal_url(report_type='pdf', download=True)" title="Download"><i class="fa fa-download"/> Download</a>
+                                    </div>
+                                    <div class="btn-group flex-grow-1 mb-1">
+                                        <a class="btn btn-secondary btn-block o_print_btn o_portal_invoice_print" t-att-href="delegate_order.get_portal_url(report_type='pdf')" id="print_invoice_report" title="Print" target="_blank"><i class="fa fa-print"/> Print</a>
+                                    </div>
+                                </div-->
+                            </li>
+
+                            <li class="navspy list-group-item pl-0 flex-grow-1" t-ignore="true" role="complementary">
+                                <ul class="nav flex-column bs-sidenav"></ul>
+                            </li>
+
+
+                            <li t-if="delegate_order.user_id" class="list-group-item flex-grow-1">
+                                <div class="small mb-1"><strong class="text-muted">Salesperson</strong></div>
+                                <div class="row flex-nowrap">
+                                    <div class="col flex-grow-0 pr-2">
+                                        <img class="rounded-circle mr4 float-left o_portal_contact_img" t-if="delegate_order.user_id.image_1024" t-att-src="image_data_uri(delegate_order.user_id.image_1024)" alt="Contact"/>
+                                        <img class="rounded-circle mr4 float-left o_portal_contact_img" t-if="not delegate_order.user_id.image_1024" src="/web/static/src/img/placeholder.png" alt="Contact"/>
+                                    </div>
+                                    <div class="col pl-0" style="min-width: 150px">
+                                        <span t-field="delegate_order.user_id" t-options='{"widget": "contact", "fields": ["name", "phone"], "no_marker": True}'/>
+                                        <a href="#discussion" class="small"><i class="fa fa-comment"></i> Send message</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </t>
+                </t>
+
+                <!-- Page content -->
+                <div id="quote_content" class="col-12 col-lg justify-content-end">
+
+                    <!-- modal relative to the actions sign and pay -->
+                    <div role="dialog" class="modal fade" id="modalaccept">
+                        <div class="modal-dialog" t-if="delegate_order.has_to_be_signed(True)">
+                            <form id="accept" method="POST" t-att-data-order-id="delegate_order.id" t-att-data-token="delegate_order.access_token" class="js_accept_json modal-content js_website_submit_form">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <header class="modal-header">
+                                    <h4 class="modal-title">Validate Order</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                                </header>
+                                <main class="modal-body" id="sign-dialog">
+                                    <p>
+                                        <span>By signing this proposal, I agree to the following terms:</span>
+                                        <ul>
+                                            <li><span>Accepted on the behalf of:</span> <b t-field="delegate_order.partner_id.name"/></li>
+                                            <li><span>For an amount of:</span> <b data-id="total_amount" t-field="delegate_order.total_amount"/></li>
+                                        </ul>
+                                    </p>
+                                    <t t-call="portal.signature_form">
+                                        <t t-set="call_url" t-value="delegate_order.get_portal_url(suffix='/accept')"/>
+                                        <t t-set="default_name" t-value="delegate_order.partner_id.name"/>
+                                    </t>
+                                </main>
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <!-- modal relative to the action reject -->
+                    <div role="dialog" class="modal fade" id="modaldecline">
+                        <div class="modal-dialog">
+                            <form id="decline" method="POST" t-attf-action="/my/delegations/#{delegate_order.id}/decline?access_token=#{delegate_order.access_token}" class="modal-content">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <header class="modal-header">
+                                    <h4 class="modal-title">Reject This Order</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                                </header>
+                                <main class="modal-body">
+                                    <p>
+                                        Tell us why you are refusing this order, this will help us improve our services.
+                                    </p>
+                                    <textarea rows="4" name="decline_message" required="" placeholder="Your feedback..." class="form-control" />
+                                </main>
+                                <footer class="modal-footer">
+                                    <button type="submit" t-att-id="delegate_order.id" class="btn btn-danger"><i class="fa fa-times"></i> Reject</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                </footer>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- status messages -->
+                    <div t-if="message == 'sign_ok'" class="alert alert-success alert-dismissable d-print-none" role="status">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">×</button>
+                        <strong>Thank You!</strong><br/>
+                        <t t-if="message == 'sign_ok' and delegate_order.state in ['confirmed']">Your order has been confirmed.</t>
+                        <t t-else="">Your order has been signed.</t>
+                    </div>
+
+                    <div t-if="message == 'cant_reject' and delegate_order.has_to_be_signed()" class="alert alert-danger alert-dismissable d-print-none" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">×</button>
+                        Your order is not in a state to be rejected.
+                    </div>
+
+                    
+                    <div t-if="delegate_order.state == 'cancel'" class="alert alert-danger alert-dismissable d-print-none" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="close">×</button>
+                        <strong>This order has been canceled.</strong> <a role="button" href="#discussion"><i class="fa fa-comment"/> Contact us to get a new quotation.</a>
+                    </div>
+
+                   
+
+                    <!-- main content -->
+                    <div t-attf-class="card #{'pb-5' if report_type == 'html' else ''}" id="portal_sale_content">
+                        <div t-call="real_estate_maintenance.delegate_real_estate_portal_content"/>
+                    </div>
+
+                    <!-- bottom actions -->
+                    <div t-if="delegate_order.has_to_be_signed(True)" class="row justify-content-center text-center d-print-none pt-1 pb-4">
+
+                        <t t-if="delegate_order.has_to_be_signed(True)">
+                            <div class="col-sm-auto mt8">
+                                <a role="button" class="btn btn-primary" data-toggle="modal" data-target="#modalaccept" href="#"><i class="fa fa-check"/> Accept &amp; Sign</a>
+                            </div>
+                            <div class="col-sm-auto mt8">
+                                <a role="button" class="btn btn-secondary" href="#discussion"><i class="fa fa-comment"/> Feedback</a>
+                            </div>
+                            <div class="col-sm-auto mt8">
+                                <a role="button" class="btn btn-danger" data-toggle="modal" data-target="#modaldecline" href="#"> <i class="fa fa-times"/> Reject</a>
+                            </div>
+                        </t>
+                        
+                    </div>
+
+                    <!-- chatter -->
+                    <div id="delegate_real_estate_communication" class="mt-4">
+                        <h2>History</h2>
+                        <t t-call="portal.message_thread">
+                            <t t-set="object" t-value="delegate_order"/>
+                        </t>
+                    </div>
+                </div><!-- // #quote_content -->
+            </div>
+        </xpath>
+    </template>
+
+    <!--
+    Delegation content : intro, informations, order lines, remarks, descriptions ....
+    This template should contains all the printable element of the SO. This is the
+    template rendered in PDF with the report engine.
+    -->
+    <template id="delegate_real_estate_portal_content" name="Delegation Portal Content">
+        <!-- Intro -->
+        <div id="introduction" t-attf-class="pb-2 pt-3 #{'card-header bg-white' if report_type == 'html' else ''}">
+          <h2 class="my-0">
+                <em t-esc="delegate_order.name"/>
+            </h2>
+        </div>
+
+        <div t-attf-class="#{'card-body' if report_type == 'html' else ''}">
+            <!-- Informations -->
+            <div id="informations">
+                
+                <div class="row" id="so_date">
+                    <div class="mb-3 col-6">
+                        <strong> Date:</strong> 
+                      
+                      <span t-field="delegate_order.date" t-options='{"widget": "date"}'/>
+                    </div>
+                    <div class="mb-3 col-6" t-if="delegate_order.real_estate_id">
+                        <strong>Property:</strong> <span t-field="delegate_order.real_estate_id.name" />
+                    </div>
+                </div>
+                <div class="row" id="so_2">
+                    <div class="mb-3 col-6">
+                        <strong> Unit:</strong> 
+                      
+                      <span t-field="delegate_order.unit_id.unit_name" />
+                    </div>
+                    <div class="mb-3 col-6" t-if="delegate_order.total_amount">
+                        <strong>Total amount:</strong> <span t-field="delegate_order.total_amount" />
+                    </div>
+                </div>
+                
+
+                
+                
+            </div>
+
+            <section id="details" style="page-break-inside: auto;" class="mt32">
+                <h3 id="details">Pricing</h3>
+
+                
+                <div id="total" class="row" name="total" style="page-break-inside: avoid;">
+                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                        <t t-call="real_estate_maintenance.delegate_real_estate_portal_content_totals_table"/>
+                    </div>
+                </div>
+            </section>
+
+            <section t-if="delegate_order.signature" id="signature" name="Signature">
+                <div class="row mt-4" name="signature">
+                    <div t-attf-class="#{'col-3' if report_type != 'html' else 'col-sm-7 col-md-4'} ml-auto text-center">
+                        <h5>Signature</h5>
+                        <img t-att-src="image_data_uri(delegate_order.signature)" style="max-height: 6rem; max-width: 100%;"/>
+                        <p t-field="delegate_order.signed_by"/>
+                    </div>
+                </div>
+            </section>
+
+            
+        </div>
+    </template>
+
+    <template id="delegate_real_estate_portal_content_totals_table">
+        <table class="table table-sm">
+            <tr class="border-black">
+                <td><strong>Marketing Amount</strong></td>
+                <td class="text-right">
+                    <span
+                        data-id="marketing_amount"
+                        t-field="delegate_order.marketing_amount"
+                        t-options='{"widget": "monetary","display_currency": delegate_order.currency_id}'
+                    />
+                </td>
+            </tr>
+                <tr>
+                    <td><strong>Owner's Amount</strong></td>
+                    <td class="text-right">
+                    <span
+                        data-id="owner_amount"
+                        t-field="delegate_order.owner_amount"
+                        t-options='{"widget": "monetary","display_currency": delegate_order.currency_id}'
+                    />
+                </td>
+                        
+                </tr>
+            <tr class="border-black">
+                <td><strong>Total</strong></td>
+                <td class="text-right">
+                    <span data-id="total_amount" t-field="delegate_order.total_amount" t-options='{"widget": "monetary", "display_currency": delegate_order.currency_id}'/>
+                </td>
+            </tr>
+        </table>
+    </template>
+</odoo>

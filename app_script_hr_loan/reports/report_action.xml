@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <report 
+            id="employee_loan_template_action"
+            string="Employee Loan"
+            model="hr.loan"
+            report_type="qweb-pdf"
+            file="app_script_hr_loan.employee_loan_template"
+            name="app_script_hr_loan.employee_loan_template"
+        />
+
+    </data>
+</odoo>

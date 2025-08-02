@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+         <!-- States -->
+         <!-- States Form View-->
+        <record model="ir.ui.view" id="country_state_types_form">
+            <field name="name">Country States</field>
+            <field name="model">res.country.state</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group name="main_info" col="4">
+                    <field name='name' required="1"/>
+                    <field name='code' required="1"/>
+                    <field name='country_id' required="1"/>
+                    
+                </group>  
+                </sheet>    
+            </form>
+
+            </field>
+        </record>
+
+        <!-- States list View-->
+        <record model="ir.ui.view" id="country_state_types_list">
+            <field name="name">Country States</field>
+            <field name="model">res.country.state</field>
+            <field name="type">list</field>
+            <field name="arch" type="xml">
+            <list>
+                    <field name='name' />
+                    <field name='code'/>
+                    <field name='country_id'/>
+            </list>
+
+            </field>
+        </record>
+
+    <!-- States Action-->
+    <record model="ir.actions.act_window" id="action_estate_state">
+        <field name="name">States</field>
+        <field name="res_model">res.country.state</field>
+        <field name="view_mode">list,form</field>
+    </record>
+     <!-- Country Action-->
+    <record model="ir.actions.act_window" id="action_estate_country">
+        <field name="name">Country</field>
+        <field name="res_model">res.country</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+     <!-- menues -->
+    <menuitem id="menu_state_realestae" name="Fed. States" parent="menu_config_real_estate" groups="configurarion_list_group" action="action_estate_state" sequence="8"/> 
+    <menuitem id="menu_state_country" name="Country" parent="menu_config_real_estate" groups="configurarion_list_group" action="action_estate_country" sequence="6"/>
+  </data>
+</odoo>

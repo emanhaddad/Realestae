@@ -1,0 +1,196 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-07 11:30+0000\n"
+"PO-Revision-Date: 2020-11-07 11:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base_custom
+#: model:res.groups,name:base_custom.group_administrative_manager
+msgid "Administrative Manager"
+msgstr "المدير الإداري"
+
+#. module: base_custom
+#: model:ir.model.fields.selection,name:base_custom.selection__report_style__header_fount__amiri
+#: model:ir.model.fields.selection,name:base_custom.selection__report_style__page_fount__amiri
+#: model:ir.model.fields.selection,name:base_custom.selection__report_style__table_fount__amiri
+msgid "Amiri"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model,name:base_custom.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__create_uid
+msgid "Created by"
+msgstr "انشأ بواسطة"
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__create_date
+msgid "Created on"
+msgstr "انشأ في "
+
+#. module: base_custom
+#: model:ir.model,name:base_custom.model_res_currency_rate
+msgid "Currency Rate"
+msgstr "سعر صرف العملة"
+
+#. module: base_custom
+#: model:res.groups,name:base_custom.group_department_manager
+msgid "Department Manager"
+msgstr "مدر القسم "
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__display_name
+#: model:ir.model.fields,field_description:base_custom.field_res_company__display_name
+#: model:ir.model.fields,field_description:base_custom.field_res_currency_rate__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: base_custom
+#: model:ir.model.fields.selection,name:base_custom.selection__report_style__header_fount__droid_arabic_kufi
+#: model:ir.model.fields.selection,name:base_custom.selection__report_style__page_fount__droid_arabic_kufi
+#: model:ir.model.fields.selection,name:base_custom.selection__report_style__table_fount__droid_arabic_kufi
+msgid "Droid Arabic Kufi"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__even_row_color
+msgid "Even Row Color"
+msgstr ""
+
+#. module: base_custom
+#: model:res.groups,name:base_custom.group_executive_manager
+msgid "Executive Manager"
+msgstr "المدير التنفيذي"
+
+#. module: base_custom
+#: model:res.groups,name:base_custom.group_general_manager
+msgid "General Manager"
+msgstr "المدير العام "
+
+#. module: base_custom
+#: model:ir.module.category,name:base_custom.hr_custom_structure_category
+msgid "HR Structure"
+msgstr "هيكل الموارد البشرية"
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__header_color
+msgid "Headder Color"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__header_fount
+msgid "Hedar  Font"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__id
+#: model:ir.model.fields,field_description:base_custom.field_res_company__id
+#: model:ir.model.fields,field_description:base_custom.field_res_currency_rate__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style____last_update
+#: model:ir.model.fields,field_description:base_custom.field_res_company____last_update
+#: model:ir.model.fields,field_description:base_custom.field_res_currency_rate____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: base_custom
+#: code:addons/base_custom/models/res_currency.py:0
+#, python-format
+msgid "Main company Currency must have one rate."
+msgstr ""
+
+#. module: base_custom
+#: code:addons/base_custom/models/res_currency.py:0
+#, python-format
+msgid "Main company Currency rate must be 1."
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__name
+msgid "Name"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__odd_row_color
+msgid "Odd Row Color"
+msgstr ""
+
+#. module: base_custom
+#: code:addons/base_custom/models/http.py:0
+#, python-format
+msgid "Odoo Server Error"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__page_fount
+msgid "Page Font"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model,name:base_custom.model_report_style
+#: model:ir.model.fields,field_description:base_custom.field_res_company__report_style_id
+#: model:ir.ui.menu,name:base_custom.report_style_menuitem
+msgid "Report Style"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.actions.act_window,name:base_custom.report_style_action
+msgid "Report Style General Configuration"
+msgstr ""
+
+#. module: base_custom
+#: model_terms:ir.ui.view,arch_db:base_custom.view_company_form_inherited
+msgid "Reports Configuration"
+msgstr ""
+
+#. module: base_custom
+#: model_terms:ir.ui.view,arch_db:base_custom.report_style_form
+msgid "Reports style format configuration"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__border_color
+msgid "Table Border Color"
+msgstr ""
+
+#. module: base_custom
+#: model:ir.model.fields,field_description:base_custom.field_report_style__table_fount
+msgid "Table Font"
+msgstr ""
+
+#. module: base_custom
+#: model:res.groups,name:base_custom.group_taxes_enable
+msgid "Taxes Enable"
+msgstr ""
+
+#. module: base_custom
+#: model:res.groups,name:base_custom.group_unit_manager
+msgid "Unit Manager"
+msgstr ""

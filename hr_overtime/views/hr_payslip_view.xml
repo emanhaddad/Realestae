@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="hr_payslip_view_form_custom_inherited">
+        <field name="name">hr.payslip.inherit.form</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[1]" position="after">
+                <page string="Overtime" >
+                    <field name="overtime_ids" colspan="2" nolabel="1" readonly="True">
+                        <list string="Overtime">
+                            <field name="hours"/>
+                            <field name="amount"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>               
+        </field>
+    </record>
+
+
+</odoo>

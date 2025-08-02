@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    
+
+
+    <!-- group of Expense Approve-->
+    <record id="expense_transfer_group" model="res.groups">
+        <field name="name">Expenses Transfer</field>
+        <field name="comment">Expense Transfer access Group</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+
+</odoo>

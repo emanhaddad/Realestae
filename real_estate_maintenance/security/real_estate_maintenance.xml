@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- group of Maintenance User-->
+    <record id="maintenance_user_group" model="res.groups">
+        <field name="name">Maintenance Menu</field>
+        <field name="comment">Maintenance User access Group</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <!-- group of Maintenance Manager-->
+    <record id="maintenance_worker_group" model="res.groups">
+        <field name="name">Maintenance Evaulation - in progress - complete</field>
+        <field name="comment">Maintenance Manager access Group</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <record id="delegation_menu_group" model="res.groups">
+        <field name="name">Delegation Menu</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <record id="booking_group" model="res.groups">
+        <field name="name">Booking Menu</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <record id="Sale_group" model="res.groups">
+        <field name="name">Sale Menu</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <record id="Sale_manager_group" model="res.groups">
+        <field name="name">Sale Manager</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <record id="delivery_group" model="res.groups">
+        <field name="name">Delivery Menu</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <record id="delivery_investment_group" model="res.groups">
+        <field name="name">Delivery - investment approval</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+    <record id="delivery_ceo_group" model="res.groups">
+        <field name="name">Delivery - ceo approval</field>
+        <field name="category_id" ref="real_estate.realestate_access_categ"/>
+    </record>
+
+</odoo>

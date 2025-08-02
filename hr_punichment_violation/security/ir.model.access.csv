@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_violation_user,access_hr_violation_user,model_hr_violation,hr.group_hr_user,1,1,1,1
+,,,,,,,
+access_hr_penalty_user,access_hr_penalty_user,model_hr_penalty,hr.group_hr_user,1,1,1,
+access_hr_employee_violation_user,access_hr_employee_violation_user,model_hr_employee_violation,hr.group_hr_user,1,1,1,1
+access_hr_salary_rule_user,access_hr_salary_rule_user,hr_payroll.model_hr_salary_rule,hr.group_hr_user,1,1,1,1
