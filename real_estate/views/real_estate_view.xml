@@ -36,7 +36,7 @@
                             <group name="info2" col="2" colspan="2">
                                 <field name="priority" widget="priority"/>
                                 <field name="pro_block_no" placeholder="Block No" class="o_address_slistt"/>
-                                <field name="pro_slistt_name" placeholder="Street Name" class="o_address_street"/>
+<!--                                <field name="pro_slistt_name" placeholder="Street Name" class="o_address_street"/>-->
                                 <field name="hai_id" placeholder="Hai" class="o_address_city"/>
                                 <field name="pro_city_id" class="o_address_state" placeholder="City Name"/>
                                 <field name="mail_code" placeholder="Mail Code"/>
